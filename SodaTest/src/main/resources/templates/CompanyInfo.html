@@ -1,0 +1,43 @@
+<html layout:decorate="~{layout}" >
+		<div layout:fragment="content" class="content">
+		<div class="rightpage">
+			<h3>회사정보</h3>
+			<hr>
+			<p>회사명</p>
+			<div id = "forRP">
+			<div id="comnameDH"  th:text="${company.name}"></div>
+			<input id = "modifycmpname" type = "text" style="display: none;"  th:placeholder="${company.name}">
+			</div>
+			<div id="buttonDiv1">
+				<input id = "revealbtn1"type="button" value="수정">
+				<div id="subbuttonDiv1">
+					<input id="comNamebtn" type="button" value="저장"> 
+					<input id = "cncl1" type="button" value="취소">
+				</div>
+			</div>
+			<br>
+			<h4>로고 설정</h4>
+			<input type = "button" id = "imgsubmit" value = "+로고 등록">
+			<br>
+			<br>
+			<hr>
+			<br>
+			<h4>전용 URL</h4>
+			<br>
+			<p>전용 URL 주소를 전달하여 회사 직원들을 참여시킬수 있습니다.</p>
+			<br>
+			<div id = "forCUR">
+			<div id="comurl"  th:text="${company.url}"></div>
+			<input id = "modifycmpurl" type = "text" style="display: none;"  th:placeholder="${company.url}">
+			</div>
+			<div id="buttonDiv1">
+				<input id = "revealbtn2" type="button" value = "수정">
+				<div id="subbuttonDiv2">
+					<input id="comUrlbtn" type="button" value="저장" data-btn-type = 2> 
+					<input id = "cncl2" type="button" value="취소">
+				</div>
+			</div>
+			<div id = "okdiv"></div>
+		</div>
+	</div>
+	</html>

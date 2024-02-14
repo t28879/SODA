@@ -1,0 +1,657 @@
+<div th:fragment="navbarFragment" class="main-top">
+	<!-- 검색팝업 -- >
+	<!-- 프로젝트 검색하면 뜨는 창 -->
+	<div id="SearchbarPopupLayer" style="display:none;">
+		<div id="SearchLayerHeader">
+			<div id="searchTitleHeader">
+				<div id="titleWord">
+					<div id="searchWord">
+						<!-- 검색input값 -->
+					</div>
+					"검색결과"
+				</div>
+				<button id="SearchCancle">
+					<img th:src="@{/images/프로필닫기.png}">
+				</button>
+			</div>
+		</div>
+		<div id="MSmainTab">
+			<p>프로젝트</p>
+		</div>
+		<div id="searchAfter">
+			<div id="eventArea">
+				<div id="projectSearchArea">
+					<div id="MSsearchtitlearea">
+						<span id="MSsearchResultTitle">프로젝트</span>
+					</div>
+	
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 글 검색하면 뜨는 팝업 -->
+	<div id="SearchbarPopupLayerPost" style="display:none;">
+		<div id="SearchLayerHeaderPost">
+			<div id="searchTitleHeaderPost">
+				<div id="titleWordPost">
+					<div id="searchWordPost">
+						<!-- 검색input값 -->
+					</div>
+					"검색결과"
+				</div>
+				<button id="SearchCanclePost">
+					<img th:src="@{/images/프로필닫기.png}">
+				</button>
+			</div>
+		</div>
+		<div id="MSmainTabPost">
+			<p>글</p>
+		</div>
+		<div id="searchAfterPost">
+			<div id="eventAreaPost">
+				<div id="projectSearchAreaPost">
+					<div id="MSsearchtitleareaPost">
+						<span id="MSsearchResultTitlePost">글 종류</span>
+					</div>
+					<ul id="MSpostSearchResult" class="scroll-mask all-search-list-type-1">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 파일 검색하면 나오는 팝업 -->
+	<div id="SearchbarPopupLayerFile" style="display:none;">
+		<div id="SearchLayerHeaderFile">
+			<div id="searchTitleHeaderFile">
+				<div id="titleWordFile">
+					<div id="searchWordFile">
+						<!-- 검색input값 -->
+					</div>
+					"검색결과"
+				</div>
+				<button id="SearchCancleFile">
+					<img th:src="@{/images/프로필닫기.png}">
+				</button>
+			</div>
+		</div>
+		<div id="MSmainTabFile">
+			<p>파일</p>
+		</div>
+		<div id="searchAfterFile">
+			<div id="eventAreaFile">
+				<div id="projectSearchAreaFile">
+					<div id="MSsearchtitleareaFile">
+						<span id="MSsearchResultTitleFile">파일</span>
+					</div>
+					<ul id="MSfileSearchResult" class="scroll-mask all-search-list-type-1">
+	
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--  프로젝트 , 글, 파일 검색 팝업 여기까지 -->
+	
+	
+	<!-- 맨위 검색바 영역 -->
+	<header id="searchBar" class="search-bar">
+		<!-- 검색바 영역에 검색바 자리 잡을 위치 -->
+		<div class="search-area">
+			<!-- 검색바가 실제로 들어갈 영역 -->
+			<div class="main-search">
+				<div class="search-box">
+					<img src="/images/검색.png" class="search" onclick="togglepopupMain()"> <input type="text" placeholder="검색"
+						id="searchInput" class="search-input" onclick="togglepopupMain()">
+				</div>
+				<img src="/images/옵션.png" class="search-optionBtn" onclick="togglepopupMain()">
+			</div>
+		</div>
+		<div class="popup-main" id="popupMain">
+			<div class="popup-header">
+				<img src="/images/검색.png" class="popup-options-search">
+				<div class="swap-button">
+					<a href="#" class="hiddenPopup"> <img src="/images/찾기.png">
+						<p id="hidden-popup-change"></p> <img src="/images/Close.png" id="pointX" onclick="pointnone1()">
+					</a>
+				</div>
+				<input type="text" placeholder="검색어를 입력해주세요" class="popup-options-input" id="popupInput"
+					oninput="toggleCloseButton()" required="required"> <img src="/images/닫기.png" class="popup-options-delete"
+					id="popupCloseButton" onclick="togglepopupMain()"> <img src="/images/옵션.png"
+					class="popup-options-option">
+			</div>
+			<div class="category">
+				<!-- 수정된 부분: 동적으로 변경되는 카테고리 타이틀 -->
+				<div class="category-title" id="categoryTitle">카테고리</div>
+				<div class="category-buttons">
+					<!-- 수정된 부분: 카테고리 버튼에 onclick 이벤트 추가 -->
+					<button id="cate-project" data-search-code="31" onclick="changeCategoryTitle('검색 옵션')">프로젝트</button>
+					<button id="cate-post" data-search-code="32" onclick="changeCategoryTitle('검색 옵션')">글·댓글</button>
+					<button id="cate-file" data-search-code="33" onclick="changeCategoryTitle('검색 옵션')">파일</button>
+				</div>
+			</div>
+			<!-- 취소 검색 버튼 -->
+			<div class="condition-button-area" style="display: block;">
+				<div class="cancel-search">
+					<button type="button" class="condition-button cancel cancel-button">취소</button>
+					<button type="button" class="condition-button search-button searchsear" id="searchBarBtn">검색</button>
+				</div>
+			</div>
+		</div>
+		<div class="sub-popup" style="display: none;"></div>
+		<div class="rightImgs">
+			<button id="btn3">
+				<img src="/images/알림.png" alt="알림" id="btn3Img" class="btnImgs">
+			</button>
+			<button id="btn2">
+				<img src="/images/채팅.png" alt="채팅" id="btn2Img" class="btnImgs">
+			</button>
+			<button id="btn4">
+				<img th:src="'/'+${member.profile_image}" id="btn4Img" class="btnImgs">
+			</button>
+		</div>
+	</header>
+
+	<!--<div id="chatLayer">
+		<div class="topLayer">
+			<span id="chatText">채팅</span> <span id="exMain"><img src="/images/종모양1.png" id="alarmOn"> <img
+					src="/images/종모양2.png" id="alarmOff"> </span> <span id="chatClose">X</span>
+		</div>
+		<div id="exOn">알람 켜짐</div>
+		<div id="exOff">알람 꺼짐</div>
+		<ul class="mainLayer">
+			<li class="chatLine" onclick="toggleUnderline2(this)"><span id="chatting"> 채팅 </span></li>
+			<li class="contactLine" id="contactUser" onclick="toggleUnderline2(this)"><span id="contact">연락처</span></li>
+			<button id="openChatting">
+				<img id="newChat" src="/images/newChat.png">새 채팅
+			</button>
+		</ul>
+		<div class="chatSearch_container">
+			<img id="chatSearch_img" src="/images/chatSearch.png"> <input id="chatSearch" type="text"
+				placeholder="이름, 채팅방명 검색"> <span id="clearText" style="display: none;">Ｘ</span>
+		</div>
+		<ul id="chatRoomMain">
+	
+		</ul>
+		<ul id="chatMemberList">
+			<li class="contactMemberList">
+				<th:block th:each="myPeople: ${myPeople}">
+					<div class="chatMember">
+						<div>
+							<div class="cmProfile" th:style="'background-image: url(' + ${myPeople.profile_image} + ');'">
+							</div>
+							<div class="cmDL">
+								<div class="cmUserName" th:text="${myPeople.member_name}"></div>
+								<div class="cmCompanyName" th:text="${myPeople.comName}"></div>
+							</div>
+						</div>
+					</div>
+				</th:block>
+			</li>
+		</ul>
+	</div>
+	<div id="alertLayer">
+		<div class="top_alertLayer">
+			<span id="alertText">알림</span> <span id="alertClose">X</span>
+		</div>
+		<ul class="main_alertLayer">
+			<li class="alertLine" onclick="toggleUnderline3(this)"><span id="noCheck">전체</span></li>
+			<li class="contactLine" onclick="toggleUnderline3(this)"><span id="whole">미확인</span></li>
+			<button>모두 읽음</button>
+		</ul>
+		<div class="alertSearch_container">
+			<img id="alertSearch_img" src="/images/chatSearch.png"> <input id="alertSearch" type="text"
+				placeholder="프로젝트명, 내용, 작성자 검색">
+			<span id="clearText_alert" style="display: none;">Ｘ</span>
+		</div>
+	</div>
+	<div id="profileLayer">
+		<div class="top_profileLayer">
+			<img th:src="'/'+${member.profile_image}" id="tplImg">
+			<div th:text="${member.name}"></div>
+		</div>
+		<button id="profileSetting_btn">
+			<img src="/images/setting2.png">환경설정
+		</button>
+		<th:block th:if="${session.access_Token == null}">
+			<form id="logoutForm" method="post" action="/SODA/Logout">
+				<button id="profileLogout_btn" type="submit">
+					<img src="/images/exit.png">로그아웃
+				</button>
+			</form>
+		</th:block>
+		<th:block th:if="${session.access_Token != null}">
+			<form id="kakaoLogoutForm" method="post" action="/SODA/logout">
+				<button id="profileLogout_btn" type="submit">
+					<img src="/images/exit.png">로그아웃
+				</button>
+			</form>
+		</th:block>
+	</div>
+</div>
+<div class="MySettingWrap">
+	<div class="MySWrap1">
+		<div class="MySWrap2">
+			<div class="MySettingPopup">
+				<div class="MySPheader">
+					<div class="myPicture">
+						<img th:src="'/'+ ${member.profile_image}" id="profileImg">
+						<a id="editorProfileBtn"></a>
+					</div>
+					<span class="settingTitle">환경설정</span>
+					<div id="editorProfile">
+						<form method="post" action="/uploadProfile" enctype="multipart/form-data">
+							<input type="hidden" id="profileMemId" th:value="${member.member_id}">
+							<a class="changeProfileBtn">
+								<span>
+									<label for="uploadProfileImg" class="uploadProfile">
+										<img src="/images/사진1.png">사진 변경
+									</label>
+									<input type="file" id="uploadProfileImg" name="file" style="display: none;">
+								</span>
+							</a>
+						</form>
+						<form method="post" action="removeProfile" enctype="multipart/form-data">
+							<a class="removeProfileBtn">
+								<span><img src="/images/휴지통.png">삭제</span>
+							</a>
+						</form>
+					</div>
+					<img src="/images/Close.png" id="MySettingClose">
+				</div>
+				<div class="MySPContent">
+					<div class="MySPLeft">
+						<ul class="MySPLeftHeader">
+							<li class="MySPLeftContent">
+								<a id="accountSettingBtn" href="#">
+									<em class="MySPColorType" id="acSPColorDot"></em>
+									<em class="MySPText" id="acSPColor">계정</em>
+								</a>
+							</li>
+							<li class="MySPLeftContent">
+								<a id="alert_displaySettingBtn" href="#">
+									<em class="MySPColorType" id="adSPColorDot"></em>
+									<em class="MySPText" id="adSPColor">알림 및 디스플레이 설정</em>
+								</a>
+							</li>
+							<li class="MySPLeftContent">
+								<a id="securitySettingBtn" href="#">
+									<em class="MySPColorType" id="scSPColorDot"></em>
+									<em class="MySPText" id="scSPColor">보안</em>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<div class="MySPMain">
+						<div class="accountSPMain" style="display: block;">
+							<div class="MySPRightContent">
+								<ul id="accountSPWrap">
+									<li>
+										<div class="MySPRightList1">아이디</div>
+										<div id="MySP_UserId" class="MySPRightList2" th:text="${member.email}"></div>
+									</li>
+									<form method="post" id="edit_userName_Form" action="editName">
+										<input type="hidden" name="userId" value="">
+										<li class="edit-input MySPUserName" id="MySPUserName">
+											<div class="MySPRightList1">이름</div>
+											<div class="read-mode" style="display: block;">
+												<div class="MySPRightList2" id="SPName" th:text="${member.name}"></div>
+												<div class="MySPChangeAlert" id="nameAlert">변경되었습니다</div>
+											</div> <img class="changeEditorBtn" id="changeNameBtn" src="/images/편집.png">
+											<div class="editor-mode" style="display: none;">
+												<div class="MySPRightList2">
+													 form태그 , 업데이트 서블렛 , css 추가 , class="editBtn" 추가,수정  
+													<input id="edit_userName" name="edit_userName" type="text">
+													<div class="edit_BtnWrap">
+														<button type="submit" id="changeNameOK" class="editBtn">
+															<div class="edit_ok">확인</div>
+														</button>
+														<a href="#" id="changeNameCancel">
+															<div class="edit_cancel">취소</div>
+														</a>
+													</div>
+												</div>
+											</div>
+										</li>
+									</form>
+									<li class="edit-input MySPCompanyName" id="MySPCompanyName">
+										<div class="MySPRightList1">회사명</div>
+										<div class="read-mode" style="display: block;">
+											<div class="MySPRightList2" id="SPCom"></div>
+										</div>
+									</li>
+									<li class="edit-input MySPDepartName" id="MySPDepartName">
+										<div class="MySPRightList1">부서</div>
+										<div class="read-mode" style="display: block;">
+											<div class="MySPRightList2"></div>
+										</div> <img class="changeEditorBtn" id="changeDepartBtn" src="/images/편집.png">
+										<div class="editor-mode" style="display: none;">
+											<div class="MySPRightList2">
+												 <form id="edit_departForm" method="post" action="editDepart"> 
+												<input id="edit_departName" name="edit_departName" type="text">
+												<div class="edit_BtnWrap">
+													<button type="submit" id="changeDepartOK" class="editBtn">
+														<div class="edit_ok">확인</div>
+													</button>
+													<a href="#" id="changeDepartCancel">
+														<div class="edit_cancel">취소</div>
+													</a>
+												</div>
+												 </form> 
+											</div>
+										</div>
+									</li>
+									<form action="editJob" id="edit_userJob_Form" method="post">
+										<input type="hidden" name="userId" value="">
+										<li class="edit-input MySPJobName" id="MySPJobName">
+											<div class="MySPRightList1">직책</div>
+											<div class="read-mode" style="display: block;">
+												<div class="MySPRightList2" id="SPJob" th:text="${member.job_name}">
+												</div>
+												<div class="MySPChangeAlert" id="jobAlert">변경되었습니다</div>
+											</div> <img class="changeEditorBtn" id="changeJobBtn" src="/images/편집.png">
+											<div class="editor-mode" style="display: none;">
+												<div class="MySPRightList2">
+													<input id="edit_jobName" name="edit_jobName" type="text">
+													<div class="edit_BtnWrap">
+														<button type="submit" id="changeJobOK" class="editBtn">
+															<div class="edit_ok">확인</div>
+														</button>
+														<a href="#" id="changeJobCancel">
+															<div class="edit_cancel">취소</div>
+														</a>
+													</div>
+												</div>
+											</div>
+										</li>
+									</form>
+									<form action="editPhone" id="edit_userPhone_Form" method="post">
+										<input type="hidden" name="userId" value="">
+										<li class="edit-input MySPPhoneNumber" id="MySPPhoneNumber">
+											<div class="MySPRightList1">휴대폰 번호</div>
+											<div class="read-mode" style="display: block;">
+												<div class="MySPRightList2" id="SPPhone" th:text="${member.phone_num}">
+												</div>
+												<div class="MySPChangeAlert" id="phoneAlert">변경되었습니다</div>
+											</div> <img class="changeEditorBtn" id="changePhoneBtn" src="/images/편집.png">
+											<div class="editor-mode" style="display: none;">
+												<div class="MySPRightList2">
+													<input id="edit_phoneNumber" name="edit_phoneNumber" type="text">
+													<div class="edit_BtnWrap">
+														<button type="submit" id="changePhoneOK" class="editBtn">
+															<div class="edit_ok">확인</div>
+														</button>
+														<a href="#" id="changePhoneCancel">
+															<div class="edit_cancel">취소</div>
+														</a>
+													</div>
+												</div>
+											</div>
+										</li>
+									</form>
+									<form action="editPW" id="edit_userPW_Form" method="post">
+										<input type="hidden" name="userId" value="">
+										<li class="edit-input MySPUserPassword" id="MySPUserPassword">
+											<div class="MySPRightList1">비밀번호</div>
+											<div class="read-mode" style="display: block;">
+												<div class="MySPRightPassword">
+													<strong class="pass_alert">비밀번호 재설정이 가능합니다.</strong> <input
+														type="password" id="MySPPasswordInput"
+														placeholder="비밀번호 입력(8~20자 영문,숫자,특수문자 포함)"
+														style="display: flex;" disabled>
+													<button class="changePasswordBtn" id="changePasswordBtn">비밀번호
+														재설정</button>
+													<div class="MySPChangeAlert" id="pwAlert">변경되었습니다</div>
+													<div class="MySPChangeAlert" id="pwFailAlert">변경에
+														실패하셨습니다</div>
+												</div>
+											</div>
+											<div class="editor-mode" style="display: none;">
+												<div class="MySPRightList1" style="line-height: initial;">비밀번호
+													재생성</div>
+												<div class="MySPRightList2 edit_password">
+													<span class="edit_pw_text">비밀번호는 영문, 숫자, 특수문자 포함
+														8자리 이상이어야 합니다.</span>
+												</div>
+												<div class="MySPRightList2">
+													<span class="editPWTitle">현재 비밀번호</span> <input type="password"
+														name="currentPW" id="currentPW" placeholder="현재 비밀번호를 입력해주세요">
+												</div>
+												<div class="MySPRightList2">
+													<span class="editPWTitle">새 비밀번호</span> <input type="password"
+														name="newPW" id="newPW" placeholder="새 비밀번호를 입력해주세요">
+												</div>
+												<div class="MySPRightList2">
+													<span class="editPWTitle">비밀번호 확인</span> <input type="password"
+														id="newRePW" placeholder="비밀번호를 다시 입력해주세요">
+												</div>
+												<div class="edit_BtnWrap">
+													<button type="submit" id="changePWOK" class="editBtn">
+														<div class="edit_ok">확인</div>
+													</button>
+													<a href="#" id="changePwCancel">
+														<div class="edit_cancel">취소</div>
+													</a>
+												</div>
+											</div>
+										</li>
+									</form>
+								</ul>
+							</div>
+						</div>
+						<div class="alert_displayMain" style="display: none;">
+							<div class="MySPRightContent">
+								<ul id="pushAlertWrap">
+									<li>
+										<div class="MySPRightList1">푸시 알림</div>
+										<div class="MySPRightList2">
+											<div>새로운 글, 댓글, 채팅의 실시간 알림을 받습니다.</div>
+											<button type="button" id="pushAlertSet" class="togglePushAlert">
+												<i class="alertHandle"></i>
+											</button>
+										</div>
+									</li>
+									<li>
+										<div class="MySPRightList1"></div>
+										<div class="MySPRightList2">
+											프로젝트 알림
+											<div id="alertProjectBtn">
+												<img id="alertProjectBtn1" class="APB1" src="/images/체크표시.png"
+													style="display: block;"> <img id="alertProjectBtn2" class="APB2"
+													src="/images/체크표시2.png" style="display: none;">
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="MySPRightList1"></div>
+										<div class="MySPRightList2">
+											채팅 알림
+											<div id="alertChatBtn">
+												<img id="alertChatBtn1" class="ACB1" src="/images/체크표시.png"
+													style="display: block;"> <img id="alertChatBtn2" class="ACB2"
+													src="/images/체크표시2.png" style="display: none;">
+											</div>
+										</div>
+									</li>
+								</ul>
+								<br>
+								<ul id="ThemeWrap">
+									<li>
+										<div class="MySPRightList1">테마</div>
+										<div class="MySPRightList2">
+											<div>좌측 메뉴의 컬러 테마를 지정하실 수 있습니다.</div>
+										</div>
+									</li>
+									<li>
+										<div class="MySPRightList1"></div>
+										<div class="MySPRightList2" id="ThemeSetting">
+											<div class="darkTheme">
+												<img class="darkThemeIcon" src="/images/다크모드.png">
+												<p style="margin-right: 10px;">다크 모드</p>
+												<div id="darkBtn">
+													<img id="darkThemeBtn1" src="/images/체크표시.png"
+														style="display: block;"> <img id="darkThemeBtn2"
+														src="/images/체크표시2.png" style="display: none;">
+												</div>
+											</div>
+											<div class="lightTheme">
+												<img class="lightThemeIcon" src="/images/라이트모드.png">
+												<p style="margin-right: 10px;">라이트 모드</p>
+												<div id="lightBtn">
+													<img id="lightThemeBtn1" src="/images/체크표시.png"
+														style="display: none;"> <img id="lightThemeBtn2"
+														src="/images/체크표시2.png" style="display: block;">
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<br>
+								<ul id="ProjectColor">
+									<li class="colorSP">
+										<div class="MySPRightList1">프로젝트 색상</div>
+										<div class="MySPRightList2">
+											<div>프로젝트 만들기 또는 초대 받았을때, 프로젝트의 색상을 지정합니다.</div>
+										</div>
+									</li>
+									<li class="colorSP">
+										<div class="MySPRightList1"></div>
+										<div class="MySPRightList2">
+											랜덤으로 설정
+											<ul class="PColorWrap">
+												<li class="PColor C1" style="background: #00b19c;"></li>
+												<li class="PColor C2" style="background: #00b01c;"></li>
+												<li class="PColor C3" style="background: #ffb800;"></li>
+												<li class="PColor C4" style="background: #fd7900;"></li>
+												<li class="PColor C5" style="background: #ff3434;"></li>
+												<li class="PColor C6" style="background: #ff5caa;"></li>
+												<li class="PColor C7" style="background: #00b2ff;"></li>
+												<li class="PColor C8" style="background: #06f;"></li>
+												<li class="PColor C9" style="background: #8b00ea;"></li>
+												<li class="PColor C10" style="background: #999;"></li>
+												<li class="PColor C11" style="background: #555;"></li>
+												<li class="PColor C12" style="background: #ddd;"></li>
+											</ul>
+											<div id="RandomThemeBtn">
+												<img src="/images/체크표시.png" id="RandomThemeBtn1" style="display: block;">
+												<img src="/images/체크표시2.png" id="RandomThemeBtn2" style="display: none;">
+											</div>
+										</div>
+									</li>
+									<li class="whiteSP">
+										<div class="MySPRightList1"></div>
+										<div class="MySPRightList2">
+											흰색으로 고정
+											<ul class="PColorWrap">
+												<li class="PColor C1" style="background: #ddd;"></li>
+											</ul>
+											<div id="WhiteThemeBtn">
+												<img src="/images/체크표시.png" id="WhiteThemeBtn1" style="display: none;">
+												<img src="/images/체크표시2.png" id="WhiteThemeBtn2" style="display: block;">
+											</div>
+										</div>
+									</li>
+								</ul>
+								<br>
+								<ul id="ProjectFavorite">
+									<li class="favoriteSP">
+										<div class="MySPRightList1">프로젝트 즐겨찾기</div>
+										<div class="MySPRightList2">
+											<div>프로젝트 즐겨찾기 시, 상단에 고정하도록 설정할 수 있습니다.</div>
+										</div>
+									</li>
+									<li class="favoriteSP">
+										<div class="MySPRightList1"></div>
+										<div class="MySPRightList2">
+											즐겨찾기 사용
+											<div id="FavoriteOnBtn">
+												<img id="FavoriteOnBtn1" src="/images/체크표시.png" style="display: block;">
+												<img id="FavoriteOnBtn2" src="/images/체크표시2.png" style="display: none;">
+											</div>
+										</div>
+									</li>
+									<li class="favoriteSP">
+										<div class="MySPRightList1"></div>
+										<div class="MySPRightList2">
+											즐겨찾기 사용안함
+											<div id="FavoriteOffBtn">
+												<img id="FavoriteOffBtn1" src="/images/체크표시.png" style="display: none;">
+												<img id="FavoriteOffBtn2" src="/images/체크표시2.png"
+													style="display: block;">
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="securitySPMain" style="display: none;">
+							<div class="MySPRightContent">
+								<ul>
+									<li class="deviceSP">
+										<div class="MySPRightList1">접속기기 관리</div>
+										<div class="MySPRightList2">
+											<ul id="deviceList">
+												<li class="deviceTask">
+													<div>
+														<p class="dataPosition">
+															<b>UserIP</b>
+														</p>
+														<p class="dataUse">
+															<b>마지막 사용</b> <span>Sysdate</span>
+														</p>
+														<p class="dataUse">
+															<b>최초 등록일</b> <span>Member-Join_Date</span>
+														</p>
+													</div>
+													<div>
+														<a id="removeDevice" href="#" style="display: none;">
+															<div>삭제</div>
+														</a>
+														<div class="deviceIconWrap" style="display: grid;">
+															<img class="deviceIcon" src="/images/접속기기.png"> <span>현재
+																접속기기</span>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</li>
+									<li class="deviceSP">
+										<div class="MySPRightList1"></div>
+										<div class="MySPRightList2">
+											<ul id="deviceList">
+												<li class="deviceTask">
+													<div>
+														<p class="dataPosition">
+															<b>UserIP2</b>
+														</p>
+														<p class="dataUse">
+															<b>마지막 사용</b> <span>Sysdate</span>
+														</p>
+														<p class="dataUse">
+															<b>최초 등록일</b> <span>Member-Join_Date</span>
+														</p>
+													</div>
+													<div>
+														<a id="removeDevice" href="#" style="display: block;">
+															<div>삭제</div>
+														</a>
+														<div class="deviceIconWrap" style="display: none;">
+															<img class="deviceIcon" src="/images/접속기기.png"> <span>현재
+																접속기기</span>
+														</div>
+													</div>
+												</li>
+											</ul>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>-->

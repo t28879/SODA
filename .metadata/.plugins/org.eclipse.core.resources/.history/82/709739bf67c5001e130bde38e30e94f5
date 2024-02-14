@@ -1,0 +1,2849 @@
+<html layout:decorate="~{Searchbar_layout}">
+<div layout:fragment="content" class="allMainContent">
+	<div id="mainBodyWrap" class="main-body-wrap">
+		<!-- 피드 생성시 뜨는 팝업창 -->
+		<div class="soda-all-background-1 back area temp-popup" tabindex="0" id="postPopup" data-code="ADD"
+			data-before-view="NO_POP" style="display: none;">
+			<div class="soda-project-make-1 back area">
+				<div class="soda-project-make-2 back-area contents">
+					<div class="create-post-wrap" data-code="ADD">
+						<div class="create-post-header">
+							<div class="temp-wrap">
+								<h4 class="js-create-post-title create-post-title">게시물 작성</h4>
+							</div>
+							<button type="reset" class="btn-close" value="초기화">
+								<img th:src="@{/images/닫기2.png}" class="img-close2"> <span class="blind">닫기</span>
+							</button>
+						</div>
+						<!-- 팝업창의 글, 업무,일정,할일의 실질적인 탭  - 1(글 탭)-->
+						<ul class="create-post-nav" id="Boss">
+							<li class="js-post-type-item">
+								<button type="button" class="create-tab tab-write2" role="tab" data-post-code="91"
+									value="text">
+									<img th:src="@{/images/글.png}" class="img-write2"> <span>글</span>
+								</button>
+							</li>
+							<li class="js-post-type-item">
+								<button type="button" class="create-tab tab-task" role="tab" data-post-code="92"
+									value="work">
+									<img th:src="@{/images/업무.png}" class="img-task"> <span>업무</span>
+								</button>
+							</li>
+							<li class="js-post-type-item">
+								<button type="button" class="create-tab tab-schedule" role="tab" data-post-code="93"
+									value="schedule">
+									<img th:src="@{/images/일정.png}" class="img-schedule"> <span>일정</span>
+								</button>
+							</li>
+							<li class="js-post-type-item">
+								<button type="button" class="create-tab tab-todo" role="tab" data-post-code="94"
+									value="todo">
+									<img th:src="@{/images/할일.png}" class="img-todo"> <span>할
+										일</span>
+								</button>
+							</li>
+						</ul>
+						<!-- 피드팝업 텍스트에 해당 -->
+						<div class="create-post-container scroll-mask">
+							<div>
+								<fieldset>
+									<legend class="blind">게시물 작성 영역</legend>
+									<div>
+										<textarea id="postTitle" name="title" type="text" title="제목을 입력하세요."
+											placeholder="제목을 입력하세요." class="js-post-title create-title-input"
+											maxlength="200"></textarea>
+									</div>
+									<!-- 업무 팝업부분 -->
+									<div class="task-option" style="display: none;">
+										<ul class="create-content-group">
+											<li class="status-layer">
+												<div class="create-content-cell title">
+													<img class="img-post-status" th:src="@{/images/시계.png}">
+												</div>
+												<div class="create-content-cell">
+													<div class="state-button-group">
+														<input type="button" class="task-state-button request"
+															value="요청" data-work-process="71">
+														<input type="button" class="task-state-button progress"
+															value="진행" data-work-process="72">
+														<input type="button" class="task-state-button feedback"
+															value="피드백" data-work-process="73"> <input type="button"
+															class="task-state-button completion" value="완료"
+															data-work-process="74">
+														<input type="button" class="task-state-button hold" value="보류"
+															data-work-process="75">
+													</div>
+												</div>
+											</li>
+											<li class="js-task-worker-layer js-more-task-li d-none"
+												style="display: flex" data>
+												<div class="create-content-cell title manager">
+													<img th:src="@{/images/사람이먼저다.png}" class="img-post-worker">
+												</div>
+												<div class="create-content-cell manager-btn-group">
+													<div class="user-wrap">
+														<input type="text"
+															class="js-worker-input worker-search-input d-none"
+															placeholder="담당자 추가" style="display: inline-block;">
+													</div>
+													<button type="button" class="js-worker-button add-manager-button"
+														style="display: none;">담당자 추가</button>
+												</div>
+											</li>
+											<!-- 항목추가입력 버튼 누르면 바뀜 -->
+											<!-- 시작일 -->
+											<li id="MSstartDate"
+												class="ms-date-layer ms-start-date-layer ms-more-task-li d-none"
+												style="display: none;">
+												<div class="create-content-cell title">
+													<img th:src="@{/images/일정.png}">
+												</div>
+												<div class="ms-date-option create-content-cell">
+													<div class="ms-pickr-layer ms-start-flatpickr">
+														<label type="button" class="ms-date-label add-manager-button"
+															style="display: flex;"> <input id="MSscheduleStartDate"
+																class="ms-pickr-date flatpickr-input ie-pickr"
+																type="date" placeholder="시작일 추가" readonly="readonly"
+																value>
+														</label>
+													</div>
+												</div>
+											</li>
+											<!-- 마감일 -->
+											<li id="MSendDate"
+												class="ms-date-layer ms-end-date-layer ms-more-task-li d-none"
+												style="display: none;">
+												<div class="create-content-cell title">
+													<img th:src="@{/images/일정.png}">
+												</div>
+												<div class="ms-date-option create-content-cell">
+													<div class="ms-pickr-layer ms-end-flatpickr">
+														<label type="button" class="ms-date-label add-manager-button"
+															style="display: flex;"> <input id="MSscheduleEndDate"
+																class="ms-pickr-date flatpickr-input ie-pickr"
+																type="text" placeholder="마감일 추가" readonly="readonly"
+																value>
+														</label>
+													</div>
+												</div>
+											</li>
+											<!-- 우선순위 추가 -->
+											<li id="MSpriorityNumbers" class="ms-priority-layer ms-more-task-li"
+												style="display: none;">
+												<div class="create-content-cell title">
+													<img th:src="@{/images/깃발.png}">
+												</div>
+												<div class="ms-priority create-content-cell">
+													<button id="priorityButton" type="button"
+														class="ms-priority-button ms-priority-event add-manager-button"
+														style="display: flex;">우선순위 추가</button>
+													<!-- 숨겨진 우선순위들 -->
+													<div id="prioritySpan"
+														class="ms-priority-span ms-priority-event rank-item">
+														<div class="priority-row" style="display: none;">
+															<img th:src="@{/images/row화살표.png}"> <span
+																class="ms-priority-text">낮음</span>
+															<button id="priorityClose1">
+																<img th:src="@{/images/닫기.png}">
+															</button>
+														</div>
+														<div class="priority-normal" style="display: none;">
+															<img th:src="@{/images/보통쓰.png}"> <span
+																class="ms-priority-text">보통</span>
+															<button id="priorityClose2">
+																<img th:src="@{/images/닫기.png}">
+															</button>
+														</div>
+														<div class="priority-arrow" style="display: none;">
+															<img th:src="@{/images/빨간화살표.png}"> <span
+																class="ms-priority-text">높음</span>
+															<button id="priorityClose3">
+																<img th:src="@{/images/닫기.png}">
+															</button>
+														</div>
+														<div class="priority-sos" style="display: none;">
+															<img th:src="@{/images/긴급.png}"> <span
+																class="ms-priority-text">긴급</span>
+															<button id="priorityClose4">
+																<img th:src="@{/images/닫기.png}">
+															</button>
+														</div>
+													</div>
+													<!-- 우선순위 팝업... -->
+													<div id="priorityPopup"
+														class="ms-priority-setting-layer ms-priority-event priority-group d-none"
+														style="display: none;">
+														<button id="priorityButtons-1" type="button"
+															class="ms-priority-setting-button priority-button MSlow-button"
+															data-work-priority="41">
+															<span> <img th:src="@{/images/row화살표.png}">
+															</span> 낮음
+														</button>
+														<button id="priorityButtons-2" type="button"
+															class="ms-priority-setting-button priority-button MSnormal-button"
+															data-work-priority="42">
+															<span> <img th:src="@{/images/보통쓰.png}">
+															</span> 보통
+														</button>
+														<button id="priorityButtons-3" type="button"
+															class="ms-priority-setting-button priority-button MSarrow-button"
+															data-work-priority="43">
+															<span> <img th:src="@{/images/빨간화살표.png}">
+															</span> 높음
+														</button>
+														<button id="priorityButtons-4" type="button"
+															class="ms-priority-setting-button priority-button MSsos-button"
+															data-work-priority="44">
+															<span> <img th:src="@{/images/긴급.png}">
+															</span> 긴급
+														</button>
+													</div>
+												</div>
+											</li>
+											<!-- 진척도 -->
+											<li id="MSprogressGraph" class="ms-progress-layer js-more-task-li"
+												style="display: none;">
+												<div class="create-content-cell title">
+													<img th:src="@{/images/진척도.png}">
+												</div>
+												<div class="ms-progress creat-content-cell">
+													<div class="progress-graph">
+														<span id="progressPercent1" class="ms-progress-button"
+															data-progress-value="10" onclick="fillProgress(1)">
+														</span> <span id="progressPercent2" class="ms-progress-button"
+															data-progress-value="20" onclick="fillProgress(2)">
+														</span> <span id="progressPercent3" class="ms-progress-button"
+															data-progress-value="30" onclick="fillProgress(3)">
+														</span> <span id="progressPercent4" class="ms-progress-button"
+															data-progress-value="40" onclick="fillProgress(4)">
+														</span> <span id="progressPercent5" class="ms-progress-button"
+															data-progress-value="50" onclick="fillProgress(5)">
+														</span> <span id="progressPercent6" class="ms-progress-button"
+															data-progress-value="60" onclick="fillProgress(6)">
+														</span> <span id="progressPercent7" class="ms-progress-button"
+															data-progress-value="70" onclick="fillProgress(7)">
+														</span> <span id="progressPercent8" class="ms-progress-button"
+															data-progress-value="80" onclick="fillProgress(8)">
+														</span> <span id="progressPercent9" class="ms-progress-button"
+															data-progress-value="90" onclick="fillProgress(9)">
+														</span> <span id="progressPercent10" class="ms-progress-button"
+															data-progress-value="100" onclick="fillProgress(10)">
+														</span> <span class="ms-progress-text progress-txt">0%</span>
+													</div>
+												</div>
+											</li>
+										</ul>
+										<button type="button" class="more-button add-button" style="display: block"
+											data>
+											<img th:src="@{/images/plus.png}" class="img-plus">항목추가입력
+										</button>
+										<!-- 하위업무 부분 -->
+										<div class="MSsubtask-space">
+											<div class="MSsubtask-wrap">
+												<div class="MSsubtask-header">
+													<span class="MSsubtask-title"> <img th:src="@{/images/하위이미지.png}">
+														하위업무
+													</span>
+												</div>
+												<div class="MSsubtask-bottom">
+													<div class="MSsubtask-registered-area">
+														<div class="MSsubtask-input-area">
+															<div class="MSsubtask-status-area">
+																<button type="button" id="MSsubtask-button1"
+																	class="MSsubtask-status-request subtask-sts-data"
+																	onclick="clickRequest()"
+																	data-subwork-process="11">요청</button>
+																<button type="button" id="MSsubtask-button2"
+																	class="MSsubtask-status-progress subtask-sts-data"
+																	onclick="clickProgress()"
+																	data-subwork-process="12">진행</button>
+																<button type="button" id="MSsubtask-button3"
+																	class="MSsubtask-status-feedback subtask-sts-data"
+																	onclick="clickFeedback()"
+																	data-subwork-process="13">피드백</button>
+																<button type="button" id="MSsubtask-button4"
+																	class="MSsubtask-status-completion subtask-sts-data"
+																	onclick="clickCompletion()"
+																	data-subwork-process="14">완료</button>
+																<button type="button" id="MSsubtask-button5"
+																	class="MSsubtask-status-hold subtask-sts-data"
+																	onclick="clickHold()" data-subwork-process="15">
+																	보류</button>
+															</div>
+															<input type="text" class="MSsubtask-input" tab-code="input"
+																maxlength="100" data-empty-msg="하위 업무 제목을 입력하세요."
+																placeholder="하위업무명 입력">
+															<ul class="MSsubtask-menu">
+																<li class="MSsubtask-menu-endDate"
+																	mouseover-text="마감일 추가">
+																	<div class="MSsubtask-pickr-layer">
+																		<input type="text"
+																			class="MSsubtask-endDate-input"
+																			readonly="readonly" placeholder="마감일 설정">
+																	</div>
+																</li>
+																<!-- 하위업무 우선순위 -->
+
+																<li class="MSsubtask-priority-layer"
+																	mouseover-text="우선순위 추가">
+																	<button type="button" id="MSsubtaskPriorityButton"
+																		class="MSsubtask-priority-button"
+																		onclick="dmddody()">
+																		<span> <img th:src="@{/images/긴급사태.png}"
+																				class="sosbtndh" title="하위업무 우선순위">
+																		</span>
+																	</button>
+																</li>
+																<!-- 하위업무 담당자 -->
+																<li class="MSsubtask-manager">
+																	<button type="button"
+																		class="MSsubtask-manager-button">
+																		<span> <img th:src="@{/images/프로필.png}"
+																				class="manager-img" title="하위업무 참석자">
+																		</span>
+																	</button>
+																</li>
+															</ul>
+															<!-- 하위업무의 우선순위  팝업 -->
+															<div id="subPriorityPopup" class="sub-priority-group d-none"
+																style="display: none; top: -142.6px; left: 512.725px;">
+																<button type="button" id="subPriorityButton1"
+																	class="sub-priority-button-close"
+																	onclick="popupdh(1)">
+																	<span> <img th:src="@{/images/닫기.png}"
+																			class="closebtndh">
+																	</span> 취소
+																</button>
+																<button type="button" id="subPriorityButton2"
+																	class="sub-priority-button-row subPrioData"
+																	onclick="popupdh(2)" data-subwork-priority="81">
+																	<span> <img th:src="@{/images/row화살표.png}"
+																			class="rowbtndh">
+																	</span> 낮음
+																</button>
+																<button type="button" id="subPriorityButton3"
+																	class="sub-priority-button-normal subPrioData"
+																	onclick="popupdh(3)" data-subwork-priority="82">
+																	<span> <img th:src="@{/images/보통쓰.png}"
+																			class="normalbtndh">
+																	</span> 보통
+																</button>
+																<button type="button" id="subPriorityButton4"
+																	class="sub-priority-button-arrow subPrioData"
+																	onclick="popupdh(4)" data-subwork-priority="83">
+																	<span> <img th:src="@{/images/빨간화살표.png}"
+																			class="arrowbtndh">
+																	</span> 높음
+																</button>
+																<button type="button" id="subPriorityButton5"
+																	class="sub-priority-button-SOS subPrioData"
+																	onclick="popupdh(5)" data-subwork-priority="84">
+																	<span> <img th:src="@{/images/긴급.png}"
+																			class="alertbtndh">
+																	</span> 긴급
+																</button>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- 스케쥴 팝업부분 -->
+									<div class="schedule-option" spellcheck="true" style="display: none;">
+										<ul class="create-content-group">
+											<li id="editDateTimeArea" class="schedule-data-li">
+												<div class="create-content-cell title">
+													<img th:src="@{/images/업무.png}" class="img-schedule">
+												</div>
+												<div class="create-content-cell">
+													<div class="schedule-item">
+														<div class="ms-pickr-layer ms-start-flatpickr">
+															<input type="date" id="MSdatePicker1"> <input type="date"
+																id="MSdatePicker2">
+														</div>
+													</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+									<!-- 할일 팝업부분 -->
+									<div class="todo-option create-content-area" style="display: none;">
+										<ul id="todoEditUl" class="todo-component todo-group ui-sortable"></ul>
+										<div class="todo-edit-layer todo-component subtask-input-area todo-area">
+											<textarea type="text" title="내용을 입력하세요." class="todo-text"
+												placeholder="할 일 추가 / 최대 60자"></textarea>
+											<div class="MStodo-menu">
+												<span class="MSsubtask-button"> <input id="MStodoInput" type="date"
+														class="MStodo-flatpickr-input" readonly="readonly"
+														placeholder="할 일 날짜 설정" onclick="showTodoCalendar()" value>
+												</span>
+											</div>
+										</div>
+									</div>
+									<!-- 팝업의 텍스트부분 -->
+									<div id="postCntn" class="js-content-area create-content-areas">
+										<div id="cke_postContents"
+											class="cke_4036 cke cke_reset cke_chrome cke_editor_postContents cke_ltr cke_browser_webkit"
+											dir="ltr" lang="ko">
+											<div class="cke_inner cke_reset" role="presentation"
+												style="display: block;">
+												<div id="cke_4036_contents" class="cke_contents cke_reset"
+													role="presentation" style="height: 200px;">
+													<textarea id="textInput" type="text" title="내용을 입력하세요." name="content"
+														placeholder="내용을 입력하세요." class="post-content-input" rows="4"
+														cols="50"></textarea>
+												</div>
+											</div>
+										</div>
+									</div>
+								</fieldset>
+							</div>
+						</div>
+						<div class="create-post-footer clearfix">
+							<ul class="js-bottom-ul create-button-group clearfix">
+								<li class="js-bottom-item editor-item">
+									<button class="js-editor-tools editor-item-button">
+										<img th:src="@{/images/A.png}" class="editor-item-img">
+									</button>
+								</li>
+								<li class="js-bottom-item editor-item" data-code="upload-file"
+									style="display: inline-block;">
+									<button mouseover-text="파일 첨부" class="js-file-button js-mouseover active">
+										<img th:src="@{/images/클립.png}" class="img-link">
+									</button> <!-- 팝업창 맨 밑 클립 클릭시 파일 업로드 경로 버튼 -->
+								</li>
+								<li class="js-bottom-item editor-item" style="display: inline-block;">
+									<button>
+										<img th:src="@{/images/지도.png}">
+									</button>
+								</li>
+							</ul>
+							<div class="create-footer-menu">
+								<button id="popupSubmit" type="button"
+									class="js-complete-btn create-button create-post-submit"
+									style="display: inline-block;" th:attr="data-project-id=${project_id}">등록</button>
+							</div>
+						</div>
+
+						<!-- 팝업에서 담당자 버튼 눌렀을때 나오는 팝업 -->
+						<div class="add-all-manager" id="allAllManagerLists" style="display: none">
+							<div class="sub-mgr-wrap">
+								<div class="manager-list">
+									<ul class="mgr-search-ul">
+										<li href="#" class="select-mgr" th:each="workmanagers : ${workmanagers}"
+											th:data-workermanager-code="${workmanagers.member_id}">
+											<div class="all-search-section">
+												<div class="worker-profile" id="thisProfile">
+													<img th:src="@{'/' + ${workmanagers.profile_image}}"
+														class="workerProfileAll">
+												</div>
+												<div class="all-search-write-wrap">
+													<div class="all-search-write">
+														<div class="registration-name"
+															th:text="${workmanagers.member_name}"></div>
+														<span class="registration-position"></span>
+													</div>
+													<div class="worker-company-name">
+														<div class="registration-compnay"
+															th:text="${workmanagers.company_name}"></div>
+													</div>
+												</div>
+												<input type="checkbox" id="workManagerCheck">
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div id="addWorkerBottom">
+								<button id="addWorkerCancel">
+									취소
+								</button>
+								<button id="addWorkerOk" class="modi-add-worker-ok">
+									확인
+								</button>
+							</div>
+						</div>
+
+						<!-- 팝업에서 하위업무 담당자 버튼 눌렀을때 나오는 팝업 -->
+						<div class="st-add-all-manager" style="display: none;">
+							<div class="st-sub-mgr-wrap">
+								<div class="st-manager-list">
+									<ul class="st-mgr-search-ul">
+										<li href="#" class="st-select-mgr"
+											th:each="subworkmanagers : ${subworkmanagers}"
+											th:data-subworker-code="${subworkmanagers.member_id}">
+											<div class="st-all-search-section">
+												<div class="st-worker-profile">
+													<img th:src="@{'/' + ${subworkmanagers.profile_image}}"
+														class="st-workerProfileAll">
+												</div>
+												<div class="st-all-search-write-wrap">
+													<div class="st-all-search-write">
+														<div class="st-registration-name"
+															th:text="${subworkmanagers.member_name}"></div>
+														<span class="st-registration-position"></span>
+													</div>
+													<div class="st-worker-company-name">
+														<div class="st-registration-compnay"
+															th:text="${subworkmanagers.company_name}"></div>
+													</div>
+												</div>
+												<input type="checkbox" class="st-workManagerCheck">
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div id="st-addWorkerBottom">
+								<button id="st-addWorkerCancel">
+									취소
+								</button>
+								<button id="st-addWorkerOk">
+									확인
+								</button>
+							</div>
+						</div>
+
+						<!-- 팝업안의 할일에서 할일 담당자 누르면 나오는 팝업 -->
+						<div class="MSsub-worker-popup" style="display:none;">
+							<div class="worker-title">
+								<p>담당자를 추가하세요</p>
+							</div>
+							<div class="sub-work-wrap">
+								<div class="sub-worker-list">
+									<ul>
+										<li href="#">
+											<div class="regist-sub-list">
+												<div class="regist-writer-imgArea"></div>
+												<div class="writer-all-wrap">
+													<div class="name-job-wrap">
+														<div class="regist-name-div">이름</div>
+														<span class="regist-job-div">직책</span>
+													</div>
+													<div class="company-depart-wrap">
+														<div class="regist-company-div">회사명</div>
+														<div class="regist-depart-div">부서</div>
+													</div>
+												</div>
+											</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--  왼쪽 영역 -->
+		<div class="좌측사이드바1">
+			<div class="lsb-1">
+            <a th:href="@{|/SODA_DASHBOARD|}" style = "color:black;">
+            <div class="flow-logo" >
+               <img class="logo" src="/images/소다로고_배경O.png">
+            </div>
+            </a>
+         </div>
+			<hr class="hr-1">
+			<div class="lsb-2">
+				<button class="btn_new_project" onclick="location.href='SODA_CreateProject'">
+					<img class="project_logo" src="/images/소다.png"> 새 프로젝트
+				</button>
+				<div class="list-1">
+					<li onclick="redirectToHome()"><img class="icon-1" src="/images/홈1.png" alt="홈 화면">대시보드</li>
+					<li>
+						<a th:href="@{/MyProject}"><img class="icon-2" src="/images/내 프로젝트.png">내 프로젝트</a>
+					</li>
+					<li>
+						<a th:href="@{/questionlist/1}"><img class="icon-2" src="/images/내 프로젝트.png">게시판</a>
+					</li>
+				</div>
+			</div>
+			<hr class="hr-2">
+			<div class="scroll">
+				<div class="item" id="item1" onclick="toggleSublistAndRotate1('item1', '화살표1')">
+					모아보기 <img id="화살표1" src="images/화살표2.png">
+					<ul class="sub_list1">
+						<li>
+					<a th:href="@{/AllWork}"><img src="/images/전체 업무.png">전체 업무</a>
+				</li>
+				<li>
+					<a th:href="@{/Calendar}"><img src="/images/캘린더.png">캘린더</a>
+				</li>
+				<li>
+					<a th:href="@{/FileStorage}"><img src="/images/파일함.png">파일함</a>
+				</li>
+				<li>
+					<a th:href="@{/BookMarkDH}"><img src="/images/북마크1.png">북마크</a>
+				</li>
+				<li>
+					<a th:href="@{/MyPost}"><img src="/images/내 게시물.png">내 게시물</a>
+				</li>
+					</ul>
+				</div>
+				<hr class="hr-2">
+				<div class="item" id="item2" onclick="toggleSublistAndRotate2('item2', '화살표2')">
+					최근 업데이트
+					<img id="화살표2" src="/images/화살표2.png">
+					<ul class="sub_list2">
+						<li th:each="projectWithColor : ${projectWithColor}">
+							<a id="project_icon" th:style="'background-color:' + ${projectWithColor.type} + ';'"></a>
+							<span th:text="${projectWithColor.name}"></span>
+						</li>
+					</ul>
+				</div>
+				<hr class="hr-2">
+				<div class="item" id="item3" onclick="toggleSublistAndRotate3('item3', '화살표3')">
+					프로젝트 폴더
+					<img id="화살표3" src="/images/화살표2.png">
+					<ul class="sub_list3">
+						<li th:each="folder : ${folder}">
+							<img id="태그1" src="/images/태그.png">
+							<span th:text="${folder.name}"></span>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<hr class="hr-3">
+			<div class="admin">
+				<div class="list-3">
+			<li><img class="icon-1" src="/images/직원초대.png" alt="홈 화면">
+				직원 초대</li>
+			<li>
+				<a th:href="@{/AdminPage}"><img class="icon-2" src="/images/어드민.png" alt="내 프로젝트">
+				어드민</a></li>
+			<div id="blank"></div>
+		</div>
+			</div>
+		</div>
+
+		<div class="main-container" style="display:block;">
+			<!-- profile 누르면 나오는 팝업 -->
+			<div class="profile-popup" id="openProfilePopup" style="display: none;">
+				<div class="profile-popup-header">
+					<div class="profile-header-layer"></div>
+					<button class="profile-close">
+						<img th:src="@{/images/프로필닫기.png}" class="profile-info-close">
+					</button>
+				</div>
+				<div class="profile-name-card">
+					<!-- 이미지 넣으면 이미지 여기로 들어와야함 -->
+					<img class="profilePopupIMG" >
+
+					<!-- 프로필 팝업에 박힐 이름 -->
+					<div class="profile-info-badge">
+						<p class="profile-info-box">
+							<span class="profile-card-name"><!-- 멤버이름 --></span>
+						</p>
+						<p class="profile-info-box">
+							<span class="profile-card-company" style="display: inline-block;"><!-- 회사이름 --></span>
+							<span class="profile-card-depart"></span>
+						</p>
+					</div>
+				</div>
+				<div class="contact-section">
+					<ul class="contact-contents">
+						<li class="company-info">
+							<em>
+								<img th:src="@{/images/회사건물.png}" class="info-company-img">
+							</em>
+							<div>
+								<strong class="makeCompany">
+									<!-- 회사이름 -->
+								</strong>
+								<em>
+								</em>
+							</div>
+						</li>
+						<li id="profileEmail" style="display: flex;"><em> <img th:src="@{/images/프로필이메일.png}"
+									class="info-email-img">
+							</em> <span><!-- email --></span></li>
+						<li id="profilePhonNo" style="display: flex;"><em> <img th:src="@{/images/프로필휴대폰.png}"
+									class="info-phone-img">
+							</em> <span><!-- 휴대폰 번호 근데 삼항연산자로 null이면 - 로 뜨게 --></span></li>
+						<li id="profileStatusMSG" style="display: flex;"><em> <img th:src="@{/images/프로필상태.png}"
+									class="info-status-img">
+							</em> <span><!-- 상태 메시지 근데 삼항연산자로 null이면 - 로 뜨게 --></span></li>
+					</ul>
+				</div>
+				<div class="profile-chat-btn">
+					<button class="chat-open">
+						<span>채팅</span> <img th:src="@{/images/채팅.png}" class="profile-chat-img">
+					</button>
+				</div>
+			</div>
+			<!-- main-container 참조 -->
+			<div id="topSettingBar" class="top-setting-bar">
+				<!-- 프로젝트를 누르면 나오는 검색바 밑 최상단 바 프로젝트안의 피드를 누르든 다른 것을 누르든 고정 -->
+				<div id="detailTop" class="detail-top title-1" style="display: block;">
+					<div class="project-detail-header">
+						<div id="projectTopArea" style="display: block;">
+							<!-- 프로젝트 색상,이름,번호 -->
+							<div class="project-color-area" th:if="${projects != null}"
+								th:style="'background: ' + ${projects.type}">
+								<div class="MSproject-box">
+
+								</div>
+								<div id="ProjectColorChange">
+									<div id="ColorChangeHeader">
+										변경할 프로젝트의 색상버튼을 눌러주세요!
+									</div>
+									<div id="ChangeContentsArea">
+										<button id="ColorType1" class="hoverBtn ColorBtn" data-projectColor-code=1>
+
+										</button>
+										<button id="ColorType2" class="hoverBtn ColorBtn" data-projectColor-code=2>
+
+										</button>
+										<button id="ColorType3" class="hoverBtn ColorBtn" data-projectColor-code=3>
+
+										</button>
+										<button id="ColorType4" class="hoverBtn ColorBtn" data-projectColor-code=4>
+
+										</button>
+										<button id="ColorType5" class="hoverBtn ColorBtn" data-projectColor-code=5>
+
+										</button>
+										<button id="ColorType6" class="hoverBtn ColorBtn" data-projectColor-code=6>
+
+										</button>
+										<button id="ColorType7" class="hoverBtn ColorBtn" data-projectColor-code=7>
+
+										</button>
+										<button id="ColorType8" class="hoverBtn ColorBtn" data-projectColor-code=8>
+
+										</button>
+										<button id="ColorType9" class="hoverBtn ColorBtn" data-projectColor-code=9>
+
+										</button>
+										<button id="ColorType10" class="hoverBtn ColorBtn" data-projectColor-code=10>
+
+										</button>
+										<button id="ColorType11" class="hoverBtn ColorBtn" data-projectColor-code=11>
+
+										</button>
+										<button id="ColorType12" class="hoverBtn ColorBtn" data-projectColor-code=12>
+
+										</button>
+									</div>
+									<div id="ChangePopupBottom">
+										<button id="SHColorChangeCanclecan">
+											취소
+										</button>
+										<button id="SHColorChangeOk" th:attr="data-project-id=${project_id}">
+											확인
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="project-header-group">
+								<div class="project-title-area">
+									<div class="project-option-area">
+										<button id="MSdetailSettingTopButton" class="detail-setting-top-button">
+											<span></span> <span></span> <span></span>
+										</button>
+										<div id="MSdetailSettingLayer" class="MSproject-setup-wrap"
+											style="display: none;">
+											<div class="project-setting-header">
+												<span>프로젝트 번호</span>
+												<em id="projectDetailNum" th:text="${projects.project_id}"></em>
+											</div>
+											<ul id="MSdetailSettingGroup" class="MSsetup-group">
+												<li id="MSdetailSettingLabelBtn"><a href="#"> <img
+															th:src="@{/images/프로젝트폴더설정.png}"
+															class="MSimg-project-folder-option"> 프로젝트 폴더 설정 </a></li>
+												<li id="MSdetailSettingExitbtn" data-projectOutOrDelete-code=1><a
+														href="#"> <img th:src="@{/images/프로젝트나가기.png}"
+															class="MSimg-project-exit-option"> 프로젝트 나가기 </a></li>
+												<li id="MSdetailSettingProjectDeleteBtn" data-projectOutOrDelete-code=2>
+													<a href="#"> <img th:src="@{/images/프로젝트삭제.png}"
+															class="MSimg-project-delete-option"> 프로젝트 삭제 </a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<h3 id="projectTitle" class="project-title ellipsis js-mouseover"
+										th:mouseover-text="${projects.name}"><a th:text="${projects.name}"></a></h3>
+									<ul class="project-status-group"></ul>
+								</div>
+							</div>
+							<div id="projectOutPopup" style="display:none;">
+								<div id="projectOutHeader">프로젝트를 나가시겠습니까??</div>
+								<div id="prjectOutBottom">
+									<button id="projectOutCancle">취소</button>
+									<button id="projectOutOk" th:attr="data-project-id=${project_id}">확인</button>
+								</div>
+							</div>
+							<div id="projectDeletePopup" style="display: none;">
+								<div id="projectDeleteHeader">프로젝트를 삭제하시겠습니까??</div>
+								<div id="projectDeleteBottom">
+									<button id="projectDeleteCancle">취소</button>
+									<button id="projectDeleteOk" th:attr="data-project-id=${project_id}">확인</button>
+								</div>
+							</div>
+							<div id="projectFolderOpWrap" style="display:none;">
+								<div id="projectFolderHeader">
+									설정하려는 폴더를 눌러주세요!
+								</div>
+								<ul id="projectFolderContent">
+									<li th:each="folders : ${folders}" class="folderli"><a
+											th:text="${folders.name}"></a></li>
+								</ul>
+								<div id="projectFolderBottom">
+									<button id="ProjectFolderCancle">취소</button>
+									<button id="ProjectFolderOk" th:attr="data-project-id=${project_id}">확인</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<button id="inviteLayer" class="invite-layer-btn color-code-0" type="button"
+						style="display: block;">
+						<img th:src="@{/images/초대.png}" class="img-invite">초대하기
+					</button>
+				</div>
+			</div>
+			<div id="mainContent" class="main-content scroll-mask" style="display: block;" scroll-direction="0">
+				<div id="inviteWrap">
+					<div class="inviteInnerWrap1">
+						<div class="inviteInnerWrap2">
+							<div class="inviteBlock">
+								<div class="inviteBlockTop">
+									<span class="inviteTitle">프로젝트 초대</span>
+									<img th:src="@{/images/Close.png}" id="inviteBlockClose" onclick="inviteClose()">
+								</div>
+								<div class="inviteBlockMiddle">
+									<div class="inviteBlockContent">
+										<div class="inviteBlockInnerContent" 
+											>
+											<!-- InviteProject.java 내용 들어올 공간 -->
+											<ul class="iBIC" th:if="${invitelists != null}" th:each="invitelists : ${invitelists}" th:data-member-id="${invitelists.member_id}">
+												<li>
+													<img th:src="@{'/' + ${invitelists.profile_image}}">
+													<div class="inviteBlockWrap">
+														<ul class="inviteContentWrap">
+															<li id="inviteMemName" th:text="${invitelists.member_name}">
+															</li>
+															<div class="inviteConWrap">
+																<li id="inviteComName"
+																	th:text="${invitelists.company_name}"></li>
+															</div>
+														</ul>
+														<button id="inviteBtn" th:attr="data-project-id=${project_id}">초대하기</button>
+													</div>
+												</li>
+											</ul>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="detailLayer" class="detail-layer project-detail-wrap" style="display: blcok;">
+					<div class="project-detail-top default-tab clearfix">
+						<ul id="detailTab" class="detail-tab" style="display: inline-flex;">
+							<li class="js-tab-item default-item active" data-code="feed">
+								<div>
+									<a> <img th:src="@{/images/집.png}" class="img-home1" style="display:block;"> 피드
+									</a>
+									<button class="js-home-tab-menu more-dot"></button>
+								</div>
+							</li>
+							<li class="js-tab-item" data-code="task">
+								<div>
+									<a>업무
+									</a>
+									<button class="js-home-tab-menu more-dot"></button>
+								</div>
+							</li>
+							<li class="js-tab-item" data-code="gantt">
+								<div>
+									<a> 간트차트
+									</a>
+									<button class="js-home-tab-menu more-dot"></button>
+								</div>
+							</li>
+							<li class="js-tab-item" data-code="calendar">
+								<div>
+									<a> 캘린더
+									</a>
+									<button class="js-home-tab-menu more-dot"></button>
+								</div>
+							</li>
+							<li class="js-tab-item" data-code="file">
+								<div>
+									<a> 파일
+									</a>
+									<button class="js-home-tab-menu more-dot"></button>
+								</div>
+							</li>
+							<li class="js-tab-item freezing" data-code="history">
+								<div>
+									<a> 알림
+									</a>
+									<button class="js-home-tab-menu more-dot"></button>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div id="detailTimeline" class="detail-timeline layer-scroll type2 survey" style="display: block;">
+						<div class="js-detail-wrap-area small-style-wrap">
+							<section id="postTimeline" class="post-timeline" style="display: block;">
+								<div class="project-detail-content">
+									<div class="taskReportArea" id="ReportCntArea">
+										<!-- 업무 통계 리로트 -->
+										<div class="section-title-area" id="taskReportOnOff">
+											<h4 class="section-title">
+												<span>업무리포트</span> <span class="section-number"><a
+														th:text="${chartCount != null ? chartCount : 0}"></a></span>
+											</h4>
+											<button id="taskReportToggleButton" type="button"
+												class="js-report-btn reports-button off">
+												<img class="img-arrow" th:src="@{/images/arrow.png}">
+											</button>
+										</div>
+										<!-- 업무통계 원형 리포트 -->
+										<div class="js-task-report-layer d-none" style="display: none;">
+											<div class="task-report">
+												<ul id="taskReportLayer" class="char-count">
+													<li>
+														<div class="task-chart-info-request">
+															<button class="request-button"></button>
+															<span>요청</span> <em></em> <span
+																class="chart-info-percent-request"
+																th:text="${RequestCnt != null ? RequestCnt : 0}">
+															</span>
+														</div>
+														<div class="task-chart-info-progress">
+															<button class="progress-button"></button>
+															<span>진행</span> <em></em> <span
+																class="chart-info-percent-progress"
+																th:text="${ProgressCnt != null ? ProgressCnt : 0}">
+															</span>
+														</div>
+													</li>
+													<li>
+														<div class="task-chart-info-feedback">
+															<button class="feedback-button"></button>
+															<span>피드백</span> <em></em> <span
+																class="chart-info-percent-feedback"
+																th:text="${FeedbackCnt != null ? FeedbackCnt : 0}">
+															</span>
+														</div>
+														<div class="task-chart-info-complete">
+															<button class="complete-button"></button>
+															<span>완료</span> <em></em> <span
+																class="chart-info-percent-complete"
+																th:text="${CompletionCnt != null ? CompletionCnt : 0}">
+															</span>
+														</div>
+													</li>
+													<li>
+														<div class="task-chart-info-hold">
+															<button class="hold-button"></button>
+															<span>보류</span> <em></em> <span
+																class="chart-info-percent-hold"
+																th:text="${HoldCnt != null ? HoldCnt : 0}">
+															</span>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div id="createPostArea" class="create-post-area">
+										<ul id="createPostUl" class="create-post-ul">
+											<li class="post-filter" data-post-code="91"><img th:src="@{/images/글.png}"
+													class="img-write2"> <span>글</span>
+											</li>
+											<li class="post-filter" data-post-code="92"><img th:src="@{/images/업무.png}"
+													class="img-task"> <span>업무</span>
+											</li>
+											<li class="post-filter" data-post-code="93"><img th:src="@{/images/일정.png}"
+													class="img-schedule"> <span>일정</span>
+											</li>
+											<li class="post-filter" data-post-code="94"><img th:src="@{/images/할일.png}"
+													class="img-todo"> <span>할
+													일</span></li>
+										</ul>
+										<div class="work-desing-element">
+											<p class="work-desing-text">내용을 입력하세요.</p>
+											<div class="js-work-img-group work-img-group">
+												<img th:src="@{/images/클립.png}" class="img-file">
+												<img th:src="@{/images/사진.png}" class="img-picture">
+												<img th:src="@{/images/텍스트.png}" class="img-font">
+											</div>
+										</div>
+									</div>
+									<div id="projectHashtagArea" class="project-hashtag-area hashtag-section d-none">
+										<!-- 해쉬태그 코드 -->
+										<ul id="hashtagUl" class="hashtag-ul"></ul>
+									</div>
+								</div>
+								<!-- 피드 팝업에서 생성시 피드 메인화면에 저장될 공간 -->
+								<div id="projectFeedArea" class="project-feed-area feed-section">
+									<div class="section-title-area">
+										<div class="tit-type-area">
+											<h4 id="allPostFilterTitle" class="all-post-filter-title ellipsis">전체</h4>
+											<span class="filter-reset js-filter-reset" style="display: none;">취소</span>
+										</div>
+									</div>
+
+									<!-- 피드  본체 생성 -->
+									<div id="sexy" class="feed-content">
+										<!-- 피드내용 = 글,업무,일정,할일 div가 들어와야할 공간 -->
+										<!-- 피드 글 -->
+										<div th:if="${textlists != null}" th:each="textlists : ${textlists}"
+											class="MSpost-card-wrap post1" th:data-feed-id="${textlists.feed_id}">
+											<div th:if="${textlists.feed_id == selectFeedlists.feed_id}" th:each="selectFeedlists : ${selectFeedlists}">
+											<div class="MSpost-card-header header1">
+												<div class="MSpost-card-scroll pcScroll1">
+													<div class="MScard-header-top top1">
+														<div class="MSpost-author post-author1">
+															<img th:src="@{'/' + ${textlists.profile_image}}"
+																class="MSprofile profile1" id="thisProfile"
+																th:data-profile-code="${textlists.member_id}">
+															<dl class="MSpost-author-info information1">
+																<dt>
+																	<strong th:text="${textlists.name}"
+																		class="MSauthor author1"></strong>
+																	<span th:text="${textlists.regist_date}"
+																		class="MSpost-date daydate1"></span>
+																</dt>
+																<dd class="MS-block block1">
+																	<strong></strong> <span
+																		class="depart-team depart1"></span>
+																</dd>
+															</dl>
+														</div>
+
+														<!-- 피드 삭제 버튼 -->
+														<div>
+															<div class="post-option postOption1"
+																style="display: block;">
+																<button class="post-set-btn settingBtn1"
+																	th:data-feed-id="${textlists.feed_id}">
+																	<span></span> <span></span> <span></span>
+																</button>
+
+																<!-- 피드삭제 및 수정 버튼 누를시 뜨는 팝업 -->
+																<ul class="post-setup-group setGroup1"
+																	style="display: none;"
+																	th:data-feed-id="${textlists.feed_id}">
+																	<li class="modify-btn modifyBtn1"><a href="#"> <img
+																				th:src="@{/images/글.png}"
+																				class="img-MS1 im1">
+																			수정
+																		</a></li>
+																	<li class="delete-btn deleteBtn1"><a href="#"> <img
+																				th:src="@{/images/프로젝트삭제.png}"
+																				class="img-MS2 im21"> 삭제
+																		</a></li>
+																</ul>
+															</div>
+														</div>
+
+													</div>
+
+													<!-- 프로필이랑 날짜 부서등 있는 탑 바로 밑 글 제목이 들어올 공간 -->
+													<div class="MS-card-header-bottom cardBottom1">
+														<div class="MSpost-title-area areaOnTitle1">
+															<h4 th:text="${textlists.title}"
+																class="MSpost-title postTitle1"></h4>
+														</div>
+														<!-- 피드 고유 번호 -->
+														<div class="feed-state fState1">
+															<span class="feed-number fNo1"> 피드번호 <em
+																	th:text="${textlists.feed_id}"></em>
+															</span>
+														</div>
+													</div>
+
+													<!-- 피드 수정버튼 누르면 나오는 팝업 -->
+													<div id="modifyPopupLayer" style="display:none;"
+														th:data-feed-id="${textlists.feed_id}">
+														<div id="modifyHeader">
+															<a th:text="${textlists.feed_id}"></a> 번 "글" 피드 수정
+														</div>
+														<div id="modifyMainContent">
+															<input type="text" placeholder="수정할 피드 제목을 입력해 주세요."
+																id="modifyTitle">
+															<input type="text" placeholder="수정할 피드 내용을 입력해 주세요."
+																id="modifyContent">
+														</div>
+														<div id="MPopupBottom">
+															<button id="modifyNO">취소</button>
+															<button id="modifyOk">수정</button>
+														</div>
+													</div>
+
+													<!-- 피드 삭제 버튼 팝업 -->
+													<div id="feedDeletePopupText" th:data-feed-id="${textlists.feed_id}"
+														style="display:none;">
+														<div id="feedDeleteHeaderText">
+															<a th:text="${textlists.feed_id}"></a>
+															번 "글" 피드를 삭제 하시겠습니까?
+														</div>
+														<div id="feedDeleteBottomText">
+															<button id="feedDeleteNoText">
+																취소
+															</button>
+															<button id="feedDeleteOkText">
+																확인
+															</button>
+														</div>
+													</div>
+
+													<!-- 글 내용이 들어올 공간 -->
+													<div class="MSpost-card-container post-container1">
+														<div id="OriginPost1" class="MSpost-card-content">
+															<p th:text="${textlists.content}"
+																class="MSpost-of-p postp1"></p>
+														</div>
+
+														<!-- 좋아요 북마크 버튼 공간 -->
+														<div class="MSpost-bottom-area pBotArea1">
+															<div class="MSpost-bottom-menu pBotMenu1">
+																<div class="MSbottom-button-area botBtnArea1">
+																	<button id="postLikey1"
+																		class="MSpost-bottom-button1">
+																		<img th:src="@{/images/좋아요.png}"
+																			class="img-likey iLikey1"> <span>좋아요</span>
+																	</button>
+																	<span class="likey-cnt likeyCount1" th:text="${selectFeedlists.likey_cnt}"></span>
+																	<button id="postBookmark1" class="MSpost-bottom-button2">
+																		<img th:src="@{/images/북마크2.png}"
+																			class="img-bookmark iBookmark1"
+																			data-bookmark-code="0">
+																		<span>북마크</span>
+																	</button>
+																</div>
+															</div>
+
+															<!-- 댓글의 카운트, 읽음 수 카운트 -->
+															<div class="comment-read-wrap comRead1">
+																<div class="comment-cnt-area comCntArea1">
+																	<span>댓글 : </span> <span
+																		class="comment-cnt comCnt1" th:text="${selectFeedlists.reply_cnt}"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<!-- 댓글을 달면 댓글이 달릴 공간 -->
+													<div th:if="${textreplylists != null and textreplylists.feed_id == textlists.feed_id}"
+														th:each="textreplylists : ${textreplylists}"
+														class="post-card-footer footer1"
+														th:data-reply-id="${textreplylists.reply_id}">
+														<ul class="post-commnet-group pComGroup1">
+															<li class="comment-info-wrap comInfo1">
+																<div class="comment-img-wrap comI-1" id="thisProfile"
+																	th:data-profile-code="${textreplylists.member_id}">
+																	<img th:src="@{'/' + ${textreplylists.profile_image}}"
+																		class="sub-comment-profile sub-comProfile1">
+																</div> <!-- 이름 댓글날짜 수정,삭제, 코멘트 내용 포함한 div -->
+																<div class="comment-post-info comPInfo1">
+																	<div class="comment-user-area userArea1">
+																		<div class="comment-user comUser1">
+																			<span class="user-name useName1"
+																				th:text="${textreplylists.name}"></span>
+																			<span class="record-date reDate1"
+																				th:text="${textreplylists.reply_date}"></span>
+																		</div>
+
+																		<!-- 코멘트 수정 삭제 버튼 -->
+																		<div class="comment-writer-menu comWriteMenu1"
+																			th:data-reply-id="${textreplylists.reply_id}">
+																			<button type="button"
+																				class="comment-writer-btn1 textOk cwb1-1">
+																				수정</button>
+																			<button type="button"
+																				class="comment-writer-btn2 textDelete cwb2-1">
+																				삭제</button>
+																		</div>
+																		<!-- 수정 버튼 누르면 나올 팝업 -->
+																		<div id="modifyTextReply" style="display:none;"
+																			th:data-reply-id="${textreplylists.reply_id}">
+																			<div id="modiReplyHeader">
+																				해당 댓글을 수정하시겠습니까?
+																			</div>
+																			<div id="modiReplyContent">
+																				<input type="text"
+																					placeholder="수정할 댓글의 내용을 입력해 주세요."
+																					id="modifyReplyText">
+																			</div>
+																			<div id="modiReplyBottom">
+																				<button id="modiReplyNOPE">취소</button>
+																				<button id="modiReplyOK">확인</button>
+																			</div>
+																		</div>
+
+																		<!-- 삭제 버튼 누르면 나올 팝업 -->
+																		<div id="deleteReplyText"
+																			th:data-reply-id="${textreplylists.reply_id}"
+																			style="display:none;">
+																			<div id="deleteTextHeader">해당 댓글을 삭제하시겠습니까?
+																			</div>
+																			<div id="deleteTextReplyBottom">
+																				<button id="deleteReplyNOPE">취소</button>
+																				<button id="deleteReplyOK">확인</button>
+																			</div>
+																		</div>
+
+																	</div>
+
+																	<!-- 코멘트 작성시 코멘트 내용이 들어올 자리 -->
+																	<div class="comment-content comCont1">
+																		<div class="comment-text-area comTextArea1">
+																			<div th:text="${textreplylists.contents}"
+																				class="comment-text comText1">
+																				<div></div>
+																			</div>
+																		</div>
+																	</div>
+																	<input id="textReplyModify" type="text"
+																		placeholder="변경할 댓글의 내용을 입력해 주세요."
+																		style="display:none;">
+																</div>
+															</li>
+														</ul>
+													</div>
+
+													<!-- 댓글 다는 부분 -->
+													<div class="comment-input-wrap comInputWrap1" th:data-feed-id="${textlists.feed_id}">
+														<div class="profile-dummy dummy1">
+															<img th:src="@{/images/프로필.png}"
+																class="commentProfile comProfile1">
+														</div>
+														<div class="comment-container comConta1">
+															<div class="input-field field-1">
+																<input type="text" class="comment-input comInput1"
+																	placeholder="줄바꿈 shift + Enter">
+																<label id="fileInput" class="comment-upload-label comUploadLabel1"> 
+																	<img th:src="@{/images/클립.png}" class="comment-upload comUpload1">
+																	<input type="file" id="fileInput1" name="files" class="file-input" style="display:hidden;">
+																</label> 
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+											</div>
+										</div>
+
+										<!-- 피드 업무 -->
+										<div th:if="${worklists != null}" th:each="worklists : ${worklists}"
+											class="MSpost-card-wrap post2" th:data-feed-id="${worklists.feed_id}">
+											<div th:if="${worklists.feed_id == selectFeedlists.feed_id}" th:each="selectFeedlists : ${selectFeedlists}">
+											<div class="MSpost-card-header header2">
+												<div class="MSpost-card-scroll pcScroll2">
+													<div class="MScard-header-top top2">
+														<div class="MSpost-author post-author2">
+															<img th:src="@{'/' + ${worklists.profile_image}}"
+																class="MSprofile profile2" id="thisProfile"
+																th:data-profile-code="${worklists.member_id}">
+															<dl class="MSpost-author-info information2" id="">
+																<dt>
+																	<strong th:text="${worklists.member_name}"
+																		class="MSauthor author2"></strong> <span
+																		class="MSpost-date daydate2"
+																		th:text="${worklists.regist_date}"></span>
+																</dt>
+																<dd class="MS-block block2">
+																	<strong></strong> <span
+																		class="depart-team depart2"></span>
+																</dd>
+															</dl>
+														</div>
+
+														<!-- 피드 삭제 버튼 -->
+														<div>
+															<div class="post-option postOption2"
+																style="display: block;">
+																<button class="post-set-btn settingBtn2"
+																	th:data-feed-id="${worklists.feed_id}">
+																	<span></span> <span></span> <span></span>
+																</button>
+
+																<!-- 피드삭제 및 수정 버튼 누를시 뜨는 팝업 -->
+																<ul class="post-setup-group setGroup2"
+																	style="display: none;"
+																	th:data-feed-id="${worklists.feed_id}">
+																	<li class="modify-btn modifyBtn2"><a href="#"> <img
+																				th:src="@{/images/글.png}"
+																				class="img-MS1 im2">
+																			수정
+																		</a></li>
+																	<li class="delete-btn deleteBtn2"><a href="#"> <img
+																				th:src="@{/images/프로젝트삭제.png}"
+																				class="img-MS2 im22"> 삭제
+																		</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+
+													<!-- 프로필이랑 날짜 부서등 있는 탑 바로 밑 글 제목이 들어올 공간 -->
+													<div class="MS-card-header-bottom cardBottom2">
+														<div class="MSpost-title-area areaOnTitle2">
+															<h4 th:text="${worklists.title}"
+																class="MSpost-title postTitle2"></h4>
+														</div>
+														<!-- 피드 고유 번호 -->
+														<div class="feed-state fState2">
+															<span class="feed-number fNo2"> 피드번호
+																<em th:text="${worklists.feed_id}">
+																</em>
+															</span>
+														</div>
+													</div>
+
+													<!-- 피드 업무 수정 누르면 나오는 팝업 -->
+													<div id="modifyWorkPopup" class="modify-work-popup" th:data-feed-id="${worklists.feed_id}" th:data-subtask-code="${worklists.sub_task_id}"
+														style="display:none;">
+														<div id="modiworkPopHeader">
+															<a th:text="${worklists.feed_id}"></a> 번 "업무" 피드 수정
+														</div>
+														<div id="modiworkPopMainContainer" class="modi-work-pop-main-con">
+															<input type="text" placeholder="수정할 업무 제목을 입력해 주세요."
+																id="modifyWorkTitle">
+															<input type="text" placeholder="수정할 업무 내용을 입력해 주세요."
+																id="modifyWorkContent">
+															<p>※ 수정할 상태버튼을 선택해 주세요!</p>
+															<div id="modiWorkProcess">
+																<button id="modifyProcess1" data-modifyProcess-code="1"
+																	class="mprocesshover">
+																	요청
+																</button>
+																<button id="modifyProcess2" data-modifyProcess-code="2"
+																	class="mprocesshover">
+																	진행
+																</button>
+																<button id="modifyProcess3" data-modifyProcess-code="3"
+																	class="mprocesshover">
+																	피드백
+																</button>
+																<button id="modifyProcess4" data-modifyProcess-code="4"
+																	class="mprocesshover">
+																	완료
+																</button>
+																<button id="modifyProcess5" data-modifyProcess-code="5"
+																	class="mprocesshover">
+																	보류
+																</button>
+															</div>
+															<p>※ 수정할 업무 담당자를 선택해 주세요!</p>
+															<div id="modiWorkManager">
+																<input type="text" placeholder="담당자 수정"
+																	id="modiWorkInput" class="modify-work-input">
+															</div>
+															<!-- 피드에서 담당자 버튼 눌렀을때 나오는 팝업 -->
+															<div class="host-add-all-manager" style="display: none;">
+																<div class="host-sub-mgr-wrap">
+																	<div class="host-manager-list">
+																		<ul class="host-mgr-search-ul">
+																			<li href="#" class="host-select-mgr"
+																				th:each="modifyworkmanagers : ${modifyworkmanagers}"
+																				th:data-modifyworkmanger-code="${modifyworkmanagers.member_id}">
+																				<div class="host-all-search-section">
+																					<div class="host-worker-profile">
+																						<img th:src="@{'/' + ${modifyworkmanagers.profile_image}}"
+																							id="hostWorkerProfile">
+																					</div>
+																					<div
+																						class="host-all-search-write-wrap">
+																						<div
+																							class="host-all-search-write">
+																							<div class="host-registration-name"
+																								th:text="${modifyworkmanagers.member_name}">
+																							</div>
+																							<span
+																								class="host-registration-position"></span>
+																						</div>
+																						<div
+																							class="host-worker-company-name">
+																							<div class="registration-compnay"
+																								th:text="${modifyworkmanagers.company_name}">
+																							</div>
+																						</div>
+																					</div>
+																					<input type="checkbox"
+																						id="hostWorkCheck">
+																				</div>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+																<div id="hostaddWorkerBottom">
+																	<button id="hostaddWorkerCancel"
+																		class="host-add-worker-cancle">
+																		취소
+																	</button>
+																	<button id="hostaddWorkerOk"
+																		class="host-add-work-ok">
+																		확인
+																	</button>
+																</div>
+															</div>
+															<p>※ 수정할 시작일고 마감일을 선택해 주세요!</p>
+															<div id="modiWorkFickerWrap">
+																<input type="date" id="modifyWorkStart">
+																-
+																<input type="date" id="modifyWorkEnd">
+															</div>
+															<p>※ 수정할 우선순위 버튼을 선택해 주세요!</p>
+															<div id="modiWorkPriority">
+																<button id="modipriority1" data-modiPriority-code="1"
+																	class="mpriorityhover">
+																	낮음
+																</button>
+																<button id="modipriority2" data-modiPriority-code="2"
+																	class="mpriorityhover">
+																	보통
+																</button>
+																<button id="modipriority3" data-modiPriority-code="3"
+																	class="mpriorityhover">
+																	높음
+																</button>
+																<button id="modipriority4" data-modiPriority-code="4"
+																	class="mpriorityhover">
+																	긴급
+																</button>
+															</div>
+															<p>※ 수정할 진척도의 버튼을 선택해 주세요! (10% 단위)</p>
+															<div id="modiProgressWrap">
+																<button data-modiProgress-code="10"
+																	class="mprogresshover">
+																	10%
+																</button>
+																<button data-modiProgress-code="20"
+																	class="mprogresshover">
+																	20%
+																</button>
+																<button data-modiProgress-code="30"
+																	class="mprogresshover">
+																	30%
+																</button>
+																<button data-modiProgress-code="40"
+																	class="mprogresshover">
+																	40%
+																</button>
+																<button data-modiProgress-code="50"
+																	class="mprogresshover">
+																	50%
+																</button>
+																<button data-modiProgress-code="60"
+																	class="mprogresshover">
+																	60%
+																</button>
+																<button data-modiProgress-code="70"
+																	class="mprogresshover">
+																	70%
+																</button>
+																<button data-modiProgress-code="80"
+																	class="mprogresshover">
+																	80%
+																</button>
+																<button data-modiProgress-code="90"
+																	class="mprogresshover">
+																	90%
+																</button>
+																<button data-modiProgress-code="100"
+																	class="mprogresshover">
+																	100%
+																</button>
+															</div>
+															<p>※ 수정할 하위 업무 상태버튼을 선택해 주세요!</p>
+															<div id="modiWorkSTProcess">
+																<button id="modifySTProcess1"
+																	data-modifyStProcess-code="1"
+																	class="STmprocesshover">
+																	요청
+																</button>
+																<button id="modifySTProcess2"
+																	data-modifyStProcess-code="2"
+																	class="STmprocesshover">
+																	진행
+																</button>
+																<button id="modifySTProcess3"
+																	data-modifyStProcess-code="3"
+																	class="STmprocesshover">
+																	피드백
+																</button>
+																<button id="modifySTProcess4"
+																	data-modifyStProcess-code="4"
+																	class="STmprocesshover">
+																	완료
+																</button>
+																<button id="modifySTProcess5"
+																	data-modifyStProcess-code="5"
+																	class="STmprocesshover">
+																	보류
+																</button>
+															</div>
+															<input type="text" placeholder="수정할 하위 업무 제목을 입력해 주세요."
+																id="sTmodifyTitle">
+															<p>※수정할 하위 업무 마감일을 선택해 주세요!</p>
+															<input type="date" id="sTmodiDeadline">
+															<p>※ 수정할 하위 업무 우선순위 버튼을 선택해 주세요!</p>
+															<div id="modiWorkStPriority">
+																<button id="modiStpriority1"
+																	data-modiStPriority-code="1"
+																	class="mStpriorityhover">
+																	낮음
+																</button>
+																<button id="modiStpriority2"
+																	data-modiStPriority-code="2"
+																	class="mStpriorityhover">
+																	보통
+																</button>
+																<button id="modiStpriority3"
+																	data-modiStPriority-code="3"
+																	class="mStpriorityhover">
+																	높음
+																</button>
+																<button id="modiStpriority4"
+																	data-modiStPriority-code="4"
+																	class="mStpriorityhover">
+																	긴급
+																</button>
+															</div>
+															<p>※ 수정할 하위 업무 담당자를 선택해 주세요!</p>
+															<input type ="text" placeholder="하위 업무 담장자 변경" class ="modify-subtask-worker">
+															<!-- 피드에서 하위 업무 담당자 변경 인풋 눌렀을때 나오는 팝업 -->
+															<div class="sub-host-add-all-manager" style="display: none;">
+																<div class="host-sub-mgr-wrap">
+																	<div class="sub-host-manager-list">
+																		<ul class="sub-host-mgr-search-ul">
+																			<li href="#" class="sub-host-select-mgr"
+																				th:each="modifyworkmanagers : ${modifyworkmanagers}"
+																				th:data-modifyworkmanger-code="${modifyworkmanagers.member_id}">
+																				<div class="sub-host-all-search-section">
+																					<div class="sub-host-worker-profile">
+																						<img th:src="@{'/' + ${modifyworkmanagers.profile_image}}"
+																							id="subhostWorkerProfile">
+																					</div>
+																					<div
+																						class="sub-host-all-search-write-wrap">
+																						<div
+																							class="sub-host-all-search-write">
+																							<div class="sub-host-registration-name"
+																								th:text="${modifyworkmanagers.member_name}">
+																							</div>
+																							<span
+																								class="sub-host-registration-position"></span>
+																						</div>
+																						<div
+																							class="sub-host-worker-company-name">
+																							<div class="sub-registration-compnay"
+																								th:text="${modifyworkmanagers.company_name}">
+																							</div>
+																						</div>
+																					</div>
+																					<input type="checkbox"
+																						id="sub-hostWorkCheck" class="sub-host-work-check">
+																				</div>
+																			</li>
+																		</ul>
+																	</div>
+																</div>
+																<div id="subhostaddWorkerBottom">
+																	<button id="subhostaddWorkerCancel"
+																		class="sub-host-add-worker-cancle">
+																		취소
+																	</button>
+																	<button id="subhostaddWorkerOk"
+																		class="sub-host-add-work-ok">
+																		확인
+																	</button>
+																</div>
+															</div>
+														</div>
+														<div id="modiworkPopBottom">
+															<button id="modifyWorkNO">취소</button>
+															<button id="modifyWorkOk">수정</button>
+														</div>
+													</div>
+
+													<!-- 피드 업무 삭제 버튼 팝업 -->
+													<div id="feedDeletePopupWork" style="display:none;"
+														th:data-feed-id="${worklists.feed_id}">
+														<div id="feedDeleteHeaderWork">
+															<a th:text="${worklists.feed_id}"></a>
+															번 "업무" 피드를 삭제 하시겠습니까?
+														</div>
+														<div id="feedDeleteBottomWork">
+															<button id="feedDeleteNoWork">
+																취소
+															</button>
+															<button id="feedDeleteOkWork">
+																확인
+															</button>
+														</div>
+													</div>
+
+													<!-- 피드 업무 생성시 목록칸 -->
+
+													<!-- 글 내용이 들어올 공간 -->
+													<div class="MSpost-card-container post-container2">
+														<!-- 피드 페이지에 실질적으로 들어갈업무 팝업부분 -->
+														<div class="host-task-option" style="display: block;">
+															<ul class="host-create-content-group">
+																<li class="host-status-layer">
+																	<div class="host-create-content-cell hosttitle">
+																		<img class="host-img-post-status"
+																			th:src="@{/images/시계.png}">
+																	</div>
+																	<div class="host-create-content-cell">
+																		<div class="host-state-button-group">
+																			<button type="button"
+																				class="host-task-state-button hostrequest"
+																				th:style="${worklists.process == 1} ? 'background: rgb(0, 178, 255)' : 'background: rgb(238, 238, 238)'">요청</button>
+																			<button type="button"
+																				class="host-task-state-button hostprogress"
+																				th:style="${worklists.process == 2} ? 'background:rgb(0, 176, 28)' : 'background:rgb(238, 238, 238)'">진행</button>
+																			<button type="button"
+																				class="host-task-state-button hostfeedback"
+																				th:style="${worklists.process == 3} ? 'background:rgb(253, 121, 0)' : 'background:rgb(238, 238, 238)'">피드백</button>
+																			<button type="button"
+																				class="host-task-state-button hostcompletion"
+																				th:style="${worklists.process == 4} ? 'background:rgb(64, 42, 157)' : 'background:rgb(238, 238, 238)'">완료</button>
+																			<button type="button"
+																				class="host-task-state-button hosthold"
+																				th:style="${worklists.process == 5} ? 'background:rgb(119, 119, 119)' : 'background:rgb(238, 238, 238)'">보류</button>
+																		</div>
+																	</div>
+																</li>
+																<li class="host-task-worker-layer host-more-task-li hostd-none" 
+																	style="display: flex" data>
+																	<div
+																		class="host-create-content-cell hosttitle hostmanager">
+																		<img th:src="@{/images/사람이먼저다.png}"
+																			class="host-img-post-worker">
+																	</div>
+																	<div
+																		th:if="${allFeedDetails != null and allFeedDetails.size() > 0}">
+																		<div class="host-create-content-cell host-manager-btn-group"
+																			th:each="feedDetailsList : ${allFeedDetails}">
+																			<div th:each="feedDetails : ${feedDetailsList}"
+																				th:if="${feedDetails.feed_id == worklists.feed_id}">
+																				<div class="host-user-wrap">
+																					<span
+																						class="host-workers hostmanager-group">
+																						<span class="hostmanager-item"
+																							th:data-workmembers-code="${feedDetails.member_id}">
+																							<img th:src="@{'/' + ${feedDetails.profile_image}}"
+																								class="hostmanager-profile-img">
+																							<span
+																								class="ms-registraion-name"
+																								th:text="${feedDetails.member_name}">
+																							</span>
+																						</span>
+																					</span>
+																				</div>
+																				<button type="button"
+																					class="host-worker-button host-add-manager-button"
+																					style="display: none;">담당자
+																					추가</button>
+																			</div>
+																		</div>
+																	</div>
+																</li>
+																<!-- 항목추가입력 버튼 누르면 바뀜 -->
+																<!-- 시작일 -->
+																<li id="hostMSstartDate"
+																	class="host-date-layer host-start-date-layer host-more-task-li hostd-none">
+																	<div class="host-create-content-cell host-title">
+																		<img th:src="@{/images/일정.png}">
+																	</div>
+																	<div
+																		class="host-date-option host-create-content-cell">
+																		<div
+																			class="host-pickr-layer host-start-flatpickr">
+																			<label type="button"
+																				class="host-date-label host-add-manager-button"
+																				style="display: flex;">
+																				<span th:text="${worklists.start_date}"
+																					id="hostMSscheduleStartDate"></span>
+																				<input id="hostMSscheduleStartDate"
+																					class="host-pickr-date host-flatpickr-input host-ie-pickr"
+																					type="text" placeholder="시작일 추가"
+																					readonly="readonly"
+																					style="display:none;">
+																			</label>
+																		</div>
+																	</div>
+																</li>
+																<!-- 마감일 -->
+																<li id="hostMSendDate"
+																	class="host-date-layer host-end-date-layer host-more-task-li hostd-none">
+																	<div class="host-create-content-cell hosttitle">
+																		<img th:src="@{/images/일정.png}">
+																	</div>
+																	<div
+																		class="host-date-option host-create-content-cell">
+																		<div
+																			class="host-pickr-layer host-end-flatpickr">
+																			<label type="button"
+																				class="host-date-label host-add-manager-button"
+																				style="display: flex;">
+																				<span th:text="${worklists.deadline}"
+																					id="hostMSscheduleEndDate"></span>
+																				<input id="hostMSscheduleEndDate"
+																					class="host-pickr-date host-flatpickr-input host-ie-pickr"
+																					type="text" placeholder="마감일 추가"
+																					readonly="readonly"
+																					style="display:none;">
+																			</label>
+																		</div>
+																	</div>
+																</li>
+																<!-- 우선순위 추가 -->
+																<li id="hostMSpriorityNumbers"
+																	class="host-priority-layer host-more-task-li">
+																	<div class="host-create-content-cell hosttitle">
+																		<img th:src="@{/images/깃발.png}">
+																	</div>
+																	<div class="host-priority host-create-content-cell">
+																		<button id="hostpriorityButton" type="button"
+																			class="host-priority-button host-priority-event hostadd-manager-button"
+																			th:style="${worklists.priority != null} ? 'display: none;' : 'display: flex;'">우선순위
+																			추가</button>
+																		<!-- 숨겨진 우선순위들 -->
+																		<div id="hostprioritySpan"
+																			class="host-priority-span host-priority-event hostrank-item">
+																			<div class="hostpriority-row"
+																				th:style="${worklists.priority == 1} ? 'display:block;' : 'display: none;'">
+																				<img th:src="@{/images/row화살표.png}">
+																				<span
+																					class="host-priority-text">낮음</span>
+																			</div>
+																			<div class="hostpriority-normal"
+																				th:style="${worklists.priority == 2} ? 'display:block;' : 'display: none;'">
+																				<img th:src="@{/images/보통쓰.png}"> <span
+																					class="host-priority-text">보통</span>
+																			</div>
+																			<div class="hostpriority-arrow"
+																				th:style="${worklists.priority == 3} ? 'display:block;' : 'display: none;'">
+																				<img th:src="@{/images/빨간화살표.png}">
+																				<span
+																					class="host-priority-text">높음</span>
+																			</div>
+																			<div class="hostpriority-sos"
+																				th:style="${worklists.priority == 4} ? 'display:block;' : 'display: none;'">
+																				<img th:src="@{/images/긴급.png}"> <span
+																					class="host-priority-text">긴급</span>
+																			</div>
+																		</div>
+																		<!-- 우선순위 팝업... -->
+																		<div id="hostpriorityPopup"
+																			class="host-priority-setting-layer host-priority-event hostpriority-group hostd-none">
+																			<button id="hostpriorityButtons-1"
+																				type="button"
+																				class="host-priority-setting-button hostpriority-button hostMSlow-button">
+																				<span> <img
+																						th:src="@{/images/row화살표.png}">
+																				</span> 낮음
+																			</button>
+																			<button id="hostpriorityButtons-2"
+																				type="button"
+																				class="host-priority-setting-button hostpriority-button hostMSnormal-button">
+																				<span> <img th:src="@{/images/보통쓰.png}">
+																				</span> 보통
+																			</button>
+																			<button id="hostpriorityButtons-3"
+																				type="button"
+																				class="host-priority-setting-button hostpriority-button hostMSarrow-button">
+																				<span> <img
+																						th:src="@{/images/빨간화살표.png}">
+																				</span> 높음
+																			</button>
+																			<button id="hostpriorityButtons-4"
+																				type="button"
+																				class="host-priority-setting-button hostpriority-button hostMSsos-button">
+																				<span> <img th:src="@{/images/긴급.png}">
+																				</span> 긴급
+																			</button>
+																		</div>
+																	</div>
+																</li>
+																<!-- 진척도 -->
+																<li id="hostMSprogressGraph"
+																	class="host-progress-layer host-more-task-li">
+																	<div class="host-create-content-cell hosttitle">
+																		<img th:src="@{/images/진척도.png}">
+																	</div>
+																	<div
+																		class="hostprogress-wrap host-creat-content-cell">
+																		<div class="hostprogress-graph">
+																			<span id="hostprogressPercent1"
+																				class="host-progress-button"
+																				data-progress-value="10"
+																				th:style="${worklists.progress >= 10 ? 'background-color: red; width:' + worklists.progress + '%;' : 'background-color:white;'}"
+																				onclick="hostfillProgress(1)">
+																			</span> <span id="hostprogressPercent2"
+																				class="host-progress-button"
+																				data-progress-value="20"
+																				onclick="hostfillProgress(2)">
+																			</span> <span id="hostprogressPercent3"
+																				class="host-progress-button"
+																				data-progress-value="30"
+																				onclick="hostfillProgress(3)">
+																			</span> <span id="hostprogressPercent4"
+																				class="host-progress-button"
+																				data-progress-value="40"
+																				onclick="hostfillProgress(4)">
+																			</span> <span id="hostprogressPercent5"
+																				class="host-progress-button"
+																				data-progress-value="50"
+																				onclick="hostfillProgress(5)">
+																			</span> <span id="hostprogressPercent6"
+																				class="host-progress-button"
+																				data-progress-value="60"
+																				onclick="hostfillProgress(6)">
+																			</span> <span id="hostprogressPercent7"
+																				class="host-progress-button"
+																				data-progress-value="70"
+																				onclick="hostfillProgress(7)">
+																			</span> <span id="hostprogressPercent8"
+																				class="host-progress-button"
+																				data-progress-value="80"
+																				onclick="hostfillProgress(8)">
+																			</span> <span id="hostprogressPercent9"
+																				class="host-progress-button"
+																				data-progress-value="90"
+																				onclick="hostfillProgress(9)">
+																			</span> <span id="hostprogressPercent10"
+																				class="host-progress-button"
+																				data-progress-value="100"
+																				onclick="hostfillProgress(10)">
+																			</span> <span
+																				th:text="${worklists.progress} + '%'"
+																				class="host-progress-text hostprogress-txt"></span>
+																		</div>
+																	</div>
+																</li>
+															</ul>
+
+															<button type="button"
+																class="hostmore-button host-add-button"
+																style="display: none" data>
+																<img th:src="@{/images/plus.png}"
+																	class="host-img-plus">항목추가입력
+															</button>
+															<!-- 하위업무 부분 -->
+															<div class="hostMSsubtask-space">
+																<div class="hostMSsubtask-wrap">
+																	<div class="hostMSsubtask-header">
+																		<span class="hostMSsubtask-title"> <img
+																				th:src="@{/images/하위이미지.png}"> 하위업무
+																		</span>
+																	</div>
+																	<div class="hostMSsubtask-bottom">
+																		<div class="hostMSsubtask-registered-area">
+																			<div class="hostMSsubtask-input-area">
+																				<div class="hostMSsubtask-status-area">
+																					<button type="button"
+																						th:style="${worklists.sub_process == 1} ? 'display: block;' : 'display:none;'"
+																						id="hostMSsubtask-button1"
+																						class="hostMSsubtask-status-request"
+																						>요청</button>
+																					<button type="button"
+																						th:style="${worklists.sub_process == 2} ? 'display: block;' : 'display:none;'"
+																						id="hostMSsubtask-button2"
+																						class="hostMSsubtask-status-progress"
+																						>진행</button>
+																					<button type="button"
+																						th:style="${worklists.sub_process == 3} ? 'display: block;' : 'display:none;'"
+																						id="hostMSsubtask-button3"
+																						class="hostMSsubtask-status-feedback"
+																						>피드백</button>
+																					<button type="button"
+																						th:style="${worklists.sub_process == 4} ? 'display: block;' : 'display:none;'"
+																						id="hostMSsubtask-button4"
+																						class="hostMSsubtask-status-completion"
+																						>완료</button>
+																					<button type="button"
+																						th:style="${worklists.sub_process == 5} ? 'display: block;' : 'display:none;'"
+																						id="hostMSsubtask-button5"
+																						class="hostMSsubtask-status-hold"
+																						>보류</button>
+																				</div>
+																				<span th:text="${worklists.sub_title}"
+																					class="hostMSsubtask-input"></span>
+																				<input type="text"
+																					class="hostMSsubtask-input"
+																					tab-code="input" maxlength="100"
+																					data-empty-msg="하위 업무 제목을 입력하세요."
+																					placeholder="하위업무명 입력"
+																					style="display:none;">
+																				<ul class="hostMSsubtask-menu">
+																					<li class="hostMSsubtask-menu-endDate"
+																						mouseover-text="마감일 추가">
+																						<div
+																							class="hostMSsubtask-pickr-layer">
+																							<span
+																								th:text="${worklists.sub_deadline}"
+																								class="hostMSsubtask-endDate-input"></span>
+																							<input type="text"
+																								class="hostMSsubtask-endDate-input"
+																								readonly="readonly"
+																								placeholder="마감일 설정"
+																								style="display:none;">
+																						</div>
+																					</li>
+																					<!-- 하위업무 우선순위 -->
+
+																					<li class="hostMSsubtask-priority-layer"
+																						th:style="${worklists.sub_priority != null} ? 'display: none;' : 'display: block;'"
+																						mouseover-text="우선순위 추가">
+																						<button type="button"
+																							id="hostMSsubtaskPriorityButton"
+																							class="hostMSsubtask-priority-button"
+																							onclick="dmddody2()">
+																							<span> <img
+																									th:src="@{/images/긴급사태.png}"
+																									class="hostsosbtndh"
+																									title="하위업무 우선순위">
+																							</span>
+																						</button>
+																					</li>
+																					<!-- block 될 팝업친구들 -->
+																					<span
+																						th:style="${worklists.sub_priority == 1} ? 'display: block;' : 'display: none;'">
+																						<img th:src="@{/images/row화살표.png}"
+																							class="hostrowbtndh">낮음
+																					</span>
+
+																					<span
+																						th:style="${worklists.sub_priority == 2} ? 'display: block;' : 'display: none;'">
+																						<img th:src="@{/images/보통쓰.png}"
+																							class="hostnormalbtndh">보통
+																					</span>
+
+																					<span
+																						th:style="${worklists.sub_priority == 3} ? 'display: block;' : 'display: none;'">
+																						<img th:src="@{/images/빨간화살표.png}"
+																							class="hostarrowbtndh">높음
+																					</span>
+
+																					<span
+																						th:style="${worklists.sub_priority == 4} ? 'display: block;' : 'display: none;'">
+																						<img th:src="@{/images/긴급.png}"
+																							class="hostalertbtndh">긴급
+																					</span>
+																					<!-- 여기까디 -->
+
+																					<!-- 하위 업무 담당자 select 팝업 -->
+																					<div id="subWorkerWrap" class="sub-worker-wrap" style="display:none;">
+																						<div id="mainWrap">
+																							<div id="contentUl" class="content-ul">
+																								
+																							</div>
+																						</div>
+																						<div id="wrapBot">
+																							<button id="addWorkersOk" class="add-worker-ok">
+																								확인
+																							</button>
+																						</div>
+																					</div>
+
+																					<!-- 하위업무 담당자 -->
+																					<li class="hostMSsubtask-manager" th:data-subtask-code="${worklists.sub_task_id}">
+																						<button type="button"
+																							class="hostMSsubtask-manager-button">
+																							<span> <img
+																									th:src="@{/images/프로필.png}"
+																									class="hostmanager-img"
+																									title="하위업무 참석자">
+																							</span>
+																						</button>
+																					</li>
+																				</ul>
+																				<!-- 하위업무의 우선순위 팝업 -->
+																				<div id="hostsubPriorityPopup"
+																					class="host-sub-priority-group d-none"
+																					style="display: none; top: -142.6px; left: 512.725px;">
+																					<button type="button"
+																						id="hostsubPriorityButton1"
+																						class="host-sub-priority-button-close"
+																						onclick="popupdh2(1)">
+																						<span> <img
+																								th:src="@{/images/닫기.png}"
+																								class="hostclosebtndh">
+																						</span> 취소
+																					</button>
+																					<button type="button"
+																						id="hostsubPriorityButton2"
+																						class="host-sub-priority-button-row"
+																						onclick="popupdh2(2)">
+																						<span> <img
+																								th:src="@{/images/row화살표.png}"
+																								class="hostrowbtndh">
+																						</span> 낮음
+																					</button>
+																					<button type="button"
+																						id="hostsubPriorityButton3"
+																						class="host-sub-priority-button-normal"
+																						onclick="popupdh2(3)">
+																						<span> <img
+																								th:src="@{/images/보통쓰.png}"
+																								class="hostnormalbtndh">
+																						</span> 보통
+																					</button>
+																					<button type="button"
+																						id="hostsubPriorityButton4"
+																						class="host-sub-priority-button-arrow"
+																						onclick="popupdh2(4)">
+																						<span> <img
+																								th:src="@{/images/빨간화살표.png}"
+																								class="hostarrowbtndh">
+																						</span> 높음
+																					</button>
+																					<button type="button"
+																						id="hostsubPriorityButton5"
+																						class="host-sub-priority-button-SOS"
+																						onclick="popupdh2(5)">
+																						<span> <img
+																								th:src="@{/images/긴급.png}"
+																								class="hostalertbtndh">
+																						</span> 긴급
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div id="OriginPost2" class="MSpost-card-content">
+															<p th:text="${worklists.content}"
+																class="MSpost-of-p postp2"></p>
+														</div>
+
+														<!-- 좋아요 북마크 버튼 공간 -->
+														<div class="MSpost-bottom-area pBotArea2">
+															<div class="MSpost-bottom-menu pBotMenu2">
+																<div class="MSbottom-button-area botBtnArea2">
+																	<button id="postLikey2"
+																		class="MSpost-bottom-button1">
+																		<img th:src="@{/images/좋아요.png}"
+																			class="img-likey iLikey2"> <span>좋아요</span>
+																	</button>
+																	<span class="likey-cnt likeyCount2" th:text="${selectFeedlists.likey_cnt}"></span>
+																	<button id="postBookmark2"
+																		class="MSpost-bottom-button2">
+																		<img th:src="@{/images/북마크2.png}"
+																			class="img-bookmark iBookmark2">
+																		<span>북마크</span>
+																	</button>
+																</div>
+															</div>
+
+															<!-- 댓글의 카운트, 읽음 수 카운트 -->
+															<div class="comment-read-wrap comRead2">
+																<div class="comment-cnt-area comCntArea2">
+																	<span>댓글 : </span> <span
+																		class="comment-cnt comCnt2" th:text="${selectFeedlists.reply_cnt}"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<!-- 댓글을 달면 댓글이 달릴 공간 -->
+													<div th:if="${workreplylists != null and workreplylists.feed_id == worklists.feed_id}"
+														th:each="workreplylists : ${workreplylists}"
+														class="post-card-footer footer2">
+														<ul class="post-commnet-group pComGroup2"
+															th:data-feed-id="${worklists.feed_id}">
+															<li class="comment-info-wrap comInfo2">
+																<div class="comment-img-wrap comI-2" id="thisProfile"
+																	th:data-profile-code="${workreplylists.member_id}">
+																	<img th:src="@{'/' + ${workreplylists.profile_image}}"
+																		class="sub-comment-profile sub-comProfile2">
+																</div> <!-- 이름 댓글날짜 수정,삭제, 코멘트 내용 포함한 div -->
+																<div class="comment-post-info comPInfo2">
+																	<div class="comment-user-area userArea2">
+																		<div class="comment-user comUser2">
+																			<span class="user-name useName2"
+																				th:text="${workreplylists.name}"></span>
+																			<span class="record-date reDate2"
+																				th:text="${workreplylists.reply_date}">날짜</span>
+																		</div>
+
+																		<!-- 코멘트 수정 삭제 버튼 -->
+																		<div class="comment-writer-menu comWriteMenu2"
+																			th:data-reply-id="${workreplylists.reply_id}">
+																			<button type="button"
+																				class="comment-writer-btn1 workOk cwb1-2">
+																				수정</button>
+																			<button type="button"
+																				class="comment-writer-btn2 workDelete cwb2-2">
+																				삭제</button>
+																		</div>
+
+																		<!-- 수정 버튼 누르면 나올 팝업 -->
+																		<div id="modifyWorkReply" style="display:none;"
+																			th:data-reply-id="${workreplylists.reply_id}">
+																			<div id="modiReplyHeaderWork">
+																				해당 댓글을 수정하시겠습니까?
+																			</div>
+																			<div id="modiReplyContentWork">
+																				<input type="text"
+																					placeholder="수정할 댓글의 내용을 입력해 주세요."
+																					id="modifyReplyWork">
+																			</div>
+																			<div id="modiReplyBottomWork">
+																				<button
+																					id="modiReplyWorkNOPE">취소</button>
+																				<button id="modiReplyWorkOK">확인</button>
+																			</div>
+																		</div>
+
+																		<!-- 삭제 버튼 누르면 나올 팝업 -->
+																		<div id="deleteReplyWork"
+																			th:data-reply-id="${workreplylists.reply_id}"
+																			style="display:none;">
+																			<div id="deleteWorkHeader">해당 댓글을 삭제하시겠습니까?
+																			</div>
+																			<div id="deleteWorkReplyBottom">
+																				<button
+																					id="deleteReplyNOPEWork">취소</button>
+																				<button
+																					id="deleteReplyOKWork">확인</button>
+																			</div>
+																		</div>
+
+																	</div>
+
+																	<!-- 코멘트 작성시 코멘트 내용이 들어올 자리 -->
+																	<div class="comment-content comCont2">
+																		<div class="comment-text-area comTextArea2">
+																			<div th:text="${workreplylists.contents}"
+																				class="comment-text comText2">
+																				<div></div>
+																			</div>
+																		</div>
+																	</div>
+																	<input id="workReplyModify" type="text"
+																		placeholder="변경할 댓글의 내용을 입력해 주세요."
+																		style="display:none;">
+																</div>
+															</li>
+														</ul>
+													</div>
+
+													<!-- 댓글 다는 부분 -->
+													<div class="comment-input-wrap comInputWrap2">
+														<div class="profile-dummy dummy2">
+															<img th:src="@{/images/프로필.png}"
+																class="commentProfile comProfile2">
+														</div>
+														<form class="comment-container comConta2">
+															<div class="input-field field-2">
+																<input type="text" class="comment-input comInput2"
+																	placeholder="줄바꿈 shift + Enter"> <label
+																	for="fileInput"
+																	class="comment-upload-label comUploadLabel2"> <img
+																		th:src="@{/images/클립.png}"
+																		class="comment-upload comUpload2">
+																</label> <input type="file" id="fileInput2"
+																	class="file-input" style="display: none;">
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+											</div>
+										</div>
+
+										<!-- 피드 일정 -->
+										<div th:if="${schedulelists != null}" th:each="schedulelists : ${schedulelists}"
+											class="MSpost-card-wrap post3" style="display: block;"
+											th:data-feed-id="${schedulelists.feed_id}">
+											<div th:if="${schedulelists.feed_id == selectFeedlists.feed_id}" th:each="selectFeedlists : ${selectFeedlists}">
+											<div class="MSpost-card-header header3">
+												<div class="MSpost-card-scroll pcScroll3">
+													<div class="MScard-header-top top3">
+														<div class="MSpost-author post-author3">
+															<img th:src="@{'/' + ${schedulelists.profile_image}}"
+																class="MSprofile profile3 thisProfile"
+																th:data-profile-code="${schedulelists.member_id}">
+															<dl class="MSpost-author-info information3">
+																<dt>
+																	<strong th:text="${schedulelists.name}"
+																		class="MSauthor author3"></strong>
+																	<span th:text="${schedulelists.regist_date}"
+																		class="MSpost-date daydate3"></span>
+																</dt>
+																<dd class="MS-block block3">
+																	<strong></strong> <span
+																		class="depart-team depart3"></span>
+																</dd>
+															</dl>
+														</div>
+
+														<!-- 피드 삭제 버튼 -->
+														<div>
+															<div class="post-option postOption3"
+																style="display: block;">
+																<button class="post-set-btn settingBtn3"
+																	th:data-feed-id="${schedulelists.feed_id}">
+																	<span></span> <span></span> <span></span>
+																</button>
+
+																<!-- 피드삭제 및 수정 버튼 누를시 뜨는 팝업 -->
+																<ul class="post-setup-group setGroup3"
+																	style="display: none;"
+																	th:data-feed-id="${schedulelists.feed_id}">
+																	<li class="modify-btn modifyBtn3"><a href="#"> <img
+																				th:src="@{/images/글.png}"
+																				class="img-MS1 im3">
+																			수정
+																		</a></li>
+																	<li class="delete-btn deleteBtn3"><a href="#"> <img
+																				th:src="@{/images/프로젝트삭제.png}"
+																				class="img-MS2 im23"> 삭제
+																		</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+
+													<!-- 프로필이랑 날짜 부서등 있는 탑 바로 밑 글 제목이 들어올 공간 -->
+													<div class="MS-card-header-bottom cardBottom3">
+														<div class="schedule-date">
+															<img th:src="@{/images/컬러달력.png}" class="cutePicker">
+														</div>
+														<div class="MSpost-title-area areaOnTitle3">
+															<h4 th:text="${schedulelists.title}"
+																class="MSpost-title postTitle3"></h4>
+															<!-- 일정 생성시 선택한 날짜 들어오게 -->
+															<div class="schedule-picker-area">
+																<span th:text="${schedulelists.start_date}"
+																	class="schedule-period"></span> <span
+																	class="schedule-period"> - </span> <span
+																	th:text="${schedulelists.deadline}"
+																	class="schedule-period"
+																	style="display: inline-block;"></span>
+															</div>
+														</div>
+														<!-- 피드 고유 번호 -->
+														<div class="feed-state fState3">
+															<span class="feed-number fNo3"> 피드번호 <em
+																	th:text="${schedulelists.feed_id}"></em>
+															</span>
+														</div>
+													</div>
+													<!-- 피드 수정 누르면 나올 팝업 -->
+													<div id="modifySchedulePopup" style="display:none;"
+														th:data-feed-id="${schedulelists.feed_id}">
+														<div id="modifyScheHeader">
+															<a th:text="${schedulelists.feed_id}"></a> 번 "일정" 피드 수정
+														</div>
+														<div id="modifyScheMainContent">
+															<input type="text" placeholder="수정할 일정 제목을 입력해 주세요."
+																id="modifyScheTitle">
+															<div>
+																<p id="ScheDatetitle">변경할 시작일 선택</p>
+																<input type="date" placeholder="시작일 변경"
+																	id="modiScheStart">
+															</div>
+															<div>
+																<p id="ScheDatetitle">변경할 마감일 선택</p>
+																<input type="date" placeholder="마감일 변경"
+																	id="modiScheEnd">
+															</div>
+															<input type="text" placeholder="수정할 일정 내용을 입력해 주세요."
+																id="modifyScheContent">
+														</div>
+														<div id="MSchePopupBottom">
+															<button id="modifyScheNO">취소</button>
+															<button id="modifyScheOk">수정</button>
+														</div>
+													</div>
+
+													<!-- 피드 일정 삭제 버튼 팝업 -->
+													<div id="feedDeletePopupSchedule" style="display:none;"
+														th:data-feed-id="${schedulelists.feed_id}">
+														<div id="feedDeleteHeaderSchedule">
+															<a th:text="${schedulelists.feed_id}"></a>
+															번 "일정" 피드를 삭제 하시겠습니까?
+														</div>
+														<div id="feedDeleteBottomSchedule">
+															<button id="feedDeleteNoSchedule">
+																취소
+															</button>
+															<button id="feedDeleteOkSchedule">
+																확인
+															</button>
+														</div>
+													</div>
+
+													<!-- 글 내용이 들어올 공간 -->
+													<div class="MSpost-card-container post-container3">
+														<div id="OriginPost3" class="MSpost-card-content">
+															<p class="MSpost-of-p postp3"
+																th:text="${schedulelists.content}"></p>
+														</div>
+
+														<!-- 불참 참석 미정 -->
+														<div id="attendBtnWrap">
+															<div>
+																<p th:text="${schedulelists.go}" class="attend1"></p>
+																<button class="attendBtn DHmiwar"
+																	data-gonothinking-code="1">참석</button>
+															</div>
+															<div>
+																<p th:text="${schedulelists.no}" class="attend2"></p>
+																<button class="noAttendBtn DHmiwar"
+																	data-gonothinking-code="2">불참</button>
+															</div>
+															<div>
+																<p th:text="${schedulelists.thinking}" class="attend3">
+																</p>
+																<button class="attendNoneBtn DHmiwar"
+																	data-gonothinking-code="3">미정</button>
+															</div>
+														</div>
+
+														<!-- 좋아요 북마크 버튼 공간 -->
+														<div class="MSpost-bottom-area pBotArea3">
+															<div class="MSpost-bottom-menu pBotMenu3">
+																<div class="MSbottom-button-area botBtnArea3">
+																	<button id="postLikey3"
+																		class="MSpost-bottom-button1">
+																		<img th:src="@{/images/좋아요.png}"
+																			class="img-likey iLikey3"> <span>좋아요</span>
+																	</button>
+																	<span class="likey-cnt likeyCount3" th:text="${selectFeedlists.likey_cnt}"></span>
+																	<button id="postBookmark3"
+																		class="MSpost-bottom-button2">
+																		<img th:src="@{/images/북마크2.png}"
+																			class="img-bookmark iBookmark3">
+																		<span>북마크</span>
+																	</button>
+																</div>
+															</div>
+																	
+															<!-- 댓글의 카운트, 읽음 수 카운트 -->
+															<div class="comment-read-wrap comRead3">
+																<div class="comment-cnt-area comCntArea3">
+																	<span>댓글 : </span> <span
+																		class="comment-cnt comCnt3" th:text="${selectFeedlists.reply_cnt}"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<!-- 댓글을 달면 댓글이 달릴 공간 -->
+													<div th:if="${schedulereplylists != null and schedulereplylists.feed_id == schedulelists.feed_id}"
+														th:each="schedulereplylists : ${schedulereplylists}"
+														class="post-card-footer footer3">
+														<ul class="post-commnet-group pComGroup3"
+															th:data-feed-id="${schedulelists.feed_id}">
+															<li class="comment-info-wrap comInfo3">
+																<div class="comment-img-wrap comI-3" id="thisProfile"
+																	th:data-profile-code="${schedulereplylists.member_id}">
+																	<img th:src="@{'/' + ${schedulereplylists.profile_image}}"
+																		class="sub-comment-profile sub-comProfile3">
+																</div> <!-- 이름 댓글날짜 수정,삭제, 코멘트 내용 포함한 div -->
+																<div class="comment-post-info comPInfo3">
+																	<div class="comment-user-area userArea3">
+																		<div class="comment-user comUser3">
+																			<span class="user-name useName3"
+																				th:text="${schedulereplylists.name}"></span>
+																			<span class="record-date reDate3"
+																				th:text="${schedulereplylists.reply_date}"></span>
+																		</div>
+
+																		<!-- 코멘트 수정 삭제 버튼 -->
+																		<div class="comment-writer-menu comWriteMenu3"
+																			th:data-reply-id="${schedulereplylists.reply_id}">
+																			<button type="button"
+																				class="comment-writer-btn1 scheduleOk cwb1-3">
+																				수정</button>
+																			<button type="button"
+																				class="comment-writer-btn2 scheduleDelete cwb2-3">
+																				삭제</button>
+																		</div>
+
+																		<!-- 수정 버튼 누르면 나올 팝업 -->
+																		<div id="modifySchedulekReply"
+																			style="display:none;"
+																			th:data-reply-id="${schedulereplylists.reply_id}">
+																			<div id="modiReplyHeaderSchedule">
+																				해당 댓글을 수정하시겠습니까?
+																			</div>
+																			<div id="modiReplyContentSchedule">
+																				<input type="text"
+																					placeholder="수정할 댓글의 내용을 입력해 주세요."
+																					id="modifyReplySchedule">
+																			</div>
+																			<div id="modiReplyBottomSchedule">
+																				<button
+																					id="modiReplyScheduleNOPE">취소</button>
+																				<button
+																					id="modiReplyScheduleOK">확인</button>
+																			</div>
+																		</div>
+
+																		<!-- 삭제 버튼 누르면 나올 팝업 -->
+																		<div id="deleteReplySchedule"
+																			th:data-reply-id="${schedulereplylists.reply_id}"
+																			style="display:none;">
+																			<div id="deleteScheduleHeader">해당 댓글을
+																				삭제하시겠습니까?
+																			</div>
+																			<div id="deleteScheduleReplyBottom">
+																				<button
+																					id="deleteReplyNOPESchedule">취소</button>
+																				<button
+																					id="deleteReplyOKSchedule">확인</button>
+																			</div>
+																		</div>
+
+																	</div>
+
+																	<!-- 코멘트 작성시 코멘트 내용이 들어올 자리 -->
+																	<div class="comment-content comCont3">
+																		<div class="comment-text-area comTextArea3">
+																			<div th:text="${schedulereplylists.contents}"
+																				class="comment-text comText3">
+																				<div></div>
+																			</div>
+																		</div>
+																	</div>
+																	<input id="scheduleReplyModify" type="text"
+																		placeholder="변경할 댓글의 내용을 입력해 주세요."
+																		style="display:none;">
+																</div>
+															</li>
+														</ul>
+													</div>
+
+													<!-- 댓글 다는 부분 -->
+													<div class="comment-input-wrap comInputWrap3">
+														<div class="profile-dummy dummy3">
+															<img th:src="@{/images/프로필.png}"
+																class="commentProfile comProfile3">
+														</div>
+														<form class="comment-container comConta3">
+															<div class="input-field field-3">
+																<input type="text" class="comment-input comInput3"
+																	placeholder="줄바꿈 shift + Enter"> <label
+																	for="fileInput"
+																	class="comment-upload-label comUploadLabel3"> <img
+																		th:src="@{/images/클립.png}"
+																		class="comment-upload comUpload3">
+																</label> <input type="file" id="fileInput3"
+																	class="file-input" style="display: none;">
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+											</div>
+										</div>
+										<!-- 피드 할일 -->
+										<div th:if="${todolists != null}" th:each="todolists : ${todolists}"
+											class="MSpost-card-wrap post4" th:data-feed-id="${todolists.feed_id}">
+											<div th:if="${todolists.feed_id == selectFeedlists.feed_id}" th:each="selectFeedlists : ${selectFeedlists}">
+											<div class="MSpost-card-header header4">
+												<div class="MSpost-card-scroll pcScroll4">
+													<div class="MScard-header-top top4">
+														<div class="MSpost-author post-author4">
+															<img th:src="@{'/' + ${todolists.profile_image}}"
+																class="MSprofile profile4 thisProfile"
+																th:data-profile-code="${todolists.member_id}">
+															<dl class="MSpost-author-info information4">
+																<dt>
+																	<strong th:text="${todolists.name}"
+																		class="MSauthor author4"></strong>
+																	<span th:text="${todolists.regist_date}"
+																		class="MSpost-date daydate4"></span>
+																</dt>
+																<dd class="MS-block block4">
+																	<strong></strong> <span
+																		class="depart-team depart4"></span>
+																</dd>
+															</dl>
+														</div>
+
+														<!-- 피드 삭제 버튼 -->
+														<div>
+															<div class="post-option postOption4"
+																style="display: block;">
+																<button class="post-set-btn settingBtn4"
+																	th:data-feed-id="${todolists.feed_id}">
+																	<span></span> <span></span> <span></span>
+																</button>
+
+																<!-- 피드삭제 및 수정 버튼 누를시 뜨는 팝업 -->
+																<ul class="post-setup-group setGroup4"
+																	style="display: none;"
+																	th:data-feed-id="${todolists.feed_id}">
+																	<li class="modify-btn modifyBtn4"><a href="#"> <img
+																				th:src="@{/images/글.png}"
+																				class="img-MS1 im4">
+																			수정
+																		</a></li>
+																	<li class="delete-btn deleteBtn4"><a href="#"> <img
+																				th:src="@{/images/프로젝트삭제.png}"
+																				class="img-MS2 im24"> 삭제
+																		</a></li>
+																</ul>
+															</div>
+														</div>
+													</div>
+
+													<!-- 프로필이랑 날짜 부서등 있는 탑 바로 밑 글 제목이 들어올 공간 -->
+													<div class="MS-card-header-bottom cardBottom4">
+														<div class="MSpost-title-area areaOnTitle4">
+															<h4 th:text="${todolists.title}"
+																class="MSpost-title postTitle4"></h4>
+														</div>
+														<!-- 피드 고유 번호 -->
+														<div class="feed-state fState4">
+															<span class="feed-number fNo4"> 피드번호 <em
+																	th:text="${todolists.feed_id}"></em>
+															</span>
+														</div>
+													</div>
+
+													<!-- 피드 수정 버튼 누르면 나오는 팝업 -->
+													<div id="modifyTodoPopupLayer" style="display:none;"
+														th:data-feed-id="${todolists.feed_id}">
+														<div id="modifyTodoHeader">
+															<a th:text="${todolists.feed_id}"></a> 번 "할 일" 피드 수정
+														</div>
+														<div id="modifyTodoMainContent">
+															<input type="text" placeholder="수정할 할일 제목을 입력해 주세요."
+																id="modifyTodoTitle">
+															<p>수정할 마감일을 선택해 주세요.</p>
+															<input type="date" id="modifyTodoFicker">
+															<input type="text" placeholder="수정할 할일 내용을 입력해 주세요."
+																id="modifyTodoContent">
+														</div>
+														<div id="MPopupTodoBottom">
+															<button id="modifyTodoNO">취소</button>
+															<button id="modifyTodoOk">수정</button>
+														</div>
+													</div>
+
+													<!-- 피드 일정 삭제 버튼 팝업 -->
+													<div id="feedDeletePopupTodo" style="display:none;"
+														th:data-feed-id="${todolists.feed_id}">
+														<div id="feedDeleteHeaderTodo">
+															<a th:text="${todolists.feed_id}"></a>
+															번 "할 일" 피드를 삭제 하시겠습니까?
+														</div>
+														<div id="feedDeleteBottomTodo">
+															<button id="feedDeleteNoTodo">
+																취소
+															</button>
+															<button id="feedDeleteOkTodo">
+																확인
+															</button>
+														</div>
+													</div>
+
+													<!-- 글 내용이 들어올 공간 -->
+													<div class="MSpost-card-container post-container4">
+														<!-- 할일 완료 진척도 -->
+														<div class="post-todo-container">
+															<div id="originTodoPost" class="post-todo-content">
+																<div class="todo-status">
+																	<div class="todo-progress-header">
+																		<div class="todo-header-left">
+																			<span id="todoCount"
+																				th:text="${todolists.finish == 0} ? 0 : 1"
+																				class="todo-cnt">0</span> <span> /
+																			</span> <span id="todoTotalCount"
+																				class="todo-total-cnt">1</span>
+																		</div>
+																		<div class="todo-header-right">
+																			<span
+																				th:text="${todolists.finish == 0 ? '0%' : '100%'}"
+																				class="todo-percent"></span>
+																		</div>
+																	</div>
+																	<!-- 퍼센트바 -->
+																	<div th:style="${todolists.finish == 0} ? 'background:#D8BFD8;' : 'background: #00FF7F;'"
+																		class="todo-percent-bar">
+																		<span></span>
+																	</div>
+																</div>
+																<!-- 할일 텍스트 입력 시 및 달력 및 담당자 -->
+																<ul id="todoUl" class="todo-status-component">
+																	<li class="todo-content-item">
+																		<div class="todo-input-area">
+																			<p class="todo-text-check">
+																				<input type="checkbox"
+																					th:checked="${todolists.finish == 1}"
+																					class="todo-checkbox"> <span
+																					th:text="${todolists.content}"
+																					class="todo-text-area"></span>
+																			</p>
+																			<!-- 할 일 내용 옆에 날짜랑 담당자 -->
+																			<div class="todo-menus">
+																				<span id="todoDateSpan"
+																					class="todo-date"
+																					th:text="${todolists.deadline}">날짜</span>
+																			</div>
+																		</div>
+																	</li>
+																</ul>
+															</div>
+														</div>
+
+														<!-- 좋아요 북마크 버튼 공간 -->
+														<div class="MSpost-bottom-area pBotArea4">
+															<div class="MSpost-bottom-menu pBotMenu4">
+																<div class="MSbottom-button-area botBtnArea4">
+																	<button id="postLikey4"
+																		class="MSpost-bottom-button1">
+																		<img th:src="@{/images/좋아요.png}"
+																			class="img-likey iLikey4"> <span>좋아요</span>
+																	</button>
+																	<span class="likey-cnt likeyCount4" th:text="${selectFeedlists.likey_cnt}"></span>
+																	<button id="postBookmark4"
+																		class="MSpost-bottom-button2">
+																		<img th:src="@{/images/북마크2.png}"
+																			class="img-bookmark iBookmark4">
+																		<span>북마크</span>
+																	</button>
+																</div>
+															</div>
+
+															<!-- 댓글의 카운트, 읽음 수 카운트 -->
+															<div class="comment-read-wrap comRead4">
+																<div class="comment-cnt-area comCntArea4">
+																	<span>댓글 : </span> <span
+																		class="comment-cnt comCnt4" th:text="${selectFeedlists.reply_cnt}"></span>
+																</div>
+															</div>
+														</div>
+													</div>
+
+													<!-- 댓글을 달면 댓글이 달릴 공간 -->
+													<div th:if="${todoreplylists != null and todoreplylists.feed_id == todolists.feed_id}"
+														th:each="todoreplylists : ${todoreplylists}"
+														class="post-card-footer footer4">
+														<ul class="post-commnet-group pComGroup4">
+															<li class="comment-info-wrap comInfo4">
+																<div class="comment-img-wrap comI-4" id="thisProfile"
+																	th:data-profile-code="${todoreplylists.member_id}">
+																	<img th:src="@{'/' + ${todoreplylists.profile_image}}"
+																		class="sub-comment-profile sub-comProfile4">
+																</div> <!-- 이름 댓글날짜 수정,삭제, 코멘트 내용 포함한 div -->
+																<div class="comment-post-info comPInfo4">
+																	<div class="comment-user-area userArea4">
+																		<div class="comment-user comUser4">
+																			<span class="user-name useName4"
+																				th:text="${todoreplylists.name}"></span>
+																			<span class="record-date reDate4"
+																				th:text="${todoreplylists.reply_date}"></span>
+																		</div>
+
+																		<!-- 코멘트 수정 삭제 버튼 -->
+																		<div class="comment-writer-menu comWriteMenu4"
+																			th:data-reply-id="${todoreplylists.reply_id}">
+																			<button type="button"
+																				class="comment-writer-btn1 todoOk cwb1-4">
+																				수정</button>
+																			<button type="button"
+																				class="comment-writer-btn2 todoDelete cwb2-4">
+																				삭제</button>
+																		</div>
+
+																		<!-- 수정 버튼 누르면 나올 팝업 -->
+																		<div id="modifyTodoReply" style="display:none;"
+																			th:data-reply-id="${todoreplylists.reply_id}">
+																			<div id="modiReplyHeaderTodo">
+																				해당 댓글을 수정하시겠습니까?
+																			</div>
+																			<div id="modiReplyContentTodo">
+																				<input type="text"
+																					placeholder="수정할 댓글의 내용을 입력해 주세요."
+																					id="modifyReplyTodo">
+																			</div>
+																			<div id="modiReplyBottomTodo">
+																				<button
+																					id="modiReplyTodoNOPE">취소</button>
+																				<button id="modiReplyTodoOK">확인</button>
+																			</div>
+																		</div>
+
+																		<!-- 삭제 버튼 누르면 나올 팝업 -->
+																		<div id="deleteReplyTodo"
+																			th:data-reply-id="${todoreplylists.reply_id}"
+																			style="display:none;">
+																			<div id="deleteTodoHeader">해당 댓글을 삭제하시겠습니까?
+																			</div>
+																			<div id="deleteTodoReplyBottom">
+																				<button
+																					id="deleteReplyNOPETodo">취소</button>
+																				<button
+																					id="deleteReplyOKTodo">확인</button>
+																			</div>
+																		</div>
+
+																	</div>
+
+																	<!-- 코멘트 작성시 코멘트 내용이 들어올 자리 -->
+																	<div class="comment-content comCont4">
+																		<div class="comment-text-area comTextArea4">
+																			<div th:text="${todoreplylists.contents}"
+																				class="comment-text comText4">
+																				<div></div>
+																			</div>
+																		</div>
+																	</div>
+																	<input id="todoReplyModify" type="text"
+																		placeholder="변경할 댓글의 내용을 입력해 주세요."
+																		style="display:none;">
+																</div>
+															</li>
+														</ul>
+													</div>
+
+													<!-- 댓글 다는 부분 -->
+													<div class="comment-input-wrap comInputWrap4">
+														<div class="profile-dummy dummy4">
+															<img th:src="@{/images/프로필.png}"
+																class="commentProfile comProfile4">
+														</div>
+														<form class="comment-container comConta4">
+															<div class="input-field field-4">
+																<input type="text" class="comment-input comInput4"
+																	placeholder="줄바꿈 shift + Enter"> <label
+																	for="fileInput"
+																	class="comment-upload-label comUploadLabel4"> <img
+																		th:src="@{/images/클립.png}"
+																		class="comment-upload comUpload4">
+																</label> <input type="file" id="fileInput4"
+																	class="file-input" style="display: none;">
+															</div>
+														</form>
+													</div>
+												</div>
+											</div>
+											</div>
+										</div>
+									</div>
+
+								</div>
+							</section>
+							<!-- post-timeline -->
+							<div class="participants-section">
+								<div id="projectParticipants" class="project-participants feed-section"
+									style="transform: translateX(-53.6px);">
+									<div class="section-title-area">
+										<h4 class="section-title">
+											<!-- 참여자 카운트 -->
+											<span id="participantSpan">참여자</span>
+											<span th:text="${projectJoinCnt != null ? projectJoinCnt : 0}"
+												id="participantCount"></span>
+										</h4>
+										<div class="feed-type-area">
+											<button id="allSendienceBtn" type="button">전체 보기</button>
+										</div>
+									</div>
+									<div id="participantArea" class="participant-area">
+										<div id="participantScrollArea" class="participant-scroll-area scroll-mask"
+											scroll-direction="0">
+											<div id="joinParticipantsArea" class="join-participants-area d-none"
+												style="display: none;">
+												<span class="participants-title"> <em>가입 신청자</em>
+												</span>
+											</div>
+											<ul id="participantsUl" class="participants-ul">
+												<span class="participants-title">
+												</span>
+												<li class="js-participant-item" data-id="email" data-status="M">
+													<div class="post-author" id="thisProfile"
+														th:data-profile-code="${profile.member_id}">
+														<!-- 피드에서 내 프로필 박스 -->
+														<img th:src="@{'/' + ${profile.profile_image}}"
+															class="myStatusIMG">
+														<dl class="post-author-info">
+															<dt>
+																<strong class="js-participant-name author ellipsis">
+																	<a th:text="${profile.member_name}"></a>
+																	(나)</strong>
+																<em class="position ellipsis" style="display: flex"
+																	data>
+																</em>
+															</dt>
+															<dd style="display: flex;" data>
+																<strong class="company">
+																	<a th:text="${profile.company_name}"></a>
+																</strong>
+																<span class="team"></span>
+															</dd>
+														</dl>
+													</div>
+												</li>
+											</ul>
+										</div>
+										<div class="participants-menu">
+											<button class="js-project-chat participant-button">
+												<span> <img class="img-chat-small" th:src="@{/images/채팅.png}">
+													<!-- 위에 채팅 이미지 보다 작게 smallchatimg -->
+													채팅
+												</span>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- 피드페이지에서 전체보기 누르면 나오는 그 프로젝트의 전체 참여자가 나오는 팝업 -->
+		<div id="allSendiencePopup" class="all-sendience-popup" style="display: none;">
+			<div class="this-project-all-joiner">
+				<span>프로젝트 참여자</span>
+			</div>
+			<div class="this-project-all-joiner-input">
+				<input type="text" id="allProjectJoinerSearch" class="all-project-joiner-search"
+					placeholder="이름을 입력해주세요.">
+			</div>
+			<div class="search-after-section">
+				<ul id="joinerUl" class="joiner-ul">
+					<li th:each="admins : ${admins}" class="user-profile">
+						<div class="joiner-author">
+							<img th:src="@{'/' + ${admins.profile_image}}" class="joiner-profile"
+								id="thisProfile" th:data-profile-code="${admins.member_id}">
+							<dl class="joiner-info">
+								<dt>
+									<strong id="joineame" class="joiner-name"><a
+											th:text="${admins.member_name}"></a></strong>
+								</dt>
+								<dd style="display: flex">
+									<strong class="joiner-company"><a th:text="${admins.company_name}"></a></strong>
+								</dd>
+							</dl>
+						</div>
+						<a th:style="${admins.admin == 1 ? 'display: block;' : 'display: none;'}" href="#"
+							class="manaer-badge">
+							<span>관리자</span>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+</html>

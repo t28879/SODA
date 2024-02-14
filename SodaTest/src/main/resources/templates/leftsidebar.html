@@ -1,0 +1,79 @@
+<div th:fragment="leftsidebarFragment" class="좌측사이드바1">
+	<div class="lsb-1">
+		<div class="flow-logo" th:attr="onclick='redirectToHome()'" >
+			<img class="logo" src="/images/소다로고_배경O.png">
+		</div>
+	</div>
+	<hr class="hr-1">
+	<div class="lsb-2">
+		<button class="btn_new_project"
+				onclick="location.href='SODA_CreateProject'">
+				<img class="project_logo" src="/images/소다.png"> 새 프로젝트
+			</button>
+		<div class="list-1">
+			<li onclick="redirectToHome()"><img class="icon-1" src="/images/홈1.png" alt="홈 화면">대시보드</li>
+			<li>
+				<a th:href="@{/MyProject}"><img class="icon-2" src="/images/내 프로젝트.png">내 프로젝트</a>
+			</li>
+			<li>
+				<a th:href="@{/questionlist/1}"><img class="icon-2" src="/images/내 프로젝트.png">게시판</a>
+			</li>
+		</div>
+	</div>
+	<hr class="hr-2">
+	<div class="scroll">
+		<div class="item" id="item1" onclick="toggleSublistAndRotate1('item1', '화살표1')">
+			모아보기 <img id="화살표1" src="/images/화살표2.png">
+			<ul class="sub_list1">
+				<li>
+					<a th:href="@{/AllWork}"><img src="/images/전체 업무.png">전체 업무</a>
+				</li>
+				<li>
+					<a th:href="@{/Calendar}"><img src="/images/캘린더.png">캘린더</a>
+				</li>
+				<li>
+					<a th:href="@{/FileStorage}"><img src="/images/파일함.png">파일함</a>
+				</li>
+				<li>
+					<a th:href="@{/BookMarkDH}"><img src="/images/북마크1.png">북마크</a>
+				</li>
+				<li>
+					<a th:href="@{/MyPost}"><img src="/images/내 게시물.png">내 게시물</a>
+				</li>
+			</ul>
+		</div>
+		<hr class="hr-2">
+		<div class="item" id="item2" onclick="toggleSublistAndRotate2('item2', '화살표2')">
+			최근 업데이트
+			<img id="화살표2" src="/images/화살표2.png">
+			<ul class="sub_list2">
+				<li th:each="projectWithColor : ${projectWithColor}">
+						<a id="project_icon" th:style="'background-color:' + ${projectWithColor.type} + ';'"></a>
+						<span th:text="${projectWithColor.name}"></span>
+				</li>
+			</ul>
+		</div>
+		<hr class="hr-2">
+		<div class="item" id="item3" onclick="toggleSublistAndRotate3('item3', '화살표3')">
+			프로젝트 폴더
+			<img id="화살표3" src="/images/화살표2.png">
+			<ul class="sub_list3">
+				<li th:each="folder : ${folder}">
+						<img id="태그1" src="images/태그.png">
+						<span th:text="${folder.name}"></span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<hr class="hr-3">
+	<div class="admin">
+		<div class="list-3">
+			<li><img class="icon-1" src="/images/직원초대.png" alt="홈 화면">
+				직원 초대</li>
+			<li>
+				<a th:href="@{/AdminPage}"><img class="icon-2" src="/images/어드민.png" alt="내 프로젝트">
+				어드민</a></li>
+			<div id="blank"></div>
+		</div>
+	</div>
+</div>

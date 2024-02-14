@@ -1,0 +1,92 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="content">
+	<div class="rightpage">
+		<h3>프로젝트 관리</h3>
+		<hr>
+		<div id="probtn">
+			<button id="test_btn11">프로젝트</button>
+		</div>
+		<div id="searhProDH">
+			<hr class="lineDH">
+			<input id="selectPro" type="text" placeholder="프로젝트명 검색">
+			<button class="findPRO">검색</button>
+		</div>
+	</div>
+	<table class="tablet1DH" border="1">
+		<thead>
+		<tr>
+			<td>프로젝트명</td><!---->
+			<td>관리자</td><!---->
+			<td>참여자</td>
+			<td>게시물</td><!---->
+			<td>댓글</td><!---->
+			<td>채팅</td>
+			<td>일정</td>
+			<td>업무</td>
+			<td>개설일</td>
+		</tr>
+		</thead>
+		<tbody>
+			<tr th:each="project : ${projects}" th:attr="data-project-id=${project.project_id}">
+				<td><span th:text="${project.name}"></span></td>
+				<td><span th:text="${project.projectmanager}"></span></td>
+				<td><span th:text="${project.allmember}"></span></td>
+				<td><span th:text="${project.allfeed}"></span></td>
+				<td><span th:text="${project.allreply}"></span></td>
+				<td><span th:text="${project.allchatting}"></span></td>
+				<td><span th:text="${project.allschedule}"></span></td>
+				<td><span th:text="${project.allwork}"></span></td>
+				<td><span th:text="${project.project_date}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<div id="projectedit">
+		<h3>프로젝트정보</h3>
+		<p>프로젝트명</p><input id="getproname" type="text" placeholder="프로젝트명"><!--이부분에 placeholder 지정 필요-->
+		<p>관리자</p><button id="moreadmin">추가</button>
+		<div id = "prolisttablediv">
+		<table id="prolisttable" border="1">
+			<thead>
+			<tr>
+				<td>사용자명</td>
+				<td>부서</td>
+				<td>이메일</td>
+				<td>관리자</td>
+			</tr>
+			</thead>
+			<tbody id = "projectadminSpace"> 
+			</tbody>
+		</table>
+		</div>
+		<div id="saveprobtn">저장</div>
+		<div id="cancelprobtn">취소</div>
+	</div>
+
+	<div id="erasecom">관리자 권한이 해제되었습니다</div>
+	<div id="appendcom">관리자 목록에 추가되었습니다</div>
+	<div id="alreadyexist">이미 추가된 사용자입니다</div>
+	<div id="preadminlist">
+		<h4>관리자 선택</h4><br>
+		<select id="memchoice">
+			<option>이름</option>
+			<option>이메일</option>
+		</select>
+		<input type="text" id="memchDH"><button id="submitanyDH">검색</button>
+		<div id = "projectadminrapper">
+		<table id="choosewhoDH" border="1">
+			<thead>
+			<tr>
+				<td>사용자명</td>
+				<td>부서</td>
+				<td>이메일</td>
+				<td>선택</td>
+			</tr>
+			</thead>
+			<tbody id = "projectadminchooseSpace"></tbody>
+		</table>
+		</div>
+		<button id="NOCancel">취소</button><button id="OKsubmit">확인</button>
+	</div>
+</div>
+
+</html>

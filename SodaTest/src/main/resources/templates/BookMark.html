@@ -1,0 +1,43 @@
+<html layout:decorate="~{DashBoardLayout}">
+<div layout:fragment="content" class="content">
+	<div>
+		<h3 id="hrtag">북마크</h3>
+	</div>
+	<div id="allworkplace">
+		<div class=searchbadh>
+			<input class="searchdh" type="text" placeholder="업무명 또는 업무번호를 검색하세요">
+			<button id="optiondh">옵션</button>
+		</div>
+		<br>
+		<table id="bookmain">
+			<thead>
+				<tr style="background-color: #fafafa; height: 45px;">
+					<td>종류</td>
+					<td>제목</td>
+					<td>작성자</td>
+					<td>작성일</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="list:${bookmarklist}">
+					<td>
+						<span th:switch="${list.type}">
+							<span th:case="1"><img id="postimg" src="images/post.png">글</span>
+							<span th:case="2"><img id="workimg" src="images/work.png">업무</span>
+							<span th:case="3"><img id="scheduleimg" src="images/schedule.png">일정</span>
+							<span th:case="4"><img id="todoimg" src="images/todo.png">할 일</span>
+							<span th:case="*" th:text="없음"></span>
+						</span>
+					</td>
+					<td><div class = "titledivdh" th:text="${list.title}"></div><div class = "projectnamedivdh" th:text="${list.projectname}"></div></td>
+					<td><span th:text="${list.writer}"></span></td>
+					<td><span th:text="${list.regist_date}"></span></td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+</div>
+</div>
+
+</html>

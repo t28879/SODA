@@ -1,0 +1,76 @@
+<html layout:decorate="~{DashBoardLayout}">
+<div layout:fragment="content" class="content">
+	<div>
+		<h3 id="listhrtag"><a th:href="@{/questionlist/1}">게시판</a></h3>
+	</div>
+	<div style="display: flex; justify-content: space-between;width: 88%;">
+		<h1 th:text="${question.subject}"></h1>
+		<div style="align-self: flex-end;">
+			<h4 th:text="${question.createdate}"></h4>
+		</div>
+	</div>
+	<hr style="width: 88%;">
+	<br>
+	<div style="width: 88%;height: 191px;border: 1px solid gray;display: grid;">
+		<div style="width: 200px;position: relative;left: 75%;">최종 수정 날짜:<span th:text="${question.MODIFICATION_DATE}"></span></div>
+		<textarea class = "questionmoditext" style="height: 145px;display:none;height: 134px;"></textarea>
+		<div class="questioncontent" th:text="${question.content}"></div>
+		<div class="forsib" style="width: 95px;height: 30px;position: relative;left: 1472px;margin-top: 8px"
+			th:if="${question.member_id} == ${member_id}"> <!--바꿔야함-->
+			<div class="deleteormodify">
+				<a class="questionmodibtn" th:text="수정"></a>
+				<a class="questionsubmitbtn" th:attr="data-question-id=${question.question_id}" th:text="저장" style="display: none;"></a>
+				<a class="deleteanswer" th:text="삭제" th:attr="data-uri=@{|/questiondelete/${question.question_id}|}"></a>
+				<a class="cancelquestionbtn" th:text="취소" style="display: none;"></a>
+			</div>
+		</div>
+	</div>
+	<br>
+	<h3 th:text="|${#lists.size(question.answerList)}개의 답변이 있습니다.|" style="margin-bottom: 34px;"></h3>
+	<div class="answerrapper">
+		<div>
+			<ul>
+				<li class="answerlist" th:each="answer : ${question.answerList}">
+					<div class="allanswerrapper" style="position: relative;">
+						<div style="position: absolute; bottom: 0; right: 0;">
+							<div style="display: flex; justify-content: flex-end;">
+								<div style="margin-right: 40px;">
+									<span th:text="${answer.name}"></span>/<span th:text="${answer.email}"></span>
+								</div>
+								<div th:if="${answer.member_id} == ${member_id}"> <!--바꿔야함-->
+									<div class="deleteormodify">
+										<a class="answermodibtn" th:text="수정"></a>
+										<a class="answersubmitbtn" th:attr="data-answer-id=${answer.answer_id}"
+											th:text="저장" style="display: none;"></a>
+										<a class="deleteanswer" th:attr="data-uri = @{|/answer/delete/${answer.answer_id}|}"
+											th:text="삭제"></a>
+										<a class="cancelsubmitbtn" th:text="취소" style="display: none;"></a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div style="clear: both;"></div>
+						<div style="padding: 15px 15px 0 15px; position: relative; top: 30px;">
+							<div class="answercontent" th:text="${answer.content}"></div>
+							<textarea class="answertextarea"></textarea>
+						</div>
+						<div style="position: absolute; top: 0; right: 0; width: 198px;" id="answerdate">
+							작성 날짜: <span th:text="${answer.createdate}"></span>
+							<br>
+							최종 수정 날짜:<span th:text="${answer.MODIFICATION_DATE}"></span>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<form th:action="@{|/answer/create/${question.question_id}|}" th:object="${answerForm}" method="post"
+			style="width: 89%;">
+			<div th:replace="~{form_errors :: formErrorsFragment}"></div>
+			<textarea th:field="*{content}" class="formtextarea" rows="15"></textarea>
+			<input id="formsubmistbtn" type="submit" value="답변등록">
+		</form>
+	</div>
+	<div id="nocontent" style="display: none;">1글자 이상 입력해야합니다.</div>
+</div>
+
+</html>

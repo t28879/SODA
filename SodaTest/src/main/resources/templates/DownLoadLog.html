@@ -1,0 +1,36 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="content">
+	<div class="rightpage">
+		<h3>파일 다운로드 이력</h3>
+		<hr>
+		<div id="DIVMAIN">
+			<select id="SearchWhoD">
+				<option>파일명</option>
+				<option>이름</option>
+				<option>이메일</option>
+			</select>
+			<input type="text" id="SearchNameDown">
+			<button id="DownSearch">검색</button>
+		</div>
+		<table id="DownLOG">
+			<thead>
+			<tr id="firstOFLOG">
+				<td>다운로드 일시</td>
+				<td>파일명</td>
+				<td>용량</td>
+				<td>이름/이메일</td>
+			</tr>
+			</thead>
+			<tbody>
+				<tr th:each="filelist:${log}">
+					<td><span th:text="${filelist.downloads_date}"></span></td>
+					<td><span th:text="${filelist.filename}"></span></td>
+					<td><span th:text="${filelist.quantity}"></span></td>
+					<td><span th:text="${filelist.name}"></span>/<span th:text="${filelist.email}"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+</html>

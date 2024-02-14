@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<head>
+<meta charset="UTF-8">
+<title>소다(SODA)-로그인</title>
+<link rel="stylesheet" th:href="@{/css/reset.css}">
+<link rel="stylesheet" th:href="@{/css/HomeNav.css}">
+<link rel="stylesheet" th:href="@{/css/Login.css}">
+</head>
+<header id="HeaderNav">
+		<div id="MainNav">
+			<a class="logo" href="/SODA/Home"><img th:src="@{/images/소다로고_배경O.png}" alt="logo"></a>
+			<nav class="navBar">
+				<ul class="barItems">
+					<li><a href = "/SODA/Func" class="bars">기능</a></li>	
+					<li><a href = "/SODA/Price" class="bars">요금제</a></li>
+					<li><a href = "/SODA/TeamCorpo" class="bars">팀 협업</a></li>
+				</ul>
+				<div class="userBtnWrap">
+					<a href = "/SODA/loginPage" id="btnLogin">로그인</a>
+					<a href = "/SODA/JoinSelect" id="btnJoin">회원가입</a>
+				</div>
+			</nav>
+		</div>		
+</header>
+<body>
+	<div class="loginHome">
+		<div class="loginWrap">
+			<div id="loginLayer">
+				<div class="login-text">로그인</div>
+				<form method="post" id="loginForm" action="/SODA/login">
+						<div class="login_id_form">
+							<input id="userId" name="email" type="text" placeholder="아이디" required>
+						</div>
+						<div class="login_pw_form">
+							<input id="userPw" name="pw" type="password" placeholder="비밀번호" required>
+							<p class="error_pw_text">비밀번호를 입력해주세요.</p>
+						</div>
+					<div class="search_pw">
+						<a href="findEmailForm" id="find_pw">비밀번호 찾기</a>
+					<button type="submit" id="login_Btn">로그인</button>
+					</div>
+				</form>
+				<div class="OrAnother" style="display: block; margin-bottom: 10px;">또는</div>
+				<a class="login_google g-signin2" style="display: block;" id="login_google" href="">
+					<em><img th:src="@{/images/google.png}"></em><span>Google 계정으로 로그인</span>
+				</a>			
+				<a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=dd08c5cbbd7e40e7d871075ed386c8a2&redirect_uri=http://localhost:9597/SODA/kakao/callback"
+				 class="login_kakao" style="display: block;" id="login_kakao">
+					<em><img th:src="@{/images/kakao.png}"></em><span>Kakao 계정으로 로그인</span>
+				</a>	
+				<a href="" class="login_naver" style="display: block;" id="naverIdLogin">
+					<em><img th:src="@{/images/naver.png}"></em><span>Naver 계정으로 로그인</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</body>
+<script th:src="@{/js/Login.js}"></script>
+<script th:inline="javascript">
+	var error = /*[[${param.error}]]*/null;
+	if (error != null || (error.equals('user_not_found'))) {
+        document.querySelector("#userId").style.borderColor = "#ff6b6b";
+		document.querySelector("#userPw").style.borderColor = "#ff6b6b";
+		document.querySelector(".error_pw_text").style.display = "block";
+		document.querySelector(".error_pw_text").textContent = "아이디 또는 비밀번호가 일치하지 않습니다.";
+    }
+</script>
+</html>

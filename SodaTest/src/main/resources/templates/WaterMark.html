@@ -1,0 +1,18 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="content">
+	<div class="rightpage">
+		<h3>워터마크 </h3>
+		<hr>
+		<p id="ipText2">파일 문서 뷰어</p>
+		<button th:if="${wm == 0}"  id="companyWaterONOFF" style = "background-color: lightblue;">활성화</button>
+		<button th:if="${wm == 1}"  id="companyWaterONOFF" style = "background-color: pink;">비활성화</button>
+		<p id="WaterDes">캡처 및 프린터 방지 워터마크를 설정합니다. 워터마크에는 문서를 조회하는 유저 이름, 유저 ID, 조회 날짜가 표시되어 유출 시 추적이 가능합니다.</p>
+		<img src="images/watermark.png" id="WaterMark">
+		<br>
+		<ul id="WaterList">
+			<li>● 문서 워터마크는 문서 뷰어와 뷰어에서 즉시 인쇄할 때 적용되며, 다운로드된 파일에는 적용되지 않습니다.</li>
+		</ul>
+		<div>
+		</div>
+
+</html>

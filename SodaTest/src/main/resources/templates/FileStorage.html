@@ -1,0 +1,33 @@
+<html layout:decorate="~{DashBoardLayout}">
+<div layout:fragment="content" class="content">
+	<div>
+		<h3 id="hrtag">파일함</h3>
+	</div>
+	<div id="allworkplace">
+		<div class=searchbadh>
+			<input class="searchdh" type="text" placeholder="업무명 또는 업무번호를 검색하세요">
+			<button id="optiondh">옵션</button>
+		</div>
+		<br>
+		<table id='filestoragetable' border="1">
+			<thead>
+				<tr id="filelist" style="background-color: #fafafa; height: 45px;">
+					<td style="width: 35%;">파일명</td>
+					<td style="width: 15%;">용량</td>
+					<td style="width: 20%;">등록자</td>
+					<td style="width: 20%;">등록일</td>
+				</tr>
+			</thead>
+			<tbody id="filebody">
+				<tr th:each="file : ${filestorage}">
+					<td><span th:text="${file.filename}"></span></td>
+					<td><span th:text="${file.quantity}"></span></td>
+					<td><span th:text="${file.name}"></span>/<span th:text="${file.email}"></span></td>
+					<td><span th:text="${file.regist_date}"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+</html>

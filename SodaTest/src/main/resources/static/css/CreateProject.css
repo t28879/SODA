@@ -1,0 +1,129 @@
+@charset "UTF-8";
+.projectCreateHeader{
+	position: fixed;
+	top:0;
+	left:0;
+	right:0;
+	width: 100%;
+	max-height: 80px;
+	min-height: 80px;
+}
+.headerClose{
+	display: block;
+	position: fixed;
+	top: 30px;
+	right: 40px;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+.projectCreateWrap{
+	display: flex;
+	justify-content: center;
+}
+.projectFormWrap{
+	padding: 120px 120px;
+}
+.projectCreateTitle{
+	margin-bottom: 40px;
+	font-size: 25px;
+	font-weight: 700;
+	text-align: center;
+}
+.projectCreateContent{
+	width: 594px;
+	max-width: 594px;
+	padding-bottom: 20px;
+	display: block;
+}
+.projectCreateContent>li{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.projectCreateContent>li>input{
+	width: 100%;
+	height: 60px;
+	padding: 0 20px;
+	color: #50b5bf;
+	font-weight: 700;
+	font-size: 17px;
+	line-height: 25px;
+	border: 1px solid #999;
+	border-radius: 4px;
+}
+.settingHomeTab{
+	display: block;
+	margin: 35px 0;
+}
+.settingHomeTab>p>img{
+	position: relative;
+	line-height: 1;
+	width: 15px;
+	height: 15px;
+	margin-right: 10px;
+}
+.settingHomeTab>p{
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	font-size: 15px;
+}
+.settingHomeTab>ul{
+	display: flex;
+	justify-content: center;
+	margin-top: 15px;
+}
+.settingHomeTab>ul>li{
+	min-width: calc(18.5%);
+    padding: 14px 20px;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+    text-align: center;
+}
+.createOptionTab>ul>li{
+	margin: 15px 0 0;
+}
+.creOptionWrap{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 18px;
+}
+.creOptionWrap>div{
+	position: relative;
+	display: flex;
+	align-items: center;
+}
+.creLockerImg{
+	width: 17px;
+	height: 17px;
+	margin-right: 10px;
+}
+.creOptionBtn{
+	position: relative;
+    width: 50px;
+    height: 22px;
+    padding: 2px;
+    background: #50b5bf;
+    color: white;
+    border:1px solid #50b5bf;
+    border-radius: 25px;
+    vertical-align: middle;
+    margin-left: 10px;
+    cursor: pointer;
+}
+#createProjectBtn{
+	width: 594px;
+	height: 50px;
+	font-size: 20px;
+	font-weight: 550;
+	color: white;
+	background: #50b5bf;
+	border: 1px solid #50b5bf;
+	border-radius: 4px;
+	cursor: pointer;
+}

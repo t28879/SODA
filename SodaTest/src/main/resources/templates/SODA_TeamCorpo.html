@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>소다(SODA)-팀 협업</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/SODA_Frontpage_Style.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/HomeNav.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
+</head>
+
+<body>
+	<header id="HeaderNav">
+		<div id="MainNav">
+			<a class="logo" href="/SODA/Home">
+				<img th:src="@{/images/소다로고_배경O.png}" alt="logo">
+			</a>
+			<nav class="navBar">
+				<ul class="barItems">
+					<li><a href="/SODA/Func" class="bars">기능</a></li>
+					<li><a href="/SODA/Price" class="bars">요금제</a></li>
+					<li><a href="/SODA/TeamCorpo" class="bars">팀 협업</a></li>
+				</ul>
+				<div class="userBtnWrap">
+					<a href="/SODA/loginPage" id="btnLogin">로그인</a>
+					<a href="/SODA/JoinSelect" id="btnJoin">회원가입</a>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<div class="block1">
+		<img class="i1" th:src="@{/images/소다.png}">
+		<p class="a">자바 개발자들의 <span class="s1">개발・기획!</span></p>
+		<p class="a"><span class="s1">SODA</span> 하나면</p>
+		<p class="c">충분해요^^</p>
+		<p class="b">모든 개발・기획 프로젝트 성과를 최대로!</p>
+		<button class="b1" onclick="location.href='/SODA/loginPage'">
+			이메일을 입력하세요.
+		</button>
+		<button class="b2" onclick="location.href='/SODA/loginPage'">
+			지금 무료 시작
+		</button>
+	</div>
+
+	<div class="block2">
+		<img class="i2" th:src="@{/images/안녕.png}">
+	</div>
+
+	<div class="block3">
+		<p class="e">
+			이슈 관리에 철저한 개발・기획팀<br>핵심 업무에 <img class="i3" th:src="@{/images/깃발1.png}"> 더 집중해 보세요.
+		</p>
+		<div class="block4">
+			<button id="button1" class="cls">
+				간트차트
+			</button>
+			<button id="button2" class="cls">
+				업무관리
+			</button>
+			<button id="button3" class="cls">
+				이슈 공유・처리
+			</button>
+			<button id="button4" class="cls">
+				멀티 메신저
+			</button>
+			<button id="button5" class="cls">
+				화상회의
+			</button>
+		</div>
+		<img id="id1" th:src="@{/images/이미지1.png}">
+	</div>
+
+	<script>
+		const buttons = document.querySelectorAll('.cls');
+
+		// 첫 번째 버튼에 기본적으로 hover 효과를 적용
+		buttons[0].classList.add('active');
+
+		buttons.forEach((button, index) => {
+			button.addEventListener('click', () => {
+				// 모든 버튼에서 'active' 클래스 제거
+				buttons.forEach(b => b.classList.remove('active'));
+
+				// 현재 버튼에 'active' 클래스 추가
+				button.classList.add('active');
+			});
+		});
+		
+		var images = ["images/이미지1.png", "images/이미지2.png", "images/이미지3.png", "images/이미지4.png", "images/이미지5.png"];
+
+		// 각 버튼 클릭 이벤트 핸들러
+		document.getElementById("button1").addEventListener("click", function () {
+			document.getElementById("id1").src = "/images/이미지1.png";
+		});
+		document.getElementById("button2").addEventListener("click", function () {
+			document.getElementById("id1").src = "/images/이미지2.png";
+		});
+		document.getElementById("button3").addEventListener("click", function () {
+			document.getElementById("id1").src = "/images/이미지3.png";
+		});
+		document.getElementById("button4").addEventListener("click", function () {
+			document.getElementById("id1").src = "/images/이미지4.png";
+		});
+		document.getElementById("button5").addEventListener("click", function () {
+			document.getElementById("id1").src = "/images/이미지5.png";
+		});
+
+	</script>
+
+</body>
+
+</html>

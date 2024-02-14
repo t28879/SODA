@@ -1,0 +1,18 @@
+<html layout:decorate="~{DashBoardLayout}">
+<div layout:fragment="content" class="content">
+	<h2 class="my-3 border-bottom pb-2" style="margin-top: 36px;margin-bottom:15px;">질문등록</h2>
+    <form th:action="@{/questioncreate}" th:object="${questionForm}" method="post">
+		<div th:replace="~{form_errors :: formErrorsFragment}" style="width: 50px;"></div>
+        <div  style="width:50px;">
+            <label for="subject" class="form-label" style="font-size: 20px;">제목</label>
+            <input type="text" th:field="*{subject}" class="form-control" style="height: 40px; width: 1604px;margin-top: 14px;">
+        </div>
+        <div class="mb-3" style="display: grid;">
+            <label for="content" class="form-label" style="margin: 22px 0 10px 0; font-size: 20px;">내용</label>
+            <textarea th:field="*{content}" class="form-control" rows="10" style="width: 1606px;"></textarea>
+        </div>
+        <input type="submit" value="저장하기" style="margin-top: 20px;">
+    </form>
+</div>
+
+</html>

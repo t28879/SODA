@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>SODA-CreateProject</title>
+	<link rel="stylesheet" href="css/CreateProject.css">
+	<link rel="stylesheet" href="css/reset.css">
+</head>
+<header class="projectCreateHeader">
+	<button onclick="redirectToHome()">
+		<img src="images/HoverClose.png" class="headerClose" alt="프로젝트생성닫기">
+	</button>
+</header>
+
+<body>
+	<div class="projectCreateWrap">
+		<div class="projectFormWrap">
+			<h1 class="projectCreateTitle">프로젝트 만들기</h1>
+			<form action="/insertProject" method="post" id="createProject">
+				<ul class="projectCreateContent">
+					<li><input type="hidden" th:value="${memberId}" name="memberId" id="memberId"></li>
+					<li><input type="text" placeholder="프로젝트 제목을 입력하세요." name="creProjectName" id="creProjectName"></li>
+					<li class="settingHomeTab">
+						<p><img src="images/집.png">홈 탭 설정</p>
+						<ul>
+							<li class="homeTabItems">피드</li>
+							<li class="homeTabItems">업무</li>
+							<li class="homeTabItems">간트차트</li>
+							<li class="homeTabItems">캘린더</li>
+							<li class="homeTabItems">파일</li>
+						</ul>
+					</li>
+					<li class="createOptionTab">
+						<ul class="createOption">
+							<li>
+								<div class="creOptionWrap">
+									<div>
+										<img src="images/자물쇠.png" class="creLockerImg">
+										<span>관리자 승인 후 참여 가능</span>
+									</div>
+									<button class="creOptionBtn">ON</button>
+								</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<button id="createProjectBtn" type="submit">프로젝트 생성</button>
+			</form>
+		</div>
+	</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script th:src="@{/js/SODA_DASHBOARD.js}"></script>
+<script>
+	function redirectToHome() {
+		window.location.href = "/SODA_DASHBOARD"; // 초기화면의 JSP 페이지 경로로 변경
+	}
+</script>
+
+</html>

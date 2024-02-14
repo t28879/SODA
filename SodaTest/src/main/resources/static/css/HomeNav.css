@@ -1,0 +1,79 @@
+@charset "UTF-8";
+#HeaderNav{
+	border-bottom: 1px solid #abd7dc;
+	background: #fff;
+	position: fixed;
+	width: 100%;
+	z-index: 9;
+}
+#HeaderNav #MainNav{
+	width: 1240px;
+	padding: 0 20px;
+	height: 100px;
+	display: flex;
+	align-items: center;
+	position: relatvie;
+	margin: 0 auto;
+}
+#MainNav .logo{
+	height: 40px;
+	display: flex;
+	font-size: 0px;
+	margin: 0;
+}
+.navBar{
+	display: flex;
+	justify-content: space-between;
+	flex: 1 1 0%;
+}
+.navBar .barItems{
+	display: flex;
+	margin-left: 50px;
+	gap: 30px;
+	align-items: center;
+	min-height: 32px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 21px;
+}
+.navBar .barItems .bars{
+	color: #555;
+}
+.navBar .userBtnWrap{
+	display: flex;
+	align-items: center;
+}
+.navBar .userBtnWrap a{
+	display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 21px;
+}
+#btnLogin,#btnJoin{
+	letter-spacing: -0.32px;
+    color: #555;
+    padding: 6px 15px;
+    background: #fff;
+    border-radius: 3px;
+    border: 1px solid #50b5bf;
+    border-image: initial;
+}
+#btnJoin{
+	margin-left:5px;
+	background: #50b5bf;
+	color: #fff;
+}
+.barItems .bars:hover{
+	color: #50b5bf;
+}
+#btnLogin:hover{
+	color: #50b5bf;
+	border-color: #50b5bf;
+}
+#btnJoin:hover{
+	background: #abd7dc;
+	border-color: #abd7dc;
+	color: #555;
+}

@@ -1,0 +1,42 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="content">
+	<div class="rightpage">
+		<h3>접속 통계</h3>
+		<hr>
+		<div id="optiondivDH">
+			<select id="statisticoption" name="languages">
+				<option value="이름">이름</option>
+				<option value="부서">부서</option>
+				<option value="직책">직책</option>
+			</select>
+			<input id="statisticDH" type="text" placeholder="검색어 입력">
+			<div id="searchstDH" data-btn-id="1">검색</div>
+		</div>
+		<table id="tableforstatic" width="1000" border="1">
+			<thead>
+			<tr id="spacefordata1">
+				<td>이름</td>
+				<td>부서</td>
+				<td>직책</td>
+				<td>이메일</td>
+				<td>휴대폰 번호</td>
+				<td>가입일</td>
+				<td>접속 수</td>
+			</tr>
+			</thead>
+			<tbody>
+				<tr th:each="connect:${connectlist}">
+					<td><span th:text="${connect.name}"></span></td>
+					<td><span th:text="${connect.deptname}"></span></td>
+					<td><span th:text="${connect.job_name}"></span></td>
+					<td><span th:text="${connect.email}"></span></td>
+					<td><span th:text="${connect.phone_num}"></span></td>
+					<td><span th:text="${connect.join_date}"></span></td>
+					<td><span th:text="${connect.count}"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+</html>

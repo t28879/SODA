@@ -1,0 +1,31 @@
+<div th:fragment="navbarFragment" class="sidebar">
+	<div class="menu">
+		<img src="/images/소다로고_배경X.png" alt="로고" onclick="redirectToHome()">
+		<h4>회사</h4>
+		<ul>
+			<li id="li1DH"><a th:href="@{/CompanyInfo}">회사 정보</a></li>
+			<li><a th:href="@{/WorkerManage}">구성원 관리</a></li>
+			<li><a th:href="@{/InviteMember}">구성원 초대</a></li>
+		</ul>
+		<h4>프로젝트</h4>
+		<ul>
+			<li id = "temptemp"><a th:href="@{/getallproject}">프로젝트 관리</a></li>
+		</ul>
+		<h4>통계/리포트</h4>
+		<ul>
+			<li><a th:href="@{/ConnectStatistic}">접속 통계</a></li>
+			<li><a th:href="@{/UsageStatistic}">사용 통계</a></li>
+		</ul>
+		<h4>보안 설정</h4>
+		<ul>
+			<li><a th:href="@{/DownLoadIP}">파일 보안 설정</a></li>
+			<li><a th:href="@{/LoginIP}">로그인 보안 설정</a></li>
+			<li><a th:href="@{/WaterMark}">워터마크 설정</a></li>
+		</ul>
+		<h4>로그</h4>
+		<ul>
+			<li data-li-num=11><a th:href = "@{/DownLoadLog}">파일 다운로드 이력</a></li>
+			<li data-li-num=12><a th:href = "@{/AdminChangeLog}">관리자 변경 이력</a></li>
+		</ul>
+	</div>
+</div>

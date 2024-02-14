@@ -1,0 +1,643 @@
+@charset "UTF-8";
+
+/* -----------------------------------------------검색바에 대한 css----------------------------------------------------------------- */
+
+#popupCloseButton {
+	display : none;
+}
+
+.search-bar {
+	/* header의 검색바 클래스 */
+	display: flex;
+	height: 35px;
+	position: relative;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	z-index: 11;
+	background: rgb(0, 0, 0, 0.6);
+	align-items: center;
+	/* 검색바 input의 위치 */
+	justify-content: center;
+	/* Flex 컨테이너 내의 Flex 아이템들을 수평 방향으로 가운데 정렬하는 역할  */
+	/* border-radius: 5px; /* 테두리 둥글게 */
+}
+
+.search-area {
+	/* 검색바 전체의 위치 조정 */
+	position: relative;
+}
+
+.main-search {
+	/* 검색바 안의 요소에 대한 css */
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: auto;
+	min-width: 300px;
+	height: 27px;
+	padding: 0 20px 0 10px;
+	border: 1px solid #555;
+	border-radius: 900px;
+	color: #eee;
+	font-size: 12px;
+	margin: 0 auto;
+	background-color: rgba(192, 192, 192, 0.8);
+}
+
+.search-box {
+	/*검색 이미지,검색input,옵션이미지를 감쌈*/
+	display: flex;
+	align-items: center;
+	position: relative;
+	width: 231px;
+	flex: 1;
+}
+
+.search-box .search {
+	margin-right: 10px;
+}
+
+.search-input {
+	/* 검색바 검색창 */
+	padding-right: 1px;
+	padding-left: 1px;
+	color: #fff;
+	font-size: 14px;
+	background: 0 0;
+	vertical-align: middle;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	width: 250px;
+	border: 0px;
+}
+
+/* -------------------------------------------- */
+
+/* 검색 팝업창에 대한 css */
+
+.popup-main {
+	font-size: 10px;
+	display: none;
+	position: absolute;
+	top: 300%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	/* 팝업의 너비를 조정합니다. */
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	padding: 20px;
+	/* 내부 여백을 늘립니다. */
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	z-index: 1001;
+}
+
+.popup-header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 17px 20px 8px 20px;
+	border-bottom: 1px solid #555;
+	box-sizing: border-box;
+}
+
+.popup-options-search {
+	width: 22px;
+	height: 22px;
+	margin: -5px 20px 0 0;
+	top: 0;
+}
+
+.swap-button {
+	margin-right: 10px;
+}
+
+.swap-button a img {
+	background-position: -346px -1px;
+	width: 14px;
+	height: 12px;
+	margin-right: 5px;
+	display: inline-block;
+	width: 14px;
+	height: 11px;
+	position: relative;
+	font-size: 12px;
+	top: 0;
+}
+
+.hiddenPopup {
+	display: none;
+	align-items: center;
+	height: 30px;
+	line-height: 30px;
+	background: #50b5bf;
+	border-radius: 4px;
+	padding: 0 6px 0 12px;
+	color: #fff;
+	overflow: hidden;
+}
+
+.hiddenPopup p {
+	display: inline-block;
+}
+
+#hidden-popup-change {
+	font-weight: 600;
+	text-align: center;
+	margin-top: 4px;
+	font-size: 10px;
+}
+
+#pointX {
+	display: inline-block;
+	margin-left: 5px;
+	width: 20px;
+	height: 20px;
+	position: relative;
+}
+
+.popup-options-input {
+	border: 0;
+	flex: 1;
+	width: calc(100% - 20px);
+	padding: 0;
+	font-size: 18px;
+	color: #333;
+	font-weight: 700;
+	box-sizing: border-box;
+}
+
+.popup-options-delete {
+	width: 15px;
+	height: 15px;
+	margin: 0 15px;
+}
+
+.popup-options-option {
+	transform: none;
+	right: 0;
+	position: relative;
+	top: 0;
+	width: 22px;
+	height: 22px;
+	cursor: pointer;
+}
+
+.category {
+	margin-top: 10px;
+	border-bottom: 1px solid #ccc;
+	padding-bottom: 5px;
+	/* 카테고리 밑의 선이 카테고리 소제목 위로 올라가도록 여백을 줍니다. */
+}
+
+.category-title {
+	font-weight: bold;
+	font-size: 12px;
+	margin-bottom: 15px;
+	margin-top: 20px;
+	/* 선이 카테고리 소제목 위로 올라가도록 음수 마진을 설정합니다. */
+}
+
+.category-buttons {
+	justify-content: space-between;
+	margin: 0 -4px;
+	/* 좌우 여백을 조절합니다. */
+	width: 250px;
+	margin-bottom: 10px;
+}
+
+.category-buttons button {
+	padding: 12px 16px;
+	/* 버튼의 패딩을 늘립니다. */
+	background-color: #eee;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	cursor: pointer;
+	outline: none;
+	flex: 1;
+	margin: 0 4px;
+	/* 좌우 여백을 조절합니다. */
+	font-size: 10px;
+	/* 버튼의 글꼴 크기를 조절합니s다. */
+	size: 25px;
+}
+
+/* ---------------------------------------- */
+
+/* 조직도 포함 우측 4개 이미지에 대한 css */
+
+.rightImgs {
+	display: flex;
+	align-items: center;
+	position: absolute;
+	right: 30px;
+	top: 50%;
+	transform: translateY(-50%);
+	font-size: 0;
+}
+
+.rightImgs button {
+	display: flex;
+	align-items: center;
+	overflow: visible;
+	min-width: 20px;
+	position: relative;
+	vertical-align: middle;
+	margin-left: 30px;
+	border: 0px;
+	background: rgb(0, 0, 0, 0);
+}
+
+.rightImgs img {
+	cursor: pointer;
+}
+
+#btn4 {
+	padding: 0px 2px;
+	/*border: 1px solid black;*/
+	border-radius: 10px;
+}
+
+.btnImgs {
+	height: 23px;
+	width: 27px;
+}
+
+#btn4Img {
+	height: 30px;
+}
+
+/* ---------------------------------------- */
+
+/* 검색팝업 하단 취소 검색 버튼 */
+
+.condition-button-area {
+	overflow: hidden;
+	margin-top: 15px;
+	color: #555;
+}
+
+.cancel-search {
+	float: right;
+	font-size: 13px;
+}
+
+.cancel-button {
+	height: 36px;
+	padding: 0 32px;
+	line-height: 36px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background: #fff;
+	font-weight: 500;
+	font-size: 13px;
+	box-sizing: border-box;
+}
+
+.condition-button.search {
+	background: #6449fc;
+	border-color: #6449fc;
+	color: #fff;
+}
+
+.search-button.searchsear {
+	background: #6449fc;
+	border-color: #6449fc;
+	color: #fff;
+}
+
+.condition-button {
+	height: 36px;
+	padding: 0 32px;
+	line-height: 36px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	font-weight: 500;
+	font-size: 13px;
+	box-sizing: border-box;
+}
+
+.conditions-group>li {
+	display: table;
+	width: 100%;
+}
+
+.condition-cell.title {
+	width: 100px;
+	height: 43px;
+	padding-top: 14px;
+	border: 0;
+	font-size: 13px;
+	font-weight: 500;
+	color: #333;
+	vertical-align: top;
+	box-sizing: border-box;
+}
+
+.condition-cell {
+	display: table-cell;
+}
+
+/* sub popup 결과창 */
+.sub-popup {
+	font-size: 10px;
+	display: none;
+	position: absolute;
+	top: 300%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	background-color: #ffffff;
+	border: 1px solid #ccc;
+	padding: 20px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	z-index: 1002;
+}
+
+#btn3Img {
+	border-radius: 20px;
+}
+
+#btn4Img {
+	height: 30px;
+	border-radius: 20px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------- */
+
+/* -----------------------------------------------검색바에서 검색후에 대한 css----------------------------------------------------- */
+/* 프로젝트의 검색 */
+#SearchbarPopupLayer {
+	position: fixed;
+	left: 460px;
+	width: 700px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 650px;
+	z-index: 34;
+	vertical-align: middle;
+}
+
+#SearchLayerHeader {
+	margin-left: 27px;
+	width: 750px;
+	height: 80px;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 80px;
+	float: left;
+	color: #333;
+}
+
+#SearchCancle {
+	z-index: 12;
+	top: 21px;
+	right: 10px;
+	padding: 10px;
+	border: 0;
+	border-radius: 10px;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background: #fff;
+}
+
+#MSmainTab {
+	padding: 0 30px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+}
+
+#searchAfter {
+	display: flex;
+	height: calc(100% - 120px);
+}
+
+#eventArea {
+	min-width: 674px;
+	overflow: auto;
+	padding: 0 30px;
+	flex: 1;
+	height: 100%;
+}
+
+#projectSearchArea {
+	overflow: auto;
+	height: auto;
+}
+
+#MSsearchtitlearea {
+	z-index: 1;
+	position: relative;
+	padding: 30px 0 14px;
+}
+
+#MSsearchResultTitle {
+	font-weight: 700;
+	font-size: 16px;
+	color: #333;
+}
+
+#projectSearchResult {
+	width: 60px;
+	height: 60px;
+	margin-top: revert-layer;
+}
+
+#projectSearchItem {
+	margin-bottom: 10px;
+}
+
+#searchProjectAll {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+}
+
+#titleWord {
+	float: none;
+	width: auto;
+}
+
+#searchWord {
+	display: inline-block;
+}
+
+/* 글의 검색 */
+
+#SearchbarPopupLayerPost {
+	position: fixed;
+	left: 460px;
+	width: 700px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 650px;
+	z-index: 34;
+	vertical-align: middle;
+}
+
+#SearchLayerHeaderPost {
+	margin-left: 27px;
+	width: 750px;
+	height: 80px;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 80px;
+	float: left;
+	color: #333;
+}
+
+#SearchCanclePost {
+	z-index: 12;
+	top: 21px;
+	right: 10px;
+	padding: 10px;
+	border: 0;
+	border-radius: 10px;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background: #fff;
+}
+
+#MSmainTabPost {
+	padding: 0 30px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+}
+
+#searchAfterPost {
+	display: flex;
+	height: calc(100% - 120px);
+}
+
+#eventAreaPost {
+	min-width: 674px;
+	overflow: auto;
+	padding: 0 30px;
+	flex: 1;
+	height: 100%;
+}
+
+#projectSearchAreaPost {
+	overflow: auto;
+	height: auto;
+}
+
+#MSsearchtitleareaPost {
+	z-index: 1;
+	position: relative;
+	padding: 30px 0 14px;
+}
+
+#MSsearchResultTitlePost {
+	font-weight: 700;
+	font-size: 16px;
+	color: #333;
+}
+
+#titleWordPost {
+	float: none;
+	width: auto;
+}
+
+#searchWordPost {
+	display: inline-block;
+}
+
+/* 파일 검색 */
+#SearchbarPopupLayerFile {
+	position: fixed;
+	left: 460px;
+	width: 700px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 650px;
+	z-index: 34;
+	vertical-align: middle;
+}
+
+#SearchLayerHeaderFile {
+	margin-left: 27px;
+	width: 750px;
+	height: 80px;
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 80px;
+	float: left;
+	color: #333;
+}
+
+#SearchCancleFile {
+	z-index: 12;
+	top: 21px;
+	right: 10px;
+	padding: 10px;
+	border: 0;
+	border-radius: 10px;
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background: #fff;
+}
+
+#MSmainTabFile {
+	padding: 0 30px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+}
+
+#searchAfterFile {
+	display: flex;
+	height: calc(100% - 120px);
+}
+
+#eventAreaFile {
+	min-width: 674px;
+	overflow: auto;
+	padding: 0 30px;
+	flex: 1;
+	height: 100%;
+}
+
+#projectSearchAreaFile {
+	overflow: auto;
+	height: auto;
+}
+
+#MSsearchtitleareaFile {
+	z-index: 1;
+	position: relative;
+	padding: 30px 0 14px;
+}
+
+#MSsearchResultTitleFile {
+	font-weight: 700;
+	font-size: 16px;
+	color: #333;
+}
+
+#titleWordFile {
+	float: none;
+	width: auto;
+}
+
+#searchWordFile {
+	display: inline-block;
+}
+
+
+/* ------------------------------------------------------------------------------------------------------------------------- */
+

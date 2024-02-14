@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<head>
+	<meta charset="UTF-8">
+	<title>소다(SODA)-회원가입</title>
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/HomeNav.css}">
+	<link rel="stylesheet" th:href="@{/css/Join.css}">
+</head>
+<header id="HeaderNav">
+	<div id="MainNav">
+		<a class="logo" href="/SODA/Home"><img th:src="@{/images/소다로고_배경O.png}" alt="logo"></a>
+		<nav class="navBar">
+			<ul class="barItems">
+				<li><a href="/SODA/Func" class="bars">기능</a></li>
+				<li><a href="/SODA/Price" class="bars">요금제</a></li>
+				<li><a href="/SODA/TeamCorpo" class="bars">팀 협업</a></li>
+			</ul>
+			<div class="userBtnWrap">
+				<a href="/SODA/loginPage" id="btnLogin">로그인</a>
+				<a href="/SODA/JoinSelect" id="btnJoin">회원가입</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<body>
+	<div class="joinHome">
+		<div class="createCompany" style="display:block;">
+			<div class="creComTitle">새 회사 만들기 🏢 </div>
+			<div class="creComIntro">회사정보 입력 후, 소다 관리자로 시작해보세요</div>
+			<div class="creComWrap">
+				<form action="/SODA/CreateCompany" method="post" id="CreateCompanyForm">
+					<label>
+						<input type="hidden" name="userId" th:value="${memberEmail.Email}">
+					</label>
+					<label>
+						<span class="comWrapTitle">회사 이름</span>
+						<div class="comNameCheckDiv">
+							<input type="text" id="comName" name="comName" placeholder="회사 이름">
+							<button id="comNameCheck" type="button">중복 확인</button>
+						</div>
+						<p class="errorText" id="errorCompany">회사이름을 입력해주세요.</p>
+					</label>
+					<label class="comURLWrap">
+						<span class="comWrapTitle">회사 URL</span>
+						<div class="URLWrap">
+							<p>https://&nbsp;</p>
+							<input type="text" id="comURL" name="comURL" placeholder="회사 URL">
+							<p>&nbsp;.soda.team</p>
+						</div>
+						<p class="errorText" id="errorURL">회사 URL을 입력해주세요.</p>
+					</label>
+					<label>
+						<span class="comWrapTitle">회사 업종</span>
+						<div class="comSelect">
+							<select>
+								<option>회사 업종을 선택해주세요.</option>
+								<option>마케팅</option>
+								<option>IT 운영</option>
+								<option>제품관리</option>
+								<option>HR</option>
+								<option>영업</option>
+								<option>고객지원</option>
+								<option>CEO</option>
+								<option>엔지니어</option>
+								<option>디자이너</option>
+								<option>회계/법률</option>
+								<option>재무</option>
+								<option>기타</option>
+							</select>
+						</div>
+					</label>
+					<a id="creComPrev" href="/SODA/CreateMember">이전</a>
+					<button id="creComNext" type="submit">다음</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script th:src="@{/js/Join.js}"></script>
+<script th:inline="javascript">
+		function searchCom(e){
+			e.preventDefault();
+			var comName = document.getElementById("comName").value;
+			$.ajax({
+				url: '/SODA/SearchCom',
+				method: 'POST',
+				data: {comName: comName},
+				success: function (response) {
+					if (response.name != null) {
+						$('#errorCompany').css('display', 'block');
+						$('#errorCompany').text('이미 존재하는 회사명입니다.');
+						$('#errorCompany').css('color', '#ff6b6b');
+						$('#comName').css('border-color', '#ff6b6b');
+					} else if(response.name == null){
+						$('#errorCompany').css('display', 'block');
+						$('#errorCompany').css('color', '#50b5bf');
+						$('#errorCompany').text('생성 가능한 회사명입니다.');
+					}
+				},
+				error: function (xhr, status, error) {
+					console.log(status + ": " + status)
+				}
+			});
+		}
+		$('#comNameCheck').on('click', searchCom);
+</script>
+</html>

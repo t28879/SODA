@@ -1,0 +1,125 @@
+@charset "UTF-8";
+body {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.pricing-table {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    background: #abd7dc;
+    height: 600px;
+}
+
+.plan, .plan1, .plan2 {
+    background: #fff;
+    border: 2px solid #1E90FF;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.pl, .info, .plan1, .plan2{
+	margin-top: 120px;
+	width:170px;
+	height: 300px;
+}
+.plan1{
+	border: 2px solid #f15a24;
+}
+.plan2{
+	border: 2px solid #000;
+}
+.info{
+	border: 2px solid #7CFC00;
+}
+.info li{
+	font-size : 12px;
+}
+
+.plan h2 {
+    color: #333;
+    font-size: 24px;
+}
+
+.price {
+    color: #f15a24;
+    font-size: 36px;
+    margin-top: 10px;
+}
+
+.plan ul {
+    list-style: none;
+    padding: 0;
+}
+
+.plan ul li {
+    margin: 10px 0;
+    font-size: 12px;
+}
+button {
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+.plan:hover {
+    transform: scale(1.05);
+}
+.description{
+	margin: 20px auto 200px 20px;
+	float: left;
+	text-align: left;
+	position: relative;
+	display: block;
+	margin-bottom: 200px;
+}
+.textSection{
+	position: relative;
+	text-align: left;
+	margin-left: 280px;
+	overflow: hidden;
+}
+.textWrap{
+	position: relatvie;
+	display: block;
+	margin-top:150px;
+	overflow: hidden;
+}
+
+.payment-buttons button {
+     background: #50b5bf;
+     color: white;
+     border: none;
+     border-radius: 5px;
+     cursor: pointer;
+     font-size: 18px;
+     padding: 10px 20px;
+     margin-top: 20px;
+     transition: background 0.2s;
+     border: 1px solid #50b5bf;
+}
+
+.payment-buttons button:hover {
+     background:#fff;
+     color: #50b5bf;
+     border: 1px solid #50b5bf;
+}
+.footer{
+	position: absolute;
+	display: block;
+	margin:140px auto 10px auto;
+	width: 100%;
+	text-align: left;
+}

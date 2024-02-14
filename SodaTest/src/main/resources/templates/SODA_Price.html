@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/HomeNav.css}">
+    <link rel="stylesheet" th:href="@{/css/pricing.css}">
+    <link rel="stylesheet" th:href="@{/css/reset.css}">
+    
+    <title>소다(SODA)-요금제</title>
+    <style>
+
+    </style>
+</head>
+<header id="HeaderNav">
+		<div id="MainNav">
+			<a class="logo" href="/SODA/Home"><img th:src="@{/images/소다로고_배경O.png}" alt="logo"></a>
+			<nav class="navBar">
+				<ul class="barItems">
+					<li><a href = "/SODA/Func" class="bars">기능</a></li>	
+					<li><a href = "/SODA/Price" class="bars">요금제</a></li>
+					<li><a href = "/SODA/TeamCorpo" class="bars">팀 협업</a></li>
+				</ul>
+				<div class="userBtnWrap">
+					<a href = "/SODA/loginPage" id="btnLogin">로그인</a>
+					<a href = "/SODA/JoinSelect" id="btnJoin">회원가입</a>
+				</div>
+			</nav>
+		</div>		
+</header>
+<body>
+	<section class="textSection">
+		<div class="textWrap">
+			<h2 class="textTitle" style="font-size:35px">요금안내</h2><br>
+				<p class="textSubTitle" style="font-weight: bold; font-size:20px">우리 회사가 사용하는 No.1 협업툴</p><p>SODA | 업무용 협업툴</p>
+		</div>
+	</section>
+	
+	<div class="payment-buttons">
+        <button onclick='document.getElementById("month").innerHTML = "6000",document.getElementById("year").innerHTML = "12000"'>월간 결제</button>
+        <button type = "button" onclick='document.getElementById("month").innerHTML = "8000",document.getElementById("year").innerHTML = "15000"'>연간 결제</button>
+    </div>
+	
+    <div class="pricing-table">
+    	<div class="plan info">
+            <h2>기능 안내</h2>
+            <p class="price">금액</p>
+            <ul>
+                <li>프로젝트 개설</li>
+                <li>계정당 용량</li>
+                <li>파일 폴더링 기능</li>
+                <li>파일 1회 업로드 용량</li>
+                <li>검색 기간</li>
+            </ul>
+            
+        </div>
+        <div class="plan pl">
+            <h2>베이직</h2>
+            <p class="price">무료</p>
+            <ul>
+                <li>3개</li>
+                <li>500MB</li>
+                <li>O</li>
+                <li>10MB</li>
+                <li>1달 내 자료</li>
+            </ul>
+            <button style="background : #1E90FF" onclick="location='/SODA/loginPage'">무료 체험</button>
+        </div>
+        <div class="plan plan1">
+            <h2>스탠다드</h2>
+            <p class="price"><em id="month">6000</em><em>원</em><em style="font-size:15px">(1인)</em></p>
+            <ul>
+                <li>무제한</li>
+                <li>인당 20GB</li>
+                <li>O</li>
+                <li>500MB</li>
+                <li>무기한</li>
+            </ul>
+            <button style="background:#f15a24" onclick="location='/SODA/loginPage'">결제 하기</button>
+        </div>
+        <div class="plan plan2">
+            <h2>프리미엄</h2>
+            <p class="price"><em id="year">12000</em><em>원</em><em style="font-size:15px">(1인)</em></p>
+            <ul>
+                <li>무제한</li>
+                <li>인당 50GB</li>
+                <li>O</li>
+                <li>1GB</li>
+                <li>무기한</li>
+            </ul>
+            <button style="background:#000" onclick="location='/SODA/loginPage'">결제 하기</button>
+        </div>
+    </div>
+    <div class="description">
+    <ul>
+		<li>위 금액은 1인 기준의 월간 사용 요금으로, VAT(부가세)가 포함되지 않은 금액입니다.</li>
+		<li>10인 미만의 인원이 사용할 경우, 용량은 10인 기준으로 제공됩니다. (스탠다드: 200GB,프리미엄: 500GB)</li>
+		<li>저장 공간은 1TB 단위로 추가 구매 가능합니다.</li>
+	</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html layout:decorate="~{DashBoardLayout}">
+<div layout:fragment="content" class="content">
+	<div class="questioncontainer">
+		<table class="questiontable">
+			<thead class="table-dark">
+				<tr>
+					<th>번호</th>
+					<th>제목</th>
+					<th>작성자</th>
+					<th>작성일시</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="question, loop : ${questionList}">
+					<td th:text="${loop.count}"></td>
+					<td>
+						<a th:href="@{|/questionlist_detail/${question.question_id}|}" th:text="${question.subject}"></a>
+						<span
+                        th:if="${#lists.size(question.answerList) > 0}" 
+                        th:text="${#lists.size(question.answerList)}"
+                        style="right: 423px;color: blue;font-weight: bold;">
+                    	</span>
+					</td>
+					<td th:text="${question.name}+'/'+${question.email}"></td>
+					<td th:text="${#temporals.format(question.createdate, 'yyyy-MM-dd HH:mm')}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<a th:href="@{/questioncreate}">질문 등록하기</a>
+	<div class="pagination">
+		<ul>
+			<li th:class="${currentPage == 1} ? disabled">
+				<a th:href="@{${currentPage == 1} ? '#' : '/questionlist/1'}">First</a>
+			</li>
+			<li th:if="${currentPage}>1">
+				<a th:href="@{'/questionlist/'+${currentPage + -1} }">Previous</a>
+			</li>
+			<li th:each="pageNumber : ${#numbers.sequence(currentPage - 3 < 1 ? 1 : currentPage - 3, currentPage + 3 > totalPages ? totalPages : currentPage + 3)}"
+				th:class="${pageNumber == currentPage} ? 'active'">
+				<a th:href="@{${pageNumber == currentPage} ? '#' : '/questionlist/'+${pageNumber}}"
+					th:text="${pageNumber}"></a>
+			</li>
+			<li th:if="${currentPage}<${totalPages}">
+				<a th:href="@{'/questionlist/'+${currentPage + 1} }">Next</a>
+			</li>
+			<li th:class="${currentPage == totalPages} ? disabled">
+				<a th:href="@{${currentPage == totalPages} ? '#' : '/questionlist/' + ${totalPages}}">Last</a>
+			</li>
+		</ul>
+	</div>
+</div>
+</html>

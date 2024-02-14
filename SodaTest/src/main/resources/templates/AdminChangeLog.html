@@ -1,0 +1,44 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="content">
+	<div class="rightpage">
+		<h3>관리자 변경 이력</h3>
+		<hr>
+	</div>
+	<div id="FormForChange">
+		<select id="searchChangeLog">
+			<option>변경자</option>
+			<option>ID</option>
+			<option>메뉴</option>
+			<option>기능</option>
+		</select>
+		<input id="SearchChange" type="text" placeholder="검색어 입력">
+		<button id="Changsubmit">검색</button>
+	</div>
+	<div id="SpaceForChange">
+		<table id="Changetable">
+			<thead>
+			<tr id="Changetabletitle">
+				<td>이름/아이디</td>
+				<td>메뉴</td>
+				<td>기능</td>
+				<td>대상</td>
+				<td>변경사항</td>
+				<td>변경일시</td>
+			</tr>
+			</thead>
+			<tbody>
+				<tr th:each="changelog:${log}">
+					<td><span th:text="${changelog.name}"></span>/<span th:text="${changelog.email}"></span></td>
+					<td><span th:text="${changelog.menu}"></span></td>
+					<td><span th:text="${changelog.function}"></span></td>
+					<td><span th:text="${changelog.object}"></span></td>
+					<td><span th:text="${changelog.changes}"></span></td>
+					<td><span th:text="${changelog.change_date}"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+</div>
+
+</html>

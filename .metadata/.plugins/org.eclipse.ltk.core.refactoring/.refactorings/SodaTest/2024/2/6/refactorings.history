@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.mysite.Soda.crud.OkDAO&apos; to &apos;UpdateOkDAO&apos;&#x0D;&#x0A;- Original project: &apos;SodaTest&apos;&#x0D;&#x0A;- Original element: &apos;com.mysite.Soda.crud.OkDAO&apos;&#x0D;&#x0A;- Renamed element: &apos;com.mysite.Soda.crud.UpdateOkDAO&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;OkDAO&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/gradle_scope=/main=/=/gradle_used_by_scope=/main,test=/&lt;com.mysite.Soda.crud{OkDAO.java[OkDAO" matchStrategy="1" name="UpdateOkDAO" qualified="false" references="true" similarDeclarations="false" stamp="1707204804882" textual="false" version="1.0"/>
+</session>

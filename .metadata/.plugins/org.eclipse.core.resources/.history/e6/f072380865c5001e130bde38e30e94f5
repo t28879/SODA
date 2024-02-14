@@ -1,0 +1,3225 @@
+@charset "utf-8";
+
+.sidebar img {
+	display: block;
+	margin: 0 auto;
+	width: 150px;
+	/* 이미지 너비 */
+	height: auto;
+	/* 높이 자동으로 조절 */
+	margin-bottom: 20px;
+	/* 로고 아래 여백 */
+	cursor: pointer;
+}
+
+.content {
+	flex: 1;
+	padding-left: 270px;
+	/* 사이드바 너비 + 여백 */
+}
+
+.sidebar ul {
+	list-style: none;
+	/* 목록 스타일 제거 */
+	padding: 0;
+	margin: 0;
+}
+
+.menu li a {
+	color: #fff;
+}
+
+.menu ul {
+	margin-bottom: 15px;
+}
+
+.menu {
+	margin: 20px;
+
+}
+
+
+.rightpage {
+	padding: 20px 40px 30px 20px;
+}
+
+.rightpage h3,
+p {
+	padding: 10px 0 20px 0;
+}
+
+.rightpage h4 {
+	margin-top: 10px;
+}
+
+.editableContent {
+	position: absolute;
+	border: 1px solid #ccc;
+	padding: 5px;
+	margin-bottom: 10px;
+	min-width: 40px;
+	text-align: center;
+	width: 200px;
+	height: 20px;
+	user-select: none;
+	border: none;
+	border-bottom: 1px solid #ccc;
+}
+
+
+
+
+
+.what {
+	background-color: white;
+	width: 200px;
+	height: 200px;
+	position: absolute;
+	left: 250px;
+	top: 400px;
+}
+
+#test_btn1 {
+	position: absolute;
+	margin-right: -4px;
+	border-top-left-radius: 10px;
+	width: 120px;
+	height: 50px;
+	position: absolute;
+	left: -3px;
+	top: 40px;
+	border-color: #BDBDBD;
+	margin-right: -4px;
+}
+
+#test_btn2 {
+	position: absolute;
+	margin-left: -3px;
+	border-top-right-radius: 10px;
+	width: 120px;
+	height: 50px;
+	position: absolute;
+	left: 120px;
+	top: 40px;
+	border-color: #BDBDBD;
+}
+
+#btn_group {
+	position: absolute;
+	display: block;
+}
+
+#btn_group button:hover {
+	color: white;
+	background-color: gray;
+}
+
+#btn_group button:focus {
+	background-color: gray;
+}
+
+#btn_group button {
+	background: #fff;
+}
+
+#comnameDH {
+	border: none;
+	border-bottom: 1px solid gray;
+	text-align: center;
+	width: 240px;
+	height: 36px;
+	font-size: 17px;
+}
+
+#comurl {
+	border: none;
+	border-bottom: 1px solid gray;
+	text-align: center;
+	width: 240px;
+	height: 36px;
+}
+
+#buttonDiv1 {
+	width: 200px;
+	position: relative;
+	left: 252px;
+	display: block;
+	top: -27px;
+}
+
+#buttonDiv1 input {
+	width: 50px;
+	border-radius: 5px;
+	height: 30px;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+#subbuttonDiv1 {
+	display: none;
+	position: relative;
+	top: -2px;
+
+}
+
+#subbuttonDiv2 {
+	display: none;
+	position: relative;
+	top: -2px;
+}
+
+#comNamebtn,
+#comUrlbtn {
+	background-color: lightblue;
+	color: gray;
+}
+
+#imgsubmit {
+	width: 240px;
+	height: 70px;
+	background-color: white;
+	border: 1px solid gray;
+	color: gray;
+	font-size: 23px;
+	margin-top: 20px;
+	cursor: pointer;
+}
+
+#btn_group {
+	position: relative;
+	display: block;
+}
+
+#memtDH {
+	position: relative;
+	top: 88px;
+	left: -3px;
+}
+
+#memtDHsearch {
+	position: relative;
+	height: 26px;
+	border-radius: 5px;
+	border: 1px solid gray;
+	text-align: center;
+}
+
+#memtDHsubmit {
+	position: relative;
+	height: 30px;
+	border-radius: 7px;
+	width: 73px;
+	border: 1px solid gray;
+	top: 2px;
+	cursor: pointer;
+}
+
+#memtDHTable {
+	position: relative;
+	left: 20px;
+	top: 76px;
+	width: 1600px;
+	border: 1px solid lightgray;
+	text-align: center;
+
+}
+
+.emailsubmit{
+	margin-top: 40px;
+}
+
+#memtDHTable thead{
+	font-weight: bold;
+}
+
+#searchfDH {
+	height: 26px;
+	border-radius: 6px;
+	text-align: center;
+}
+
+#formforDH {
+	margin-top: 16px;
+}
+
+#usagediv {
+	width: 67px;
+	height: 18px;
+	color: red;
+	position: absolute;
+	left: 1361px;
+	display: inline-flex;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+#usagediv:hover {
+	font-weight: bold;
+}
+
+#YNdiv {
+	width: 57px;
+	height: 18px;
+	color: red;
+	position: absolute;
+	left: 1543px;
+	display: inline-flex;
+	font-size: 14px;
+	cursor: pointer;
+
+}
+
+#YNdiv:hover {
+	font-weight: bold;
+}
+
+#li2pop {
+	border: 1px solid black;
+	width: 400px;
+	height: 630px;
+	z-index: 2;
+	background-color: white;
+	position: absolute;
+	left: 900px;
+	top: 70px;
+	padding: 20px;
+	border-radius: 12px;
+	display: none;
+}
+
+#savechDH {
+	border-radius: 12px;
+	border: 1px solid lightgray;
+	width: 110px;
+	position: relative;
+	left: 73px;
+	top: 100px;
+	height: 40px;
+	background-color: lightblue;
+	text-align: center;
+	font-size: 25px;
+	color: darkblue;
+	cursor: pointer;
+}
+
+#cancelchDH {
+	border-radius: 12px;
+	width: 110px;
+	height: 40px;
+	border: 1px solid gray;
+	position: relative;
+	left: 202px;
+	top: 59px;
+	font-size: 25px;
+	text-align: center;
+	color: gray;
+	cursor: pointer;
+}
+
+#pwresetDH {
+	text-align: center;
+	position: absolute;
+	width: 57px;
+	left: 90px;
+	top: 251px;
+	border-left: 3px solid darkblue;
+	border-right: 3px solid darkblue;
+}
+
+#pwresetDH:hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+#li2pop input {
+	height: 18px;
+	border-radius: 6px;
+	text-align: center;
+}
+
+#pessential {
+	color: darkblue;
+	font-size: 24px;
+	margin-bottom: -13px;
+}
+
+#memtDHTable td:nth-child(-n+5):hover {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.tablet1DH td:nth-child(1):hover {
+	font-weight: bold;
+}
+
+#surecommit {
+	background-color: lightblue;
+	border-radius: 8px;
+	border: 1px solid gray;
+	width: 300px;
+	height: 140px;
+	position: absolute;
+	left: 920px;
+	top: 300px;
+	text-align: center;
+	font-size: 14px;
+	color: black;
+	display: none;
+}
+
+#surecommit input {
+	cursor: pointer;
+}
+
+#cancelDH {
+	width: 78px;
+	height: 34px;
+	background-color: white;
+	position: absolute;
+	left: 65px;
+	border-radius: 8px;
+	top: 90px;
+}
+
+#submitDH {
+	width: 78px;
+	height: 34px;
+	background-color: #FFD9EC;
+	position: absolute;
+	left: 164px;
+	border-radius: 8px;
+	top: 90px;
+	color: darkblue;
+}
+
+#submitDH2 {
+	width: 78px;
+	height: 34px;
+	background-color: #FFD9EC;
+	position: absolute;
+	left: 164px;
+	border-radius: 8px;
+	top: 90px;
+	color: darkblue;
+}
+
+#admincommit {
+	background-color: lightblue;
+	border-radius: 8px;
+	border: 1px solid gray;
+	width: 300px;
+	height: 140px;
+	position: absolute;
+	left: 920px;
+	top: 300px;
+	text-align: center;
+	font-size: 14px;
+	color: black;
+	display: none;
+}
+
+#admincommit input {
+	cursor: pointer;
+}
+
+#admincommit p {
+	position: relative;
+	top: 21px;
+	font-size: 18px;
+	left: 3px;
+}
+
+#surecommit p {
+	position: relative;
+	top: 21px;
+	font-size: 18px;
+	left: 3px;
+}
+
+#memtDHTable th,
+#memtDHTable td {
+	width: 15%;
+	/* 첫 번째 열의 비율을 33%로 설정 */
+}
+
+#memtDHTable th:nth-child(1),
+#memtDHTable td:nth-child(1) {
+	width: 10%;
+	padding: 5px 2px;
+}
+
+#memtDHTable th:nth-child(2),
+#memtDHTable td:nth-child(2) {
+	width: 10%;
+	padding: 5px 2px;
+}
+
+#memtDHTable th:nth-child(3),
+#memtDHTable td:nth-child(3) {
+	width: 10%;
+	padding: 5px 2px;
+}
+
+.copysymbol {
+	width: 24px;
+	position: relative;
+	left: 0px;
+	top: 8px;
+}
+
+.companyurl {
+	width: 170px;
+	border: none;
+	border-bottom: 1px solid gray;
+	height: 30px;
+	text-align: center;
+}
+
+#box1 {
+	padding-left: 10px;
+	width: 220px;
+	height: 30px;
+	border-radius: 12px;
+	margin-bottom: 5px;
+	border: 2px solid gray;
+}
+
+#box2 {
+	padding-left: 10px;
+	width: 220px;
+	height: 30px;
+	border-radius: 12px;
+	margin-bottom: 5px;
+	border: 2px solid gray;
+}
+
+#box3 {
+	padding-left: 10px;
+	width: 220px;
+	height: 30px;
+	border-radius: 12px;
+	margin-bottom: 5px;
+	border: 2px solid gray;
+}
+
+#box4 {
+	padding-left: 10px;
+	width: 220px;
+	height: 30px;
+	border-radius: 12px;
+	margin-bottom: 5px;
+	border: 2px solid gray;
+}
+
+#box5 {
+	padding-left: 10px;
+	width: 220px;
+	height: 30px;
+	border-radius: 12px;
+	margin-bottom: 5px;
+	border: 2px solid gray;
+}
+
+#submitemailDH {
+	margin-top: 5px;
+	width: 100px;
+	height: 36px;
+	background-color: lightblue;
+	border: 1px solid gray;
+	border-radius: 8px;
+}
+
+/*여기가 content5 css 인데 조금 위험해*/
+.tablet1DH {
+	position: relative;
+	left: 18px;
+	top: 83px;
+	width: 1600px;
+	cursor: pointer;
+	text-align: center;
+	border: 1px solid lightgray;
+}
+
+#test_btn11 {
+	position: absolute;
+	margin-right: -4px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	width: 120px;
+	height: 50px;
+	position: absolute;
+	left: -3px;
+	top: 40px;
+	border-color: #BDBDBD;
+	margin-right: -4px;
+	background-color: white;
+}
+
+#probtn {
+	position: absolute;
+	display: block;
+}
+
+.totalsubmit {
+	position: relative;
+	left: 1480px;
+	top: -130px;
+	width: 100px;
+	height: 30px;
+	background-color: white;
+	color: blue;
+	border: none;
+	text-decoration: underline;
+}
+
+.totalsubmit:hover {
+	color: purple;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.findPRO {
+	width: 73px;
+	height: 34px;
+	border-radius: 8px;
+	border: 1px solid gray;
+	background-color: lightblue;
+	cursor: pointer;
+}
+
+#searhProDH {
+	position: relative;
+	left: -3px;
+	top: 89px;
+}
+
+#searhProDH input {
+	width: 200px;
+	height: 30px;
+	margin-top: 20px;
+	border-radius: 8px;
+	border: 1px solid gray;
+	text-align: center;
+}
+
+#projectedit {
+	position: absolute;
+	left: 700px;
+	top: 190px;
+	background-color: white;
+	width: 655px;
+	height: 440px;
+	border: 1px solid gray;
+	padding: 15px;
+	display: none;
+}
+
+#saveprobtn {
+	background-color: lightblue;
+	width: 100px;
+	border: 1px solid gray;
+	height: 46px;
+	border-radius: 15px;
+	position: absolute;
+	top: 390px;
+	left: 347px;
+	text-align: center;
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+#cancelprobtn {
+	background-color: white;
+	width: 100px;
+	border: 1px solid gray;
+	height: 46px;
+	border-radius: 15px;
+	position: absolute;
+	top: 390px;
+	left: 230px;
+	text-align: center;
+	padding-top: 20px;
+	cursor: pointer;
+}
+
+#getproname {
+	position: relative;
+	left: 110px;
+	top: -44px;
+	width: 250px;
+	height: 30px;
+	border-radius: 8px;
+	border: 1px solid gray;
+	text-align: center;
+}
+
+#moreadmin {
+	position: absolute;
+	left: 67px;
+	top: 125px;
+	width: 60px;
+	height: 34px;
+	border: 1px solid gray;
+	border-radius: 8px;
+	background-color: lightblue;
+	cursor: pointer;
+}
+
+#prolisttable {
+	width: 639px;
+	text-align: center;
+	font-size: 13px;
+}
+
+#fireadmin {
+	color: red;
+	cursor: pointer;
+}
+
+#fireadmin:hover {
+	font-weight: bold;
+
+}
+
+#firemanager {
+	color: red;
+	cursor: pointer;
+}
+
+#firemanager:hover {
+	font-weight: bold;
+
+}
+
+#hiremanager {
+	font-size: 12px;
+}
+
+#hiremanager {
+	color: red;
+	cursor: pointer;
+}
+
+#hiremanager:hover {
+	font-weight: bold;
+}
+
+#hireadmin {
+	font-size: 12px;
+}
+
+#hireadmin {
+	color: red;
+	cursor: pointer;
+}
+
+#hireadmin:hover {
+	font-weight: bold;
+}
+
+#fireadmin2 {
+	color: red;
+	cursor: pointer;
+}
+
+#fireadmin2:hover {
+	font-weight: bold;
+
+}
+
+#erasecom {
+	background-color: darkcyan;
+	width: 203px;
+	height: 50px;
+	position: absolute;
+	left: 842px;
+	top: 100px;
+	border: 1px solid gray;
+	border-radius: 26px;
+	display: none;
+}
+
+#appendcom {
+	background-color: darkcyan;
+	width: 203px;
+	height: 50px;
+	position: absolute;
+	left: 842px;
+	top: 100px;
+	border: 1px solid gray;
+	border-radius: 26px;
+	display: none;
+	justify-content: center;
+	font-weight: bold;
+	color: lightgoldenrodyellow;
+	align-items: center;
+	font-size: 13px;
+}
+
+#IPsuccess {
+	background-color: darkcyan;
+	width: 203px;
+	height: 50px;
+	position: absolute;
+	left: 842px;
+	top: 100px;
+	border: 1px solid gray;
+	border-radius: 26px;
+	display: none;
+	justify-content: center;
+	font-weight: bold;
+	color: lightgoldenrodyellow;
+	align-items: center;
+	font-size: 13px;
+}
+
+#alreadyexist {
+	background-color: indianred;
+	width: 203px;
+	height: 50px;
+	position: absolute;
+	left: 842px;
+	top: 100px;
+	border: 1px solid gray;
+	border-radius: 26px;
+	display: none;
+	justify-content: center;
+	font-weight: bold;
+	color: lightgoldenrodyellow;
+	align-items: center;
+	font-size: 13px;
+}
+
+#preadminlist {
+	width: 420px;
+	height: 408px;
+	background-color: white;
+	z-index: 2;
+	position: absolute;
+	left: 729px;
+	top: 191px;
+	padding: 31px;
+	border: 2px solid black;
+	display: none;
+}
+
+#memchoice {
+	width: 64px;
+	height: 33px;
+	margin-right: 10px;
+}
+
+#memchDH {
+	height: 29px;
+	margin-right: 10px;
+}
+
+
+#submitanyDH {
+	height: 32px;
+	width: 45px;
+	border-radius: 7px;
+	background-color: lightblue;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+#preadminlist hr {
+	margin-top: 20px;
+}
+
+#choosewhoDH {
+	width: 419px;
+	text-align: center;
+	font-size: 13px;
+}
+
+#NOCancel {
+	position: absolute;
+	left: 136px;
+	top: 417px;
+	width: 90px;
+	height: 40px;
+	border-radius: 12px;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+#OKsubmit {
+	position: absolute;
+	top: 417px;
+	right: 149px;
+	width: 90px;
+	height: 40px;
+	border-radius: 12px;
+	border: 1px solid gray;
+	background-color: lightblue;
+	cursor: pointer;
+}
+
+/* content6 page */
+#lineforsta {
+	width: 1609px;
+}
+
+#statisticoption,
+#statisticoption2 {
+	width: 73px;
+	text-align: center;
+	height: 30px;
+	margin-right: 10px;
+	border-radius: 6px;
+}
+
+#optiondivDH,
+#optiondivDH2 {
+	position: relative;
+	display: inline-flex;
+	top: 20px;
+}
+
+#statisticDH,
+#statisticDH2 {
+	height: 26px;
+	margin-right: 10px;
+	border-radius: 6px;
+	text-align: center;
+	border: 1px solid gray;
+}
+
+#searchstDH,
+#searchstDH2 {
+	width: 64px;
+	border: 1px solid gray;
+	background-color: lightblue;
+	text-align: center;
+	border-radius: 6px;
+	height: 26px;
+	padding-top: 3px;
+	cursor: pointer;
+}
+
+#tableforstatic,
+#tableforstatic2 {
+	width: 1600px;
+	margin-top: 50px;
+	text-align: center;
+	border: 1px solid lightgray;
+}
+
+#tableforstatic thead{
+	font-weight: bold;
+}
+
+#tableforstatic2 thead {
+	font-weight: bold;
+}
+
+#tableforstatic th:nth-child(1),
+#tableforstatic td:nth-child(1) {
+	width: 15%;
+	padding: 5px 2px;
+}
+
+#tableforstatic th:nth-child(2),
+#tableforstatic td:nth-child(2) {
+	width: 15%;
+	padding: 5px 2px;
+}
+
+#tableforstatic th:nth-child(3),
+#tableforstatic td:nth-child(3) {
+	width: 15%;
+	padding: 5px 2px;
+}
+
+#tableforstatic2 th:nth-child(1),
+#tableforstatic2 td:nth-child(1) {
+	width: 15%;
+	padding: 5px 2px;
+}
+
+#tableforstatic2 th:nth-child(2),
+#tableforstatic2 td:nth-child(2) {
+	width: 15%;
+	padding: 5px 2px;
+}
+
+#tableforstatic2 th:nth-child(3),
+#tableforstatic2 td:nth-child(3) {
+	width: 15%;
+	padding: 5px 2px;
+}
+
+.t1ofDH th:nth-child(1),
+.t1ofDH td:nth-child(1) {
+	width: 20%;
+	padding: 7px 2px;
+}
+
+.t1ofDH th:nth-child(2),
+.t1ofDH td:nth-child(2) {
+	width: 20%;
+	padding: 7px 2px;
+}
+
+.t1ofDH th:nth-child(3),
+.t1ofDH td:nth-child(3) {
+	width: 20%;
+	padding: 7px 2px;
+}
+
+.t1ofDH thead {
+	font-weight: bold;
+}
+
+/*===================================content 8 IP 부분===================================================*/
+#app-cover {
+	display: table;
+	width: 600px;
+	margin: 80px auto;
+	counter-reset: button-counter;
+}
+
+.toggle-button-cover {
+	display: table-cell;
+	position: relative;
+	width: 200px;
+	height: 140px;
+	box-sizing: border-box;
+}
+
+.button-cover {
+	height: 100px;
+	margin: 20px;
+	border-radius: 4px;
+}
+
+.button-cover:before {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	color: #d7e3e3;
+	font-size: 12px;
+	line-height: 1;
+	padding: 5px;
+}
+
+.button-cover,
+.knobs,
+#layerDH {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.buttonDH {
+	position: relative;
+	top: 50%;
+	width: 74px;
+	height: 36px;
+	margin: -20px auto 0 auto;
+	overflow: hidden;
+}
+
+.buttonDH.r,
+.buttonDH.r #layerDH {
+	border-radius: 100px;
+}
+
+.buttonDH.b2 {
+	border-radius: 2px;
+	width: 74px;
+	right: 526px;
+	top: -28px;
+}
+
+.buttonDH.b3 {
+	border-radius: 2px;
+	width: 74px;
+	right: 568px;
+	top: -27px;
+}
+
+#checkbxFOR8 {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 3;
+}
+
+.knobs {
+	z-index: 2;
+}
+
+#layerDH {
+	width: 100%;
+	background-color: #fcebeb;
+	transition: 0.3s ease all;
+	z-index: 1;
+}
+
+#button-11 {
+	overflow: visible;
+}
+
+#button-11 .knobs {
+	perspective: 70px;
+}
+
+#button-11 .knobs:before,
+#button-11 .knobs:after,
+#button-11 .knobs span {
+	position: absolute;
+	top: 4px;
+	border-radius: 2px;
+}
+
+#button-11 .knobs:before,
+#button-11 .knobs:after {
+	width: 20px;
+	height: 10px;
+	color: #4e4e4e;
+	font-size: 10px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1;
+	padding: 9px 4px;
+}
+
+#button-11 .knobs:before {
+	content: "OFF";
+	left: 4px;
+}
+
+#button-11 .knobs:after {
+	content: "ON";
+	right: 4px;
+}
+
+#button-11 .knobs span {
+	right: 4px;
+	width: 33px;
+	height: 28px;
+	background-color: #f44336;
+	transform: rotateY(0);
+	transform-origin: 0% 50%;
+	transition: 0.6s ease all;
+	z-index: 1;
+}
+
+#checkbxFOR8:checked+.knobs span {
+	transform: rotateY(-180deg);
+	background-color: #86E57F;
+}
+
+#checkbxFOR8:checked~#layerDH {
+	background-color: #ebf7fc;
+}
+
+
+
+.ipExplain1 {
+	position: relative;
+	color: gray;
+	top: -30px;
+	font-size: 13px;
+}
+
+
+.newdata {
+	position: relative;
+	left: 1513px;
+	top: -280px;
+	width: 70px;
+	height: 30px;
+	background-color: #307CFE;
+	color: white;
+	border-radius: 0em;
+}
+
+.title1DH {
+	background-color: #F6F6F6;
+	height: 30px;
+}
+
+#title2DH {
+	background-color: #F6F6F6;
+	font-size: 17px;
+	height: 30px;
+}
+
+.divtable {
+	overflow-y: auto;
+	overflow-x: hidden;
+	border: 1px solid #BDBDBD;
+	width: 1570px;
+	position: relative;
+	top: -44px;
+	height: 250px;
+}
+
+.checktable {
+	width: 1568px;
+	position: relative;
+	border: 1px solid #BDBDBD;
+	text-align: center;
+}
+
+.checktable thead {
+	font-weight: bold;
+}
+
+.checktable input {
+	width: 15px;
+	height: 15px;
+	margin: 2px;
+}
+
+.downlist {
+	font-size: 11px;
+	background-color: #F6F6F6;
+	color: #5D5D5D;
+	position: relative;
+	top: -55px;
+	margin-top: 20px;
+}
+
+#downhr {
+	position: relative;
+	top: -40px;
+}
+
+.checktable tr.selected {
+	background-color: #FFEBFF;
+}
+
+.checktable tr {
+	border: 1px solid lightgray;
+}
+
+.t1ofDH {
+	width: 1600px;
+	border: 1px solid lightgray;
+	text-align: center;
+	position: relative;
+	left: -1px;
+}
+
+.t1ofDH tr {
+	border: 1px solid lightgray;
+}
+
+.addIP {
+	position: absolute;
+	right: 44px;
+	top: 174px;
+	width: 68px;
+	height: 30px;
+	border-radius: 7px;
+	background-color: lightblue;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+#DeleteIP {
+	position: absolute;
+	right: 119px;
+	top: 161px;
+	width: 68px;
+	height: 30px;
+	border-radius: 7px;
+	background-color: white;
+	border: 1px solid gray;
+}
+
+#cancelIP {
+	position: absolute;
+	right: 121px;
+	top: 622px;
+	width: 68px;
+	height: 30px;
+	border-radius: 7px;
+	background-color: white;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+.ADDIP {
+	position: absolute;
+	right: 45px;
+	top: 622px;
+	width: 68px;
+	height: 30px;
+	border-radius: 7px;
+	background-color: lightblue;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+.divforcheckt {
+	overflow-y: auto;
+	overflow-x: hidden;
+	border: 1px solid lightgray;
+	position: relative;
+	top: -39px;
+	height: 250px;
+}
+
+.divforcheckt::-webkit-scrollbar {
+	width: 3px;
+}
+
+.divforcheckt::-webkit-scrollbar-track {
+	background-color: lightgray;
+}
+
+.divforcheckt::-webkit-scrollbar-thumb {
+	background-color: darkgray;
+}
+
+.companyIPONOFF {
+	left: 231px;
+	position: relative;
+	top: -45px;
+	width: 68px;
+	border-radius: 7px;
+	border: 1px solid gray;
+	height: 30px;
+	cursor: pointer;
+}
+
+.exceptionONOFF {
+	left: 191px;
+	position: relative;
+	top: -45px;
+	width: 68px;
+	border-radius: 7px;
+	background-color: lightblue;
+	border: 1px solid gray;
+	height: 30px;
+	cursor: pointer;
+}
+
+.IpAddDiv {
+	background-color: white;
+	width: 400px;
+	height: 200px;
+	position: absolute;
+	padding: 20px;
+	top: 152px;
+	border: 1px solid gray;
+	left: 720px;
+	border-radius: 30px;
+	display: none;
+}
+
+.forIPDIV1 {
+	display: inline-flex;
+	width: 399px;
+}
+
+.forIPDIV1 p {
+	margin-right: 20px;
+}
+
+.forIPDIV1 input {
+	height: 29px;
+	width: 243px;
+	margin-top: 8px;
+	margin-right: 8px;
+}
+
+.forIPDIV1 button {
+	border: none;
+	height: 32px;
+	margin-top: 5px;
+	cursor: pointer;
+	background-color: white;
+	border-bottom: 1px solid blue;
+}
+
+.forIPDIV1 button:hover {
+	background-color: lightgray;
+	color: red;
+}
+
+.forIPDIV2 {
+	display: inline-flex;
+	position: relative;
+	top: 13px;
+}
+
+.forIPDIV2 p {
+	margin-right: 32px;
+}
+
+.forIPDIV2 input {
+	width: 332px;
+	height: 35px;
+	text-align: center;
+	margin-top: 3px;
+}
+
+.saveIPBtn {
+	left: 209px;
+	position: relative;
+	top: 34px;
+	width: 88px;
+	border-radius: 7px;
+	background-color: lightblue;
+	border: 1px solid gray;
+	height: 38px;
+	cursor: pointer;
+}
+
+#cancleSaveBtn {
+	left: 18px;
+	position: relative;
+	top: 34px;
+	width: 88px;
+	border-radius: 7px;
+	background-color: white;
+	border: 1px solid gray;
+	height: 38px;
+	cursor: pointer;
+}
+
+.DelPng {
+	width: 20px;
+	position: relative;
+	left: 160px;
+	top: 3px;
+	cursor: pointer;
+}
+
+.GetSomeMem {
+	position: absolute;
+	width: 600px;
+	height: 500px;
+	background-color: white;
+	left: 632px;
+	top: 163px;
+	border: 1px solid gray;
+	border-radius: 35px;
+	padding: 42px;
+	display: none;
+}
+
+.DivFormemList {
+	position: relative;
+	width: 400px;
+	height: 435px;
+	border: 1px solid lightgray;
+	top: -1px;
+	border-radius: 8px;
+	overflow-y: auto;
+}
+
+.ForAllMem {
+	width: 199px;
+	height: 436px;
+	border: 1px solid lightgray;
+	position: absolute;
+	top: 65px;
+	left: 443px;
+	border-radius: 8px;
+}
+
+.More {
+	top: 24px;
+	position: relative;
+	left: 212px;
+	width: 100px;
+	height: 40px;
+	border-radius: 7px;
+	background-color: lightblue;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+.cancelMore {
+	position: relative;
+	width: 100px;
+	height: 40px;
+	border-radius: 7px;
+	background-color: white;
+	border: 1px solid gray;
+	cursor: pointer;
+	top: 24px;
+	left: 190px;
+}
+
+.searchExcepMem {
+	height: 26px;
+	width: 65px;
+	margin-right: 4px;
+	border-radius: 7px;
+}
+
+.searchExceText {
+	position: relative;
+	width: 134px;
+	height: 24px;
+	margin-right: 4px;
+	left: -5px;
+	border-radius: 5px;
+	border: 1px solid gray;
+}
+
+.searchExceBtn {
+	width: 50px;
+	height: 24px;
+	position: relative;
+	top: 2px;
+	left: -7px;
+	background-color: lightblue;
+	border: 1px solid gray;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.tooSEE {
+	position: relative;
+	width: 400px;
+	height: 397px;
+	top: 12px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+#watchthis {
+	display: inline-flex;
+	height: 64px;
+	width: 400px;
+	align-items: center;
+}
+
+.watchname {
+	min-width: 84px;
+	text-align: center;
+	font-size: 14px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: bold;
+}
+
+#hi {
+	margin-bottom: 5px;
+}
+
+#watchdept {
+	padding-left: 15px;
+	width: 70px;
+	height: 20px;
+	font-size: 10px;
+}
+
+#watchjob {
+	position: relative;
+	width: 103px;
+	height: 20px;
+	left: -14px;
+	font-size: 10px;
+}
+
+.watchmail {
+	text-align: center;
+	height: 20px;
+	margin-top: 9px;
+	width: 116px;
+	font-size: 14px;
+}
+
+#watchcheck {
+	margin-left: 17px;
+	width: 25px;
+	height: 20px;
+	border-radius: 50%;
+	border: 1px solid #333;
+	outline: none;
+	cursor: pointer;
+}
+
+#watchcheck:checked {
+	background-color: #B7F0B1;
+	/* 체크된 상태의 배경 색상 */
+	border-color: #4CAF50;
+	/* 체크된 상태의 테두리 색상 */
+}
+
+.DelPng2 {
+	width: 20px;
+	top: 3px;
+	left: 109px;
+	position: relative;
+	cursor: pointer;
+}
+
+.checktable th:nth-child(1),
+.checktable td:nth-child(1) {
+	width: 20%;
+	padding: 7px 2px;
+}
+
+.checktable th:nth-child(2),
+.checktable td:nth-child(2) {
+	width: 20%;
+	padding: 7px 2px;
+}
+
+.checktable th:nth-child(3),
+.checktable td:nth-child(3) {
+	width: 20%;
+	padding: 7px 2px;
+}
+
+#Changetable th:nth-child(1),
+#Changetable td:nth-child(1) {
+	width: 20%;
+	padding: 7px 2px;
+}
+
+#Changetable th:nth-child(2),
+#Changetable td:nth-child(2) {
+	width: 15%;
+	padding: 7px 2px;
+}
+
+#Changetable th:nth-child(3),
+#Changetable td:nth-child(3) {
+	width: 20%;
+	padding: 7px 2px;
+}
+
+#Changetable th:nth-child(4),
+#Changetable td:nth-child(4) {
+	width: 20%;
+	padding: 7px 2px;
+}
+#Changetable th:nth-child(5),
+#Changetable td:nth-child(5) {
+	width: 10%;
+	padding: 7px 2px;
+}
+
+#Changetable th:nth-child(6),
+#Changetable td:nth-child(6) {
+	width: 15%;
+	padding: 7px 2px;
+}
+
+.DIVforText {
+	width: 500px;
+	height: 124px;
+}
+
+#companyLOGIPONOFF {
+	left: 113px;
+	position: relative;
+	top: -45px;
+	width: 68px;
+	border-radius: 7px;
+	border: 1px solid gray;
+	height: 30px;
+	cursor: pointer;
+}
+
+#companyWaterONOFF {
+	left: 113px;
+	position: relative;
+	top: -45px;
+	width: 68px;
+	border-radius: 7px;
+	border: 1px solid gray;
+	height: 30px;
+	cursor: pointer;
+}
+
+#LOGexceptionONOFF {
+	left: 206px;
+	position: relative;
+	top: -45px;
+	width: 68px;
+	border-radius: 7px;
+	border: 1px solid gray;
+	height: 30px;
+	cursor: pointer;
+}
+
+#WaterMark {
+	width: 350px;
+	position: relative;
+	border: 2px solid gray;
+}
+
+#WaterList {
+	font-size: 11px;
+	background-color: #F6F6F6;
+	color: #5D5D5D;
+	position: relative;
+	left: 4px;
+	width: 540px;
+}
+
+#WaterDes {
+	font-size: 12px;
+	color: gray;
+}
+
+#DIVMAIN {
+	padding-top: 18px;
+}
+
+#SearchWhoD {
+	height: 25px;
+}
+
+#SearchNameDown {
+	height: 21px;
+	font-size: 15px;
+}
+
+#DownSearch {
+	width: 54px;
+	height: 24px;
+	position: relative;
+	top: 1px;
+	border-radius: 6px;
+	background-color: lightblue;
+	cursor: pointer;
+}
+
+#DownLOG {
+	margin-top: 28px;
+	border: 1px solid lightgray;
+	width: 1590px;
+	text-align: center;
+}
+
+#DownLOG thead {
+	font-weight: bold;
+}
+
+#DownLOG tr {
+	border: 1px solid lightgray;
+}
+
+#firstOFLOG {
+	background-color: #F6F6F6;
+}
+
+#searchChangeLog {
+	height: 30px;
+}
+
+#SearchChange {
+	height: 26px;
+	font-size: 11px;
+}
+
+#Changsubmit {
+	width: 54px;
+	position: relative;
+	top: 2px;
+	height: 30px;
+	border-radius: 8px;
+	background-color: lightblue;
+	cursor: pointer;
+}
+
+#FormForChange {
+	position: relative;
+	width: 600px;
+	left: 20px;
+}
+
+#Changetable {
+	width: 1595px;
+	border: 1px solid lightgray;
+	position: relative;
+	text-align: center;
+	font-size: 15px;
+}
+
+#Changetable thead {
+	font-weight: bold;
+}
+
+#Changetabletitle {
+	background-color: #F6F6F6;
+}
+
+#Changetable tr {
+	border: 1px solid lightgray;
+}
+
+.sidebar {
+	width: 250px;
+	height: 100vh;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #4f545d;
+	color: white;
+	padding-top: 20px;
+	/* 로고 상단 여백 */
+}
+
+.menu li {
+	padding: 3px;
+}
+
+.menu ul li a {
+	color: #b4bebd;
+}
+
+.sidebar li {
+	padding-left: 15px;
+	/* li에 패딩 추가 */
+	font-size: 15px;
+}
+
+#modifycmpname {
+	position: absolute;
+	top: 123px;
+	width: 236px;
+	height: 38px;
+	text-align: center;
+}
+
+#modifycmpurl {
+	position: absolute;
+	top: 500px;
+	width: 236px;
+	height: 38px;
+	text-align: center;
+}
+
+#linebet {
+	margin-bottom: 10px;
+}
+
+#mememailDH {
+	width: 167px;
+	height: 20px;
+	border-radius: 8px;
+	border: 2px solid black;
+	text-align: center;
+}
+
+#prolisttable th,
+#prolisttable td {
+	width: 25%;
+	/* Set the width for each column */
+	border: 1px solid lightgray;
+	/* Optional: Add borders for better visualization */
+	padding: 8px;
+}
+
+#projectadminchooseSpace th:nth-child(1),
+#projectadminchooseSpace td:nth-child(1) {
+	width: 15%;
+}
+
+#projectadminchooseSpace th:nth-child(4),
+#projectadminchooseSpace td:nth-child(4) {
+	width: 20%;
+}
+
+#managerchooseSpace th:nth-child(1),
+#managerchooseSpace td:nth-child(1) {
+	width: 15%;
+}
+
+#managerchooseSpace th:nth-child(4),
+#managerchooseSpace td:nth-child(4) {
+	width: 20%;
+}
+
+#prolisttablediv {
+	width: 655px;
+	height: 206px;
+	overflow-y: auto;
+}
+
+.tablet1DH th:nth-child(1),
+.tablet1DH td:nth-child(1) {
+	width: 20%;
+	padding: 5px 2px;
+}
+
+.tablet1DH thead{
+	font-weight: bold;
+}
+
+.tablet1DH th:nth-child(2),
+.tablet1DH td:nth-child(2) {
+	width: 20%;
+	padding: 5px 2px;
+}
+
+.tablet1DH th:nth-child(3),
+.tablet1DH td:nth-child(3) {
+	width: 8%;
+	padding: 5px 2px;
+}
+
+.tablet1DH th:nth-child(4),
+.tablet1DH td:nth-child(4) {
+	width: 8%;
+	padding: 5px 2px;
+}
+
+.tablet1DH th:nth-child(5),
+.tablet1DH td:nth-child(5) {
+	width: 8%;
+	padding: 5px 2px;
+}
+
+.tablet1DH th:nth-child(6),
+.tablet1DH td:nth-child(6) {
+	width: 8%;
+	padding: 5px 2px;
+}
+
+.tablet1DH th:nth-child(7),
+.tablet1DH td:nth-child(7) {
+	width: 8%;
+	padding: 5px 2px;
+}
+
+.tablet1DH th:nth-child(8),
+.tablet1DH td:nth-child(8) {
+	width: 8%;
+	padding: 5px 2px;
+}
+
+.tablet1DH th:nth-child(9),
+.tablet1DH td:nth-child(9) {
+	width: 12%;
+	padding: 5px 2px;
+}
+
+#tableforstatic2 th:nth-child(5),
+#tableforstatic2 td:nth-child(5) {
+	width: 5%;
+}
+
+#tableforstatic2 th:nth-child(6),
+#tableforstatic2 td:nth-child(6) {
+	width: 5%;
+}
+
+#tableforstatic2 th:nth-child(7),
+#tableforstatic2 td:nth-child(7) {
+	width: 5%;
+}
+
+#tableforstatic2 th:nth-child(8),
+#tableforstatic2 td:nth-child(8) {
+	width: 10%;
+}
+
+#IPexist {
+	background-color: indianred;
+	width: 203px;
+	height: 50px;
+	position: absolute;
+	left: 842px;
+	top: 100px;
+	border: 1px solid gray;
+	border-radius: 26px;
+	display: none;
+	justify-content: center;
+	font-weight: bold;
+	color: lightgoldenrodyellow;
+	align-items: center;
+	font-size: 13px;
+}
+
+#memexist {
+	background-color: indianred;
+	width: 203px;
+	height: 50px;
+	position: absolute;
+	left: 842px;
+	top: 100px;
+	border: 1px solid gray;
+	border-radius: 26px;
+	display: none;
+	justify-content: center;
+	font-weight: bold;
+	color: lightgoldenrodyellow;
+	align-items: center;
+	font-size: 13px;
+}
+
+#memsuccess {
+	background-color: darkcyan;
+	width: 203px;
+	height: 50px;
+	position: absolute;
+	left: 842px;
+	top: 100px;
+	border: 1px solid gray;
+	border-radius: 26px;
+	display: none;
+	justify-content: center;
+	font-weight: bold;
+	color: lightgoldenrodyellow;
+	align-items: center;
+	font-size: 13px;
+}
+
+#DownLOG th:nth-child(1),
+#DownLOG td:nth-child(1) {
+	width: 20%;
+	padding: 5px 2px;
+}
+
+#DownLOG th:nth-child(2),
+#DownLOG td:nth-child(2) {
+	width: 20%;
+}
+
+#DownLOG th:nth-child(3),
+#DownLOG td:nth-child(3) {
+	width: 20%;
+}
+
+#DownLOG th:nth-child(4),
+#DownLOG td:nth-child(4) {
+	width: 40%;
+}
+
+#SpaceForChange {
+	height: 622px;
+	overflow-y: auto;
+	margin-top: 43px;
+	border: 1px solid lightgray;
+	width: 1600px;
+	margin-left: 19px;
+}
+
+#SpaceForChange::-webkit-scrollbar {
+	width: 5px;
+}
+
+#SpaceForChange::-webkit-scrollbar-thumb {
+	background-color: darkgray;
+}
+
+#SpaceForChange::-webkit-scrollbar-track {
+	background-color: lightgray;
+}
+
+#projectadminrapper {
+	height: 267px;
+	overflow-y: auto;
+	width: 435px;
+	margin-top: 20px;
+}
+
+#hrtag {
+	position: relative;
+	top: 40px;
+	width: 500px;
+}
+
+#p#ipText2 {
+	margin-top: 20px;
+}
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	position: relative;
+	width: 1150px;
+	height: 100px;
+	left: 500px;
+	top: 78px;
+}
+
+.flex-item {
+	width: 250px;
+	/* 각 div의 너비 */
+	height: 170px;
+	/* 각 div의 높이 */
+	margin: 10px;
+	/* 각 div 사이의 간격 */
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+#addButton {
+	position: relative;
+	left: 700px;
+	top: 500px;
+}
+
+#molu {
+	width: 500px;
+	position: relative;
+	top: 30px;
+}
+
+#tobni {
+	height: 48px;
+	float: right;
+	margin-right: 20px;
+	cursor: pointer;
+}
+
+#optionborder {
+	left: 230px;
+	top: 35px;
+	width: 1690px;
+	height: 50px;
+	position: fixed;
+	background-color: #6449fc;
+	display: none;
+}
+
+#closebtndh {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	cursor: pointer;
+	border: none;
+	right: 0;
+    top: -140px;
+	background: none;
+}
+
+#forbordoptions1 {
+	width: 100px;
+	height: 30px;
+	position: absolute;
+	left: 581px;
+	top: 10px;
+}
+
+#forbordoptions2 {
+	width: 140px;
+	height: 30px;
+	position: absolute;
+	left: 714px;
+	top: 10px;
+}
+
+#choosecolo1 {
+	position: absolute;
+	left: -7px;
+	width: 110px;
+	height: 30px;
+	cursor: pointer;
+}
+
+#choosecolo2 {
+	position: absolute;
+	top: 3px;
+	width: 140px;
+	height: 27px;
+	cursor: pointer;
+}
+
+#projectcheckbox {
+	display: none;
+	position: relative;
+	top: 5px;
+	left: 220px;
+	appearance: none;
+	-webkit-appearance: inherit;
+	-moz-appearance: none;
+	width: 20px;
+	/* 체크박스의 가로 크기 */
+	height: 20px;
+	/* 체크박스의 세로 크기 */
+	border-radius: 50%;
+	/* 동그란 모양으로 만듦 */
+	border: 1px solid #333;
+	/* 테두리 스타일 */
+	outline: none;
+	/* 포커스 시 테두리 제거 */
+	cursor: pointer;
+	/* 커서 스타일 */
+}
+
+#projectcheckbox:checked {
+	background-color: #B7F0B1;
+	/* 체크된 상태의 배경 색상 */
+	border-color: #4CAF50;
+	/* 체크된 상태의 테두리 색상 */
+}
+
+#forcheckboxdiv {
+	width: 100%;
+	height: 25%;
+}
+
+#fortextdiv {
+	width: 100%;
+	height: 75%;
+}
+
+#fortextdiv>p {
+	font-weight: 700;
+	margin-top: 25px;
+	margin-left: 23px;
+}
+
+#resetbtndh {
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	left: 1650px;
+	top: 12px;
+	background-color: rgba(255, 255, 255, 0.0);
+}
+
+#palate {
+	width: 565px;
+	height: 250px;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	border-radius: 9px;
+	margin-top: 10px;
+	display: flex;
+}
+
+#palate div {
+	width: 100px;
+	height: 100px;
+	display: inline-flex;
+	border-radius: 5px;
+	justify-content: center;
+	align-items: center;
+	margin: 5px;
+	z-index: 2;
+}
+
+#wholebody {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.7);
+	/* 투명한 검은색 배경 */
+	display: none;
+	z-index: 1;
+}
+
+#palate input {
+	position: relative;
+	left: 42px;
+	top: -42px;
+	width: 32px;
+	z-index: 2;
+	height: 32px;
+	cursor: pointer;
+}
+
+#masterpalate {
+	position: absolute;
+	top: -28px;
+	left: 260px;
+	width: 565px;
+	height: 307px;
+	background-color: pink;
+	display: none;
+	z-index: 2;
+	border-radius: 9px;
+}
+
+#palate button {
+	margin-top: 19px;
+	width: 169px;
+	height: 39px;
+	border-radius: 15px;
+	border: 1px solid gray;
+	cursor: pointer;
+
+}
+
+#submitBtn {
+	background-color: #6449fc;
+	color: white;
+}
+
+#cancelbtn {
+	color: gray;
+}
+
+#popup {
+	background-color: #FF4848;
+	color: white;
+	position: relative;
+	width: 197px;
+	height: 16px;
+	padding-bottom: 7px;
+	border-radius: 5px;
+	text-align: center;
+	display: none;
+}
+
+#forpopup {
+	position: relative;
+	left: 585px;
+	top: 95px;
+	width: 197px;
+	height: 16px;
+}
+
+#masterfolder {
+	width: 484px;
+	height: 518px;
+	position: absolute;
+	left: 252px;
+	top: -92px;
+	background-color: white;
+	border-radius: 5%;
+	border: 1px solid black;
+	padding: 27px;
+	display: none;
+	z-index: 2;
+}
+
+#submitBtn2 {
+	color: darkred;
+	border-radius: 0%;
+	height: 33px;
+	width: 140px;
+	position: relative;
+	left: 82px;
+	top: 60px;
+	background-color: #B7F0B1;
+	cursor: pointer;
+}
+
+#cancelbtn2 {
+	border-radius: 0%;
+	height: 33px;
+	width: 140px;
+	background-color: white;
+	position: relative;
+	left: 77px;
+	top: 60px;
+	color: darkblue;
+	cursor: pointer;
+}
+
+.projectdumm {
+	border-bottom: 1px solid rgba(169, 169, 169, 0.7);
+	padding: 5px;
+	cursor: pointer;
+}
+
+.projectdumm p {
+	position: relative;
+	top: 19px;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+#ppbox {
+	left: 427px;
+	position: relative;
+	display: flex;
+	-webkit-appearance: inherit;
+	-moz-appearance: none;
+	width: 20px;
+	/* 체크박스의 가로 크기 */
+	height: 20px;
+	/* 체크박스의 세로 크기 */
+	border-radius: 50%;
+	/* 동그란 모양으로 만듦 */
+	border: 1px solid rgba(169, 169, 169, 0.7);
+	/* 테두리 스타일 */
+	outline: none;
+	/* 포커스 시 테두리 제거 */
+	cursor: pointer;
+	/* 커서 스타일 */
+	top: -2px;
+}
+
+#ppbox:checked {
+	background-color: #A0BAED;
+	/* 체크된 상태의 배경 색상 */
+	border-color: #A0BAED;
+	/* 체크된 상태의 테두리 색상 */
+}
+
+#folderfulllist {
+	overflow: auto;
+	height: 400px;
+}
+
+#projectlistdiv {
+	display: flex;
+	flex-wrap: wrap;
+	width: 1200px;
+	position: absolute;
+	left: 455px;
+	top: 189px;
+}
+
+.searchdh {
+	width: 220px;
+	height: 18px;
+	border: none;
+	position: relative;
+}
+
+.searchbadh {
+	width: 249px;
+	height: 21px;
+	border: 1px solid gray;
+}
+
+#optiondh {
+	height: 21px;
+	border: none;
+	margin-left: -4px;
+	background-color: white;
+	position: relative;
+	border-left: 1px solid gray;
+}
+
+.search2dh {
+	height: 25px;
+	position: relative;
+	left: 257px;
+	top: -23px;
+}
+
+.allworktable {
+	width: 100%;
+	margin-top: 25px;
+}
+
+#inventory th td {
+	width: 100px;
+	/* 특정 컬럼에 대한 넓이를 설정합니다. */
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.t1 {
+	width: 90%;
+}
+
+#titlecol1 {
+	width: 31%;
+}
+
+#titlecol2 {
+	width: 6%;
+}
+
+#titlecol3 {
+	width: 6%;
+}
+
+#titlecol4 {
+	width: 6%;
+}
+
+#titlecol5 {
+	width: 12%;
+}
+
+#titlecol6 {
+	width: 12%;
+}
+
+#titlecol7 {
+	width: 12%;
+}
+
+#titlecol8 {
+	width: 6%;
+}
+
+#titlecol9 {
+	width: 6%;
+}
+
+#titlecol10 {
+	border: 1px solid black;
+	width: 10px;
+}
+
+#빵빵아 {
+	width: 12px;
+	height: 10px;
+	margin-bottom: 3px;
+	margin-right: 3px;
+	position: absolute;
+	left: 164px;
+}
+
+#빵빵아hawi {
+	width: 12px;
+	height: 10px;
+	margin-bottom: 3px;
+	margin-right: 3px;
+	position: absolute;
+	left: 194px;
+}
+
+#sidebarchange {
+	width: 30px;
+	height: 60px;
+	border-radius: 3em;
+	border: none;
+	background-color: gray;
+	z-index: 2;
+	left: 215px;
+	top: 140px;
+	position: fixed;
+	padding-top: 3px;
+}
+
+#side {
+	width: 25px;
+	height: 30px;
+}
+
+.좌측사이드바0 {
+	top: 35px;
+	position: absolute;
+	box-sizing: content-box;
+	padding-top: 10px;
+	width: 230px;
+	display: none;
+	flex-direction: column;
+	height: calc(100% - 29px);
+	background-color: pink;
+	left: 0px;
+}
+
+좌측사이드바0 ul li {
+	color: black;
+}
+
+.서브사이드바메인 {
+	margin-top: 20px;
+	color: black;
+	padding-left: 20px
+}
+
+
+.서브사이드바메인 input {
+	margin: 6px;
+}
+
+#projectname {
+	position: relative;
+	padding-left: 112px;
+}
+
+#upmoo {
+	position: relative;
+	left: 180px;
+}
+
+#hawiupmoo {
+	position: relative;
+	left: 208px;
+}
+
+.datepicker {
+	border: none;
+	width: 150px;
+	text-align: center;
+	cursor: pointer;
+}
+
+#workmanname {
+	text-align: center;
+}
+
+#headproject {
+	background-color: #ececec;
+}
+
+#processimg {
+	position: relative;
+	width: 71px;
+	height: 35px;
+	cursor: pointer;
+}
+
+#priorityimg {
+	width: 55px;
+	height: 27px;
+	cursor: pointer;
+}
+
+#nopriorityimg {
+	width: 100px;
+	height: 35px;
+	position: relative;
+	left: 5px;
+	top: 2px;
+	cursor: pointer;
+}
+
+#processtd {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+	height: 44px;
+}
+
+#testspan {
+	width: 46px;
+	height: 9px;
+	position: relative;
+	border-radius: 7px;
+	background-color: #CFCFCF;
+}
+
+#innertestspan {
+	height: 9px;
+	border-radius: 18px;
+	position: relative;
+}
+
+#feed_progress_num {
+	position: relative;
+	font-size: 12px;
+	left: 5px;
+	top: 5px;
+}
+
+.fixed-height-row {
+	height: 40px;
+}
+
+/* ===========================================================여기서 부터 process 버튼 css=========================================================*/
+select {
+    display: inline;
+}
+
+/* 스타일링된 커스텀 select 컨테이너 */
+.custom-select {
+	position: relative;
+	display: inline-block;
+}
+
+.custom-select2 {
+	position: relative;
+	display: inline-block;
+	left: 15px;
+	top: 3px;
+}
+
+.custom-select3 {
+	position: relative;
+	display: inline-block;
+}
+
+#AdDH {
+	width: 82px;
+}
+
+/* 선택된 항목을 보여주는 커스텀 select 스타일 */
+.selected-item {
+	cursor: pointer;
+}
+
+.selected-item2 {
+	cursor: pointer;
+}
+
+/* 목록을 보여주는 커스텀 dropdown 스타일 */
+.custom-dropdown {
+	border-radius: 0 0 15px 15px;
+	position: absolute;
+	width: 86px;
+	top: -3px;
+	left: -9px;
+	background-color: #fff;
+	border: 2px solid black;
+	display: none;
+	z-index: 99;
+}
+
+.custom-dropdown2 {
+	border-radius: 0 0 15px 15px;
+	position: absolute;
+	width: 87px;
+	top: -12px;
+	left: -16px;
+	background-color: #fff;
+	border: 2px solid black;
+	display: none;
+	z-index: 99;
+	text-align: center;
+}
+
+.custom-dropdown3 {
+	border-radius: 0 0 15px 15px;
+	position: absolute;
+	width: 300px;
+	top: -25px;
+	left: -100px;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-top: none;
+	display: none;
+	z-index: 99;
+	text-align: center;
+}
+
+/* 목록 항목 스타일 */
+.custom-dropdown-item {
+	padding-top: 13px;
+	cursor: pointer;
+	text-align: center;
+}
+
+.chosenMem {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+/* 목록을 보여주는 커스텀 dropdown 스타일 */
+
+/* 목록 항목 스타일 */
+.MemberLDH-item {
+	padding: 10px;
+	cursor: pointer;
+}
+
+#closeit {
+	width: 50px;
+	height: 20px;
+	background-color: black;
+}
+
+.SearchMemDH {
+	position: relative;
+	left: 3px;
+}
+
+#membersection {
+	padding-bottom: 5px;
+}
+
+.selected-item p {
+	font-size: 10px;
+}
+
+.custom-select3 .selected-item {
+	left: 3px;
+	cursor: pointer;
+	position: relative;
+	top: 5px;
+	text-align: center;
+}
+
+.ManagerInsert {
+	width: 70px;
+	height: 30px;
+	padding-bottom: 15px;
+	background-color: aqua;
+}
+
+.custom-dropdown4 {
+	margin-top: 195px;
+	padding: 5px 0px;
+	width: 85px;
+	border: 2px solid black;
+	display: none;
+	border-radius: 10px;
+	font-size: 13px;
+	text-align: center;
+	position: absolute;
+	z-index: 3;
+	background-color: white;
+}
+
+
+
+.custom-dropdown4 div {
+	cursor: pointer;
+	padding: 3px 0px;
+}
+
+.custom-dropdown4 div:hover {
+	color: blue;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+#progressbar {
+	cursor: pointer;
+}
+
+#allworkplace {
+	position: absolute;
+	top: 115px;
+	width:90%;
+}
+
+#wholeprogress {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.subtasktd {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid lightgray;
+	height: 43px;
+}
+
+#adminsearchform {
+	width: 420px;
+	height: 408px;
+	background-color: white;
+	z-index: 2;
+	position: absolute;
+	left: 729px;
+	top: 191px;
+	padding: 31px;
+	border: 2px solid black;
+	display: none;
+	border-radius: 20px;
+}
+
+#moremanager {
+	position: absolute;
+	left: 29px;
+	top: 70px;
+	width: 60px;
+	height: 34px;
+	border: 1px solid gray;
+	border-radius: 8px;
+	background-color: lightblue;
+	cursor: pointer;
+}
+
+#managerlisttable {
+	width: 406px;
+	text-align: center;
+	font-size: 13px;
+}
+
+#premanagerlist {
+	width: 395px;
+	height: 298px;
+	background-color: white;
+	z-index: 6;
+	position: relative;
+	left: 944px;
+	top: 147px;
+	padding: 31px;
+	border: 2px solid black;
+	display: none;
+	border-radius: 20px;
+}
+
+#cancelmanagerbtn {
+	background-color: white;
+	width: 70px;
+	border: 1px solid gray;
+	border-radius: 15px;
+	position: absolute;
+	top: 418px;
+	left: 140px;
+	text-align: center;
+	padding: 5px;
+	cursor: pointer;
+}
+
+#savemangerbtn {
+	background-color: lightblue;
+	width: 70px;
+	border: 1px solid gray;
+	border-radius: 15px;
+	position: absolute;
+	top: 418px;
+	left: 268px;
+	text-align: center;
+	padding: 5px;
+	cursor: pointer;
+}
+
+#managerlisttablediv {
+	width: 406px;
+	height: 206px;
+	overflow-y: auto;
+	margin-top: 63px;
+}
+
+#nomanager {
+	position: absolute;
+	left: 142px;
+	top: 320px;
+	width: 70px;
+	padding: 5px;
+	border-radius: 12px;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+#yesmanager {
+	position: absolute;
+	top: 320px;
+	right: 149px;
+	width: 70px;
+	padding: 5px;
+	border-radius: 12px;
+	border: 1px solid gray;
+	background-color: lightblue;
+	cursor: pointer;
+}
+
+#premanagert {
+	width: 400px;
+	text-align: center;
+	font-size: 13px;
+}
+
+#premanagerrapper {
+	height: 173px;
+	overflow-y: auto;
+	width: 400px;
+	margin-top: 20px;
+}
+
+#writemanager {
+	height: 22px;
+	margin-right: 10px;
+}
+
+#getmanager {
+	height: 28px;
+	width: 45px;
+	border-radius: 7px;
+	background-color: lightblue;
+	border: 1px solid gray;
+	cursor: pointer;
+}
+
+#erasemanager {
+	background-color: darkcyan;
+	width: 203px;
+	height: 50px;
+	position: absolute;
+	left: 842px;
+	top: 100px;
+	border: 1px solid gray;
+	border-radius: 26px;
+	display: none;
+	justify-content: center;
+	font-weight: bold;
+	color: lightgoldenrodyellow;
+	align-items: center;
+	font-size: 13px;
+}
+
+#filestoragetable {
+	width: 90%;
+	text-align: center;
+}
+
+#commentimg {
+	height: 20px;
+	width: 20px;
+	position: relative;
+	top: 1px;
+}
+
+#workimg {
+	height: 20px;
+	width: 20px;
+	position: relative;
+	top: 3px;
+}
+
+#scheduleimg {
+	height: 19px;
+	position: relative;
+	top: 3px;
+}
+
+#postimg {
+	height: 20px;
+	width: 20px;
+	position: relative;
+	top: 4px;
+}
+
+#todoimg {
+	height: 18px;
+	position: relative;
+	top: 4px;
+}
+
+.bookmarkimg {
+	position: relative;
+	left: 900px;
+	top: 300px;
+}
+
+#bookmarkempty {
+	position: relative;
+	left: 45px;
+	top: 320px;
+	text-align: center;
+}
+
+#allbookmark {
+	position: relative;
+	left: 270px;
+	top: 80px;
+	max-width: fit-content;
+}
+
+#bookmain {
+	border: 1px solid lightgray;
+	width: 90%;
+	text-align: center;
+}
+
+.titledivdh {
+	font-size: 15px;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.projectnamedivdh {
+	font-size: 10px;
+	margin-bottom: 5px;
+}
+
+#bookmain tbody td {
+	border: 1px solid lightgray;
+}
+
+#bookmainrap {
+	overflow-y: auto;
+	height: 750px;
+}
+
+#calendar {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    min-width: 1100px;
+    max-width: 1100px;
+    border: 1px solid lightgray;
+	}
+.fc-scrollgrid-sync-table{
+	width:1600px;
+}
+.fc-col-header thead tr	th{
+	text-align: right;
+}
+#sehyunsichi{
+	margin-top: 50px;
+	margin-left: 300px;
+    display: flex;
+    padding-right: 80px;
+    justify-content: center;
+    align-items: center;
+}
+.fc-scrollgrid-sync-table tr td{
+	border:1px solid lightgray;
+}
+.fc-scrollgrid-sync-table thead{
+	border:1px solid lightgray;
+}
+.schedule-form {
+	height: 201px;
+    border: 1px solid #ccc;
+    border-radius: 22px;
+    padding: 10px;
+    width: 320px;
+    margin: 0 auto;
+    display: none;
+    position: absolute;
+    background-color: lightblue;
+    z-index: 2;
+}
+
+
+.schedule-form .buttons {
+    text-align: center;
+}
+
+.schedule-form .buttons button {
+    margin-top: 6px;
+    padding: 5px 10px;
+    margin-right: 5px;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.schedule-form .buttons button:last-child {
+    margin-right: 0;
+}
+#schedule-title{
+	font-size: 17px;
+    padding: 0 2px 0 2px;
+    border-radius: 6px;
+    width: 315px;
+    height: 126px;
+}
+#time-form{
+	display: flex;
+    width: 201px;
+    height: 30px;
+    align-items: center;
+    position: relative;
+    left: 60px;
+}
+.time-input{
+	margin-left: 18px;
+}
+#formsubmistbtn{
+    margin-top:10px;
+}
+.formtextarea{
+	width:100%;
+	height: 90px;
+	margin-right:10px;
+}
+.questiontable{
+	width: 95%;
+}
+.questioncontainer{
+    position: relative;
+    display: flex;
+    margin-top: 100px;
+    text-align: center;
+}
+.pagination ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+}
+.pagination li {
+        margin-right: 10px; /* 각 항목 사이의 간격을 조절할 수 있습니다. */
+}
+.pagination {
+	    width: 75%;
+        display: flex;
+        justify-content: center;
+}
+.questiontable th,td{
+	border:1px solid lightgray;
+}
+#searchChangeLog,#SearchWhoD,#statisticoption2,#statisticoption,#searchfDH{
+	display: inline-block;
+}
+#listhrtag{
+	width: 500px;
+	margin-top:40px;
+    margin-bottom: 20px;
+}
+.questioncontent{
+	width: 1535px;
+    height: 116px;
+    padding: 0 0 0 11px;
+    overflow-y: auto;
+}
+.answerlist{
+	width: 89%;
+    border: 1px solid black;
+    margin-bottom: 20px;
+}
+.deleteormodify a{
+	color: black;
+    background-color: lightgray;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 10px;
+    margin-right: 4px;
+}
+.deleteormodify {
+	height: 28px;
+}
+.deleteormodify2 a{
+	color: black;
+    background-color: lightgray;
+    font-size: 14px;
+    padding: 6px;
+    border-radius: 10px;
+    margin-right: 4px;
+}
+.deleteormodify2 {
+	height: 28px;
+}
+.answerrapper{
+	height: 35%;
+    overflow-y: auto;
+}
+.answertextarea{
+	display:none;
+	width: 100%;
+    height: 118px;
+    position: relative;
+    top: -2px;
+}
+.allanswerrapper{
+    height: 200px;
+}
+#nocontent {
+	background-color: indianred;
+	width: 203px;
+	height: 50px;
+	position: absolute;
+	left: 842px;
+	top: 100px;
+	border: 1px solid gray;
+	border-radius: 26px;
+	display: none;
+	justify-content: center;
+	font-weight: bold;
+	color: lightgoldenrodyellow;
+	align-items: center;
+	font-size: 13px;
+}
+.questiontable th:nth-child(1),.questiontable td:nth-child(1) {
+	width: 5%;
+}
+.questiontable th:nth-child(2),.questiontable td:nth-child(2) {
+	width: 70%;
+}
+.list-1 a,.scroll a{
+	color:white;
+}
+.좌측사이드바1 {
+	z-index: 2;
+	position: absolute;
+	left: 0;
+	top: 35px;
+	box-sizing: content-box;
+	padding-top: 10px;
+	width: 230px;
+	display: flex;
+	flex-direction: column;
+	height: calc(100% - 29px);
+	background-color: black;
+}
+

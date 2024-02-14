@@ -1,0 +1,108 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="content">
+	<div class="rightpage">
+		<h3>로그인 보안 설정 </h3>
+		<hr>
+		<p>로그인 IP 및 예외유저 관리</p>
+		<p id="ipText">로그인 IP 설정</p>
+		<button th:if="${iponoff == 0}" id="companyLOGIPONOFF" style = "background-color: lightblue;">활성화</button>
+		<button th:if="${iponoff == 1}" id="companyLOGIPONOFF" style = "background-color: pink;">비활성화</button>
+		<p id="ipExplain1" class="ipExplain1">허용한 IP에서만 로그인이 가능합니다. 허용되지 않은 IP에서는 로그인 되지 않으며 자동 로그아웃 처리 됩니다.</p>
+		<button id="addIP" class="addIP">IP 추가</button>
+		<div class="divtable">
+			<table id="t1ofDHLOG" class="t1ofDH">
+				<thead>
+				<tr class="title1DH" id="title1DHLOG">
+					<td>IP주소</td>
+					<td>설명</td>
+					<td>업데이트</td>
+					<td>생성ID</td>
+				</tr>
+				</thead>
+				<tbody>
+					<tr th:each="ip : ${iplist}" th:data-company = "${ip.company_id}">
+						<td><span th:text="${ip.ipaddress}"></span></td>
+						<td><span th:text="${ip.text}"></span></td>
+						<td><span th:text="${ip.up_date}"></span></td>
+						<td><span th:text="${ip.email}"></span><img class = "DelPng" id = "DelLOGPng" src="images/trashcan.png"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<br>
+		<br>
+		<br>
+		<hr id="downhr">
+		<div class="DIVforText">
+			<p id="ipText2">로그인 권한 예외 유저 관리</p>
+			<button th:if="${ipformem == 0}" class="exceptionONOFF" id="LOGexceptionONOFF" style = "background-color: lightblue;">활성화</button>
+			<button th:if="${ipformem == 1}" class="exceptionONOFF" id="LOGexceptionONOFF" style = "background-color: pink;">비활성화</button>
+			<p class="ipExplain1" id="ipExplain1">예외 유저는 로그인 IP 제한과 상관없이 어디서든 로그인이 가능합니다.</p>
+		</div>
+		<button class="ADDIP" id="ADDIP">추가</button>
+		<div class="divforcheckt" id="divforchecktLOG">
+			<table class="checktable">
+				<thead>
+				<tr id="title2DH">
+					<td>이름</td>
+					<td>이메일</td>
+					<td>업데이트</td>
+				</tr>
+				</thead>
+				<tbody>
+					<tr th:each="memlist : ${ipmemlist}" th:data-company="${memlist.company_id}">
+						<td><span th:text="${memlist.name}"></span></td>
+						<td><span th:text="${memlist.email}"></span></td>
+						<td><span th:text="${memlist.allow_date}"></span><img class = "DelPng2" id = "DelLOGPng2" src="images/trashcan.png"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="IpAddDiv" id="IpAddDiv">
+		<h2>IP 추가</h2>
+		<hr>
+		<div class="forIPDIV1" id="forIPDIV1">
+			<p id="forIPText">IP주소</p><input id="IProomLOG" type="text">
+			<button id="getIP">IP 불러오기</button>
+		</div>
+		<div class="forIPDIV2" id="forIPDIV2">
+			<p>설명</p><input id="IPexplainLOG" type="text" placeholder="IP주소의 설명을 적어주세요">
+		</div><button class="saveIPBtn" id="saveIPBtnLOG">저장</button><button id="cancleSaveBtn">취소</button>
+	</div>
+	<div class="GetSomeMem" id="GetSomeMem">
+		<h3>예외 유저 추가</h3>
+		<hr>
+		<div class="DivFormemList" id="DivFormemList">
+			<select class="searchExcepMem" id="searchExcepMem">
+				<option value="이름">이름</option>
+				<option value="부서">부서</option>
+				<option value="이메일">이메일</option>
+			</select>
+			<input type="text" class="searchExceText" id="searchExceText">
+			<button class="searchExceBtn" id="searchExceBtn">검색</button>
+			<div class="tooSEE" id="tooSEE">
+				<div id = "watchthis" class = "wthat" th:each="member : ${companymemberList}" th:data-member-id="${member.member_id}" th:data-cmp="${member.company_id}">
+						<input type = "checkbox" id = "watchcheck">
+						<div class = "watchname"><span th:text="${member.name}"></span></div>
+						<div id = "watchdept">
+							<div id="hi" th:text="${member.jobname}"></div>
+							<div class = "watchdept" th:text="${member.deptname}"></div>
+						</div>
+						<div class = "watchmail">
+							<span th:text="${member.email}"></span>
+						</div>
+				</div>
+			</div>
+		</div>
+		<div class="ForAllMem" id="ForAllMem"></div>
+		<button class="cancelMore" id="cancelMore">취소</button><button class="More" id="MoreLOG">저장</button>
+	</div>
+	<div id="IPexist" style="display: none;">이미 추가된 IP입니다</div>
+	<div id="IPsuccess">IP 목록에 추가되었습니다</div>
+	<div id="memexist" style="display: none;">이미 추가된 사용자입니다</div>
+	<div id="memsuccess">예외 유저 목록에 추가되었습니다</div>
+</div>
+
+</html>

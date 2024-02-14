@@ -1,0 +1,53 @@
+<html layout:decorate="~{DashBoardLayout}">
+<div layout:fragment="content" class="content">
+	<div>
+		<h3 id="hrtag">내 프로젝트</h3>
+		<img src="images/tobnibakey.png" id="tobni">
+	</div>
+	<div id="optionborder">
+		<div id="forbordoptions1"><img src="images/choosecolor.png" id="choosecolo1"></div>
+		<div id="forbordoptions2"><img src="images/projectfolder.png" id="choosecolo2"></div>
+	</div>
+	<div id="forpopup">
+		<div id="popup">프로젝트를 선택해주세요</div>
+	</div>
+	<form style="display:flex;flex-wrap: wrap" id="projectlistdiv">
+		<div th:each="project : ${projectlist}" class="flex-item" th:attr="data-project_id=${project.project_id}"
+			th:style="'background: linear-gradient(to right, ' + ${project.color} + ' 3%, transparent 5%);'">
+			<div id="forcheckboxdiv"><input type="checkbox" id="projectcheckbox" name="project_check"></div>
+			<div id="fortextdiv" th:attr="onclick='location.href=\'' + @{|/SODA/Feed/${project.project_id}|} + '\''">
+				<p th:text="${project.name}"></p>
+			</div>
+		</div>
+		<button type="reset" id="closebtndh" ><img src="images/closemaster.png" style = "width:25px;"></button>
+		<div id="masterpalate">
+			<div id="palate">
+				<div style="background-color : #FF0000;"><input type="radio" name="color_id" value=1></div>
+				<div style="background-color : #FFBB00;"><input type="radio" name="color_id" value=2></div>
+				<div style="background-color : #ABF200;"><input type="radio" name="color_id" value=3></div>
+				<div style="background-color : #00D8FF;"><input type="radio" name="color_id" value=4></div>
+				<div style="background-color : #B95AFF;"><input type="radio" name="color_id" value=5></div>
+				<div style="background-color : #FF5AFF;"><input type="radio" name="color_id" value=6></div>
+				<div style="background-color : #B71600;"><input type="radio" name="color_id" value=7></div>
+				<div style="background-color : #070707;"><input type="radio" name="color_id" value=8></div>
+				<div style="background-color : #AB125E;"><input type="radio" name="color_id" value=9></div>
+				<div style="background-color : #BDBDBD;"><input type="radio" name="color_id" value=10></div>
+				<button type="reset" id="cancelbtn" >취소</button>&nbsp;&nbsp;
+				<button id="submitBtn">확인</button>
+			</div>
+		</div>
+		<div id="masterfolder">
+			<h3>프로젝트 폴더 설정</h3>
+			<div id="folderfulllist">
+				<div class = "projectdumm" th:each="folder : ${folderlist}"  th:attr="data-folder-id=${folder.folder_id}">
+				<p th:text="${folder.name}"></p>
+				<input type = "checkbox" id = "ppbox" name = "ppbox">
+				</div>
+			</div>
+			<button type="reset" id="cancelbtn2">취소</button>&nbsp;&nbsp;
+			<button id="submitBtn2">확인</button>
+		</div>
+	</form>
+</div>
+
+</html>

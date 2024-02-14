@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>소다(SODA)-회원가입</title>
+<link rel="stylesheet" th:href="@{/css/reset.css}">
+<link rel="stylesheet" th:href="@{/css/HomeNav.css}">
+<link rel="stylesheet" th:href="@{/css/Join.css}">
+</head>
+<header id="HeaderNav">
+		<div id="MainNav">
+			<a class="logo" href="/SODA/Home"><img th:src="@{/images/소다로고_배경O.png}" alt="logo"></a>
+			<nav class="navBar">
+				<ul class="barItems">
+					<li><a href = "/SODA/Func" class="bars">기능</a></li>	
+					<li><a href = "/SODA/Price" class="bars">요금제</a></li>
+					<li><a href = "/SODA/TeamCorpo" class="bars">팀 협업</a></li>
+				</ul>
+				<div class="userBtnWrap">
+					<a href = "/SODA/loginPage" id="btnLogin">로그인</a>
+					<a href = "/SODA/JoinSelect" id="btnJoin">회원가입</a>
+				</div>
+			</nav>
+		</div>		
+</header>
+<body>
+	<div class="joinHome">
+		<div class="joinWrap" style="display:block;">
+			<div class="joinAccount">회원가입</div>
+			<div class="newJoin">
+				<div class="newCompany" id="newCompanyJoin" onclick="location.href='/SODA/CreateMember'">
+					<span>새 계정 만들기</span>
+					<b>회원가입 하기 🐱‍🏍</b>
+					<p>소다와 함께 업무능률 상승!</p>
+					<img th:src="@{/images/JoinPicture.png}">
+				</div>
+				<div class="joinCompany" id="joinCompanyPart" onclick="location.href='/SODA/EnterMember'">
+					<span>기존 회사 참여</span>
+					<b>회사 참여하기 👨‍👨‍👧</b>
+					<p>이미 회사에서 사용중이에요!</p>
+					<img th:src="@{/images/Communicate.png}">
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script th:src="@{/js/Join.js}"></script>
+
+</html>

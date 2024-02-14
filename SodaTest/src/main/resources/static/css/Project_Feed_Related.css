@@ -1,0 +1,6866 @@
+@charset "UTF-8";
+
+/* -----------------------------------------------검색바 제외 피드 전체에 대한 css----------------------------------------------------- */
+
+/* 검색바를 제외한 몸통 전체에 대한 css */
+.allMainContent {
+	min-width : 1280px;
+		height : 100vh;
+}
+
+.main-body-wrap {
+	overflow-y: auto;
+	display: flex;
+	height: calc(100% - 35px);
+}
+
+.main-body-wrap::-webkit-scrollbar {
+	display: none;
+}
+
+/* -------------------------------------- */
+
+.create-post-header {
+	position: relative;
+	height: 30px;
+	padding: 3px 120px 3px 30px;
+}
+
+.create-post-header .temp-wrap {
+	display: flex;
+	align-items: center;
+}
+
+.create-post-title {
+	float: left;
+	font-size: 16px;
+	color: #333;
+}
+
+.create-post-header .btn-minimize {
+	position: absolute;
+	top: 0;
+	right: 50px;
+}
+
+.create-post-header .btn-close {
+	right: 20px;
+}
+
+.btn-close {
+	border: 0;
+	background: #fff;
+	position: absolute;
+	top: 0;
+}
+
+.create-post-nav {
+	display: flex;
+	width: 100%;
+	margin-top: 12px;
+	padding: 0 30px;
+}
+
+.create-post-nav li {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 각 탭 전체에 대한 css */
+.create-post-nav.editor .tab-write2,
+.create-post-nav.schedule .tab-schedule,
+.create-post-nav.task .tab-task,
+.create-post-nav.todo .tab-todo,
+.create-post-nav.vote .tab-vote,
+.create-post-nav.write .tab-write,
+.create-post-nav.write .tab-write2,
+.create-post-nav.write2 .tab-write,
+.create-post-nav.write2 .tab-write2 {
+	color: #333;
+	border-color: #333;
+	font-weight: 500;
+}
+
+.create-post-nav li .create-tab i~span {
+	line-height: 1.2em;
+}
+
+/*-----------------------------------------------------*/
+.create-post-nav li .create-tab {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.create-tab {
+	width: 100%;
+	height: 38px;
+	line-height: 38px;
+	box-sizing: border-box;
+	border-bottom: 2px solid #ccc;
+}
+
+/* ------------------------------------------------------- */
+
+
+/* 왼쪽바 우측 몸통 메인에 대한 css */
+.main-container {
+	overflow: auto;
+	position: relative;
+	z-index: 0;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	margin-left: 230px;
+}
+
+/* 몸통에서 맨 위 프로젝트 버튼과 북마크버튼, 프로젝트 제목을 감싸는 영역 */
+.top-setting-bar {
+	position: relative;
+	min-width: 750px;
+	height: 80px;
+	padding: 0 30px;
+	background: #fff;
+	z-index: 12;
+}
+
+/* 몸통에서 맨 위 프로젝트 버튼과 북마크버튼, 프로젝트 제목에 해당하는 css */
+.main-container .detail-top.title-1 {
+	line-height: normal;
+}
+
+/* 프로젝트 색상 버튼, 북마크, 제목에 대한 css */
+.title-1 {
+	font-size: 20px;
+	font-weight: 700;
+	float: left;
+	color: #333;
+}
+
+.project-detail-header {
+	display: table;
+	margin: 15px 0 0 0;
+}
+
+/* ------------------------------------ */
+
+/* 프로젝트 색상버튼에 대한 css */
+.project-color-area,
+.project-header-group {
+	display: table-cell;
+	vertical-align: middle;
+	cursor: pointer;
+}
+
+.color-code-0 {
+	background: #ddd;
+	border: solid 1px #ddd;
+}
+
+.project-color {
+	display: block;
+	width: 50px;
+	height: 50px;
+	border-radius: 10px;
+}
+
+/* ---------------------------------------------- */
+
+/* 북마크,제목에 대한 css */
+.project-header-group {
+	padding-left: 8px;
+	font-size: 0;
+	cursor: default;
+}
+
+.project-title-area {
+	display: inline-flex;
+	align-items: center;
+}
+
+/* 북마크에 대한 css */
+.project-option-area {
+	position: relative;
+	display: inline-block;
+}
+
+
+.bookmark-button {
+	position: absolute;
+	top: 1px;
+	width: 22px;
+	height: 22px;
+	background-size: 22px;
+	cursor: pointer;
+}
+
+.blind {
+	position: absolute;
+	clip: rect(0, 0, 0, 0);
+	width: 0px;
+	height: 0px;
+	margin: -1px;
+	overflow: hidden;
+}
+
+/* 북마크와 프로젝트 설정 버튼에 대한 css */
+.detail-setting-top-button {
+	padding: 4px 8px;
+	margin: 1px 7px 0 0;
+	vertical-align: middle;
+	cursor: pointer;
+	border: 0;
+	background: #fff;
+}
+
+/* detail-setting-top-button안의 span에 대한 css */
+.detail-setting-top-button span:first-child {
+	margin-top: 8px;
+}
+
+.detail-setting-top-button span {
+	display: block;
+	width: 3px;
+	height: 3px;
+	border-radius: 50%;
+	background: #333;
+	margin-bottom: 5px;
+}
+
+/* ------------------------------------------- */
+
+/* 프로젝트 명에 대한 css */
+.project-title {
+	display: inline-block;
+	max-width: 600px;
+	font-size: 20px;
+	color: #333;
+	vertical-align: middle;
+}
+
+/* 제목 옆에 이상한거 */
+.project-status-group {
+	display: inline-block;
+	margin: 2px 0 0 8px;
+	vertical-align: middle;
+}
+
+/* 초대하기 버튼 css */
+.invite-layer-btn {
+	position: absolute;
+	top: 50%;
+	right: 100px;
+	transform: translateY(-50%);
+	width: 95px;
+	height: 32px;
+	line-height: 32px;
+	border-radius: 4px;
+	font-weight: 500;
+	font-size: 12px;
+	color: #fff;
+	cursor: pointer;
+	text-align: center;
+	background: #abd7dc;
+}
+
+.img-invite {
+	margin-right: 10px;
+}
+
+
+
+/* 탑세팅바 아래 몸통에 대한 css */
+.main-content {
+	overflow: auto;
+	height: calc(100% - 80px);
+}
+
+.scroll-mask {
+	overflow-y: auto;
+	transition: mask-position .3s, -webkit-mask-position .3s;
+}
+
+.scroll-mask::-webkit-scrollbar {
+	display: none;
+}
+
+.project-detail-wrap {
+	background: #f5f4f4;
+	height: 100%;
+	overflow-y: auto;
+
+}
+
+.detail-timeline::-webkit-scrollbar {
+	display: none;
+}
+
+/* 피드,업무,간트차트,캘린터,파일,알림 영역 */
+.project-detail-top {
+	position: relative;
+	padding: 0 30px;
+	border-bottom: 1px solid #ddd;
+	background: #fff;
+}
+
+.default-tab .detail-tab {
+	/*ul detail-tab ->  project-detail-menu */
+	align-items: center;
+}
+
+.default-tab .detail-tab .default-item {
+	order: -1;
+}
+
+.default-tab .detail-tab li {
+	width: min-content;
+	margin: 0;
+	padding: 0 18px;
+	float: none;
+}
+
+.detail-tab li {
+	position: relative;
+	text-align: center;
+}
+
+.default-tab .detail-tab li div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.default-tab .detail-tab li div a {
+	display: flex;
+	justify-content: center;
+	align-items: baseline;
+	white-space: nowrap;
+}
+
+.default-tab .detail-tab li a {
+	padding: 0;
+	background: #fff;
+}
+
+.detail-tab .active a {
+	color: #333;
+}
+
+.detail-tab li a {
+	height: 38px;
+	line-height: 38px;
+	font-weight: 700;
+	font-size: 14px;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* 피드,업무,간드차트,캘린더,파일,알림에 생길 홈 이미지 */
+.default-tab .detail-tab .default-item .img-home {
+	display: inline-block;
+}
+
+.default-tab .detail-tab .img-home {
+	margin-right: 6px;
+}
+
+/* 알람 버튼에 대한 추가 css */
+.default-tab .detail-tab .freezing {
+	padding: 0 18px !important;
+}
+
+/* 정체불명 */
+.default-tab .detail-tab .more-dot {
+	position: absolute;
+	right: 0;
+	min-width: 16px;
+	height: 12px;
+	margin-left: 2px;
+	border-radius: 6px;
+	display: none;
+}
+
+.default-tab .detail-tab .freezing .more-dot {
+	display: none !important;
+	/* !important는 다른 충돌 규칙보다 우선 순위를 가지도록 합니다 */
+}
+
+/* 피드 안의 검색바 */
+.project-detail-top>.detail-top-search {
+	/* project-search-area -> detail-top-search */
+	position: relative;
+	float: right;
+	width: 324px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+}
+
+.detail-top-search {
+	margin: 0;
+	max-width: 355px;
+	text-align: right;
+}
+
+.project-detail-top>.detail-top-search>.project-search {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 0 0 20px;
+}
+
+.project-search {
+	width: 40px;
+	position: relative;
+	text-align: center;
+	border-radius: 4px;
+}
+
+input {
+	line-height: 1.4em;
+}
+
+/* 몸통에 대한 css */
+.detail-timeline,
+.project-home-wrap {
+	/* project-detail-inner -> detail-timeline */
+	padding: 0 30px;
+}
+
+.detail-timeline {
+	overflow: auto;
+	height: calc(100% - 40px);
+	background: #abd7dc;
+}
+
+.detail-timeline .small-style-wrap {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	max-width: 1151px;
+	margin: 0 auto;
+}
+
+/* 업무통계 리포트바 css */
+.post-timeline {
+	/* project-detail-container -> post-timeline */
+	min-width: 674px;
+	max-width: 674px;
+	margin: 0 30px 0 0;
+}
+
+.project-detail-content {
+	margin-top: 20px;
+}
+
+.reports-section {
+	position: relative;
+	border: solid 1px #ddd;
+	border-radius: 6px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, .04);
+}
+
+.detail-section {
+	margin: 0 0 15px 0;
+}
+
+.post-timeline .project-detail-content .section-title-area {
+	height: 42px;
+	background: #fff;
+	padding: 10px;
+}
+
+.reports-section .section-title-area {
+	padding: 0 20px;
+	border-radius: 6px;
+	cursor: pointer;
+}
+
+.section-title-area {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.reports-section .section-title {
+	float: left;
+}
+
+.section-title {
+	font-size: 15px;
+	font-weight: 700;
+	color: #333;
+}
+
+.section-title span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.section-number {
+	position: relative;
+	top: -2px;
+	margin: 1px 0 0 1px;
+	color: #999;
+	font-size: 17px;
+	font-weight: 700;
+}
+
+.reports-button.off {
+	transform: rotate(-180deg);
+}
+
+.reports-button {
+	margin-left: auto;
+	background: #fff;
+	border: 0;
+	cursor: pointer;
+}
+
+/* 업무통계 리포트 원형통계 css */
+.post-timeline .project-detail-content .taks-report {
+	height: auto;
+	padding: 5px 0 25px;
+	border-top: none;
+}
+
+.task-report {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #fff;
+	text-align: center;
+	border-radius: 0 0 6px 6px;
+}
+
+.donut-chart-area {
+	position: relative;
+	cursor: pointer;
+}
+
+.char-count {
+	position: relative;
+	top: -2px;
+	text-align: left;
+	margin-left: 140px;
+}
+
+.char-count>li .task-chart-info-request {
+	display: inline-block;
+	min-width: 214px;
+	padding: 3px 0;
+	background: #fff;
+	color: #555;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.char-count>li .task-chart-info-progress {
+	display: inline-block;
+	min-width: 214px;
+	padding: 3px 0;
+	background: #fff;
+	color: #555;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.char-count>li .task-chart-info-feedback {
+	display: inline-block;
+	min-width: 214px;
+	padding: 3px 0;
+	background: #fff;
+	color: #555;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.char-count>li .task-chart-info-complete {
+	display: inline-block;
+	min-width: 214px;
+	padding: 3px 0;
+	background: #fff;
+	color: #555;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.char-count>li .task-chart-info-hold {
+	display: inline-block;
+	min-width: 214px;
+	padding: 3px 0;
+	background: #fff;
+	color: #555;
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.task-chart-info-request .chart-info-percent-request {
+	color: #00b2ff;
+	margin-left: 6px;
+}
+
+.task-chart-info-progress .chart-info-percent-progress {
+	color: #00b01c;
+	margin-left: 6px;
+}
+
+.task-chart-info-feedback .chart-info-percent-feedback {
+	color: #fd7900;
+	margin-left: 6px;
+}
+
+.task-chart-info-complete .chart-info-percent-complete {
+	color: #402a9d;
+	margin-left: 6px;
+}
+
+.task-chart-info-hold .chart-info-percent-hold {
+	color: #777;
+	margin-left: 6px;
+}
+
+.char-count li+li {
+	margin: 10px 0 0 0;
+}
+
+.request-button {
+	background-color: #00b2ff;
+	width: 15px;
+	height: 15px;
+	border: 0;
+}
+
+.progress-button {
+	background-color: #00b01c;
+	width: 15px;
+	height: 15px;
+	border: 0;
+}
+
+.feedback-button {
+	background-color: #fd7900;
+	width: 15px;
+	height: 15px;
+	border: 0;
+}
+
+.complete-button {
+	background-color: #402a9d;
+	width: 15px;
+	height: 15px;
+	border: 0;
+}
+
+.hold-button {
+	background-color: #777;
+	width: 15px;
+	height: 15px;
+	border: 0;
+}
+
+/* 업무통계 밑 글 업무 일정 할 일 투표 박스 */
+.create-post-area {
+	/* work-design-wrapper -> create-post-area */
+	overflow: hidden;
+	margin: 15px 0;
+	border: 1px solid #777;
+	border-radius: 6px;
+	background: #fff;
+	box-shadow: 0 0 15px rgba(0, 0, 0, .04);
+	cursor: pointer;
+}
+
+.create-post-ul {
+	/* work-design-group -> create-post-ul */
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-box;
+	display: flex;
+	padding: 0 60px;
+	border-bottom: 1px solid #ddd;
+	background: #faf9f9;
+	color: #333;
+	font-weight: 500;
+	text-align: center;
+}
+
+.create-post-ul li:first-child {
+	margin: 0;
+}
+
+.create-post-ul li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1;
+	padding: 15px 0;
+}
+
+.post-filter i {
+	margin-right: 10px;
+}
+
+.img-vote {
+	display: inline-block;
+	width: 16px;
+	height: 16px;
+	position: relative;
+}
+
+/* 텍스트칸 눌렀을시 피드팝업이 생성되기 전 보여지는 css */
+.work-desing-element {
+	overflow: hidden;
+	padding: 15px 30px;
+}
+
+.work-desing-text {
+	float: left;
+	font-size: 14px;
+	color: #555;
+}
+
+/* 텍스트 안에 사진 업로더나 클립 */
+.work-img-group {
+	margin-top: 2px;
+	float: right;
+}
+
+.work-img-group i:first-child {
+	margin: 0;
+}
+
+/* 해쉬태그 css */
+.d-none {
+	display: none;
+}
+
+.hashtag-section {
+	display: none;
+	/* 클릭시 inline-block; */
+	margin: 5px 0;
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+}
+
+.hashtag-ul {
+	/* hashtag-group -> hashtag-ul */
+	overflow: hidden;
+	float: left;
+	max-width: 94%;
+	height: 42px;
+	margin: -5px -5px -5px -5px;
+}
+
+/* 피드생성 공간의 전체라는 제목 */
+.project-feed-area {
+	/* detail-section -> project-feed-area */
+	margin: 0 0 15px 0;
+}
+
+.section-title-area .tit-type-area {
+	display: flex;
+}
+
+.ellipsis {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.section-title-area .filter-reset {
+	margin-left: 8px;
+	font-size: 15px;
+}
+
+.filter-reset {
+	color: #6449fc;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+
+/* 우측 참여자 탭에 관한 css */
+.participants-section {
+	width: 100%;
+	max-width: 354px;
+}
+
+.project-participants {
+	/* project-participants-wrap -> project-participants */
+	height: fit-content;
+	position: fixed;
+	top: 170px;
+	bottom: 0;
+	width: 325px;
+	max-width: 325px;
+	min-width: 282px;
+}
+
+.section-title-area {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	height: 30px;
+	box-sizing: border-box;
+}
+
+.section-title-area {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	height: 30px;
+	box-sizing: border-box;
+}
+
+.project-participants .section-title span:last-child {
+	color: #999;
+}
+
+.section-title span {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.project-participants .section-title-area .feed-type-area {
+	min-width: unset;
+}
+
+.project-participants .feed-type-area {
+	margin-left: auto;
+}
+
+.feed-section .feed-type-area {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	position: relative;
+	font-size: 12px;
+}
+
+/* 참여자 밑에 프로필버튼과 소개버튼 버튼에 대한 css */
+.participant-area {
+	/* participants-container -> participant-area */
+	overflow: hidden;
+	margin-top: 10px;
+	padding-top: 10px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	background: #fff;
+	box-sizing: border-box;
+}
+
+.participant-scroll-area {
+	/* participants-content-group -> participant-scroll-area */
+	overflow: auto;
+	max-height: calc(100vh - 303px);
+	padding: 0 20px;
+}
+
+.participants-ul {
+	/* participants-list -> participants-ul */
+	flex: 1;
+	overflow: auto;
+}
+
+.participants-title:first-child {
+	margin-top: 10px;
+}
+
+.participants-title {
+	display: block;
+	font-size: 12px;
+	font-weight: 500;
+	color: #333;
+}
+
+.manager-participants-count {
+	/* number-of-participants -> */
+	margin-left: 2px;
+	color: #999;
+}
+
+.participant-area .participants-ul li:last-child,
+.participants-content:last-child .participants-ul li:last-child {
+	border: 0;
+}
+
+.participants-ul li {
+	padding: 10px 0;
+	border-bottom: 1px solid #eee;
+	cursor: pointer;
+}
+
+.post-author {
+	width: 90%;
+	float: left;
+}
+
+.post-author-info {
+	overflow: hidden;
+	display: inline-block;
+	width: 70%;
+	line-height: 18px;
+	margin-left: 10px;
+	vertical-align: middle;
+	text-align: left;
+	margin-bottom: 10px;
+}
+
+.post-author-info dt {
+	display: flex;
+	color: #555;
+	line-height: 1.1;
+	align-items: center;
+}
+
+.post-author-info .author {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	margin-right: 3px;
+	vertical-align: middle;
+	line-height: 18px;
+	max-width: 240px;
+}
+
+.post-author .position {
+	flex-shrink: 0;
+}
+
+.post-author-info dd {
+	font-size: 12px;
+	color: #999;
+}
+
+.post-author .company {
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: middle;
+	line-height: 18px;
+	max-width: 70%;
+}
+
+.post-author .team {
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: middle;
+	line-height: 18px;
+	max-width: 48%;
+	margin-left: 3px;
+}
+
+
+
+.participant-button:focus,
+.participant-button:hover,
+.participant-chat-button:focus,
+.participant-chat-button:hover {
+	color: #6449fc;
+}
+
+.participant-chatbutton {
+	margin-top: 10px;
+	float: right;
+	border: 0;
+	background: #fff;
+}
+
+/* 참여자 버튼 밑에 채팅과 화상회의 */
+.participants-menu {
+	border-top: 1px solid #ddd;
+	background: #f9f9f9;
+	font-size: 13px;
+	text-align: center;
+}
+
+.participants-section .participant-button {
+	width: 100%;
+}
+
+/* .participant-button:first-child { 채팅버튼
+	border-right: 1px solid #ddd;
+} */
+
+.participant-button {
+	/* 버튼 둘다 */
+	display: inline-block;
+	height: 50px;
+	text-align: center;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+/* .participant-button:last-child { 줌 버튼
+	border-left: 1px solid #ddd;
+} */
+
+.MSproject-box {
+	width: 50px;
+	height: 50px;
+}
+
+
+/* 프로젝트 색상 옆에 span 3개 눌렀을 때 뜨는 팝업 */
+.MSproject-setup-wrap {
+	overflow: hidden;
+	position: absolute;
+	top: 30px;
+	left: 0;
+	z-index: 11;
+	width: 180px;
+	background: #fff;
+	border: 1px solid #555;
+	box-sizing: border-box;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.MSsetup-group {
+	padding: 4px 0;
+}
+
+.MSsetup-group>li {
+	position: relative;
+	white-space: nowrap;
+}
+
+.MSsetup-group li a {
+	display: flex;
+	margin: 5px 0;
+	height: 19px;
+	align-items: center;
+	padding: 0 14px;
+	line-height: 19px;
+	font-size: 13px;
+	color: #555;
+}
+
+.MSsetup-group img {
+	display: inline-block;
+	margin: 0 6px 0 0;
+	vertical-align: middle;
+}
+
+.MSimg-project-folder-option {
+	width: 14px;
+	height: 14px;
+	background-position: -248px 0;
+}
+
+.MSimg-project-exit-option {
+	width: 14px;
+	height: 14px;
+	background-position: -248px 0;
+}
+
+.MSimg-project-delete-option {
+	width: 14px;
+	height: 14px;
+	background-position: -248px 0;
+}
+
+#MSdetailSettingLabelBtn :hover {
+	color: #90EE90;
+}
+
+#MSdetailSettingExitbtn :hover {
+	color: #90EE90;
+}
+
+#MSdetailSettingProjectDeleteBtn :hover {
+	color: #90EE90;
+}
+
+
+
+/* --------------------------------- */
+
+/* 피드 생성시 생길 공간? 에 대한 css */
+.feed-content {
+	margin-top: 8px;
+}
+
+/* 우측에 전체보기 버튼에 대한 */
+.invite-layer-btn:hover {
+	color: blue;
+}
+
+#allSendienceBtn {
+	border: 0;
+	background: #abd7dc;
+	cursor: pointer;
+}
+
+/* 피드에서 초대하기 버튼 누르면 나오는 팝업창 */
+#inviteLayer:hover {
+	color: blue;
+}
+
+.invite-popup {
+	overflow: hidden;
+	position: absolute;
+	top: 57px;
+	left: 1080px;
+	z-index: 19;
+	width: 180px;
+	background: #fff;
+	border: 1px solid #555;
+	box-sizing: border-box;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.invite-group {
+	padding: 4px 0;
+	list-style: none;
+}
+
+.invite-group img {
+	margin-right: 10px;
+}
+
+.invite-group>li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	white-space: nowrap;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.joiner-invite:hover {
+	color: #abd7dc;
+}
+
+.email-invite:hover {
+	color: #abd7dc;
+}
+
+.company-invite-popup {
+	overflow: hidden;
+	position: absolute;
+	top: 57px;
+	left: 1080px;
+	z-index: 20;
+	width: 180px;
+	background: #fff;
+	border: 1px solid #555;
+	box-sizing: border-box;
+	border-radius: 6px;
+	font-size: 13px;
+	font-weight: 400;
+}
+
+.company-invite-group {
+	list-style: none;
+}
+
+.company-invite-group img {
+	margin-right: 10px;
+}
+
+.company-invite-group>li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	white-space: nowrap;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+/* 피드 페이지에서 전체보기 눌렀을때 나오는 팝업 */
+.all-sendience-popup {
+	overflow-y: auto;
+	position: fixed;
+	width: 434px;
+	min-height: 450px;
+	max-height: 670px;
+	height: 64vh;
+	padding: 15px 30px;
+	margin: 0 auto;
+	background: #fff;
+	border: 1px solid #777;
+	box-sizing: border-box;
+	box-shadow: 20px 20px 30px rgba(0, 0, 0, .2);
+	border-radius: 10px;
+	left: 550px;
+	top: 150px;
+}
+
+.this-project-all-joiner {
+	position: relative;
+	color: #777;
+	font-size: 14px;
+	text-align: left;
+}
+
+.this-project-all-joiner span {
+	font-size: 16px;
+	color: #333;
+	font-weight: 700;
+}
+
+.this-project-all-joiner-input {
+	position: relative;
+	margin: 20px 0;
+}
+
+.all-project-joiner-search {
+	width: 100%;
+	height: 40px;
+	background: #fff;
+	border: 1px solid #ddd;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	-webkit-border-radius: 4px;
+	border-radius: 4px;
+	padding-left: 45px;
+	color: #6449fc;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+.search-after-section {
+	margin: 0;
+	height: calc(100% - 110px);
+
+	overflow-y: auto;
+	text-align: center;
+}
+
+.joiner-ul {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.joiner-ul li {
+	height: 64px;
+	position: relative;
+	box-sizing: border-box;
+	border-bottom: 1px solid #eee;
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+}
+
+.joiner-ul li:last-child {
+	border-bottom: none;
+}
+
+.user-profile {
+	display: flex;
+	align-items: center;
+}
+
+.joiner-author {
+	float: initial;
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	width: 90%;
+}
+
+.joiner-profile {
+	min-width: 40px;
+	height: 40px;
+}
+
+.joiner-info {
+	overflow: hidden;
+	display: inline-block;
+	width: 70%;
+	line-height: 18px;
+	margin-left: 10px;
+	vertical-align: middle;
+	text-align: left;
+	align-items: center;
+}
+
+.joiner-info dt {
+	display: flex;
+	color: #555;
+	line-height: 1.1;
+}
+
+.joiner-name {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	margin-right: 3px;
+	vertical-align: middle;
+	line-height: 18px;
+	max-width: 240px;
+}
+
+.joiner-info dd {
+	display: flex;
+	font-size: 12px;
+	color: #999;
+}
+
+.joiner-company {
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: middle;
+	line-height: 18px;
+	max-width: 70%;
+}
+
+.manaer-badge {
+	width: 53px;
+	height: 26px;
+	line-height: 24px;
+	background: #abd7dc;
+	border-radius: 200px;
+	color: #fff;
+	position: absolute;
+	right: 30px;
+	top: 50%;
+	text-align: center;
+	transform: translateY(-50%);
+
+	text-decoration: none;
+}
+
+.manaer-badge span {
+	color: #fff;
+	font-size: 12px;
+}
+
+.myStatusIMG {
+	width: 30px;
+	height: 30px;
+	border-radius: 10px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------- */
+
+/* -------------------------------------------피드페이지에서 프로젝트에 설정 대한 css------------------------------------------------- */
+
+/* 프로젝트 나가기 팝업 css */
+
+#projectOutPopup {
+	position : absolute;
+	top : 300px;
+	left : 460px;
+	width : 280px;
+	background : #fff;
+	border : 1px solid #555;
+	border-radius : 6px;
+	font-weight : 400;
+	height: 150px;
+}
+
+#projectOutHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    margin: 10px 0 10px 0;
+}
+
+
+#projectOutCancle {
+	margin-right : 50px;
+	background : #FF4500;
+	border-radius : 5px;
+	border : 0;
+	width : 80px;
+	height : 40px;
+	cursor: pointer;
+}
+
+#projectOutOk {
+	border-radius : 5px;
+	border : 0;
+	width : 80px;
+	height : 40px;
+	background : #1E90FF;
+	cursor: pointer;
+}
+
+#prjectOutBottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+/* 프로젝트 삭제 css */
+#projectDeletePopup {
+	position : absolute;
+	top : 300px;
+	left : 460px;
+	width : 280px;
+	background : #fff;
+	border : 1px solid #555;
+	border-radius : 6px;
+	font-weight : 400;
+	height: 150px;
+}
+
+#projectDeleteCancle {
+	margin-right : 50px;
+	background : #FF4500;
+	border-radius : 5px;
+	border : 0;
+	width : 80px;
+	height : 40px;
+	cursor: pointer;
+}
+
+#projectDeleteOk {
+	border-radius : 5px;
+	border : 0;
+	width : 80px;
+	height : 40px;
+	background : #1E90FF;
+	cursor: pointer;
+}
+
+#projectDeleteHeader{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    margin: 10px 0 10px 0;
+}
+
+#projectDeleteBottom{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+/* 프로젝트 폴더 설정 */
+#projectFolderOpWrap {
+	position: absolute;
+    width: 500px;
+    height: 500px;
+    border: 1px solid #555;
+    background: #fff;
+    top: 80px;
+    left: 300px;
+}
+
+#projectFolderHeader {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin : 10px 0 10px 0;
+}
+
+#projectFolderContent {
+	display: inline-grid;
+    width: 250px;
+    height: 250px;
+    justify-items: center;
+}
+
+#projectFolderBottom{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin : 130px 10px 10px 10px
+}
+
+#ProjectFolderCancle{
+	margin-right : 50px;
+	background : #F08080;
+	border : 0;
+	border-radius : 10px;
+	width : 100px;
+	height : 50px;
+}
+
+#ProjectFolderOk {
+	background : #87CEEB;
+	border : 0;
+	border-radius : 10px;
+	width : 100px;
+	height : 50px;
+}
+
+#projectFolderContent li {
+	cursor : pointer;
+	margin : 0;
+}
+
+#projectFolderContent .folderli.hover{
+	height : 26px;
+    width : 200px;
+	border : 5px solid gold;
+}
+
+/* 프로젝트 색상바꾸기 */
+#ProjectColorChange {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    border: 1px solid #555;
+    background: #fff;
+    top: 80px;
+    display:none;
+    border-radius: 20px;
+}
+
+#ChangeContentsArea {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#ChangeContentsArea button{
+	width : 100px;
+	height : 30px;
+	cursor : pointer;
+	margin : 10px 10px 10px 10px;
+	border-radius : 10px;
+	border : 0;
+}
+
+#ChangePopupBottom {
+	display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+#SHColorChangeCanclecan{
+	margin-right : 40px;
+	border : 0;
+	background : #FF6347;
+	width : 100px;
+	height : 50px;
+	border-radius : 10px;
+	cursor: pointer;
+}
+
+#SHColorChangeOk {
+	border : 0;
+	background : #87CEEB;
+	width : 100px;
+	height : 50px;
+	border-radius : 10px;
+	cursor: pointer;
+}
+
+#ColorChangeHeader{
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    margin : 10px 0 10px 0;
+}
+
+#ColorType1{
+	background : #FF0000;
+}
+#ColorType2{
+	background : #FFBB00;
+}
+#ColorType3{
+	background : #ABF200;
+}
+#ColorType4{
+	background : #00D8FF;
+}
+#ColorType5{
+	background : #B95AFF;
+}
+#ColorType6{
+	background : #FF5AFF;
+}
+#ColorType7{
+	background : #B71600;
+}
+#ColorType8{
+	background : #070707;
+}
+#ColorType9{
+	background : #AB125E;
+}
+#ColorType10{
+	background : #BDBDBD;
+}
+#ColorType11{
+	background : #b5e61d;
+}
+#ColorType12{
+	background : #c8bfe7;
+}
+
+#ChangeContentsArea .hoverBtn.hover{
+	border : 5px solid gold;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------피드 페이지에서 팝업 생성 및 생성 후 생성될 피드에 대한 css------------------------------------------ */
+
+/* 피드 글 수정 누르면 나오는 팝업에 대한 css */
+#modifyPopupLayer {
+	position: fixed;
+    top: 300px;
+    left: 600px;
+    width: 500px;
+    background: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-weight: 400;
+    height: 300px;
+    z-index: 35;
+    vertical-align: middle;
+}
+
+#modifyHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 25px 0 10px 0;
+}
+
+#MPopupBottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 32px;
+}
+
+#modifyNO {
+	margin-right: 50px;
+	background: #F08080;
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#modifyOk {
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	background: #7FFFD4;
+	cursor: pointer;
+}
+
+#modifyMainContent {
+	display: inline-grid;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	margin-left: 50px;
+	margin-top: 20px;
+}
+
+#modifyTitle {
+	margin-bottom: 20px;
+	max-width: 400px;
+	width: 400px;
+	height: 50px;
+}
+
+#modifyContent {
+	max-width: 400px;
+	width: 400px;
+	height: 50px;
+}
+
+/* 피드 업무 수정 누르면 나오는 팝업에 대한 css */
+#modifyWorkPopup {
+	overflow-y: auto;
+    position: fixed;
+    top: 100px;
+    left: 460px;
+    width: 500px;
+    background: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-weight: 400;
+    height: 500px;
+    z-index: 34;
+    vertical-align: middle;
+}
+
+#modiworkPopHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 25px 0 30px 0;
+}
+
+#modiworkPopMainContainer {
+	position: relative;
+    margin-left: 40px;
+	padding-left: 15px;
+    overflow-y: auto;
+}
+
+#modifyWorkPopup::-webkit-scrollbar{
+	display:none;
+}
+
+#modifyWorkTitle {
+	margin-bottom: 20px;
+	max-width: 400px;
+	width: 400px;
+	height: 50px;
+}
+
+#modifyWorkContent {
+	max-width: 400px;
+	width: 400px;
+	height: 50px;
+}
+
+#modiworkPopBottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 32px;
+	margin-bottom: 20px;
+}
+
+#submodiworkPopBottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 32px;
+	margin-bottom: 20px;
+}
+
+#modifyWorkNO {
+	margin-right: 50px;
+	background: #F08080;
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#submodifyWorkNO {
+	margin-right: 50px;
+	background: #F08080;
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#submodifyWorkOk{
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	background: #7FFFD4;
+	cursor: pointer;
+}
+
+#modifyWorkOk {
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	background: #7FFFD4;
+	cursor: pointer;
+}
+
+#modiWorkProcess{
+	display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 400px;
+    margin: 10px 0 30px 0;
+}
+
+#modifyProcess1 {
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(0, 178, 255);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+
+#modifyProcess2 {
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(0, 176, 28);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+#modifyProcess3 {
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(253, 121, 0);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+#modifyProcess4 {
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(64, 42, 157);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+#modifyProcess5 {
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(119, 119, 119);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+#modiWorkFickerWrap {
+	display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 400px;
+    margin: 10px 0 30px 0;
+}
+
+#modifyWorkStart {
+	width : 200px;
+}
+
+#modifyWorkEnd {
+	width : 200px;
+}
+
+#modiWorkPriority{
+	display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 400px;
+    margin: 10px 0 30px 0;
+}
+
+#modipriority1 {
+	border-radius : 6px;
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background:#D3D3D3;
+}
+
+#modipriority2 {
+	border-radius : 6px;
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background:	#4169E1;
+}
+
+#modipriority3 {
+	border-radius : 6px;
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background:#FFA07A;
+}
+
+#modipriority4 {
+	border-radius : 6px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background:#DC143C;
+}
+
+#modiProgressWrap{
+	display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 400px;
+    margin: 10px 0 30px 0;
+}
+
+#modiWorkProcess .mprocesshover.hover{
+	height : 50px;
+    width : 70px;
+	border : 5px solid gold;
+}
+
+#modiWorkPriority .mpriorityhover.hover{
+	height : 50px;
+    width : 70px;
+	border : 5px solid gold;
+}
+
+#modiProgressWrap .mprogresshover.hover{
+	border : 5px solid gold;
+	width : 42px;
+	height : 21px;
+}
+
+#modiWorkSTProcess{
+	display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 400px;
+    margin: 10px 0 30px 0;
+}
+
+#modifySTProcess1 {
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(0, 178, 255);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+
+#modifySTProcess2 {
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(0, 176, 28);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+#modifySTProcess3 {
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(253, 121, 0);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+#modifySTProcess4 {
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(64, 42, 157);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+#modifySTProcess5 {
+	border:0;
+	width: 70px;
+	height: 50px;
+	background: rgb(119, 119, 119);
+    color: rgb(238, 238, 238);
+    border-radius : 6px;
+}
+
+#modiWorkSTProcess .STmprocesshover.hover{
+	border : 5px solid gold;
+	height : 50px;
+    width : 70px;
+}
+
+#modiWorkManager{
+	display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 400px;
+    margin: 10px 0 30px 0;
+}
+
+#modiWorkInput{
+    max-width: 400px;
+    width: 400px;
+}
+
+.modify-subtask-worker{
+	max-width: 400px;
+    width: 400px;
+}
+
+#sTmodifyTitle {
+	margin-bottom: 20px;
+	max-width: 400px;
+	width: 400px;
+	height: 50px;
+}
+
+#sTmodiDeadline {
+	width : 400px;
+	margin-bottom : 30px;
+}
+
+
+#modiWorkStPriority{
+	display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 400px;
+    margin: 10px 0 30px 0;
+}
+
+#modiStpriority1 {
+	border-radius : 6px;
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background:#D3D3D3;
+}
+
+#modiStpriority2 {
+	border-radius : 6px;
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background:	#4169E1;
+}
+
+#modiStpriority3 {
+	border-radius : 6px;
+	margin-right: 20px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background:#FFA07A;
+}
+
+#modiStpriority4 {
+	border-radius : 6px;
+	border:0;
+	width: 70px;
+	height: 50px;
+	background:#DC143C;
+}
+
+#modiWorkStPriority .mStpriorityhover.hover{
+	height : 50px;
+    width : 70px;
+	border : 5px solid gold;
+}
+
+/* 피드 일정 수정 누르면 나오는 팝업에 대한 css */
+#modifySchedulePopup {
+	position: fixed;
+    top: 130px;
+    left: 600px;
+    width: 500px;
+    background: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-weight: 400;
+    height: 510px;
+    z-index: 35;
+    vertical-align: middle;
+}
+
+#modifyScheHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 25px 0 10px 0;
+}
+
+#MSchePopupBottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 32px;
+}
+
+#modifyScheNO {
+	margin-right: 50px;
+	background: #F08080;
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#modifyScheOk {
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	background: #7FFFD4;
+	cursor: pointer;
+}
+
+#modifyScheMainContent {
+	display: inline-grid;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	margin-left: 50px;
+	margin-top: 20px;
+}
+
+#modiScheStart {
+	display: inline-grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+}
+
+#modiScheEnd {
+	display: inline-grid;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+	margin-bottom: 20px;
+}
+
+#modifyScheTitle {
+	margin-bottom: 20px;
+	max-width: 400px;
+	width: 400px;
+	height: 50px;
+}
+
+#modifyScheContent {
+	max-width: 400px;
+	width: 400px;
+	height: 50px;
+}
+
+/* 피드 할일 수정 누르면 나오는 팝업에 대한 css */
+#modifyTodoPopupLayer {
+	position: fixed;
+	top: 200px;
+	left: 460px;
+	width: 500px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 425px;
+	z-index:34;
+	vertical-align: middle;
+}
+
+#modifyTodoHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 25px 0 10px 0;
+}
+
+#MPopupTodoBottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 32px;
+}
+
+#modifyTodoNO {
+	margin-right: 50px;
+	background: #F08080;
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#modifyTodoOk {
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	background: #7FFFD4;
+	cursor: pointer;
+}
+
+#modifyTodoMainContent {
+	display: inline-grid;
+	align-items: center;
+	justify-content: center;
+	align-content: center;
+	margin-left: 50px;
+	margin-top: 20px;
+}
+
+#modifyTodoTitle {
+	margin-bottom: 20px;
+	max-width: 400px;
+	width: 400px;
+	height: 50px;
+}
+
+#modifyTodoContent {
+	max-width: 400px;
+	width: 400px;
+	height: 50px;
+}
+
+#modifyTodoFicker {
+	margin-bottom : 50px;
+}
+
+/* 댓글 수정 누르면 나올 팝업 */
+#modifyTextReply {
+	position: fixed;
+	top: 300px;
+	left: 460px;
+	width: 320px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 150px;
+	z-index: 33;
+}
+
+#modiReplyHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 20px 0 10px 0;
+}
+
+#modiReplyContent {
+	display: flex;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+#modifyReplyText {
+	width: 220px;
+}
+
+#modiReplyBottom{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#modiReplyNOPE{
+	margin-right: 50px;
+    background: #F08080;
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#modiReplyOK{
+	border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    background: #87CEEB;
+    cursor: pointer;
+}
+
+/* 업무 댓글 수정 누르면 나올 팝업 */
+#modifyWorkReply {
+	position: fixed;
+	top: 300px;
+	left: 460px;
+	width: 320px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 150px;
+	z-index: 33;
+}
+
+#modiReplyHeaderWork {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 20px 0 10px 0;
+}
+
+#modiReplyContentWork {
+	display: flex;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+#modifyReplyWork {
+	width: 220px;
+}
+
+#modiReplyBottomWork{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#modiReplyWorkNOPE{
+	margin-right: 50px;
+    background: #F08080;
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#modiReplyWorkOK{
+	border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    background: #87CEEB;
+    cursor: pointer;
+}
+
+/* 일정 댓글 수정 누르면 나올 팝업 */
+#modifySchedulekReply {
+	position: fixed;
+	top: 300px;
+	left: 460px;
+	width: 320px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 150px;
+	z-index: 33;
+}
+
+#modiReplyHeaderSchedule {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 20px 0 10px 0;
+}
+
+#modiReplyContentSchedule {
+	display: flex;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+#modifyReplySchedule {
+	width: 220px;
+}
+
+#modiReplyBottomSchedule{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#modiReplyScheduleNOPE{
+	margin-right: 50px;
+    background: #F08080;
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#modiReplyScheduleOK{
+	border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    background: #87CEEB;
+    cursor: pointer;
+}
+
+/* 할일 댓글 수정 누르면 나올 팝업 */
+#modifyTodoReply {
+	position: fixed;
+	top: 300px;
+	left: 460px;
+	width: 320px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 150px;
+	z-index: 33;
+}
+
+#modiReplyHeaderTodo {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 20px 0 10px 0;
+}
+
+#modiReplyContentTodo {
+	display: flex;
+	flex-wrap: nowrap;
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+#modifyReplyTodo {
+	width: 220px;
+}
+
+#modiReplyBottomTodo{
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+#modiReplyTodoNOPE{
+	margin-right: 50px;
+    background: #F08080;
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#modiReplyTodoOK{
+	border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    background: #87CEEB;
+    cursor: pointer;
+}
+
+/* 글 댓글 삭제 누르면 나올 팝업 */
+#deleteReplyText {
+	position: fixed;
+	top: 300px;
+	left: 460px;
+	width: 320px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 150px;
+	z-index: 33;
+}
+
+#deleteTextHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 20px 0 10px 0;
+}
+
+#deleteTextReplyBottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+#deleteReplyNOPE {
+	margin-right: 50px;
+	background: #F08080;
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#deleteReplyOK {
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	background: #87CEEB;
+	cursor: pointer;
+}
+
+/* 업무 댓글 삭제 누르면 나올 팝업 */
+#deleteReplyWork {
+	position: fixed;
+	top: 300px;
+	left: 460px;
+	width: 320px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 150px;
+	z-index: 33;
+}
+
+#deleteWorkHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 20px 0 10px 0;
+}
+
+#deleteWorkReplyBottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+#deleteReplyNOPEWork {
+	margin-right: 50px;
+	background: #F08080;
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#deleteReplyOKWork {
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	background: #87CEEB;
+	cursor: pointer;
+}
+
+/* 일정 댓글 삭제 누르면 나올 팝업 */
+#deleteReplySchedule {
+	position: fixed;
+	top: 300px;
+	left: 460px;
+	width: 320px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 150px;
+	z-index: 33;
+}
+
+#deleteScheduleHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 20px 0 10px 0;
+}
+
+#deleteScheduleReplyBottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+#deleteReplyNOPESchedule {
+	margin-right: 50px;
+	background: #F08080;
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#deleteReplyOKSchedule {
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	background: #87CEEB;
+	cursor: pointer;
+}
+
+/* 할일 댓글 삭제 누르면 나올 팝업 */
+#deleteReplyTodo {
+	position: fixed;
+	top: 300px;
+	left: 460px;
+	width: 320px;
+	background: #fff;
+	border: 1px solid #555;
+	border-radius: 6px;
+	font-weight: 400;
+	height: 150px;
+	z-index: 33;
+}
+
+#deleteTodoHeader {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 17px;
+	margin: 20px 0 10px 0;
+}
+
+#deleteTodoReplyBottom {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 15px;
+}
+
+#deleteReplyNOPETodo {
+	margin-right: 50px;
+	background: #F08080;
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	cursor: pointer;
+}
+
+#deleteReplyOKTodo {
+	border-radius: 5px;
+	border: 0;
+	width: 80px;
+	height: 40px;
+	background: #87CEEB;
+	cursor: pointer;
+}
+
+/* 피드 글 삭제 누르면 나오는 팝업에 대한 css */
+#feedDeletePopupText{
+	position: fixed;
+    top: 300px;
+    left: 460px;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-weight: 400;
+    height: 150px;
+    z-index: 33;
+}
+
+#feedDeleteHeaderText {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    margin: 10px 0 10px 0;
+}
+
+#feedDeleteBottomText {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+#feedDeleteNoText{
+	margin-right: 50px;
+    background: #F08080;
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#feedDeleteOkText {
+	border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    background: #87CEEB;
+    cursor: pointer;
+}
+
+/* 피드 업무 삭제 누르면 나오는 팝업에 대한 css */
+#feedDeletePopupWork{
+	position: fixed;
+    top: 300px;
+    left: 460px;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-weight: 400;
+    height: 150px;
+    z-index: 33;
+}
+
+#feedDeleteHeaderWork {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    margin: 10px 0 10px 0;
+}
+
+#feedDeleteBottomWork {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+#feedDeleteNoWork{
+	margin-right: 50px;
+    background: #F08080;
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#feedDeleteOkWork {
+	border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    background: #87CEEB;
+    cursor: pointer;
+}
+
+/* 피드 일정 삭제 누르면 나오는 팝업에 대한 css */
+#feedDeletePopupSchedule{
+	position: fixed;
+    top: 300px;
+    left: 460px;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-weight: 400;
+    height: 150px;
+    z-index: 33;
+}
+
+#feedDeleteHeaderSchedule {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    margin: 10px 0 10px 0;
+}
+
+#feedDeleteBottomSchedule {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+#feedDeleteNoSchedule{
+	margin-right: 50px;
+    background: #F08080;
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#feedDeleteOkSchedule {
+	border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    background: #87CEEB;
+    cursor: pointer;
+}
+
+/* 피드 할일 삭제 누르면 나오는 팝업에 대한 css */
+#feedDeletePopupTodo{
+	position: fixed;
+    top: 300px;
+    left: 460px;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-weight: 400;
+    height: 150px;
+    z-index: 33;
+}
+
+#feedDeleteHeaderTodo {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    margin: 10px 0 10px 0;
+}
+
+#feedDeleteBottomTodo {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+}
+
+#feedDeleteNoTodo{
+	margin-right: 50px;
+    background: #F08080;
+    border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    cursor: pointer;
+}
+
+#feedDeleteOkTodo {
+	border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height: 40px;
+    background: #87CEEB;
+    cursor: pointer;
+}
+
+
+/* 피드 할일의 달력 css */
+.MSsubtask-menu-endDate .flatpickr-calendar.static.open{
+	left: -215px;
+}
+
+#Boss {
+	box-sizing: border-box;
+}
+
+
+
+/* 업무 팝업  팝업에서 업무 만들었을때 피드에 생길 본체에 대한 css는 host가 붙음*/
+.create-post-container .task-option, .share-contents .task-option {
+    padding: 20px 30px 0;
+}
+
+.task-option {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.host-task-option {
+	position: relative;
+    margin-bottom: 25px;
+    padding: 20px 30px 0;
+}
+
+.create-content-group>li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 46px;
+}
+
+.host-create-content-group>li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    min-height: 46px;
+}
+
+.create-content-cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.host-create-content-cell {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #333;
+}
+
+.schedule-time>.ms-pickr-layer {
+    display: inline-block;
+}
+
+.host-schedule-time>.ms-pickr-layer {
+    display: inline-block;
+}
+
+.create-content-cell.title {
+	margin-bottom : 10px;
+    align-items: center;
+    margin-right: 20px;
+    color: #555;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.host-create-content-cell.hosttitle {
+	margin-bottom : 10px;
+    align-items: center;
+    margin-right: 20px;
+    color: #555;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.img-post-status {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.host-img-post-status {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.task-state-button {
+    display: block;
+    float: left;
+    width: auto;
+    min-width: 84px;
+    height: 32px;
+    padding: 0 10px;
+    border-radius: 220px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.host-task-state-button {
+    display: block;
+    float: left;
+    width: auto;
+    min-width: 84px;
+    height: 32px;
+    padding: 0 10px;
+    border-radius: 220px;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.task-state-button+.task-state-button {
+    margin-left: 6px;
+}
+
+.host-task-state-button+.host-task-state-button {
+    margin-left: 6px;
+}
+
+.js-task-worker-layer.js-more-task-li.d-none {
+    margin-bottom: 0;
+}
+
+.host-task-worker-layer.host-more-task-li.hostd-none {
+    margin-bottom: 0;
+}
+
+.create-content-group>li+li {
+    padding-top: 18px;
+}
+
+.host-create-content-group>li+li {
+    padding-top: 18px;
+}
+
+.js-task-worker-layer .create-content-cell.title {
+    vertical-align: top;
+}
+
+.host-task-worker-layer .host-create-content-cell.hosttitle {
+    vertical-align: top;
+}
+
+
+.create-content-cell.title {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    color: #555;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.host-create-content-cell.hosttitle {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    color: #555;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.create-content-cell.manager {
+    position: relative;
+}
+
+.host-create-content-cell.hostmanager {
+    position: relative;
+}
+
+.img-post-worker {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.host-img-post-worker {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+.js-task-worker-layer .create-content-cell {
+    display: inline-block;
+}
+
+span.ms-registraion-name{
+	margin-right:10px;
+}
+
+.manager-btn-group .user-wrap {
+    display: inline;
+    margin-bottom: -8px;
+}
+
+.host-manager-btn-group .host-user-wrap {
+    display: inline;
+    margin-bottom: -8px;
+}
+
+.manager-group {
+    vertical-align: top;
+}
+
+.host-manager-group {
+    vertical-align: top;
+}
+
+.host-manager-item, .host-worker-search-input {
+    margin-bottom: 8px;
+}
+
+.worker-search-input {
+    vertical-align: bottom;
+    width: auto;
+    max-width: 116px;
+    height: 30px;
+    padding-left: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.host-worker-search-input {
+    vertical-align: bottom;
+    width: auto;
+    max-width: 116px;
+    height: 30px;
+    padding-left: 10px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-weight: 700;
+}
+
+.add-button {
+    margin: 22px 0 15px 28px;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #555;
+    border : 0;
+}
+
+.host-add-button {
+    margin: 22px 0 15px 28px;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 13px;
+    color: #555;
+    border : 0;
+}
+
+.task-option .img-plus {
+    margin-right: 4px;
+}
+
+.host-task-option .host-img-plus {
+    margin-right: 4px;
+}
+
+.img-plus {
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+}
+
+.host-img-plus {
+    font-size: 20px;
+    font-weight: 700;
+    position: relative;
+}
+
+/* 업무 팝업 css 여기까지 */
+
+/* 스케쥴 팝업 css */
+.schedule-option {
+    font-size: 14px;
+    word-break: break-word;
+    line-height: 25px;
+    color: #333;
+    padding: 10px 30px 0;
+}
+
+.img-schedule {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+}
+
+/* --------------------- */
+
+/* 할일 팝업 */
+.todo-group.ui-sortable {
+    margin-top: 20px;
+}
+
+.subtask-input-area.todo-area {
+    margin: 0 0 0 30px;
+    padding: 6px 20px 6px 20px;
+    width: calc(100% - 60px);
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.subtask-input-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,.04);
+    box-sizing: border-box;
+}
+
+.todo-text {
+	width : 600px;
+	height : 50px;	
+}
+
+/* --------------------- */
+
+.create-post-header {
+	position: relative;
+	height: 30px;
+	padding: 3px 120px 3px 30px;
+}
+
+.create-post-header .temp-wrap {
+	display: flex;
+	align-items: center;
+}
+
+.create-post-title {
+	float: left;
+	font-size: 16px;
+	color: #333;
+}
+
+.create-post-header .btn-minimize {
+	position: absolute;
+	top: 0;
+	right: 50px;
+}
+
+.create-post-header .btn-close {
+	right: 20px;
+}
+
+.btn-close {
+	border: 0;
+	background: #fff;
+	position: absolute;
+	top: 0;
+}
+
+.create-post-nav {
+	display: flex;
+	width: 100%;
+	margin-top: 12px;
+	padding: 0 30px;
+}
+
+.create-post-nav li {
+	display: flex;
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 각 탭 전체에 대한 css */
+.create-post-nav.editor .tab-write2, .create-post-nav.schedule .tab-schedule,
+	.create-post-nav.task .tab-task, .create-post-nav.todo .tab-todo,
+	.create-post-nav.vote .tab-vote, .create-post-nav.write .tab-write,
+	.create-post-nav.write .tab-write2, .create-post-nav.write2 .tab-write,
+	.create-post-nav.write2 .tab-write2 {
+	color: #333;
+	border-color: #333;
+	font-weight: 500;
+}
+
+.create-post-nav li .create-tab i ~span {
+	line-height: 1.2em;
+}
+
+/*-----------------------------------------------------*/
+.create-post-nav li .create-tab {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.create-tab {
+	width: 100%;
+	height: 38px;
+	line-height: 38px;
+	box-sizing: border-box;
+	border-bottom: 2px solid #ccc;
+}
+
+/* ------------------------------------------------------- */
+
+/* 피드 팝업 텍스트 부분 */
+
+.create-title-input {
+	height: 62px;
+	padding-top: 20px;
+	margin-left: 30px;
+	width: calc(100% - 60px);
+	padding-bottom: 15px;
+	font-weight: 700;
+	font-size: 18px;
+	border-bottom: 1px solid #eee;
+	resize: none;
+	overflow-y: hidden;
+}
+
+.create-content-area {
+	position: relative;
+	margin-bottom : 100px;
+}
+
+.font-style-toolbar {
+	width: 152px;
+	position: absolute;
+	z-index: 999991;
+	text-align: center;
+	background: #6449fc;
+	border-radius: 6px;
+}
+
+.cke_chrome {
+	visibility: inherit;
+	margin: 0px 22px 0px 30px;
+	display: block;
+	padding: 0px;
+}
+
+.cke_reset {
+	margin: 0px;
+	border: 0px;
+	background: transparent;
+	text-decoration: none;
+	width: auto;
+	height: auto;
+	vertical-align: baseline;
+	box-sizing: content-box;
+	position: static;
+	transition: none 0s ease 0s;
+}
+
+.ck-editor-wrap .cke_inner {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.ck-editor-wrap .cke_inner {
+	height: 100%;
+}
+
+.cke_inner {
+	background: rgb(255, 255, 255);
+	padding: 0px;
+}
+
+.ck-editor-wrap .cke_inner .cke_reset {
+	width: 100%;
+	order: 1;
+}
+
+.cke_top, .cke_contents, .cke_bottom {
+	display: block;
+	overflow: hidden;
+}
+
+.create-post-footer {
+	margin-left: 30px;
+	padding: 25px 0;
+	border-top: 1px solid #eee;
+	width: calc(100% - 60px);
+	background: #fff;
+}
+
+.create-button-group {
+	float: left;
+	margin-top: -10px;
+}
+
+.create-button-group li {
+	position: relative;
+	display: inline-block;
+}
+
+.create-button-group button {
+	display: inline-block;
+	vertical-align: middle;
+	border: 0;
+	background: #fff;
+}
+
+.ck-editor-wrap .create-post-footer .editor-item .editor-item-icon {
+	display: inline-block;
+	width: 16px;
+	height: 15px;
+}
+
+.ck-editor-wrap .create-post-footer .editor-item .editor-item-img {
+	display: inline-block;
+	width: 16px;
+	height: 15px;
+	background: #fff;
+	border: 0;
+}
+
+.create-button-group li+li {
+	margin-left: 14px;
+}
+
+.post-content-input {
+	height: 150px;
+    width: calc(100% - 60px);
+    margin-left: 30px;
+    overflow-y: hidden;
+    margin-top: 20px;
+}
+
+/* 클립 버튼 클릭시 뜨는 파일 첨부 버튼에 대한 css */
+.upload-menu {
+	position: absolute;
+	bottom: 23px;
+	left: 0;
+	z-index: 1;
+	padding: 7px 10px 2px 14px;
+	background: #fff;
+	border: 1px solid #777;
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 13px;
+	color: #555;
+}
+
+.upload-menu button {
+	width: 100%;
+	height: 19px;
+	margin-bottom: 6px;
+	line-height: 19px;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.img-pc {
+	position: relative;
+	top: -1px;
+	display: inline-block;
+	width: 12px;
+	height: 11px;
+	margin-right: 5px;
+	background-position: -3px -47px;
+	vertical-align: middle;
+}
+
+.img-gdrive {
+	position: relative;
+	top: -1px;
+	left: -1px;
+	display: inline-block;
+	width: 14px;
+	height: 13px;
+	margin-right: 4px;
+	background-position: -18px -45px;
+	vertical-align: middle;
+}
+
+.mini-sodadrive {
+	position: relative;
+	display: inline-block;
+	top: -1px;
+	left: -1px;
+	width: 14px;
+	height: 14px;
+	margin-right: 4px;
+	background-size: cover;
+	vertical-align: middle;
+}
+
+/* 피드 팝업창 맨 밑 전체공개 임시저장 저장 버튼에 대한 css */
+.create-footer-menu {
+	position: relative;
+	float: right;
+	margin-top: -15px;
+}
+
+.create-submit-option {
+	position: relative;
+	float: left;
+	width: 185px;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 31px;
+	background: #fff;
+	border: 1px solid #ddd;
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.temporary-post-submit.list {
+	position: relative;
+	min-width: 70px;
+	padding: 0 11px;
+	background: #e5e5e5;
+	line-height: 36px;
+}
+
+a.temporary-post-submit {
+	cursor: pointer;
+}
+
+.temporary-post-submit {
+	float: left;
+	height: 36px;
+	margin-left: 10px;
+	border-radius: 4px;
+	font-size: 13px;
+	color: #333;
+	text-align: center;
+}
+
+.temporary-post-submit.list .sum {
+	position: relative;
+	display: inline-block;
+	height: 100%;
+	margin: 0 -10px 0 7px;
+	padding: 8px 10px;
+	font-weight: 500;
+	line-height: 20px;
+	color: #6449fc;
+	border-left: 1px solid #000;
+}
+
+.create-post-submit {
+	position: relative;
+	float: left;
+	min-width: 110px;
+	height: 36px;
+	margin-left: 10px;
+	padding: 0 10px;
+	background: #6449fc;
+	border-radius: 4px;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+}
+
+/*----------------------------------------------------------*/
+
+/* 할일 달력 옆 담당자 부분 */
+
+#MStodoworkerButton {
+	margin-left : 20px;
+}
+
+/*----------------------------------------------------------*/
+
+/* 팝업의 할일의 달력 부분 */
+.ms-worker-button{
+	    display: inline-block;
+}
+/*----------------------------------------------------------*/
+
+/* 하위업무 담당자버튼 */
+#addWorkerBottom{
+	display: flex;
+    justify-content: center;	
+    margin-top: 9px;
+}
+
+#hostaddWorkerBottom{
+	display: flex;
+    justify-content: center;	
+    margin-top: 9px;
+    margin-bottom: 10px;
+}
+
+#subhostaddWorkerBottom{
+	display: flex;
+    justify-content: center;	
+    margin-top: 9px;
+    margin-bottom: 10px;
+}
+
+#st-addWorkerBottom{
+	display: flex;
+    justify-content: center;	
+    margin-top: 9px;
+    margin-bottom: 10px;
+}
+
+#hostWorkerProfile{
+	width:40px;
+	height:40px;
+}
+
+#subhostWorkerProfile{
+	width:40px;
+	height:40px;
+}
+
+#addWorkerCancel{
+	margin-right:20px;	
+	border:0;
+	background:#F08080;
+	width:35px;
+	height:20px;
+}
+
+#st-addWorkerCancel{
+	margin-right:20px;	
+	border:0;
+	background:#F08080;
+	width:35px;
+	height:20px;
+}
+
+#hostaddWorkerCancel{
+	margin-right:20px;	
+	border:0;
+	background:#F08080;
+	width:35px;
+	height:20px;
+}
+
+#subhostaddWorkerCancel{
+	margin-right:20px;	
+	border:0;
+	background:#F08080;
+	width:35px;
+	height:20px;
+}
+
+#addWorkerOk{
+	border:0;
+	background:#87CEEB;
+	width:35px;
+	height:20px;
+}
+
+#hostaddWorkerOk{
+	border:0;
+	background:#87CEEB;
+	width:35px;
+	height:20px;
+}
+
+#st-addWorkerOk{
+	border:0;
+	background:#87CEEB;
+	width:35px;
+	height:20px;
+}
+
+#subhostaddWorkerOk{
+	border:0;
+	background:#87CEEB;
+	width:35px;
+	height:20px;
+}
+
+/* 팝업의 할일의 인풋의 달력,담당자를 감싸는 영역 */
+.MStodo-menu {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    width: 50px;
+    text-align: right;
+    margin-left : 130px;
+}
+
+/* 인풋 */
+.MSsubtask-button {
+    display: inline-block;
+}
+
+.todo-area input {
+    height: 100%;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    background: 0 0;
+}
+
+.MSsubtask-button .flatpickr {
+    position: absolute;
+    width: 0;
+}
+
+.MSsubtask-button .MStodo-flatpickr-input {
+    width: 100px;
+}
+
+.MStodo-flatpickr-input[readonly] {
+    display: block;
+}
+
+/*----------------------------------------------------------*/
+
+/* 하위 업무의 우선순위 */
+.sub-priority-group {
+    position: absolute;
+    z-index: 10;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid #777;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+    border-radius: 4px;
+    transform: translate(-4px,0);
+    white-space: nowrap;
+}
+
+.host-sub-priority-group {
+    position: absolute;
+    z-index: 10;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid #777;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+    border-radius: 4px;
+    transform: translate(-4px,0);
+    white-space: nowrap;
+}
+
+#subPriorityButton1 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+    margin-bottom : 10px;
+}
+
+#hostsubPriorityButton1 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+    margin-bottom : 10px;
+}
+
+#subPriorityButton2 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+    margin-bottom : 10px;
+}
+
+#hostsubPriorityButton2 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+    margin-bottom : 10px;
+}
+
+#subPriorityButton3 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+    margin-bottom : 10px;
+}
+
+#hostsubPriorityButton3 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+    margin-bottom : 10px;
+}
+
+#subPriorityButton4 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+    margin-bottom : 10px;
+}
+
+#hostsubPriorityButton4 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+    margin-bottom : 10px;
+}
+
+#subPriorityButton5 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+}
+
+#hostsubPriorityButton5 {
+	display: flex;
+    font-size: 13px;
+    color: #555;
+    width : 50px;
+    height : 20px;
+}
+
+.MSsubtask-priority-button{
+	border : 0;
+	width : 20px;
+	height : 25px;
+}
+
+.hostMSsubtask-priority-button{
+	border : 0;
+	width : 20px;
+	height : 25px;
+}
+
+.manager-img{
+	border : 0;
+	width : 20px;
+	height : 20px;
+}
+
+.hostmanager-img{
+	border : 0;
+	width : 20px;
+	height : 20px;
+}
+
+.sosbtndh{
+	width : 20px;
+	height : 20px;
+}
+
+.hostsosbtndh{
+	width : 20px;
+	height : 20px;
+}
+
+/*----------------------------------------------------------*/
+
+/* 바깥 우선순위  */
+.rank-item {
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.hostrank-item {
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.rank-item span {
+    margin-left: 4px;
+    color: #333;
+}
+
+.hostrank-item span {
+    margin-left: 4px;
+    color: #333;
+}
+
+/* 팝업의 업무의 하위업무 css */
+.MSsubtask-wrap {
+    margin: 44px 0 30px;
+    padding : 0;
+}
+
+.hostMSsubtask-wrap {
+    margin: 44px 0 30px;
+    padding : 0;
+}
+
+.MSsubtask-header {
+    padding: 0 30px;
+    color: #555;
+}
+
+.hostMSsubtask-header {
+    padding: 0 30px;
+    color: #555;
+}
+
+.MSsubtask-header .MSsubtask-title {
+    font-weight: 700;
+}
+
+.hostMSsubtask-header .hostMSsubtask-title {
+    font-weight: 700;
+}
+
+.MSsubtask-title {
+    display: inline-block;
+    overflow: hidden;
+    letter-spacing: -.02em;
+    color: #555;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    background: 0 0;
+}
+
+.hostMSsubtask-title {
+    display: inline-block;
+    overflow: hidden;
+    letter-spacing: -.02em;
+    color: #555;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    background: 0 0;
+}
+
+.MSsubtask-wrap .MSsubtask-bottom {
+    display: block;
+}
+
+.hostMSsubtask-wrap .hostMSsubtask-bottom {
+    display: block;
+}
+
+.MSsubtask-bottom .MSsubtask-input-area:first-child {
+    margin-top: 15px;
+}
+
+.hostMSsubtask-bottom .hostMSsubtask-input-area:first-child {
+    margin-top: 15px;
+}
+
+.MSsubtask-bottom .MSsubtask-input-area {
+    position: relative;
+}
+
+.hostMSsubtask-bottom .hostMSsubtask-input-area {
+    position: relative;
+}
+
+.MSsubtask-input-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 15px 0;
+    background: #fff;
+    border: 1px solid #999;
+    box-shadow: 0 0 15px rgba(0,0,0,.04);
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.hostMSsubtask-input-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 48px;
+    padding: 0 15px 0;
+    background: #fff;
+    border: 1px solid #999;
+    box-shadow: 0 0 15px rgba(0,0,0,.04);
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+.MSsubtask-input-area .MSsubtask-status-request {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #00b2ff;
+}
+
+.hostMSsubtask-input-area .hostMSsubtask-status-request {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #00b2ff;
+}
+
+.MSsubtask-input-area .MSsubtask-status-progress {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #00b01c;
+    display: none;
+}
+
+.hostMSsubtask-input-area .hostMSsubtask-status-progress {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #00b01c;
+    display: none;
+}
+
+.MSsubtask-input-area .MSsubtask-status-feedback {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #fd7900;
+    display: none;
+}
+
+.hostMSsubtask-input-area .hostMSsubtask-status-feedback {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #fd7900;
+    display: none;
+}
+
+.MSsubtask-input-area .MSsubtask-status-completion {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #402a9d;
+    display: none;
+}
+
+.hostMSsubtask-input-area .hostMSsubtask-status-completion {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #402a9d;
+    display: none;
+}
+
+.MSsubtask-input-area .MSsubtask-status-hold {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #777;
+    display: none;
+}
+
+.hostMSsubtask-input-area .hostMSsubtask-status-hold {
+    width: auto;
+    min-width: 64px;
+    height: 26px;
+    padding: 0 10px;
+    line-height: 26px;
+    font-size: 11px;
+    vertical-align: middle;
+    border-radius: 220px;
+    font-weight: 700;
+    color: #eee;
+    cursor: pointer;
+    white-space: nowrap;
+    background : #777;
+    display: none;
+}
+
+.MSsubtask-status-area {
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.hostMSsubtask-status-area {
+    display: inline-flex;
+    vertical-align: middle;
+}
+
+.MSsubtask-input {
+    position: relative;
+    display: flex;
+    flex: 1;
+    max-width: calc(100% - 260px);
+    border: 0;
+    font-size: 14px;
+    margin: 0 10px 0 10px;
+    background: 0 0;
+    color: #333;
+    justify-content: flex-start;
+}
+
+.hostMSsubtask-input {
+    position: relative;
+    display: flex;
+    flex: 1;
+    max-width: calc(100% - 260px);
+    border: 0;
+    font-size: 14px;
+    margin: 0 10px 0 10px;
+    background: 0 0;
+    color: #333;
+    justify-content: flex-start;
+}
+
+.MSsubtask-registered-area .MSsubtask-menu {
+    padding-right: 0;
+}
+
+.hostMSsubtask-registered-area .hostMSsubtask-menu {
+    padding-right: 0;
+}
+
+.MSsubtask-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    vertical-align: middle;
+    width: 168px;
+}
+
+.hostMSsubtask-menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: baseline;
+    vertical-align: middle;
+    width: 168px;
+}
+
+.MSsubtask-menu>li:first-child {
+    margin: 0;
+    flex: none;
+}
+
+.hostMSsubtask-menu>li:first-child {
+    margin: 0;
+    flex: none;
+}
+
+.MSsubtask-menu>li {
+    position: relative;
+    display: inline-block;
+    margin-left : 7px;
+}
+
+.hostMSsubtask-menu>li {
+    position: relative;
+    display: inline-block;
+    margin-left : 7px;
+}
+
+.MSsubtask-input-area.MSsubtask-date-button {
+    float: unset;
+}
+
+.hostMSsubtask-input-area.hostMSsubtask-date-button {
+    float: unset;
+}
+
+
+.MSsubtask-endDate-input{
+	width : 90px;
+	text-align : center;
+}
+
+.hostMSsubtask-endDate-input{
+	width : 90px;
+	text-align : center;
+}
+
+/*----------------------------------------------------------*/
+
+/* 진척도 */
+.create-content-group>.js-progress-layer {
+    align-items: center;
+}
+
+.host-create-content-group>.host-progress-layer {
+    align-items: center;
+}
+
+.progress-graph {
+    display: table;
+    width: 100%;
+    max-width: 130px;
+    height: 6px;
+    border-radius: 100px;
+    table-layout: fixed;
+    border : 1px solid #777;
+}
+
+.hostprogress-graph {
+    display: table;
+    width: 100%;
+    max-width: 130px;
+    height: 6px;
+    border-radius: 100px;
+    table-layout: fixed;
+    border : 1px solid #777;
+}
+
+.progress-txt {
+    position: absolute;
+    top: -3px;
+    right: -40px;
+    margin-left: 10px;
+    color: #777;
+}
+
+.hostprogress-txt {
+    position: relative;
+    top: -2px;
+    right: -20px;
+    margin-left: 10px;
+    color: #777;
+}
+
+
+.progress-graph span {
+    display: table-cell;
+    cursor: pointer;
+    position : relative;
+    
+}
+
+.hostprogress-graph span {
+    display: table-cell;
+}
+
+#MSprogressGraph {
+	margin-bottom : 18px;
+}
+
+#hostMSprogressGraph {
+	margin-bottom : 18px;
+}
+
+.ms-progress-button {
+    /* 기존 스타일 유지 */
+
+    /* 새로운 스타일 추가 */
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+/*----------------------------------------------------------*/
+
+/* 우선순위 팝업 */
+.priority-group {
+    position: relative;
+    top: 44px;
+    left: 0;
+    z-index: 10;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid #777;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+    border-radius: 4px;
+    transform: translate(-4px,0);
+    white-space: nowrap;
+}
+
+.hostpriority-group {
+    position: relative;
+    top: 44px;
+    left: 0;
+    z-index: 10;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid #777;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+    border-radius: 4px;
+    transform: translate(-4px,0);
+    white-space: nowrap;
+    display: none;
+}
+
+.priority-group .priority-button {
+    display: flex;
+    font-size: 13px;
+    color: #555;
+    margin-bottom : 10px;
+}
+
+.hostpriority-group .hostpriority-button {
+    display: flex;
+    font-size: 13px;
+    color: #555;
+    margin-bottom : 10px;
+}
+
+.priority-button span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    vertical-align: top;
+}
+
+.hostpriority-button span {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 6px;
+    vertical-align: top;
+}
+
+/*----------------------------------------------------------*/
+
+/* 팝업 일정 참석자부분 */
+.ms-attendance-layer .create-content-cell {
+    display: block;
+}
+
+.host-attendance-layer .host-create-content-cell {
+    display: block;
+}
+
+.host-attendance-layer .host-manager-btn-group .host-user-wrap {
+    margin-top: 0;
+}
+
+.ms-attendance-layer .manager-group {
+    cursor: pointer;
+}
+
+.host-attendance-layer .host-manager-group {
+    cursor: pointer;
+}
+
+.manager-group {
+    vertical-align: top;
+}
+
+.host-manager-group {
+    vertical-align: top;
+}
+
+.manager-item, .worker-search-input {
+    margin-bottom: 8px;
+}
+
+.manager-item {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+    background: #eee;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    height : 40px;
+}
+
+.hostmanager-item {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0 10px 10px 0;
+    background: #eee;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #555;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    height : 31px;
+}
+
+.ms-registration-name {
+    max-width: 94px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+    color: #555;
+    margin-right: 3px;
+}
+
+.host-registration-name {
+    max-width: 94px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-weight: 700;
+    color: #555;
+    margin-right: 3px;
+}
+
+.manager-profile-img {
+	position: relative;
+    top: 6px;
+    margin-left : 5px;
+}
+
+.hostmanager-profile-img {
+	position: relative;
+    top: 6px;
+    margin-left : 5px;
+    width:10px;
+}
+
+.remove-button {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    vertical-align: middle;
+    margin-bottom: 4px;
+    border : 0;
+    cursor : pointer;
+}
+
+.hostremove-button {
+    width: 20px;
+    height: 20px;
+    margin-right: 4px;
+    vertical-align: middle;
+    margin-bottom: 4px;
+    border : 0;
+    cursor : pointer;
+}
+
+.schedule-manager-close {
+	width : 10px;
+	height : 10px;
+}
+
+.create-content-group>.schedule-place {
+    align-items: flex-start;
+}
+
+.ms-date-option .ms-pickr-layer {
+    display: inline-block;
+    -webkit-border-radius: 500px;
+    border-radius: 500px;
+    color: #555;
+}
+
+.host-date-option .host-pickr-layer {
+    display: inline-block;
+    -webkit-border-radius: 500px;
+    border-radius: 500px;
+    color: #555;
+}
+
+.add-manager-button {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+    text-underline-position: under;
+    vertical-align: top;
+}
+
+.host-add-manager-button {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+    text-underline-position: under;
+    vertical-align: top;
+}
+
+.create-content-cell .flatpickr-input[readonly] {
+    display: inline-block;
+}
+
+/*----------------------------------------------------------*/
+
+/* 피드 팝업창 맨 밑 전체공개 임시저장 저장 버튼에 대한 css */
+.create-footer-menu {
+	position: relative;
+	float: right;
+	margin-top: -15px;
+}
+
+.create-submit-option {
+	position: relative;
+	float: left;
+	width: 185px;
+	height: 36px;
+	line-height: 36px;
+	padding-left: 31px;
+	background: #fff;
+	border: 1px solid #ddd;
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 13px;
+	cursor: pointer;
+}
+
+.temporary-post-submit.list {
+	position: relative;
+	min-width: 70px;
+	padding: 0 11px;
+	background: #e5e5e5;
+	line-height: 36px;
+}
+
+a.temporary-post-submit {
+	cursor: pointer;
+}
+
+.temporary-post-submit {
+	float: left;
+	height: 36px;
+	margin-left: 10px;
+	border-radius: 4px;
+	font-size: 13px;
+	color: #333;
+	text-align: center;
+}
+
+.temporary-post-submit.list .sum {
+	position: relative;
+	display: inline-block;
+	height: 100%;
+	margin: 0 -10px 0 7px;
+	padding: 8px 10px;
+	font-weight: 500;
+	line-height: 20px;
+	color: #6449fc;
+	border-left: 1px solid #000;
+}
+
+.create-post-submit {
+	position: relative;
+	float: left;
+	min-width: 110px;
+	height: 36px;
+	margin-left: 10px;
+	padding: 0 10px;
+	background: #6449fc;
+	border-radius: 4px;
+	font-size: 13px;
+	color: #fff;
+	text-align: center;
+}
+
+/*----------------------------------------------------------*/
+
+/* 클립 버튼 클릭시 뜨는 파일 첨부 버튼에 대한 css */
+.upload-menu {
+	position: absolute;
+	bottom: 23px;
+	left: 0;
+	z-index: 1;
+	padding: 7px 10px 2px 14px;
+	background: #fff;
+	border: 1px solid #777;
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-size: 13px;
+	color: #555;
+}
+
+.upload-menu button {
+	width: 100%;
+	height: 19px;
+	margin-bottom: 6px;
+	line-height: 19px;
+	text-align: left;
+	white-space: nowrap;
+}
+
+.img-pc {
+	position: relative;
+	top: -1px;
+	display: inline-block;
+	width: 12px;
+	height: 11px;
+	margin-right: 5px;
+	background-position: -3px -47px;
+	vertical-align: middle;
+}
+
+.img-gdrive {
+	position: relative;
+	top: -1px;
+	left: -1px;
+	display: inline-block;
+	width: 14px;
+	height: 13px;
+	margin-right: 4px;
+	background-position: -18px -45px;
+	vertical-align: middle;
+}
+
+.mini-sodadrive {
+	position: relative;
+	display: inline-block;
+	top: -1px;
+	left: -1px;
+	width: 14px;
+	height: 14px;
+	margin-right: 4px;
+	/*  background: url(/flow-renewal/assets/images/icons/icon-flowdrive.svg?v=297099c…); */
+	background-size: cover;
+	vertical-align: middle;
+}
+
+/*----------------------------------------------------------*/
+
+/* 피드 팝업 텍스트 부분 */
+
+.create-title-input {
+	height: 62px;
+	padding-top: 20px;
+	margin-left: 30px;
+	width: calc(100% - 60px);
+	padding-bottom: 15px;
+	font-weight: 700;
+	font-size: 18px;
+	border-bottom: 1px solid #eee;
+	resize: none;
+	overflow-y: hidden;
+}
+
+.create-content-area {
+	position: relative;
+	margin-bottom : 100px;
+}
+
+.font-style-toolbar {
+	width: 152px;
+	position: absolute;
+	z-index: 999991;
+	text-align: center;
+	background: #6449fc;
+	border-radius: 6px;
+}
+
+.cke_chrome {
+	visibility: inherit;
+	margin: 0px 22px 0px 30px;
+	display: block;
+	padding: 0px;
+}
+
+.cke_reset {
+	margin: 0px;
+	border: 0px;
+	background: transparent;
+	text-decoration: none;
+	width: auto;
+	height: auto;
+	vertical-align: baseline;
+	box-sizing: content-box;
+	position: static;
+	transition: none 0s ease 0s;
+}
+
+.ck-editor-wrap .cke_inner {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.ck-editor-wrap .cke_inner {
+	height: 100%;
+}
+
+.cke_inner {
+	background: rgb(255, 255, 255);
+	padding: 0px;
+}
+
+
+.ck-editor-wrap .cke_inner .cke_reset {
+	width: 100%;
+	order: 1;
+}
+
+.cke_top, .cke_contents, .cke_bottom {
+	display: block;
+	overflow: hidden;
+}
+
+.create-post-footer {
+	margin-left: 30px;
+	padding: 25px 0;
+	border-top: 1px solid #eee;
+	width: calc(100% - 60px);
+	background: #fff;
+}
+
+.create-button-group {
+	float: left;
+	margin-top: -10px;
+}
+
+.create-button-group li {
+	position: relative;
+	display: inline-block;
+}
+
+.create-button-group button {
+	display: inline-block;
+	vertical-align: middle;
+	border: 0;
+	background: #fff;
+}
+
+.ck-editor-wrap .create-post-footer .editor-item .editor-item-icon {
+	display: inline-block;
+	width: 16px;
+	height: 15px;
+}
+
+.ck-editor-wrap .create-post-footer .editor-item .editor-item-img {
+	display: inline-block;
+	width: 16px;
+	height: 15px;
+	background: #fff;
+	border: 0;
+}
+
+.create-button-group li+li {
+	margin-left: 14px;
+}
+
+/*----------------------------------------------------------*/
+
+/* 할일 팝업 */
+.todo-group.ui-sortable {
+    margin-top: 20px;
+}
+
+.subtask-input-area.todo-area {
+    margin: 0 0 0 30px;
+    padding: 6px 20px 6px 20px;
+    width: calc(100% - 240px);
+    height: 80px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.subtask-input-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    box-shadow: 0 0 15px rgba(0,0,0,.04);
+    box-sizing: border-box;
+}
+
+
+/* --------------------- */
+
+
+/* --------------------- */
+
+/* ------------------피드생성 팝업------------------------------ */
+.soda-all-background-1 {
+	overflow-y: auto;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, .6);
+	z-index: 12;
+}
+
+.soda-project-make-1.soda-project-make-1 {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+.soda-project-make-2 {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.create-post-wrap {
+	position: relative;
+	z-index: 5;
+	width: 674px;
+	margin: 30px auto 0 auto;
+	padding: 13px 0 0;
+	background: #fff;
+	border: 1px solid #777;
+	box-sizing: border-box;
+	box-shadow: 20px 20px 30px rgba(0, 0, 0, .2);
+	border-radius: 10px;
+}
+
+
+/* --------------------- */
+
+/* 팝업에서 업무에서 담당자 추가 눌렀을때 */
+
+.workerProfileAll{
+	width:40px;
+	height:40px;
+}
+
+#st-workManagerCheck{
+	margin-right:10px;
+}
+
+#subWorkerWrap {
+	width: 256px;
+    height: 280px;
+    max-height: 220px;
+    padding: 0;
+    top: 49px;
+    left: 358.8px;
+    transform: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #777;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .15);
+    border-radius: 10px;
+    z-index: 58;
+}
+
+#mainWrap {
+	max-height: 240px;
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+
+#contentUl{
+	height: 100%;
+	list-style :none;
+}
+
+
+.select-subworker{
+	background : #FFFFE0;
+	border-radius : 6px;
+	list-style: none;
+}
+
+.subworkers-section{
+	width: 100%;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.subworker-profile{
+	display: inline-block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    background-size: cover;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    border-radius: 16px;
+    margin: 0 10px;
+}
+
+.subworker-img{
+	width: 40px;
+    height: 40px;
+}
+
+.users-info{
+	width: 100%;
+    max-width: calc(100% - 60px);
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.users-name{
+	display: flex;
+    width: 100%;
+    color: #555;
+    box-sizing: border-box;
+}
+
+.users-worker-name{
+	max-width: calc(100% - 50px);
+    display: inline-block;
+    color: #555;
+    font-weight: 700;
+    margin-right: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.users-compnay{
+	display: flex;
+    width: 100%;
+    line-height: 18px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.users-worker-company{
+	max-width: calc(100% - 50px);
+    display: inline-block;
+    color: #999;
+    font-weight: 700;
+    margin-right: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#wrapBot{
+	display: flex;
+    justify-content: center;
+    margin-top: -24px;
+}
+
+#addWorkersNo{
+	margin-right: 20px;
+    border: 0;
+    background: #F08080;
+    width: 73px;
+    height: 20px;
+}
+
+#addWorkersOk{
+	border: 0;
+    background: #87CEEB;
+    width: 73px;
+    height: 20px;
+}
+
+.add-all-manager{
+	width: 256px;
+    height: 280px;
+    max-height: 300px;
+    padding: 0;
+    
+    top: 320px;
+    left: 70.8px;
+    transform: none;
+    
+    position: absolute;
+    background: #fff;
+    border: 1px solid #777;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+	border-radius: 6px;
+    z-index: 6;
+}
+
+.host-add-all-manager{
+	width: 256px;
+    height: 280px;
+    max-height: 300px;
+    padding: 0;
+    top: 320px;
+    left: 70.8px;
+    transform: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #777;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+	border-radius: 6px;
+    z-index: 6;
+}
+
+.st-add-all-manager {
+	width: 256px;
+    height: 285px;
+    max-height: 380px;
+    padding: 0;
+    top: 506px;
+    left: 384.8px;
+    transform: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #777;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+    border-radius: 6px;
+    z-index: 6;
+}
+
+.sub-host-add-all-manager{
+	width: 256px;
+    height: 285px;
+    max-height: 380px;
+    padding: 0;
+    top: 1015px;
+    left: 91px;
+    transform: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #777;
+    box-sizing: border-box;
+    box-shadow: 2px 2px 6px rgba(0,0,0,.15);
+    border-radius: 6px;
+    z-index: 6;
+}
+
+.st-workerProfileAll{
+	width:40px;
+	height:40px;
+}
+
+.manager-list {
+	max-height : 240px;
+	height: 100%;
+	width : 100%;
+	overflow-y: auto;
+}
+
+.host-manager-list {
+	max-height : 240px;
+	height: 100%;
+	width : 100%;
+	overflow-y: auto;
+}
+
+.st-manager-list{
+	max-height : 240px;
+	height: 100%;
+	width : 100%;
+	overflow-y: auto;
+}
+
+.sub-host-manager-list{
+	max-height : 240px;
+	height: 100%;
+	width : 100%;
+	overflow-y: auto;
+}
+
+.mgr-search-ul{
+	height: 100%;
+}
+
+.host-mgr-search-ul{
+	height: 100%;
+}
+
+.st-mgr-search-ul{
+	height: 100%;
+}
+
+.sub-host-mgr-search-ul{
+	height: 100%;
+}
+
+
+.select-mgr{
+	background: #efebff;
+	border-radius: 5px;
+}
+
+.host-select-mgr{
+	background: #efebff;
+	border-radius: 5px;
+}
+
+.st-select-mgr{
+	background: #efebff;
+	border-radius: 5px;
+}
+
+.sub-host-select-mgr{
+	background: #efebff;
+	border-radius: 5px;
+}
+
+
+
+.all-search-section {
+	width: 100%;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.host-all-search-section {
+	width: 100%;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.st-all-search-section{
+	width: 100%;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.sub-host-all-search-section{
+	width: 100%;
+    height: 61px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+.worker-profile {
+	display: inline-block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    background-size: cover;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    border-radius: 16px;
+    margin: 0 10px;
+}
+
+.host-worker-profile {
+	display: inline-block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    background-size: cover;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    border-radius: 16px;
+    margin: 0 10px;
+}
+
+.st-worker-profile{
+	display: inline-block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    background-size: cover;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    border-radius: 16px;
+    margin: 0 10px;
+}
+
+.sub-host-worker-profile{
+	display: inline-block;
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    background-size: cover;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    border-radius: 16px;
+    margin: 0 10px;
+}
+
+.all-search-write-wrap {
+	width: 100%;
+	max-width: calc(100% - 60px);
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.host-all-search-write-wrap {
+	width: 100%;
+	max-width: calc(100% - 60px);
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.st-all-search-write-wrap{
+	width: 100%;
+	max-width: calc(100% - 60px);
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.sub-host-all-search-write-wrap{
+	width: 100%;
+	max-width: calc(100% - 60px);
+	display: inline-block;
+	box-sizing: border-box;
+}
+
+.all-search-write {
+	display: flex;
+    width: 100%;
+    color: #555;
+    box-sizing: border-box;
+}
+
+.host-all-search-write {
+	display: flex;
+    width: 100%;
+    color: #555;
+    box-sizing: border-box;
+}
+
+.st-all-search-write{
+	display: flex;
+    width: 100%;
+    color: #555;
+    box-sizing: border-box;
+}
+
+.sub-host-all-search-write{
+	display: flex;
+    width: 100%;
+    color: #555;
+    box-sizing: border-box;
+}
+
+.registration-name {
+	max-width: calc(100% - 50px);
+	display: inline-block;
+    color: #555;
+    font-weight: 700;
+    margin-right: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.host-registration-name {
+	max-width: calc(100% - 50px);
+	display: inline-block;
+    color: #555;
+    font-weight: 700;
+    margin-right: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.st-registration-name{
+	max-width: calc(100% - 50px);
+	display: inline-block;
+    color: #555;
+    font-weight: 700;
+    margin-right: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sub-host-registration-name{
+	max-width: calc(100% - 50px);
+	display: inline-block;
+    color: #555;
+    font-weight: 700;
+    margin-right: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.registration-position {
+	max-width: 45px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.host-registration-position {
+	max-width: 45px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.st-registration-position{
+	max-width: 45px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.sub-host-registration-position{
+	max-width: 45px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+
+.worker-company-name {
+	display: flex;
+    width: 100%;
+    line-height: 18px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.host-worker-company-name {
+	display: flex;
+    width: 100%;
+    line-height: 18px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.st-worker-company-name{
+	display: flex;
+    width: 100%;
+    line-height: 18px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.sub-host-worker-company-name{
+	display: flex;
+    width: 100%;
+    line-height: 18px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+
+.registration-compnay {
+	max-width: calc(100% - 50px);
+	display: inline-block;
+    color: #999;
+    font-weight: 700;
+    margin-right: 3px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.hostregistration-compnay {
+	max-width: calc(100% - 50px);
+	display: inline-block;
+    color: #999;
+    font-weight: 700;
+    margin-right: 3px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.st-registration-compnay{
+	max-width: calc(100% - 50px);
+	display: inline-block;
+    color: #999;
+    font-weight: 700;
+    margin-right: 3px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.sub-registration-compnay{
+	max-width: calc(100% - 50px);
+	display: inline-block;
+    color: #999;
+    font-weight: 700;
+    margin-right: 3px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#inviteWrap{
+	display: none;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 100px;
+    z-index: 10;
+}
+.inviteInnerWrap1{
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+.inviteInnerWrap2{
+	display: table-cell;
+	vertical-align: middle;
+}
+.inviteBlock{
+	position: relative;
+	width: 450px;
+	border: 1px solid #555;
+	border-radius: 20px; 
+	margin: 0 auto;
+	overflow: hidden;
+	background:#fff;
+}
+.inviteBlockTop{
+	width: 100%;
+    height: 40px;
+    background: #50b5bf;
+    position: relative;
+    margin: 0 auto;
+}
+.inviteTitle{
+	margin-left: 20px;
+	line-height: 42px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: bold;
+}
+#inviteBlockClose{
+	width:40px;
+	height: 40px;
+	position: absolute;
+	right: 15px;
+	cursor: pointer;
+}
+.inviteBlockContent{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.inviteBlockInnerContent{
+	position: relative;
+    width: 410px;
+}
+.inviteBlockInnerContent>ul>li{
+	position: relative;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+}
+.iBIC{
+	border-bottom: 1px solid #555;
+}
+
+.inviteBlockInnerContent img{
+	width: 50px;
+	height: 50px;
+	margin-right: 10px;
+}
+.inviteBlockWrap{
+	display: flex;
+    position: relative;
+    width: 450px;
+    color: #50b5bf;
+    font-weight: 400;
+    justify-content: space-between;
+    align-items: center;
+}
+.inviteContentWrap{
+	display: block;
+    position: relative;
+}
+#inviteMemName{
+	font-weight: 500;
+	font-size: 22px;
+}
+#inviteComName{
+	margin-right: 10px;
+}
+.inviteConWrap{
+	display: flex;
+	position:relative;
+	color: #555;
+	font-size: 13px;
+}
+#inviteBtn{
+	border: 1px solid #50b5bf;
+	border-radius: 5px;
+	background: #50b5bf;
+	color: #fff;
+	width: 70px;
+	height: 30px;
+	font-size: 15px;
+	font-weight: 400;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.inviteBlockMiddle{
+	min-height: 250px;
+	height: 250px;
+	overflow-y: auto;
+}
+.inviteBlockMiddle::-webkit-scrollbar{
+	display: none;
+}
+.inviteAlert,
+.inviteFailAlert{
+	color: #fff;
+    display: none;
+    width: 110px;
+    padding-left: 5px;
+    background: #50b5bf;
+    border-radius: 50px;
+    font-size: 15px;
+}
+.inviteFailAlert{
+	display:none;
+	background: #ff6b6b;
+	width: 145px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------- */
+
+/* -----------------------------------------------생성된 피드 카드 css----------------------------------------------------- */
+
+/* 전체를 감싸는 div에 대한 css */
+.MSpost-card-wrap {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgb(0 0 0 / 4%);
+	margin-bottom : 20px;
+	width : 673px;
+	height : auto;
+	
+}
+
+.MSpost-card-header {
+    border-radius: 10px;
+    background: #faf9f9;
+}
+
+/* 전체를 감싸는 div안의 맨위 프로필 생성날짜 등을 나타내는 머리 */
+.MScard-header-top {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 14.5px 30px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+
+/* 상단에 프로필 */
+.MSpost-author {
+    flex: 1;
+    display: flex;
+    float: initial;
+    width: calc(100% - 77px);
+}
+
+.MSprofile {
+	height : 40px;
+	min-width : 40px;
+	
+	display : inline-block;
+	cursor : pointer;
+	margin-top : 16px;
+}
+
+/* 프로필 옆 이름 날짜 직책등 */
+
+.MSpost-author-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    
+    overflow: hidden;
+    width: 70%;
+    line-height: 18px;
+    margin-left: 10px;
+    vertical-align: middle;
+    text-align: left;
+}
+
+.MSpost-author-info dt {
+	display: flex;
+    color: #555;
+    line-height: 1.1;
+    
+    align-items: center;
+}
+
+.MSauthor {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    display: inline-block;
+    margin-right: 3px;
+    vertical-align: middle;
+    line-height: 18px;
+    max-width: 240px;
+}
+
+.MSpost-date {
+	min-width: 120px;
+		
+	display: inline-block;
+    margin: 2px 0 0 7px;
+    color: #aaa;
+    vertical-align: middle;
+}
+
+.MS-block {
+	max-width: 70%;
+	display: flex;
+    font-size: 12px;
+    color: #999;
+    margin : 0;
+}
+
+.depart-team {
+	max-width: 100%;
+    margin-left: 0;
+    
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    line-height: 18px;
+}
+
+/* 피드 삭제를 하거나 수정 할 수 있는 버튼 */
+
+.post-option {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 40px;
+}
+
+.post-set-btn {
+    padding: 4px 8px;
+    margin: -1px 0 0 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    background-color : transparent;
+    border : 0;
+}
+
+.post-set-btn span {
+    display: block;
+    border-radius: 50%;
+    width: 2px;
+    height: 2px;
+    background: #777;
+    margin-bottom : 2px;
+}
+
+.project-setting-header {
+	overflow: hidden;
+    padding: 0 14px;
+    background: #CEFBC9;
+    color: #000;
+    font-size: 13px;
+    cursor: default;
+    border-bottom : 1px solid black;
+}
+
+.project-setting-header span {
+    line-height: 35px;
+    float: left;
+}
+
+#projectDetailNum {
+	float: right;
+    font-weight: 700;
+    line-height: 35px;
+}
+
+/* 삭제 수정 버튼 눌렀을때 뜨는 팝업 */
+
+.post-setup-group {
+	overflow: hidden;
+    position: absolute;
+    z-index: 12;
+    top: 50px;
+    right: 35px;
+    background: #fff;
+    border: 1px solid #555;
+    box-sizing: border-box;
+    border-radius: 6px;
+    padding: 4px 0;
+}
+
+.post-setup-group>li {
+    position: relative;
+    white-space: nowrap;
+}
+
+.post-setup-group li a {
+    display: flex;
+    margin: 5px 0;
+    height: 19px;
+    align-items: center;
+    padding: 0 14px;
+    line-height: 19px;
+    font-size: 13px;
+    color: #555;
+    text-decoration: none;
+}
+
+.img-MS1 {
+	display: inline-block;
+    margin: 0 6px 0 0;
+    vertical-align: middle;
+}
+
+.img-MS2 {
+	display: inline-block;
+    margin: 0 6px 0 5px;
+    vertical-align: middle;
+}
+
+/* 프로필밑 글 제목이 들어갈 공간 */
+
+.MS-card-header-bottom {
+	position: relative;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    height: auto;
+    padding: 10px 30px 10px 30px;
+    background: #fff;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.MSpost-title-area {
+    display: -webkit-inline-box;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    width: 100%;
+    border-bottom: 1px solid gray;
+}
+
+.MSpost-title {
+	overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    vertical-align: middle;
+    word-break: break-word;
+    margin-bottom: 10px;
+}
+
+/* 피드 고유 번호가 들어갈 공간 */
+
+.feed-state {
+    display: flex;
+    justify-content: flex-end;
+    color: #999;
+}
+
+.feed-number {
+	display : inline-block;
+	
+	margin-left: 10px;
+    height: 27px;
+    padding: 4px 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+/* 글 내용이 들어올 공간 */
+
+.MSpost-card-container {
+    padding: 10px 0 20px;
+    background: #fff;
+}
+
+.MSpost-card-content {
+	line-height: 12px;
+    font-size: 14px;
+    word-break: break-word;
+    color: #333;
+    padding: 10px 30px 0;
+    display: flex;
+}
+
+.MSpost-of-p {
+	font-size: 14px;
+    line-height: 180%;
+    margin : 0;
+}
+
+/* 좋아요 북마크 버튼 공간 */
+.MSpost-bottom-area {
+    position: relative;
+    margin-top: 22px;
+    padding: 0 30px;
+}
+
+.MSpost-bottom-menu {
+	float: left;
+}
+
+.MSbottom-button-area {
+	position: relative;
+}
+
+.MSpost-bottom-button1 {
+	line-height: 18px;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+    border : 0;
+    background : #fff;
+}
+
+.MSpost-bottom-button2 {
+	line-height: 18px;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+    border : 0;
+    background : #fff;
+    margin-left : 10px;
+}
+
+.img-likey {
+	margin: -2px 4px 0 0;
+	background-size: 844px auto;
+	
+	display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-position: -300px -75px;
+    vertical-align: middle;
+}
+
+.likey-cnt {
+    font-weight: 700;
+    font-size: 10px;
+}
+
+
+#postBookmark {
+	margin-left : 10px;
+}
+
+.img-bookmark {
+	margin: -2px 4px 0 0;
+	background-size: 844px auto;
+	
+	display: inline-block;
+    width: 10px;
+    height: 14px;
+    background-position: -300px -75px;
+    vertical-align: middle;
+}
+
+
+/* 댓글의 카운트, 읽음 수 카운트 */
+
+.coment-read-wrap {
+	position: absolute;
+    bottom: 0;
+    right: 30px;
+}
+
+.comment-cnt-area {
+ 	display: inline-block;
+    margin: 4px 10px 0 0;
+    font-size: 13px;
+    color: #999;
+    margin-left : 550px;
+}
+
+.comment-cnt {
+	font-weight: 700;
+    font-size: 14px;	
+}
+
+.read-cnt-area {
+	margin-top: 4px;
+    float: right;
+    position: relative;
+    font-size: 13px;
+    color: #999;
+}
+
+.read-cnt {
+	font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* 할일 생성시 컨테이너 */
+.post-todo-container {
+    padding: 10px 0 20px;
+    background: #fff;
+}
+
+.post-todo-content {
+    font-size: 14px;
+    word-break: break-word;
+    line-height: 25px;
+    color: #333;
+    padding: 10px 30px 0;
+}
+
+.todo-status {
+    margin-top: 3px;
+}
+
+.todo-progress-header {
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.todo-header-left {
+    float: left;
+    padding-left: 10px;
+    color: #999;
+}
+
+.todo-header-right {
+    float: right;
+}
+
+.todo-cnt {
+    color: #333;
+}
+
+.todo-percent {
+    color: #B7F0B1;
+}
+
+/* 할 일 생성시 피드에 뜨는 퍼센트 바 */
+
+.todo-percent-bar {
+    overflow: hidden;
+    max-width: 885px;
+    height: 20px;
+    margin: 10px 0 30px 0;
+    border-radius: 900px;
+}
+
+.todo-percentbar-bar span {
+    display: inline-block;
+    height: 20px;
+    background: #00b2ff;
+    border-radius: 900px;
+}
+
+/* 퍼센트바 밑 텍스트와, 날짜 담당자 */
+
+.todo-status-component li {
+    position: relative;
+}
+
+.todo-input-area {
+	position: relative;
+    width: 100%;
+    margin-left: 0;
+    
+    margin-top: 0;
+    border-bottom: 1px solid #eee;
+    
+    margin: 0;
+    
+    border: 1px solid transparent;
+    background: #fff;
+    box-shadow: none;
+    
+    height: 50px;
+    padding: 6px 20px 6px 20px;
+    border-radius: 4px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+}
+
+.todo-text-check {
+    display: inline-block;
+    padding: 7px 0;
+    color: black;
+    vertical-align: middle;
+}
+
+ .todo-checkbox {
+	position: relative;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 7px;
+    border: 1px solid #B7F0B1;
+    border-radius: 6px;
+    background: #fff;
+    vertical-align: middle;
+} 
+
+.todo-text-area {
+    width: 433px;
+    padding: 6px 0;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    position: absolute;
+    line-height: 14px;
+}
+
+.todo-menus {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    width: 110px;
+    text-align: right;
+}
+
+.todo-date {
+    width: max-content;
+    right: 60px;
+    color: #555;
+    
+    padding: 10px 0;
+    font-size: 14px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.todo-mgr-profile {
+	margin-left : 20px;
+	width : 20px;
+	height : 20px;
+	position : relative;
+	margin-top: 13px;
+}
+
+/* 일정 생성시 뜨는 날짜 */
+
+.schedule-date {
+    display: table-cell;
+    height: 74px;
+    overflow: hidden;
+    margin: 10px 20px 5px 0;
+    width: 68px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* 일정 생성시 텍스트 및 참석 불참 미정 */
+#OriginPost3 {
+	border-bottom : 1px solid gray;
+	width: 550px;
+	margin-left: 20px;
+}
+
+
+/* 참석 불참 미정 */
+
+#attendBtnWrap {
+    padding: 30px 0 18px 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 180%;
+}
+#attendBtnWrap>div{
+	margin-right: 5px;
+}
+.attendBtn,
+.noAttendBtn,
+.attendNoneBtn {
+	width: auto;
+    min-width: 74px;
+    height: 34px;
+    padding: 0 5px;
+    text-align: center;
+    border: 1px solid #000;
+    font-weight: 500;
+    font-size: 15px;
+    box-sizing: border-box;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.attendBtn{
+	border-color: #50b5bf;
+	background: #50b5bf;
+	color: white;
+}
+.noAttendBtn{
+	border-color: red;
+	background: white;
+	color: red;
+}
+.attendNoneBtn{
+	border-color: black;
+	background: white;
+	color: black;
+}
+.attend1{
+	color: #50b5bf;
+}
+.attend2{
+	color: red;
+}
+.attend3{
+	color: black;
+}
+
+ul.create-content-group{
+	margin-left: 30px;
+}
+
+/*업무카드 몸통 마진*/
+.MSpost-card-container.post-container2 {
+    margin-top: -10px;
+}
+
+/*============================================================DH===========================================================================*/
+.areaOnTitle2 #feedtext_input{
+	width: 399px;
+    height: 34px;
+    left: -187px;
+    position: relative;
+    top: -2px;
+    border: none;
+    font-size: 18px;
+    display: none;
+    font-weight: bold;
+}
+
+
+#feedtext_input{
+	width: 399px;
+    height: 34px;
+    left: -71px;
+    position: relative;
+    top: -2px;
+    border: none;
+    display:none;
+}
+#feedtext_input2{
+	position: relative;
+    left: -40px;
+    width: 535px;
+    display:none;
+    border:none;
+}
+#FixCancel{
+	width: 72px;
+    height: 35px;
+    position: relative;
+    left:-115px;
+    top: 10px;
+    border-radius: 8px;
+    background-color: lightpink;
+    border: 1px solid lightgray;
+    display:none;
+    cursor:pointer;
+}
+#FixConfirm{
+	width: 72px;
+    height: 35px;
+    position: relative;
+    left: -108px;
+    top: 10px;
+    border-radius: 8px;
+    background-color: lightblue;
+    border: 1px solid lightgray;
+    display:none;
+    cursor:pointer;
+}
+#ReplyFix{
+	position: relative;
+    top: 23px;
+    height: 30px;
+    left: -137px;
+    font-size: 16px;
+    width: 353px;
+    display:none;
+}
+#hostMSscheduleStartDate{
+	position: relative;
+    left: 21px;
+}
+#hostMSpriorityNumbers{
+	    height: 46px;
+}
+#testspan{
+	width: 46px;
+    height: 9px;
+    position: relative;
+    border-radius : 7px;
+    background-color: #CFCFCF;
+    cursor:pointer;
+}
+#innertestspan{
+	height: 9px;
+    border-radius: 18px;
+    position: relative;
+}
+#feed_progress_num{
+	position: relative;
+    left: 13px;
+    top: -7px;
+}
+#wholeprogress{
+	display: flex;
+	
+}
+.DropBarPer{
+	display: flex;
+    position: relative;
+    left: 42px;
+    top: -5px;
+}
+.DropBarPer p{
+	margin-right: 5px;
+	cursor:pointer;
+}
+.cutePicker{
+	height: 47px;
+}
+.areaOnTitle3{
+	    height: 33px;
+}
+.schedule-picker-area{
+	height: 23px;
+    position: relative;
+    left: -20px;
+    top: 54px;
+    border: none;
+    border-bottom: 1px solid;
+}
+#feedtext_input3{
+	height: 32px;
+    position: relative;
+    left: -35px;
+    width: 231px;
+    display:none;
+}
+
+#feedtext_input4{
+    position: relative;
+    top: 1px;
+    left:-48px;
+    width: 488px;
+    display:none;
+}
+#feedtext_input12{
+	position: relative;
+    width: 506px;
+    left:-113px;
+    font-weight: bold;
+    height: 32px;
+    font-size:15px;
+    display:none;
+    
+}
+#feedtext_input13{
+	position: relative;
+    width: 506px;
+        left: -89px;
+    font-weight: bold;
+    height: 32px;
+    font-size:15px;
+    display:none;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------- */
+
+/* ---------------------------------------------생성된 피드 카드의 댓글부분 css----------------------------------------------------- */
+
+/* 코멘트를 달면 생길 footer의 대한 css */
+
+.post-card-footer {
+	border-radius: 0 0 10px 10px;
+    background: #f9f9f9;
+    width : 673px;
+    height : auto;
+}
+
+/* 프로필, 이름 , 댓글단 날짜, 수정, 삭제를 포함한 ul */
+
+.post-commnet-group {
+	color: #555;
+	margin : 0;
+	padding : 0;
+}
+
+/* ul안에 li */
+
+.comment-info-wrap {
+	padding-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+    margin-top: -1px;
+    padding: 10px 30px;
+    border-bottom: 1px solid #eee;
+    
+    margin : 0;
+}
+
+.comment-img-wrap {
+	float: left;
+	margin-top: 5px;
+}
+
+.sub-comment-profile {
+	border-radius: 16px;
+	display: inline-block;
+	box-sizing: border-box;
+	vertical-align: middle;
+	width: 20px;
+}
+
+/* 이름 댓글날짜 수정,삭제, 코멘트 내용 포함한 div */
+
+.comment-post-info {
+	position: relative;
+	width: calc(100% - 50px);
+    margin-left: 10px;
+    box-sizing: border-box;
+    float: left;	
+}
+
+.comment-user-area {
+	width: 100%;
+    line-height: 21px;
+    margin : 0;
+    padding : 0;
+    height : 27px;
+}
+
+.comment-user {
+	float: left;
+}
+
+.user-name {
+	display: inline-block;
+    max-width: 260px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    font-size: 14px;
+    color: #555;
+    
+    font-weight: 700;
+}
+
+.record-date {
+	display: inline-block;
+    max-width: 260px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    margin-top: -2px;
+    font-size: 14px;
+    color: #999;
+}
+
+/* 코멘트 수정 삭제 버튼 */
+
+.comment-writer-menu {
+	float: right;
+}
+
+.comment-writer-btn1 {
+	display: inline-block;
+	font-size: 14px;
+    color: #999;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    
+    border : 0;
+    
+    background : #f9f9f9;
+}
+
+.comment-writer-btn2 {
+	display: inline-block;
+	font-size: 14px;
+    color: #999;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    
+    margin-left: 4px;
+    
+    border : 0;
+    background : #f9f9f9;
+}
+
+/* 코멘트를 작성시 코멘트 내용이 담길 공간 */
+
+.comment-text {
+    word-break: break-word;
+    white-space: pre-wrap;
+    line-height: 17px;
+    height: 25px;
+    margin-bottom: 10px;
+}
+
+/* 댓글 다는 부분 */
+
+.comment-input-wrap {
+    overflow: hidden;
+    padding: 14px 30px;
+}
+
+.profile-dummy {
+	width : 40px;
+	float : left;
+}
+
+.commentProfile{
+	margin-top: 6px;
+	width: 30px;
+	height: 30px;
+}
+
+.comment-container {
+	display: block;
+	position : relative;
+	width: calc(100% - 50px);
+    margin-left: 10px;
+    box-sizing: border-box;
+        
+    float: left;
+    
+    margin : 0;
+    padding : 0;
+}
+
+.input-field {
+	position: relative;
+	margin : 0;
+	padding : 0;
+}
+
+.comment-input {
+    width: 87%;
+    padding: 11px 75px 11px 20px;
+    min-height: 44px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #555;
+    word-break: break-word;
+    white-space: pre-wrap;
+    cursor: text;
+    margin-left: 10px;
+} 
+
+.comment-upload {
+	margin-left : 10px;
+	cursor : pointer;
+	height : 15px;
+	
+}
+
+/* 클립 이미지 눌렀을때 내컴퓨터 업로드 */
+.file-input {
+	display : none;
+}
+
+.comment-upload-label {
+    cursor: pointer;
+    display:inline-block;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------- */
+
+/* ----------------------------------------프로필 눌렀을때 나오는 프로필 팝업에 대한 css------------------------------------------------ */
+
+.profile-popup{
+	left : 620px;
+	top : 75px;
+	border : 1px solid black;
+	margin: 0 auto;
+    padding-bottom: 15px;
+    width: 350px;
+    border-radius: 20px;
+    background: #fff;
+    box-sizing: border-box;
+    
+    position: fixed;
+    z-index: 35;
+    vertical-align: middle;
+}
+
+.profile-popup-header {
+	font-size: 16px;
+    line-height: 24px;
+    color: #333;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.profile-header-layer {
+	z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 320px;
+    background: linear-gradient(180deg,rgba(102,102,102,0) 45.31%,rgba(51,51,51,.6) 100%);
+}
+
+.profile-close {
+	z-index: 12;
+	top: 10px;
+    right: 10px;
+    padding: 10px;
+    border : 0;
+    border-radius : 10px;
+    position: absolute;
+    min-width: 24px;
+    min-height: 24px;
+}
+
+.profile-info-close {
+	width: 15px;
+    height: 15px;
+}
+
+.profile-name-card {
+	overflow: visible;
+	height: 320px;
+    position: relative;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    box-sizing: border-box;
+}
+
+.profile-info-badge {
+	bottom: 15px;
+    overflow: visible;
+    z-index: 1;
+    position: absolute;
+    left: 30px;
+    max-width: 320px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #dbd8ff;
+    box-sizing: border-box;
+}
+
+.profile-info-box {
+	flex-wrap: wrap;
+    width: 290px;
+    display: flex;
+    align-items: center;
+}
+
+.profile-card-name{
+	margin: 0 0 6px 0;
+    font-size: 20px;
+    line-height: 23px;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+.profile-card-company {
+    max-width: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0 5px 0 0;
+    color: #eee;
+    font-weight: 700;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+.profile-card-depart {
+	display: inline-block;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: #eee;
+    font-size: 13px;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+.contact-section {
+	max-height: 400px;
+    height: calc(100% - 370px);
+    padding: 10px 30px 20px 30px;
+    color: #555;
+}
+
+.contact-contents {
+	list-style: none;
+	margin: 0;
+    padding: 0;
+}
+
+.company-info {
+	display: flex;
+	align-items: flex-start;
+}
+
+.company-info em {
+	padding: 3px 0 0 0;
+	font-style: normal;
+	box-sizing: border-box;
+}
+
+.info-company-img {
+	position: relative;
+    display: inline-block;
+    margin-right: 24px;
+    box-sizing: border-box;
+    top: 10px;
+}
+
+.company-info div {
+	display: flex;
+	flex-direction: column;
+    width: calc(100% - 40px);
+    min-height: 40px;
+    padding: 11px 0;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.company-info strong {
+	display: block;
+    font-weight: 700;
+    box-sizing: border-box;
+}
+
+#profileEmail {
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+#profileEmail em {
+	font-style: normal;
+	box-sizing: border-box;
+}
+
+#profileEmail span {
+	padding: 11px 0;
+    flex: 1;
+    line-height: 16px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.info-email-img {
+	top: 3px;
+	position: relative;
+    display: inline-block;
+    margin-right: 24px;
+    box-sizing: border-box;
+    top: 10px;
+}
+
+#profilePhonNo{
+	align-items: flex-start;
+}
+
+#profilePhonNo em {
+	font-style: normal;
+	box-sizing: border-box;
+}
+
+.info-phone-img {
+	position: relative;
+    display: inline-block;
+    margin-right: 24px;
+    top: 10px;
+}
+
+#profilePhonNo span {
+	padding: 11px 0;
+    flex: 1;
+    line-height: 16px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+#profileComNo {
+	align-items: flex-start;
+}
+
+#profileComNo em {
+	font-style: normal;
+	box-sizing: border-box;
+}
+
+.info-com-img {
+	position: relative;
+    display: inline-block;
+    margin-right: 24px;
+    top: 10px;
+}
+
+#profileComNo span {
+	padding: 11px 0;
+    flex: 1;
+    line-height: 16px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+#profileStatusMSG {
+	align-items: flex-start;
+}
+
+#profileStatusMSG em {
+	font-style: normal;
+	box-sizing: border-box;
+}
+
+.info-status-img {
+	position: relative;
+    display: inline-block;
+    margin-right: 24px;
+    top: 10px;
+}
+
+#profileStatusMSG span {
+	padding: 11px 0;
+    flex: 1;
+    line-height: 16px;
+    text-overflow: ellipsis;
+    overflow-x: hidden;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+}
+
+.profile-chat-btn {
+	padding: 0 30px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.chat-open {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    font-weight: 500;
+    width: 50%;
+    min-height: 50px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #555;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.chat-open:hover {
+	border : 1px solid blue;
+	color : blue;
+}
+.profilePopupIMG {
+   border-radius : 20px;
+   width: 340px;
+   height: 320px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------- */

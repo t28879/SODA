@@ -1,0 +1,324 @@
+<html layout:decorate="~{DashBoardLayout}">
+<div layout:fragment="content" class="content">
+	<div>
+		<h3 id="hrtag">전체 업무</h3>
+	</div>
+	<div id="section1" class="content-section">
+		<button id="sidebarchange" style="cursor: pointer;">
+			<img id="side" src="images/sidebar.png">
+		</button>
+		<br>
+		<div id="allworkplace">
+			<div class=searchbadh>
+				<input class="searchdh" type="text" placeholder="업무명 또는 업무번호를 검색하세요">
+				<button id="optiondh">옵션</button>
+				<button class="search2dh">검색</button>
+			</div>
+			<div class="allworktable">
+				<table id='inventory' class="t1" width="1000" border="1">
+					<thead>
+						<tr id="title" class="inventory">
+							<th id="titlecol1" style="cursor: pointer;" onclick="sortTable(0)">업무명</th>
+							<th id="titlecol2" style="cursor: pointer;" onclick="sortTable(1)">상태</th>
+							<th id="titlecol3" style="cursor: pointer;" onclick="sortTable(2)">우선순위</th>
+							<th id="titlecol4" style="cursor: pointer;" onclick="sortTable(3)">담당자</th>
+							<th id="titlecol5">시작일</th>
+							<th id="titlecol6">마감일</th>
+							<th id="titlecol7">등록일</th>
+							<th id="titlecol8" style="cursor: pointer;" onclick="sortTable(7)">업무번호</th>
+							<th id="titlecol9" style="cursor: pointer;" onclick="sortTable(8)">진척도</th>
+						</tr>
+					</thead>
+					<tbody>
+						<th:block th:each="worklist : ${allwork}">
+							<!-- 프로젝트 이름 출력 -->
+							<tr id="headproject">
+								<td id="projectname" colspan="9" th:text="${worklist.project_name}"></td>
+							</tr>
+							<!-- 프로젝트의 하위 목록 출력 -->
+							<th:block th:each="feedwork : ${worklist.feedworklist}">
+								<tr th:attr="data-feed-id=${feedwork.feed_id}">
+									<td><img id="빵빵아" src="images/빵빵아.png">
+										<span id="upmoo" th:text="${feedwork.title}"></span>
+									</td>
+									<td id="processtd">
+										<div class="custom-select" id="select">
+											<div class="selected-item" th:utext="${feedwork.processimg}"></div>
+											<div class="custom-dropdown">
+												<div class="custom-dropdown-item">
+													<img id="processimg" src="images/requestDH.png" data-img-num="1">
+												</div>
+												<div class="custom-dropdown-item">
+													<img id="processimg" src="images/continueDH.png" data-img-num="2">
+												</div>
+												<div class="custom-dropdown-item">
+													<img id="processimg" src="images/feedbackDH.png" data-img-num="3">
+												</div>
+												<div class="custom-dropdown-item">
+													<img id="processimg" src="images/doneDH.png" data-img-num="4">
+												</div>
+												<div class="custom-dropdown-item">
+													<img id="processimg" src="images/holdDH.png" data-img-num="5">
+												</div>
+											</div>
+										</div>
+									</td>
+									<td>
+										<div class="custom-select2" id="select1">
+											<div class="selected-item2" th:utext="${feedwork.priorityimg}"></div>
+											<div class="custom-dropdown2">
+												<div class="custom-dropdown-item2">
+													<img id="priorityimg" src="images/lowDH.png" data-img-num="1">
+												</div>
+												<div class="custom-dropdown-item2">
+													<img id="priorityimg" src="images/normalDH.png" data-img-num="2">
+												</div>
+												<div class="custom-dropdown-item2">
+													<img id="priorityimg" src="images/highDH.png" data-img-num="3">
+												</div>
+												<div class="custom-dropdown-item2">
+													<img id="priorityimg" src="images/urgentDH.png" data-img-num="4">
+												</div>
+												<div class="custom-dropdown-item2">
+													<img id="priorityimg" src="images/nopriorityDH.png"
+														data-img-num="5">
+												</div>
+											</div>
+										</div>
+									</td>
+									<td>
+										<div class="custom-select3">
+											<div class="selected-item">
+												<p id="AdDH"><span th:text="${feedwork.workmanagername}"></span></p>
+											</div>
+										</div>
+									</td>
+									<td><input type="date" class="datepicker" name="datepicker1"
+											th:value="${feedwork.start_date}" th:attr="data-type = 1"></td>
+									<td><input type="date" class="datepicker" name="datepicker2"
+											th:value="${feedwork.deadline}" th:attr="data-type = 2"></td>
+									<td><input type="date" class="datepicker" name="datepicker3"
+											th:value="${feedwork.regist_date}" th:attr="data-type = 3"></td>
+									<td id="workmanname"><span th:text="${feedwork.feed_id}"></span></td>
+									<td id="progressbar">
+										<div id="wholeprogress">
+											<div id="testspan">
+												<div id="innertestspan"
+													th:style="'background-color: ' + ${feedwork.progressgraphcolor} + '; width:'+${feedwork.progress}+'%;'">
+												</div>
+											</div>
+											<p id="feed_progress_num"><span th:text="${feedwork.progress}"></span>%</p>
+											<div class="custom-dropdown4">
+												<div>0%</div>
+												<div>10%</div>
+												<div>20%</div>
+												<div>30%</div>
+												<div>40%</div>
+												<div>50%</div>
+												<div>60%</div>
+												<div>70%</div>
+												<div>80%</div>
+												<div>90%</div>
+												<div>100%</div>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<!-- 하위 작업 출력 -->
+								<th:block th:each="subwork : ${feedwork.subworklist}">
+									<tr class="fixed-height-row" th:attr="data-sub-id=${subwork.sub_task_id}">
+										<td><img id="빵빵아hawi" src="images/빵빵아.png"><span id="hawiupmoo"
+												th:text="${subwork.name}"></span>
+										</td>
+										<td class="subtasktd">
+											<div class="custom-select" id="select">
+												<div class="selected-item" th:utext="${subwork.processimg}"></div>
+												<div class="custom-dropdown">
+													<div class="custom-dropdown-item">
+														<img id="processimg" src="images/requestDH.png"
+															data-img-num="1">
+													</div>
+													<div class="custom-dropdown-item">
+														<img id="processimg" src="images/continueDH.png"
+															data-img-num="2">
+													</div>
+													<div class="custom-dropdown-item">
+														<img id="processimg" src="images/feedbackDH.png"
+															data-img-num="3">
+													</div>
+													<div class="custom-dropdown-item">
+														<img id="processimg" src="images/doneDH.png" data-img-num="4">
+													</div>
+												</div>
+											</div>
+										</td>
+										<td>
+											<div class="custom-select2" id="select1">
+												<div class="selected-item2" th:utext="${subwork.priorityimg}"></div>
+												<div class="custom-dropdown2">
+													<div class="custom-dropdown-item2">
+														<img id="priorityimg" src="images/lowDH.png" data-img-num="1">
+													</div>
+													<div class="custom-dropdown-item2">
+														<img id="priorityimg" src="images/normalDH.png" data-img-num="2">
+													</div>
+													<div class="custom-dropdown-item2">
+														<img id="priorityimg" src="images/highDH.png" data-img-num="3">
+													</div>
+													<div class="custom-dropdown-item2">
+														<img id="priorityimg" src="images/urgentDH.png" data-img-num="4">
+													</div>
+													<div class="custom-dropdown-item2">
+														<img id="priorityimg" src="images/nopriorityDH.png" data-img-num="5">
+													</div>
+												</div>
+											</div>
+										</td>
+										<td id="workmanname">
+											<div class="custom-select3">
+												<div class="selected-item">
+													<p id="AdDH"><span th:text="${subwork.workmanagername}"></span></p>
+												</div>
+											</div>
+										</td>
+										<td><input type="date" class="datepicker" name="datepicker1"
+												th:value="${subwork.start_date}" th:attr="data-type = 1"></td>
+										<td><input type="date" class="datepicker" name="datepicker2"
+												th:value="${subwork.deadline}" th:attr="data-type = 2"></td>
+										<td><input type="date" class="datepicker" name="datepicker3"
+												th:value="${feedwork.regist_date}" th:attr="data-type = 3"></td>
+										<td id="workmanname"><span th:text="${subwork.sub_task_id}"></span></td>
+										<td id="progressbar">
+											<div id="wholeprogress">
+												<div id="testspan">
+													<div id="innertestspan"
+														th:style="'background-color: ' + ${subwork.progressgraphcolor} + '; width:'+${subwork.progress}+'%;'">
+													</div>
+												</div>
+												<p id="feed_progress_num"><span th:text="${subwork.progress}"></span>%
+												</p>
+												<div class="custom-dropdown4">
+													<div>0%</div>
+													<div>10%</div>
+													<div>20%</div>
+													<div>30%</div>
+													<div>40%</div>
+													<div>50%</div>
+													<div>60%</div>
+													<div>70%</div>
+													<div>80%</div>
+													<div>90%</div>
+													<div>100%</div>
+												</div>
+											</div>
+										</td>
+								</th:block>
+								<!-- 하위업무 출력 끝-->
+							</th:block>
+						</th:block>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- 눌렀을때 바뀌는 사이드바  -->
+	<div class="좌측사이드바0">
+		<div class="lsb-1">
+			<div class="flow-logo">
+				<img class="logo" src="images/소다로고.png" alt="logo">
+			</div>
+		</div>
+		<div class="서브사이드바메인" style="font-family: Arial, sans-serif;">
+			업무구분
+			<ul class="sub_list1">
+				<li><input type="radio" name="gender" value="mywork">내 업무</li>
+				<li><input type="radio" name="gender" value="requestwork">요청한 업무</li>
+				<li><input type="radio" name="gender" value="everywork">전체</li>
+			</ul>
+			<br>
+			상태
+			<ul class="sub_list2">
+				<li><input type="checkbox" name="fruits" value="orange">요청</li>
+				<li><input type="checkbox" name="fruits" value="orange">진행</li>
+				<li><input type="checkbox" name="fruits" value="orange">피드백</li>
+				<li><input type="checkbox" name="fruits" value="orange">완료</li>
+				<li><input type="checkbox" name="fruits" value="orange">보류</li>
+			</ul>
+			<br>
+			우선순위
+			<ul class="sub_list3">
+				<li><input type="checkbox" name="fruits" value="orange">긴급</li>
+				<li><input type="checkbox" name="fruits" value="orange">높음
+				</li>
+				<li><input type="checkbox" name="fruits" value="orange">보통</li>
+				<li><input type="checkbox" name="fruits" value="orange">낮음</li>
+				<li><input type="checkbox" name="fruits" value="orange">없음</li>
+			</ul>
+			<br>
+			시작일
+			<ul class="sub_list4">
+				<li><input type="radio" name="gender" value="mywork">전체</li>
+				<li><input type="radio" name="gender" value="requestwork">오늘</li>
+				<li><input type="radio" name="gender" value="everywork">이번 주</li>
+				<li><input type="radio" name="gender" value="everywork">이번 달</li>
+				<li><input type="radio" name="gender" value="everywork">미정</li>
+			</ul>
+			<br>
+			마감일
+			<ul class="sub_list5">
+				<li><input type="radio" name="gender" value="mywork">전체</li>
+				<li><input type="radio" name="gender" value="requestwork">지연</li>
+				<li><input type="radio" name="gender" value="everywork">오늘</li>
+				<li><input type="radio" name="gender" value="everywork">이번 주</li>
+				<li><input type="radio" name="gender" value="everywork">이번 달</li>
+				<li><input type="radio" name="gender" value="everywork">미정</li>
+			</ul>
+		</div>
+	</div>
+	<div id="adminsearchform">
+		<h4>담당자</h4><button id="moremanager">추가</button>
+		<div id = "managerlisttablediv">
+		<table id="managerlisttable" border="1">
+			<thead>
+			<tr>
+				<td>사용자명</td>
+				<td>부서</td>
+				<td>이메일</td>
+				<td>담당자</td>
+			</tr>
+			</thead>
+			<tbody id = "ManagerSpace"> 
+			</tbody>
+		</table>
+		</div>
+		<div id="savemangerbtn">저장</div>
+		<div id="cancelmanagerbtn">취소</div>
+	</div>
+	<div id="premanagerlist">
+		<h4>담당자 선택</h4><br>
+		<select id="memchoice">
+			<option>이름</option>
+			<option>이메일</option>
+		</select>
+		<input type="text" id="writemanager" placeholder="이름을 입력해주세요"><button id="getmanager">검색</button>
+		<div id = "premanagerrapper">
+		<table id="premanagert" border="1">
+			<thead>
+			<tr>
+				<td>사용자명</td>
+				<td>부서</td>
+				<td>이메일</td>
+				<td>선택</td>
+			</tr>
+			</thead>
+			<tbody id = "managerchooseSpace"></tbody>
+		</table>
+		</div>
+		<button id="nomanager">취소</button><button id="yesmanager">확인</button>
+	</div>
+	<div id="erasemanager">담당자 목록에서 제외되었습니다</div>
+	<div id="appendcom">담당자 목록에 추가되었습니다</div>
+	<div id="alreadyexist">이미 추가된 담당자입니다</div>
+</div>
+
+</html>

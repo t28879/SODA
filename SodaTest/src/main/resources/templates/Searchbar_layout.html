@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta "Content-Type"; "application/json">
+    <title>SODA-게시물</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/Searchbar_Related.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/Project_Feed_Related.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/CreateProject.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/SODA_DASHBOARD_STYLE.css}">
+    
+</head>
+<body>
+<!-- 내비게이션바 -->
+<div th:replace="~{Searchbar :: navbarFragment}"></div>
+<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+<th:block layout:fragment="content"></th:block>
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
+
+<!-- JS -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script th:src="@{/js/FeedAjax.js}"></script>
+<script th:src="@{/js/Searchbar_Related.js}"></script>
+<script th:src="@{/js/Project_Feed_Related.js}"></script>
+
+</body>
+</html>

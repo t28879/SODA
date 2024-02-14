@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<head>
+<meta charset="UTF-8">
+<title>소다(SODA)-회원가입</title>
+<link rel="stylesheet" th:href="@{/css/reset.css}">
+<link rel="stylesheet" th:href="@{/css/HomeNav.css}">
+<link rel="stylesheet" th:href="@{/css/Join.css}">
+</head>
+<header id="HeaderNav">
+		<div id="MainNav">
+			<a class="logo" href="/SODA/Home"><img th:src="@{/images/소다로고_배경O.png}" alt="logo"></a>
+			<nav class="navBar">
+				<ul class="barItems">
+					<li><a href = "/SODA/Func" class="bars">기능</a></li>	
+					<li><a href = "/SODA/Price" class="bars">요금제</a></li>
+					<li><a href = "/SODA/TeamCorpo" class="bars">팀 협업</a></li>
+				</ul>
+				<div class="userBtnWrap">
+					<a href = "/SODA/loginPage" id="btnLogin">로그인</a>
+					<a href = "/SODA/JoinSelect" id="btnJoin">회원가입</a>
+				</div>
+			</nav>
+		</div>		
+</header>
+<body>
+	<div class="joinHome">
+		<div class="joinSignUp">
+			<div class="joinComTitle">기존 회사 참여 🏢</div>
+			<div class="joinComIntro">이미 회사에서 사용하고 있다면 회사 이름을 입력하여 함께하세요.</div>
+			<div class="joinComWrap">
+				<form method="post" id="joinComForm" action="/SODA/Enter">
+					<label class="comURLWrap">
+						<span class="comWrapTitle">회사 이름</span>
+						<div class="URLWrap">
+							<input type="text" id="joinComName" name="joinComName" placeholder="회사 이름">
+							<button id="checkCompany" type="button">회사 확인</button>
+						</div>
+						<p class="findComText" id="findComText">가입 가능한 회사 이름입니다.</p>
+						<p class="URLHelp">회사 이름은 관리자를 통해 확인할 수 있습니다.</p>
+						<p class="errorText" id="errorJoin">회사 이름을 입력해주세요.</p>
+						<button id="joinComNext" type="submit">참여하기</button>
+					</label>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script th:src="@{/js/JoinMember.js}"></script>
+<script th:inline="javascript">
+		function searchCom(e){
+			e.preventDefault();
+			var joinComName = document.getElementById("joinComName").value;
+			$.ajax({
+				url: '/SODA/EnterCom',
+				method: 'POST',
+				data: {joinComName: joinComName},
+				success: function (response) {
+					if (response == joinComName) {
+						$('#findComText').css('display', 'block');
+						$('#findComText').text('가입 가능한 회사 이름입니다.');
+						$('#findComText').css('color', '#50b5bf');
+					} else if(response != joinComName){
+						$('#errorJoin').css('display', 'block');
+						$('#errorJoin').text('존재하지 않는 회사 이름입니다.');
+						$('#errorJoin').css('color', '#ff6b6b');
+						$('#joinComName').css('border-color', '#ff6b6b');
+					} else {
+						console.log(response);
+						console.log(joinComName);
+						$('#errorJoin').css('display', 'block');
+						$('#errorJoin').text('회사 이름을 입력해주세요.');
+						$('#errorJoin').css('color', '#ff6b6b');
+						$('#joinComName').css('border-color', '#ff6b6b');
+					}
+				},
+				error: function (xhr, status, error) {
+					console.log(status + ": " + status)
+				}
+			});
+		}
+		$('#checkCompany').on('click', searchCom);
+</script>
+</html>

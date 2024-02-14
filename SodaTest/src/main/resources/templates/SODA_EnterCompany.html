@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<head>
+	<meta charset="UTF-8">
+	<title>소다(SODA)-회원가입</title>
+	<link rel="stylesheet" th:href="@{/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/css/HomeNav.css}">
+	<link rel="stylesheet" th:href="@{/css/Join.css}">
+</head>
+<header id="HeaderNav">
+	<div id="MainNav">
+		<a class="logo" href="/SODA/Home"><img th:src="@{/images/소다로고_배경O.png}" alt="logo"></a>
+		<nav class="navBar">
+			<ul class="barItems">
+				<li><a href="/SODA/Func" class="bars">기능</a></li>
+				<li><a href="/SODA/Price" class="bars">요금제</a></li>
+				<li><a href="/SODA/TeamCorpo" class="bars">팀 협업</a></li>
+			</ul>
+			<div class="userBtnWrap">
+				<a href="/SODA/loginPage" id="btnLogin">로그인</a>
+				<a href="/SODA/JoinSelect" id="btnJoin">회원가입</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<body>
+	<div class="joinHome">
+		<div class="joinComSignUp">
+			<div class="joinSignUpTitle">회사 계정으로 시작하기 🐱‍🏍</div>
+			<div class="joinSignUpIntro">회사에 참여하여 업무능률을 올려봐요</div>
+			<div class="joinSignUpWrap">
+				<form method="post" id="joinSignUpForm" action="/SODA/EnterCompany">
+					<label>
+						<input type="hidden" name="companyId" th:value="${companyId.companyId}">
+					</label>
+					<label>
+						<span class="newWrapTitle">이메일</span>
+						<th:block th:if="${session.email == null}">
+								<div class="signUpEmailCheck">
+									<input type="text" id="joinSignUpEmail" name="joinSignUpEmail" placeholder="example@gmail.com">
+									<button id="emailCheck" type="button">중복 확인</button>
+								</div>
+							</th:block>
+							<th:block th:if="${session.email != null}">
+								<div class="signUpEmailCheck">
+									<input type="text" id="joinSignUpEmail" name="joinSignUpEmail" placeholder="example@gmail.com"
+									th:value="${session.email}">
+									<button id="emailCheck" type="button">중복 확인</button>
+								</div>
+							</th:block>
+						<!--<div class="signUpEmailCheck">
+								<input type="text" id="joinSignUpEmail" name="joinSignUpEmail" placeholder="example@gmail.com">
+								<button id="emailCheck" type="button">이메일 확인</button>
+						</div>-->
+						<p class="errorText" id="jErrorEmail">이메일을 입력해주세요.</p>
+					</label>
+					<label>
+						<span class="newWrapTitle">이름</span>
+						<input type="text" id="joinSignUpName" name="joinSignUpName" placeholder="이름">
+						<p class="errorText" id="jErrorName">이름을 입력해주세요.</p>
+					</label>
+					<label>
+						<span class="newWrapTitle">비밀번호</span>
+						<input type="password" id="joinSignUpPw" name="joinSignUpPw" placeholder="비밀번호">
+						<p class="errorText" id="jErrorPw">비밀번호를 입력해주세요.</p>
+					</label>
+					<label>
+						<span class="newWrapTitle">비밀번호 확인</span>
+						<input type="password" id="joinSignUpRePw" placeholder="비밀번호 재입력">
+						<p class="errorText" id="jErrorRePw"></p>
+					</label>
+					<label>
+						<span class="newWrapTitle">직무</span>
+						<div class="newSignUpSelect">
+							<select>
+								<option>직무를 선택해주세요.</option>
+								<option>마케팅</option>
+								<option>IT 운영</option>
+								<option>제품관리</option>
+								<option>HR</option>
+								<option>영업</option>
+								<option>고객지원</option>
+								<option>CEO</option>
+								<option>엔지니어</option>
+								<option>디자이너</option>
+								<option>회계/법률</option>
+								<option>재무</option>
+								<option>기타</option>
+							</select>
+						</div>
+					</label>
+					<div class="joinSignUpCheck">
+						<div class="joinCheckWrap">
+							<input type="checkbox" id="j_checkEssential">
+							<span class="checkEsRequire">(필수) &nbsp;</span>
+							<span>서비스 이용약관, 개인정보처리방침을 확인하였고, 이에 동의합니다</span>
+							<p class="errorText" id="j_checkError">서비스 이용약관, 개인정보취금방침 확인 및 동의 부탁드립니다.</p>
+						</div>
+						<div class="joinCheckWrap">
+							<input type="checkbox" id="j_checkOptional">
+							<span class="checkOpRequire">(선택) &nbsp;</span>
+							<span>혜택 알림 수신에 동의합니다.</span>
+						</div>
+					</div>
+					<button id="joinSignUpNext" type="submit">다음</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+<script th:src="@{/js/JoinMember.js}"></script>
+<script th:inline="javascript">
+		function searchEmail(e){
+			e.preventDefault();
+			var joinSignUpEmail = document.getElementById("joinSignUpEmail").value;
+			$.ajax({
+				url: '/SODA/joinSearchEmail',
+				method: 'POST',
+				data: {joinSignUpEmail: joinSignUpEmail},
+				success: function (response) {
+					if (response == joinSignUpEmail) {
+						$('#jErrorEmail').css('display', 'block');
+						$('#jErrorEmail').text('이미 존재하는 이메일입니다.');
+						$('#jErrorEmail').css('color', '#ff6b6b');
+						$('#joinSignUpEmail').css('border-color', '#ff6b6b');
+					} else {
+						$('#jErrorEmail').css('display', 'block');
+						$('#jErrorEmail').css('color', '#50b5bf');
+						$('#jErrorEmail').text('회원가입 가능한 이메일입니다.');
+					} 
+				},
+				error: function (xhr, status, error) {
+					console.log(status + ": " + status)
+				}
+			});
+		}
+		$('#emailCheck').on('click', searchEmail);
+</script>
+</html>

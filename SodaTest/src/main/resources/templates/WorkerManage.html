@@ -1,0 +1,83 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="content">
+	<div class="rightpage">
+		<h3>구성원 관리</h3>
+		<hr>
+		<div id="btn_group">
+			<button id="test_btn1">정상</button>
+			<button id="test_btn2">이용중지</button>
+		</div>
+		<div id="memtDH">
+			<hr id="linebet">
+			<select name="languages" id="searchfDH">
+				<option value="이름">이름</option>
+				<option value="부서">부서</option>
+				<option value="직책">직책</option>
+				<option value="이메일">이메일</option>
+				<option value="휴대폰">휴대폰</option>
+			</select>
+			<input id="memtDHsearch" type="text" placeholder="검색어 입력">
+			<button id="memtDHsubmit">검색</button>
+		</div>
+	</div>
+	<table id="memtDHTable" width="1000" border="1">
+		<thead>
+		<tr>
+			<td>이름</td>
+			<td>부서</td>
+			<td>직책</td>
+			<td>이메일</td>
+			<td>휴대폰 번호</td>
+			<td>가입일</td>
+			<td>상태</td>
+			<td>관리자</td>
+		</tr>
+		</thead>
+		<tbody>
+		<tr th:each="member : ${companymembers}" th:id="${member.usage_status == 1} ? 'NormalRow' : 'BannedRow'"
+			th:data-member-id="${member.member_id}">
+			<td><span th:text="${member.name}"></span></td>
+			<td><span th:text="${member.deptname}"></span></td>
+			<td><span th:text="${member.job_name}"></span></td>
+			<td class="targetdiv"><span th:text="${member.email}"></span></td>
+			<td><span th:text="${member.phone_num}"></span></td>
+			<td><span th:text="${member.join_date}"></span></td>
+			<td>
+				<span th:if="${member.usage_status == 1}"><a>정상</a><div id="usagediv" data-ban-or=0>[이용중지]</div></span>
+				<span th:if="${member.usage_status == 0}"><a>이용중지</a><div id="usagediv" data-ban-or=1>[이용재개]</div></span>
+			</td>
+			<td>
+				<span th:if="${member.company_manager == 1}"><a>Y</a><div id="YNdiv" data-manager=0>[삭제]</div></span>
+				<span th:if="${member.company_manager == 0}"><a>N</a><div id="YNdiv" data-manager=1>[추가]</div></span>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<div id="li2pop">
+		<div id="ForinPad">
+			<h4>수정</h4>
+			<hr>
+			<p id="pessential">필수정보</p>
+			<p>이름</p><input id="memnamDH" type="text">
+			<p>이메일</p><div id="mememailDH"></div>
+			<p>비밀번호</p>
+			<div id="pwresetDH">초기화</div>
+			<hr>
+			<p>부서명</p><input id="memdepDH" type="text">
+			<p>직책</p><input id="memjobnamDH" type="text">
+			<p>휴대폰 번호</p><input id="memphoDH" type="text">
+			<div id="savechDH">저장</div>
+			<div id="cancelchDH">취소</div>
+		</div>
+	</div>
+	<div id="surecommit">
+		<p>정말 이용중지 시키시겠습니까?</p>
+		<input id="cancelDH" type="button" value="취소"><input id="submitDH" type="button" value="확인">
+	</div>
+	<div id="admincommit">
+		<p>관리자 목록을 변경하시겠습니까?</p>
+		<input id="cancelDH" type="button" value="취소"><input id="submitDH2" type="button" value="확인">
+	</div>
+</div>
+
+</html>

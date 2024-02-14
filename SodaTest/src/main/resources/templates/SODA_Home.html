@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>소다(SODA)</title>
+<link rel="stylesheet" th:href="@{/css/reset.css}">
+<link rel="stylesheet" th:href="@{/css/Home.css}">
+<script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+</head>
+<header id="HeaderNav">
+		<div id="MainNav">
+			<a class="logo" href="/SODA/Home"><img th:src="@{/images/소다로고_배경O.png}" alt="logo"></a>
+			<nav class="navBar">
+				<ul class="barItems">
+					<li><a href = "/SODA/Func" class="bars">기능</a></li>	
+					<li><a href = "/SODA/Price" class="bars">요금제</a></li>
+					<li><a href = "/SODA/TeamCorpo" class="bars">팀 협업</a></li>
+				</ul>
+				<div class="userBtnWrap">
+					<a href = "/SODA/loginPage" id="btnLogin">로그인</a>
+					<a href = "/SODA/JoinSelect" id="btnJoin">회원가입</a>
+				</div>
+			</nav>
+		</div>		
+</header>
+<body>
+	<div class="homeMain">
+		<article class="articleMain">
+			<section class="mainSlide">
+				<div class="mainTopFirst">
+					<div class="firstInner">
+						<div class="innerText">
+							<h2>탄산같이 톡 쏘는</h2>
+							<br>
+							<h2>아이디어가 샘솟을 때</h2>
+							<br>
+							<h2>청량한 '소다'</h2>
+							<p>모든 팀이 소다로 모이면 더 큰 목표를 얻을 수 있습니다.</p>
+							<a href="/SODA/loginPage" class="btnInnerJoin">지금 바로 시작</a>
+						</div>
+						<picture>
+							<img th:src="@{/images/Inner.png}">
+						</picture>
+					</div>
+				</div>
+				<section class="secondSlide">
+					<div class="mainMidSecond">
+						<div class="secondInner">
+							<div class="innerText">
+								<h2>우리끼리 만든</h2>
+								<br>
+								<h2>멋들어진 협업툴</h2>
+								<p>이거 만드느라 눈 빠질뻔 했습니다.</p>
+								<a href="/SODA/loginPage" class="btnInnerJoin2">지금 바로 시작</a>
+							</div>
+							<picture>
+								<img th:src="@{/images/secondInner.png}">
+							</picture>
+						</div>
+					</div>	
+				</section>	
+			</section>
+			<section class="funcInfo">
+				<div class="fTextWrap">
+					<h3>가장 많이 쓰는 기능 5가지</h3>
+				</div>
+				<div class="tabWrap">
+					<div class="tabMenu">
+						<button id="btnTab1" class="btnTab">프로젝트</button>
+						<button id="btnTab2" class="btnTab">업무관리</button>
+						<button id="btnTab3" class="btnTab">메신저</button>
+						<button id="btnTab4" class="btnTab">히스토리</button>
+						<button id="btnTab5" class="btnTab">OKR목표</button>
+					</div>
+					<ul class="tabContent">
+						<li class="contItems btnOn">
+							<div class="videoWrap">
+								<video id="video" loop="loop" autoplay="autoplay" muted="muted" 
+									playsinline th:src="@{/video/mainVideo1.mp4}" poster="/"></video>
+							</div>
+							<ul id="txtComp" class="txtComp">
+								<li>
+									<div class="bubble"><p>😢 사용전</p></div>
+									<p class="bbT">메일, 단톡방 소통의 한계 … 잦은 보고와 불필요한 회의만 늘어나요.</p>
+								</li><br>
+								<li>
+									<div class="bubble"><p>😍 사용후</p></div>
+									<p class="bbT">프로젝트 별로 모여 쉽게 공유하고 빠르고 효율적으로 협업해요.</p>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<script th:src="@{/js/Home.js}"></script>
+		</article>
+	</div>
+</body>
+</html>

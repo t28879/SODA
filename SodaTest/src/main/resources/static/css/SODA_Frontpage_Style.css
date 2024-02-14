@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.block1,
+.block2 {
+	position: relative;
+	margin-top: 100px;
+	width: 50%;
+	height: 550px;
+	background-color: rgb(230, 255, 240);
+	float: left;
+}
+
+.i1 {
+	margin-top: 35px;
+	margin-left: 33%;
+	width: 65px;
+	height: 80px;
+}
+
+p {
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+}
+
+.a {
+	font-size: 35px;
+	margin-left: 33%;
+}
+
+.c {
+	font-size: 35px;
+	margin-left: 33%;
+	margin-top: 5px;
+}
+
+.s1 {
+	color: rgb(66, 219, 142);
+}
+
+.b {
+	margin-top: 30px;
+	font-size: 20px;
+	margin-left: 33%;
+}
+
+.b1 {
+	width: 330px;
+	float: left;
+	margin-top: 30px;
+	margin-left: 33%;
+	color: rgb(66, 219, 142);
+	background-color: rgb(255, 255, 255);
+	font-size: 20px;
+	font-weight: bold;
+	border-color: rgb(66, 219, 142);
+	border-radius: 10px;
+	padding: 15px;
+	cursor: pointer;
+	box-shadow: 4px 4px 2px rgb(26, 132, 79);
+}
+
+.b2 {
+	max-width: 180px;
+	max-height: 70px;
+	position: absolute;
+	margin-left: 10px;
+	float: left;
+	margin-top: 30px;
+	color: rgb(255, 255, 255);
+	background-color: rgb(66, 219, 142);
+	font-size: 20px;
+	font-weight: bold;
+	border-color: rgb(66, 219, 142);
+	border-radius: 10px;
+	padding: 15px;
+	cursor: pointer;
+	box-shadow: 4px 4px 2px rgb(26, 132, 79);
+}
+
+.i2 {
+	margin-top: 35px;
+	margin-right: 33%;
+	width: 65%;
+	height: 85%;
+}
+
+.i3 {
+	width: 50px;
+	height: 50px;
+}
+
+.block3 {
+	height: auto;
+	float: left;
+	position: relative;
+	width: 100%;
+	background-color: rgb(238, 247, 255);
+}
+
+.e {
+	margin-top: 30px;
+	font-size: 35px;
+	text-align: center;
+}
+
+.u1 {
+	padding: 10px 0 30px 0;
+	text-align: center;
+}
+
+.i4,
+.i5,
+.i6,
+.i7,
+.i8 {
+	max-width: 20px;
+	margin-right: 10px;
+}
+
+.block4 {
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+	text-align: center;
+}
+
+.cls {
+	width: 180px;
+	height: 65px;
+	margin-left: 10px;
+	margin-top: 30px;
+	color: rgb(0, 111, 221);
+	background-color: rgb(255, 255, 255);
+	font-size: 20px;
+	font-weight: bold;
+	border-color: rgb(0, 111, 221);
+	border-radius: 15px;
+	padding: 10px;
+	cursor: pointer;
+	box-shadow: 4px 4px 2px rgb(0, 111, 221);
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cls:hover {
+	border-width: 4px;
+	font-weight: bold;
+	color: rgb(20, 4, 168);
+	border-color: rgb(20, 4, 168);
+}
+
+.cls.active {
+	border-width: 4px;
+	font-weight: bold;
+	color: rgb(20, 4, 168);
+	border-color: rgb(20, 4, 168);
+}
+
+#id1 {
+	display: block;
+	margin: auto;
+	margin-bottom: 80px;
+	margin-top: 80px;
+	width: 60%;
+	height: 70%;
+}

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<!-- sbb CSS -->
+	<link rel="stylesheet" type="text/css" th:href="@{css/soda.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{css/reset.css}">
+	<link rel="stylesheet" type="text/css" th:href="@{css/SODA_DASHBOARD_STYLE.css}">
+	<link rel="stylesheet" type="text/css" href="css/Searchbar_Related.css">
+	<script src='https://cdn.jsdelivr.net/npm/moment@2.27.0/min/moment.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/core@6.1.10/index.global.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/daygrid@6.1.10/index.global.min.js'></script>
+	<script src='https://cdn.jsdelivr.net/npm/@fullcalendar/moment@6.1.10/index.global.min.js'></script>
+	<script>
+
+		document.addEventListener('DOMContentLoaded', function () {
+			var request = $.ajax({
+				url: "/TestCalendar",
+				method: "GET",
+				dataType: "json"
+			});
+			request.done(function (data) {
+				var calendarEl = document.getElementById('calendar');
+
+				var calendar = new FullCalendar.Calendar(calendarEl, {
+					height: 800,
+					headerToolbar: {
+						left: 'prev,next today',
+						center: 'title',
+						right: 'dayGridMonth'
+					},
+					initialDate: new Date(),
+					navLinks: true,
+					navLinkDayClick: function (date, jsEvent) {
+						$('.schedule-form').css('left', jsEvent.pageX - 170 + 'px');
+						$('.schedule-form').css('top', jsEvent.pageY - 70 + 'px');
+						$('.schedule-form').show();
+						var str = moment(date).format('YYYY-MM-DD');
+						$('#save-button').off('click');
+						$('#save-button').click(function () {
+							var hour = $('#hour').val();
+							var min = $('#minute').val();
+							var title = $('#schedule-title').val();
+							var isoStart = moment(str + ' ' + hour + ':' + min, 'YYYY-MM-DD HH:mm').toISOString();
+
+							updateindi(str, hour, min, title, function (indiId) {
+								calendar.addEvent({
+									title: title,
+									start: isoStart,
+									individual: indiId,
+									allDay: false
+								});
+							});
+							$('.schedule-form').hide();
+							$('#schedule-title').val('');
+							$('#minute').val('00');
+							$('#hour').val('00');
+						});
+
+					},
+					selectable: true,
+					selectMirror: true,
+					eventOverlap: false,
+					select: function (arg) {
+						var title = prompt('Event Title:');
+						if (title) {
+							calendar.addEvent({
+								title: title,
+								start: arg.start,
+								end: arg.end,
+								allDay: arg.allDay
+							})
+						}
+						calendar.unselect()
+					},
+					eventClick: function (info) {
+						if (info.event.extendedProps.individual) {
+							if (confirm('정말 일정을 삭제하시겠습니까?')) {
+								var indiID = info.event.extendedProps.individual;
+								info.event.remove()
+								deleteindi(indiID);
+							}
+						}
+
+					},
+					editable: true,
+					dayMaxEvents: true,
+					events: data
+				});
+
+				calendar.render();
+			});
+			request.fail(function (jqXHR, textStatus) {
+				alert("Request failed: " + textStatus);
+			});
+		});
+	</script>
+	<title>SODA</title>
+</head>
+
+<body>
+	<div th:replace="~{Searchbar :: navbarFragment}"></div>
+	<!-- 네비게이션바 -->
+	<div th:replace="~{leftsidebar :: leftsidebarFragment}"></div>
+	<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+	<div id="sehyunsichi">
+		<div id='calendar'></div>
+	</div>
+	<div class="schedule-form">
+		<div id = "time-form">
+		<div class="time-input">
+			<input type="number" id="hour" min="0" max="23" placeholder="00">
+			<label for="hour">시</label>
+		</div>
+		<div class="time-input">
+			<input type="number" id="minute" min="0" max="59" placeholder="00">
+			<label for="minute">분</label>
+		</div>
+		</div>
+		<textarea id="schedule-title" placeholder="내용을 입력해주세요"></textarea>
+		<div class="buttons">
+			<button id="cancel-button">취소</button>
+			<button id="save-button">저장</button>
+		</div>
+	</div>
+	<!-- 기본 템플릿 안에 삽입될 내용 End -->
+
+	<!-- Bootstrap JS -->
+
+	<!-- 자바스크립트 Start -->
+	<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+	<script th:src="@{js/test.js}"></script>
+	<script src="js/SODA_DASHBOARD.js"></script>
+	<script src="js/FeedAjax.js"></script>
+	<th:block layout:fragment="script"></th:block>
+	<!-- 자바스크립트 End -->
+</body>
+</html>

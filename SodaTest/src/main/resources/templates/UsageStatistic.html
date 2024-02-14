@@ -1,0 +1,43 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="content">
+	<div class="rightpage">
+		<h3>사용 통계</h3>
+		<hr>
+		<div id="optiondivDH2"><select id="statisticoption2" name="languages">
+				<option value="이름">이름</option>
+				<option value="부서">부서</option>
+				<option value="직책">직책</option>
+			</select>
+			<input id="statisticDH2" type="text" placeholder="검색어 입력">
+			<div id="searchstDH2" data-btn-id=2>검색</div>
+		</div>
+		<table id="tableforstatic2" width="1000" border="1">
+			<thead>
+			<tr id="spacefordata2">
+				<td>이름</td>
+				<td>부서</td>
+				<td>직책</td>
+				<td>이메일</td>
+				<td>게시물</td>
+				<td>댓글</td>
+				<td>채팅방</td>
+				<td>채팅 메시지</td>
+			</tr>
+			</thead>
+			<tbody>
+				<tr th:each="connect:${connectlist}">
+					<td><span th:text="${connect.name}"></span></td>
+					<td><span th:text="${connect.deptname}"></span></td>
+					<td><span th:text="${connect.job_name}"></span></td>
+					<td><span th:text="${connect.email}"></span></td>
+					<td><span th:text="${connect.pcount}"></span></td>
+					<td><span th:text="${connect.cmtcount}"></span></td>
+					<td><span th:text="${connect.crcount}"></span></td>
+					<td><span th:text="${connect.msgcount}"></span></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+</html>
