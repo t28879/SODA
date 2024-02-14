@@ -30,3 +30,9 @@
 
 # 📊 E-R Diagram
   ![image](https://github.com/t28879/SODA/assets/90438572/debb8e62-ea36-40e8-a8a1-c915a6fe5ecd)
+
+---
+
+# 📋 DashBoard
+![image](https://github.com/t28879/SODA/assets/90438572/c703db54-a3b8-46cf-9be8-a8876d6d4c1b)
+
